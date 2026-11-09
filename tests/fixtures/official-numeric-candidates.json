@@ -1,0 +1,276 @@
+{
+  "format_version": 1,
+  "purpose": "Compact dated primary-source numeric regression facts and short automatic-fire evidence phrases. No extracted binaries or research logs.",
+  "checked_date": "2026-11-09",
+  "profiles": [
+    {
+      "schema_version": 1,
+      "game": "mw4",
+      "mode": "multiplayer",
+      "asset_id": "320bd7829fa4bdee",
+      "variant": {
+        "kind": "base"
+      },
+      "dps": {
+        "fire_mode": "automatic",
+        "rpm": 600.0,
+        "projectiles_per_shot": 1,
+        "damage_ranges": [
+          {
+            "min_m": 0,
+            "max_m": 26.67,
+            "damage": {
+              "base_profile": 30.0,
+              "head": 40.5,
+              "neck": 33.0,
+              "upper_torso": 33.0
+            }
+          },
+          {
+            "min_m": 26.67,
+            "max_m": 42.16,
+            "damage": {
+              "base_profile": 25.0,
+              "head": 33.75,
+              "neck": 27.5,
+              "upper_torso": 27.5
+            }
+          },
+          {
+            "min_m": 42.16,
+            "max_m": null,
+            "damage": {
+              "base_profile": 22.0,
+              "head": 29.7,
+              "neck": 24.2,
+              "upper_torso": 24.2
+            }
+          }
+        ]
+      },
+      "provenance": {
+        "source_url": "https://www.callofduty.com/patchnotes/2026/11/call-of-duty-modern-warfare-4-season-1-patch-notes",
+        "source_date": "2026-11-05",
+        "patch": "MW4 Season 1 launch, post-patch column",
+        "method": "Reported official damage profile plus separately dated launch firing-rate snapshot; theoretical cyclic DPS only."
+      },
+      "eligible_for_theoretical_dps": true,
+      "rpm_provenance": {
+        "source_url": "https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-launch-multiplayer-operators-weapons-equipment-create-a-class",
+        "source_date": "2026-10-19",
+        "units": "rounds/min",
+        "raw_reported_rate": "**Fire Rate:** 600 RPM",
+        "automatic_evidence_phrase": "full-auto"
+      }
+    },
+    {
+      "schema_version": 1,
+      "game": "mw4",
+      "mode": "multiplayer",
+      "asset_id": "54efea11f28407ea",
+      "variant": {
+        "kind": "base"
+      },
+      "dps": {
+        "fire_mode": "automatic",
+        "rpm": 810.0,
+        "projectiles_per_shot": 1,
+        "damage_ranges": [
+          {
+            "min_m": 0,
+            "max_m": 27.94,
+            "damage": {
+              "base_profile": 23.0,
+              "head": 29.9
+            }
+          },
+          {
+            "min_m": 27.94,
+            "max_m": null,
+            "damage": {
+              "base_profile": 19.0,
+              "head": 24.7
+            }
+          }
+        ]
+      },
+      "provenance": {
+        "source_url": "https://www.callofduty.com/patchnotes/2026/11/call-of-duty-modern-warfare-4-season-1-patch-notes",
+        "source_date": "2026-11-05",
+        "patch": "MW4 Season 1 launch, post-patch column",
+        "method": "Reported official damage profile plus separately dated launch firing-rate snapshot; theoretical cyclic DPS only."
+      },
+      "eligible_for_theoretical_dps": true,
+      "rpm_provenance": {
+        "source_url": "https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-launch-multiplayer-operators-weapons-equipment-create-a-class",
+        "source_date": "2026-10-19",
+        "units": "rounds/min",
+        "raw_reported_rate": "**Fire Rate:** 810 RPM",
+        "automatic_evidence_phrase": "Fully automatic"
+      }
+    },
+    {
+      "schema_version": 1,
+      "game": "mw4",
+      "mode": "multiplayer",
+      "asset_id": "3bfd017330a15574",
+      "variant": {
+        "kind": "base"
+      },
+      "dps": {
+        "fire_mode": "automatic",
+        "rpm": 645.0,
+        "projectiles_per_shot": 1,
+        "damage_ranges": [
+          {
+            "min_m": 0,
+            "max_m": 33.53,
+            "damage": {
+              "base_profile": 30.0
+            }
+          },
+          {
+            "min_m": 33.53,
+            "max_m": 50.04,
+            "damage": {
+              "base_profile": 24.0
+            }
+          },
+          {
+            "min_m": 50.04,
+            "max_m": null,
+            "damage": {
+              "base_profile": 22.0
+            }
+          }
+        ]
+      },
+      "provenance": {
+        "source_url": "https://www.callofduty.com/patchnotes/2026/11/call-of-duty-modern-warfare-4-season-1-patch-notes",
+        "source_date": "2026-11-05",
+        "patch": "MW4 Season 1 launch, post-patch column",
+        "method": "Reported official damage profile plus separately dated launch firing-rate snapshot; theoretical cyclic DPS only."
+      },
+      "eligible_for_theoretical_dps": true,
+      "rpm_provenance": {
+        "source_url": "https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-launch-multiplayer-operators-weapons-equipment-create-a-class",
+        "source_date": "2026-10-19",
+        "units": "rounds/min",
+        "raw_reported_rate": "**Fire Rate:** 645 RPM",
+        "automatic_evidence_phrase": "full-auto"
+      }
+    },
+    {
+      "schema_version": 1,
+      "game": "mw4",
+      "mode": "multiplayer",
+      "asset_id": "160d15e6381d5cb5",
+      "variant": {
+        "kind": "base"
+      },
+      "dps": {
+        "fire_mode": "automatic",
+        "rpm": 923.0,
+        "projectiles_per_shot": 1,
+        "damage_ranges": [
+          {
+            "min_m": 0,
+            "max_m": 11.68,
+            "damage": {
+              "base_profile": 21.0
+            }
+          },
+          {
+            "min_m": 11.68,
+            "max_m": 20.45,
+            "damage": {
+              "base_profile": 17.0
+            }
+          },
+          {
+            "min_m": 20.45,
+            "max_m": 27.94,
+            "damage": {
+              "base_profile": 15.0
+            }
+          },
+          {
+            "min_m": 27.94,
+            "max_m": null,
+            "damage": {
+              "base_profile": 14.0
+            }
+          }
+        ]
+      },
+      "provenance": {
+        "source_url": "https://www.callofduty.com/patchnotes/2026/11/call-of-duty-modern-warfare-4-season-1-patch-notes",
+        "source_date": "2026-11-05",
+        "patch": "MW4 Season 1 launch, post-patch column",
+        "method": "Reported official damage profile plus separately dated launch firing-rate snapshot; theoretical cyclic DPS only."
+      },
+      "eligible_for_theoretical_dps": true,
+      "rpm_provenance": {
+        "source_url": "https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-launch-multiplayer-operators-weapons-equipment-create-a-class",
+        "source_date": "2026-10-19",
+        "units": "rounds/min",
+        "raw_reported_rate": "**Fire Rate:** 923 RPM",
+        "automatic_evidence_phrase": "full-auto"
+      }
+    },
+    {
+      "schema_version": 1,
+      "game": "mw4",
+      "mode": "multiplayer",
+      "asset_id": "75bd0537aaa182c3",
+      "variant": {
+        "kind": "base"
+      },
+      "dps": {
+        "fire_mode": "automatic",
+        "rpm": 821.0,
+        "projectiles_per_shot": 1,
+        "damage_ranges": [
+          {
+            "min_m": 0,
+            "max_m": 25.53,
+            "damage": {
+              "base_profile": 22.0,
+              "head": 28.6
+            }
+          },
+          {
+            "min_m": 25.53,
+            "max_m": 46.99,
+            "damage": {
+              "base_profile": 21.0,
+              "head": 27.3
+            }
+          },
+          {
+            "min_m": 46.99,
+            "max_m": null,
+            "damage": {
+              "base_profile": 19.0,
+              "head": 24.7
+            }
+          }
+        ]
+      },
+      "provenance": {
+        "source_url": "https://www.callofduty.com/patchnotes/2026/11/call-of-duty-modern-warfare-4-season-1-patch-notes",
+        "source_date": "2026-11-05",
+        "patch": "MW4 Season 1 launch, post-patch column",
+        "method": "Reported official damage profile plus separately dated launch firing-rate snapshot; theoretical cyclic DPS only."
+      },
+      "eligible_for_theoretical_dps": true,
+      "rpm_provenance": {
+        "source_url": "https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-launch-multiplayer-operators-weapons-equipment-create-a-class",
+        "source_date": "2026-10-19",
+        "units": "rounds/min",
+        "raw_reported_rate": "**Fire Rate:** 821 RPM",
+        "automatic_evidence_phrase": "sustained automatic fire"
+      }
+    }
+  ]
+}

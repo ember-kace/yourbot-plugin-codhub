@@ -1,0 +1,155 @@
+{
+  "coverage": {
+    "attachment_name_assets_observed": 248,
+    "attachment_reference_positions": 2392,
+    "english_name_assets": 1181,
+    "english_reference_weapons": 35,
+    "launch_baseline_weapons": 28,
+    "name_ambiguities": 0,
+    "native_english_claim_assets": 1181,
+    "native_weapon_records": 31,
+    "preferred_name_qualities": {
+      "internal": 83,
+      "native_localization": 1175,
+      "user_capture": 6
+    },
+    "reference_weapons": 35,
+    "reserved_attachment_positions": 24,
+    "reserved_weapon_positions": 860,
+    "untranslated_name_assets": 83,
+    "weapon_names_published": 28
+  },
+  "dataset_contents": "Normalized native IDs, short English labels, dated numeric references, separate internal descriptions and source attribution.",
+  "dataset_id": "cod-hub-mw4-2026-11-09",
+  "format_version": 1,
+  "limits": {
+    "baseline_statistics_are_current_balance": false,
+    "complete_readable_english_names": false,
+    "maps_operators_camos_challenges_available": false,
+    "player_unlocks_known": false,
+    "runtime_game_eligibility_verified": false
+  },
+  "snapshot_date": "2026-11-09",
+  "sources": {
+    "codloadout-launch": {
+      "kind": "published_launch_snapshot",
+      "primary_reference": "https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-launch-multiplayer-operators-weapons-equipment-create-a-class",
+      "scope": "Weapon names and six factual baseline fields only; not current balance or modified-build statistics.",
+      "sha256": "1db7d29a3b2ff668d3cb80195a2c65fff91c8b64408d19cc59762f230477343d",
+      "source_date": "2026-10-24",
+      "title": "COD Loadout factual MW4 launch reference",
+      "url": "https://codloadout.gitlab.io/data/mw4.json"
+    },
+    "codmunity-hyeon-page": {
+      "kind": "published_fixture",
+      "source_date": "2026-11-06",
+      "title": "CODMunity Hyeon Burst multiplayer build",
+      "url": "https://codmunity.gg/weapon/mw4/hyeon-burst#multiplayer-builds"
+    },
+    "community-builds": {
+      "kind": "published_fixture",
+      "scope": "Short labels and weapon-name/code observations only; source descriptions, art, pick rates and tier lists are not bundled.",
+      "sha256": "5e672b100cecdeb65e8e54d3a0ac43aed7b545326bbd3097a0d147d897e9db2f",
+      "source_date": "2026-11-04",
+      "title": "COD Loadout community build snapshot, attributed upstream to CODMunity",
+      "upstream_url": "https://codmunity.gg/mw4",
+      "url": "https://codloadout.gitlab.io/data/mw4-community-builds.json"
+    },
+    "hashindex": {
+      "license": "MIT",
+      "notice": "NOTICE-HashIndex.txt",
+      "scope": "Identifier naming used during research; original bulk dictionary is not bundled.",
+      "title": "ate47/HashIndex",
+      "tree": "d62989cb45e83b105a48d17120a67d7a68207d1a",
+      "url": "https://github.com/ate47/HashIndex"
+    },
+    "local-item-catalog": {
+      "documentation": "docs/DATA.md#native-identities",
+      "kind": "local_game_facts",
+      "source_date": "2026-11-09",
+      "title": "MW4 curated native catalog facts"
+    },
+    "local-sharing-settings": {
+      "documentation": "docs/DATA.md#native-identities",
+      "kind": "local_game_facts",
+      "source_date": "2026-11-09",
+      "title": "MW4 curated native catalog facts"
+    },
+    "mw4-native-default-variants-2026-11-09": {
+      "data_reference": "metadata/names/mw4-native-default-variants-2026-11-09.json",
+      "documentation": "docs/DATA.md#name-reviews",
+      "input_filename": "mw4-native-default-variants-2026-11-09.json",
+      "input_sha256": "7936da40e50d0e656661dbb88015e88e8438276eefa2ca5b83baa2ed7435b3a1",
+      "kind": "native_localization",
+      "language": "en",
+      "scope": "Exact native name-hash joins for normalized catalog facts; original program data is not distributed.",
+      "source_date": "2026-11-09",
+      "title": "MW4 curated English name snapshot"
+    },
+    "mw4-native-english-2026-11-09": {
+      "data_reference": "metadata/names/mw4-native-english-2026-11-09.json",
+      "documentation": "docs/DATA.md#name-reviews",
+      "input_filename": "mw4-native-english-2026-11-09.json",
+      "input_sha256": "52b24d2632e5ee26fc9f8f21cc7b347249c8f23f2edecaf69b370e297f22f141",
+      "kind": "native_localization",
+      "language": "en",
+      "scope": "Exact native name-hash joins for normalized catalog facts; original program data is not distributed.",
+      "source_date": "2026-11-09",
+      "title": "MW4 curated English name snapshot"
+    },
+    "mw4-sp-english-items-2026-11-09": {
+      "data_reference": "metadata/names/mw4-sp-english-items-2026-11-09.json",
+      "documentation": "docs/DATA.md#name-reviews",
+      "input_filename": "mw4-sp-english-items-2026-11-09.json",
+      "input_sha256": "2b33fccc8319885808d5c2535b75f34d3adcab213342a16b86ef7889b07ffdfa",
+      "kind": "native_localization",
+      "language": "en",
+      "scope": "Exact native name-hash joins for normalized catalog facts; original program data is not distributed.",
+      "source_date": "2026-11-09",
+      "title": "MW4 curated English name snapshot"
+    },
+    "reviewed-internal-descriptions-2026-11-09": {
+      "canonical_review_sha256": "2c3d64b1e22d1209b74b0b551b2263ebe39d2eeabc119a21f6185cf6acd7908d",
+      "documentation": "docs/DATA.md#description-policies",
+      "input_filename": "internal-descriptions.json",
+      "input_sha256": "2c3d64b1e22d1209b74b0b551b2263ebe39d2eeabc119a21f6185cf6acd7908d",
+      "kind": "reviewed_internal_description",
+      "language": "en",
+      "policy": "Preserve original names, qualities, native identities, aliases and claims; prefer future verified names without double counting. Descriptions remain separate from canonical-name evidence; no other asset, reference or account is covered.",
+      "policy_reference": "metadata/policies/internal-descriptions.json",
+      "policy_sha256": "c6242d8c49e0fada0c61c168bcf809786c6e389e8657ac69649eab18a1b10f8b",
+      "provenance_mode": "Sanitized reviewed facts and immutable content digests; proprietary inputs are excluded.",
+      "scope_asset_count": 72,
+      "scope_asset_ids_sha256": "afbc05fafed513e8a673ea2061367c0f38109914d302781e957918a14ab6c428",
+      "source_date": "2026-11-09",
+      "title": "Reviewed English descriptions for 72 retained MW4 internal records"
+    },
+    "reviewed-technical-descriptions-2026-11-09": {
+      "canonical_review_sha256": "b83099465f7c22396363a9b6e5fd07f27d7e64b1a3f1914da014d716d15d2dc9",
+      "documentation": "docs/DATA.md#description-policies",
+      "input_filename": "technical-descriptions.json",
+      "input_sha256": "b83099465f7c22396363a9b6e5fd07f27d7e64b1a3f1914da014d716d15d2dc9",
+      "kind": "reviewed_technical_description",
+      "language": "en",
+      "policy": "Preserve original names, qualities, native identities, aliases and claims; prefer future verified names without double counting. Descriptions remain separate from canonical-name evidence; no other asset, reference or account is covered.",
+      "policy_reference": "metadata/policies/technical-descriptions.json",
+      "policy_sha256": "2dbf7f6f36526587f546be44708de60381f9671c75e7ab1cb6fd596a8e03352e",
+      "provenance_mode": "Sanitized reviewed facts and immutable content digests; proprietary inputs are excluded.",
+      "scope_asset_count": 11,
+      "scope_asset_ids_sha256": "0d176fcb55552685f68d8715d97ed045d93606e685eb35df561e6b17ee65c652",
+      "source_date": "2026-11-09",
+      "title": "Reviewed English descriptions for 11 retained MW4 technical records"
+    },
+    "user-validation-captures": {
+      "codes": [
+        "A01-42J19-BU11",
+        "A01-A11NP-B11",
+        "A01-9YGBJ-D11"
+      ],
+      "kind": "user_capture",
+      "scope": "Code and attachment-label fixtures only; no account or loadout-owner information.",
+      "source_date": "2026-11-08",
+      "title": "Controlled in-game build export fixtures"
+    }
+  }
+}

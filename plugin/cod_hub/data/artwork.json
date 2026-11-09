@@ -1,0 +1,395 @@
+{
+  "checked_date": "2026-11-09",
+  "credit_text": "Data by MetaRadar",
+  "credit_url": "https://metaradar.gg/modernwarfare4/meta",
+  "format_version": 1,
+  "game": "mw4",
+  "illustration": "Base weapon only; selected attachments/camo are not rendered.",
+  "images": {
+    "07f7d22f45558288": {
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "format": "WEBP",
+      "height": 256,
+      "image_url": "https://metaradar.gg/icons/mw4--cronen-squall.webp",
+      "mode": "RGBA",
+      "name": "Cronen Squall",
+      "sha256": "f4824ce34e2b4f5cb85d8d71611ab85ee28e08099bc86872aa414735a66c8a8a",
+      "source_page": "https://metaradar.gg/modernwarfare4/weapons/cronen-squall",
+      "width": 512
+    },
+    "094574f827113d6d": {
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "format": "WEBP",
+      "height": 84,
+      "image_url": "https://metaradar.gg/icons/mw4--mosin-nagant.webp",
+      "mode": "RGBA",
+      "name": "Mosin-Nagant",
+      "sha256": "27804d0c73bdeef382d06f9132df1b6851e6b8b0c7cbc179b621a60ad5d2a5a0",
+      "source_page": "https://metaradar.gg/modernwarfare4/weapons/mosin-nagant",
+      "width": 512
+    },
+    "0acd07c3fd30e85a": {
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "format": "WEBP",
+      "height": 256,
+      "image_url": "https://metaradar.gg/icons/mw4--ppsh-41.webp",
+      "mode": "RGBA",
+      "name": "PPSh-41",
+      "sha256": "519199e7f824f9bd8cf0756db199a0c97646e6bebf8438a5027a0c004a33c52f",
+      "source_page": "https://metaradar.gg/modernwarfare4/weapons/ppsh-41",
+      "width": 512
+    },
+    "160d15e6381d5cb5": {
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "format": "WEBP",
+      "height": 256,
+      "image_url": "https://metaradar.gg/icons/mw4--iso-nightshade.webp",
+      "mode": "RGBA",
+      "name": "ISO Nightshade",
+      "sha256": "3faec2f448b8eb3f206b3214a04336df03706e7d539b1d48ce0d121653a7a4ec",
+      "source_page": "https://metaradar.gg/modernwarfare4/weapons/iso-nightshade",
+      "width": 512
+    },
+    "161f8341b23454de": {
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "format": "WEBP",
+      "height": 256,
+      "image_url": "https://metaradar.gg/icons/mw4--wz-55-striga.webp",
+      "mode": "RGBA",
+      "name": "Wz.55 Striga",
+      "sha256": "b7d6453413a03880cec6e6e7eaa3e38b7308847e9b072addc5774a184d9bb427",
+      "source_page": "https://metaradar.gg/modernwarfare4/weapons/wz-55-striga",
+      "width": 377
+    },
+    "1f30c6b00e332af6": {
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "format": "WEBP",
+      "height": 256,
+      "image_url": "https://metaradar.gg/icons/mw4--finn-lmg.webp",
+      "mode": "RGBA",
+      "name": "FiNN LMG",
+      "sha256": "80d57a33615d88b8d083398e05ca982b348ba97afbfb83359257aa6ce6fa1f33",
+      "source_page": "https://metaradar.gg/modernwarfare4/weapons/finn-lmg",
+      "width": 512
+    },
+    "2e05c75adfbfd24c": {
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "format": "WEBP",
+      "height": 243,
+      "image_url": "https://metaradar.gg/icons/mw4--csg-35.webp",
+      "mode": "RGBA",
+      "name": "CSG-35",
+      "sha256": "0f55f89e2d16ef6aa56b6f744d6052b19b45101b2ebb08e7b4dbe4c1480280c3",
+      "source_page": "https://metaradar.gg/modernwarfare4/weapons/csg-35",
+      "width": 512
+    },
+    "2efa8aea20d8b45d": {
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "format": "WEBP",
+      "height": 256,
+      "image_url": "https://oyozmuwtlqoyrsfvyorw.supabase.co/storage/v1/object/public/weapon-icons/mw4--50-gs.webp",
+      "mode": "RGBA",
+      "name": ".50 GS",
+      "sha256": "470820ecc0a98a331f215119bcece93f87c1d26f3bb425030ab3ea406b730505",
+      "source_page": "https://metaradar.gg/modernwarfare4/weapons/50-gs",
+      "visual_review": "Recognizable detailed weapon HUD cutout; verified against exact provider-index label.",
+      "width": 512
+    },
+    "320bd7829fa4bdee": {
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "format": "WEBP",
+      "height": 256,
+      "image_url": "https://metaradar.gg/icons/mw4--kastov-762.webp",
+      "mode": "RGBA",
+      "name": "Kastov 762",
+      "sha256": "4cdd8a7b625a244693f3126f631450ced449f43b590914b74dd54417029b4f3c",
+      "source_page": "https://metaradar.gg/modernwarfare4/weapons/kastov-762",
+      "width": 512
+    },
+    "32f2e812899c570d": {
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "format": "WEBP",
+      "height": 256,
+      "image_url": "https://metaradar.gg/icons/mw4--krait-p68.webp",
+      "mode": "RGBA",
+      "name": "Krait P68",
+      "sha256": "d52b9e8f5a37210862e47b819783387869e61f89ecbf3ef06b9567d13308bbd0",
+      "source_page": "https://metaradar.gg/modernwarfare4/weapons/krait-p68",
+      "width": 512
+    },
+    "3313ea5514c15bbd": {
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "format": "WEBP",
+      "height": 256,
+      "image_url": "https://metaradar.gg/icons/mw4--rezi-12.webp",
+      "mode": "RGBA",
+      "name": "Rezi 12",
+      "sha256": "d3cac211472996df1d17b2c6561b34d3ec903fdf837806f03fdce383ef20f38a",
+      "source_page": "https://metaradar.gg/modernwarfare4/weapons/rezi-12",
+      "width": 512
+    },
+    "3bfd017330a15574": {
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "format": "WEBP",
+      "height": 256,
+      "image_url": "https://metaradar.gg/icons/mw4--patriot-xmr.webp",
+      "mode": "RGBA",
+      "name": "Patriot XMR",
+      "sha256": "89fe441b5955b5e88a9fe0e426aa59b74708ff0eb652279e2195b9ac3e9cb818",
+      "source_page": "https://metaradar.gg/modernwarfare4/weapons/patriot-xmr",
+      "width": 512
+    },
+    "3ca278a99a9ab61d": {
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "format": "WEBP",
+      "height": 256,
+      "image_url": "https://metaradar.gg/icons/mw4--oris-8-6.webp",
+      "mode": "RGBA",
+      "name": "Oris 8.6",
+      "sha256": "cae760efb653951f007f1fe66115b0ed7238670e2a641627cfe7eb0d6cac19a7",
+      "source_page": "https://metaradar.gg/modernwarfare4/weapons/oris-8-6",
+      "width": 512
+    },
+    "437a2fe19197ce82": {
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "format": "WEBP",
+      "height": 256,
+      "image_url": "https://metaradar.gg/icons/mw4--mar-9.webp",
+      "mode": "RGBA",
+      "name": "MAR-9",
+      "sha256": "b4bd59f8dd4d9e3da5b99cb8973564fdd5288c8d0005b3137ea70c05722ad21c",
+      "source_page": "https://metaradar.gg/modernwarfare4/weapons/mar-9",
+      "width": 512
+    },
+    "43f5901edb8e5875": {
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "format": "WEBP",
+      "height": 256,
+      "image_url": "https://metaradar.gg/icons/mw4--signal-50.webp",
+      "mode": "RGBA",
+      "name": "Signal 50",
+      "sha256": "80d500283a3f9dd717406d7e5042c392d254b7e9858aa08da77afee6c7cf544f",
+      "source_page": "https://metaradar.gg/modernwarfare4/weapons/signal-50",
+      "width": 512
+    },
+    "50a03474c191ed85": {
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "format": "WEBP",
+      "height": 200,
+      "image_url": "https://metaradar.gg/icons/mw4--oden.webp",
+      "mode": "RGBA",
+      "name": "Oden",
+      "sha256": "b448894e8f0e7b3fd6f3d3eccb4ec3a6df2e31e7b83b498e205360c7ea8c107c",
+      "source_page": "https://metaradar.gg/modernwarfare4/weapons/oden",
+      "width": 512
+    },
+    "54efea11f28407ea": {
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "format": "WEBP",
+      "height": 256,
+      "image_url": "https://metaradar.gg/icons/mw4--m4.webp",
+      "mode": "RGBA",
+      "name": "M4",
+      "sha256": "be1db5ab7653c4ca698b108b63843fff71f09267de7613972435b05b4d6df4e8",
+      "source_page": "https://metaradar.gg/modernwarfare4/weapons/m4",
+      "width": 512
+    },
+    "58b2312b43165b66": {
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "format": "WEBP",
+      "height": 256,
+      "image_url": "https://metaradar.gg/icons/mw4--x-58-nyx.webp",
+      "mode": "RGBA",
+      "name": "X-58 Nyx",
+      "sha256": "7db481aaf4415e58838fc71a384c6c5823f459ce61610a54af45cd43fb0308ac",
+      "source_page": "https://metaradar.gg/modernwarfare4/weapons/x-58-nyx",
+      "width": 512
+    },
+    "62f36eea38527995": {
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "format": "WEBP",
+      "height": 256,
+      "image_url": "https://metaradar.gg/icons/mw4--vel-46.webp",
+      "mode": "RGBA",
+      "name": "VEL 46",
+      "sha256": "40f24bb8dc58f7bd2adf00af9dee5017212b144de84e32b4e918d8607b3398b8",
+      "source_page": "https://metaradar.gg/modernwarfare4/weapons/vel-46",
+      "width": 512
+    },
+    "63845ab500bcb133": {
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "format": "WEBP",
+      "height": 124,
+      "image_url": "https://metaradar.gg/icons/mw4--astaroth-57.webp",
+      "mode": "RGBA",
+      "name": "Astaroth .57",
+      "sha256": "2cfeb0ee72b389e5d264477c02c44451493849fc53db136569f5b9162d7c2faf",
+      "source_page": "https://metaradar.gg/modernwarfare4/weapons/astaroth-57",
+      "width": 512
+    },
+    "68441ea783099179": {
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "format": "WEBP",
+      "height": 256,
+      "image_url": "https://metaradar.gg/icons/mw4--han-86.webp",
+      "mode": "RGBA",
+      "name": "Han 86",
+      "sha256": "8e9261062d24313b76f42d3f80c59fa3b1257c28eae11b2822dc797427e1122f",
+      "source_page": "https://metaradar.gg/modernwarfare4/weapons/han-86",
+      "width": 512
+    },
+    "6d470118a56e6da9": {
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "format": "WEBP",
+      "height": 183,
+      "image_url": "https://metaradar.gg/icons/mw4--axion.webp",
+      "mode": "RGBA",
+      "name": "Axion",
+      "sha256": "fe7f00556e97f6ea8512530526ed6e911d75ab69c62756d03978ca3e1f5f9a54",
+      "source_page": "https://metaradar.gg/modernwarfare4/weapons/axion",
+      "width": 512
+    },
+    "6d7160ae60292b75": {
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "format": "WEBP",
+      "height": 183,
+      "image_url": "https://metaradar.gg/icons/mw4--cronen-osprey.webp",
+      "mode": "RGBA",
+      "name": "Cronen Osprey",
+      "sha256": "8f0876ae57f338866fb79d6ae57c430367e4ffe1899c6256ef6bdf635fee78b1",
+      "source_page": "https://metaradar.gg/modernwarfare4/weapons/cronen-osprey",
+      "width": 512
+    },
+    "73ca8d7b9145bb65": {
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "format": "WEBP",
+      "height": 256,
+      "image_url": "https://metaradar.gg/icons/mw4--kg-7-vulcan.webp",
+      "mode": "RGBA",
+      "name": "KG-7 Vulcan",
+      "sha256": "54c6a81354885fd9eae75c44f939a8080bf4b3854cf3f1eb26c4e7758d891a46",
+      "source_page": "https://metaradar.gg/modernwarfare4/weapons/kg-7-vulcan",
+      "width": 512
+    },
+    "7574652bd34cc3f6": {
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "format": "WEBP",
+      "height": 176,
+      "image_url": "https://metaradar.gg/icons/mw4--warlord.webp",
+      "mode": "RGBA",
+      "name": "Warlord",
+      "sha256": "6591f253a458d25a17b03fe73a4f03b02d592019eedb639679acef07a4ab96c4",
+      "source_page": "https://metaradar.gg/modernwarfare4/weapons/warlord",
+      "width": 512
+    },
+    "75bd0537aaa182c3": {
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "format": "WEBP",
+      "height": 256,
+      "image_url": "https://metaradar.gg/icons/mw4--type-73.webp",
+      "mode": "RGBA",
+      "name": "Type 73",
+      "sha256": "dac7c00301a81165257e23b7b1de1fceb8a28cf86bab7f979b25adf2387adca0",
+      "source_page": "https://metaradar.gg/modernwarfare4/weapons/type-73",
+      "width": 512
+    },
+    "7973ece25ffff326": {
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "format": "WEBP",
+      "height": 256,
+      "image_url": "https://metaradar.gg/icons/mw4--hyeon-burst.webp",
+      "mode": "RGBA",
+      "name": "Hyeon Burst",
+      "sha256": "4eab9ef4f627341519e63742a0960041c5b2ea4bbbbea0aaf42565648919eae0",
+      "source_page": "https://metaradar.gg/modernwarfare4/weapons/hyeon-burst",
+      "width": 512
+    }
+  },
+  "provider": "MetaRadar",
+  "source_url": "https://metaradar.gg/api/v1/meta/modernwarfare4",
+  "supplemental_permission_scope": "Attributed remote display; extending feed icon guidance to page-index icons is an inference, not a raw-asset or PNG export license.",
+  "supplemental_source_url": "https://metaradar.gg/modernwarfare4/weapons",
+  "terms_url": "https://metaradar.gg/developers",
+  "usage": "Attributed remote embed display; no raw art bundled, no PNG export license asserted."
+}

@@ -1,0 +1,617 @@
+{
+  "catalog_replacements": {
+    "0018162cba4edcc8": {
+      "field": "internal_description",
+      "original_base_sha256": "45f57f19b6ccd60be93bf37c0f863b1faea99c4f9b921cafaa670baf28d4f1e9",
+      "original_description_sha256": "061e691215487c55c16f2d627fc760462a53fc47a90f0e6e5325954f7aa385fb",
+      "public_description_sha256": "b7e1ff9ba80b7ecf970cf5de29ecd103e097f4f1ee348ad6a3403a3bbe891e75",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "01fc874357ea00a6": {
+      "field": "internal_description",
+      "original_base_sha256": "824de6588ee1e06f6300cc8f346ad4ef6e738888d62df7e66bf343632d7c1faf",
+      "original_description_sha256": "7965122a40f7994f25b22ddc594972a37f5933cf542f32226297b736d583a38b",
+      "public_description_sha256": "644d382659b7c58992187ab388d9f31b803dd236a35b2517cd6ca3b8437b5ea9",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "0228aeb2b9cee992": {
+      "field": "internal_description",
+      "original_base_sha256": "9b9f13eaf67a8b04403208e51ad9b1f75f488002234b9c75dfc1737c0b4e5fad",
+      "original_description_sha256": "a0c219e2727eda4f4ed1f252e071dc7be0043c8fd410e9bd145fbc6b35efdda2",
+      "public_description_sha256": "4d2828bf052dd5c0f7b174094bb98f06bc99e33138b002af69e5f5dd44dc4bdf",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "06da833464bae609": {
+      "field": "internal_description",
+      "original_base_sha256": "fa21eaca059e8af2af0d2197a02decb645a93f53d26cac7e065ab2df841543db",
+      "original_description_sha256": "dbf440c36b9611493210af22a5c2d3ad7a1650f251ec83c6faef44e83b283995",
+      "public_description_sha256": "ed11c136397ee9720f6c92264cd13c9d6a7113a693f58de968d3c54d74c9e04b",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "082948453ab4d9e3": {
+      "field": "technical_description",
+      "original_base_sha256": "ddecc00991654ec7e427b8c2f6dc4c1d6ef15b5d537bde65c98650520db97a1d",
+      "original_description_sha256": "3a3f5106b2ce879ce9e87264ab873ccc21adfa64532ee10564cba8eb41a8d29f",
+      "public_description_sha256": "05ba753906693fcdaf141869dcc9252514ae2a6a8822fa2b5cee9b085ef7ef3d",
+      "public_policy": "metadata/policies/technical-descriptions.json"
+    },
+    "08e6d16a87a5f59d": {
+      "field": "internal_description",
+      "original_base_sha256": "a6bd386d7e62bc5f82f3f858ca0e4cc14bcb97bdddb21855d2af8089566a9823",
+      "original_description_sha256": "b01d6fb7efbe5958d084b186c3cb992a53e3021181861560e6f616dccd21560a",
+      "public_description_sha256": "7aa58e185a559e737d1bf44200d3a6b317cbf3fe746c6fb8959b896baac16454",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "09758be9c149c604": {
+      "field": "internal_description",
+      "original_base_sha256": "98e83ee45c45eb7bd81f6ab35033ce7f87e4c346a9600073cf4f9f14a4862b80",
+      "original_description_sha256": "0c4f86d087b5636d784ce296cbbd41c7efa6ac7d1d8abc092d3a6ab221acb8ec",
+      "public_description_sha256": "106a16917e1e69e769494f1ef4e7a47f259914024999180772d312e6871acdb3",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "0f8717576adcedb5": {
+      "field": "technical_description",
+      "original_base_sha256": "d24affacb953ef3755d750cec2c45ff96cde7aa5e72a878d7b4ade4160eb73f7",
+      "original_description_sha256": "35f60356c86ecd950d7e1f7d26230b3d9db0e9cfd5b1ce184f7202caf7534193",
+      "public_description_sha256": "0e8b48ee40a091208f067e83ab1baa1dd95af3f4c5df839f3456bb284cb985ec",
+      "public_policy": "metadata/policies/technical-descriptions.json"
+    },
+    "0f9af35e9c08d6a2": {
+      "field": "internal_description",
+      "original_base_sha256": "11c4854b4657002607ba2d6e02b0c3142a44b1a95c665d8691d016beb6c02a60",
+      "original_description_sha256": "90f3909685a67670259bd065f7b0d59393e6cc5e5b293e2d238b84f4c58dab3f",
+      "public_description_sha256": "a850943c8c8c467ec0ab471c1b7a61004b01aa258f23b7e7dae5acab198ca2dd",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "103594464a18a5e8": {
+      "field": "internal_description",
+      "original_base_sha256": "00139c67a44c3fdeba3c64ef24f40a6d1e2e1123a6559ad713c5a138b1f25579",
+      "original_description_sha256": "beb0269d6eafc9410a2ca6076aa260f262966c14dc9438ad485b2513d523a0b1",
+      "public_description_sha256": "dfb8be0b36322ab3971bbf76c7dc076e0a9d1389bda88128f5bae35729327d13",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "1067bbe63a3ca74e": {
+      "field": "internal_description",
+      "original_base_sha256": "cb9670e68b8ea772c01e00df3fab253e75e48fb7c3920cd6bd0cd6d74bb468f1",
+      "original_description_sha256": "19c8cd39295cc0bccbf46f5645d74e4ba85654bd1f52c0c6c0da431e77b3a3af",
+      "public_description_sha256": "906c13c11af1102717940c547fac52128889320fff3e3ab826a23edb9449f494",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "10d33356eb86c8c0": {
+      "field": "internal_description",
+      "original_base_sha256": "c85908491215f3c4676c6ede0e5a414c6887480a75586bbfd6eb8d706534d503",
+      "original_description_sha256": "63ab1591db8467fb2a50ea7e0d42d571c445e0471935f45ba2d463063a30eacd",
+      "public_description_sha256": "584344663effb912a16a2de2d76d9633f20aee7b48e2a1c3e7d5883a4923c9be",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "110091e80861c775": {
+      "field": "technical_description",
+      "original_base_sha256": "ddecc00991654ec7e427b8c2f6dc4c1d6ef15b5d537bde65c98650520db97a1d",
+      "original_description_sha256": "9a3914fc4fe8ade98d1971b7f7f8bad2ad03adae89b3c1744b3c97d353da46c5",
+      "public_description_sha256": "58f7892edb9049cac7414b87e78331e35ba729a69aeac7927b672f6780d04b9b",
+      "public_policy": "metadata/policies/technical-descriptions.json"
+    },
+    "114cfb716b0dee1a": {
+      "field": "internal_description",
+      "original_base_sha256": "d7b9ecb8a20ce93721e29ecfaddbb3986325cc5368e22cc97ac1d97711a34350",
+      "original_description_sha256": "414467a0de07794cea7f39f4e0579a89f9170714de14658221e85f7761fd46d3",
+      "public_description_sha256": "7d4f5245f0c2af33cfe0485fbf739d3753908a48b7dc74160cf9b7fa2e497eb4",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "11c371364cdc1d13": {
+      "field": "internal_description",
+      "original_base_sha256": "bf76c03015dd0184bb3f182ae767ba66f20dd93825246715dd414ef38baa6c3b",
+      "original_description_sha256": "0c7a55e2997d3fac3ba7f1d5e6ade70e448d4d7b9549c9e90e84f1bcad15091e",
+      "public_description_sha256": "081442c4cea805ccb31006b51dbdff8f3d0fb11dcab8caf282fe76aca40f28fa",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "145344f1b9602a0f": {
+      "field": "internal_description",
+      "original_base_sha256": "186cd1fc33ffd6ccc282d77cc091721de8c3d96a7acf187252055aa805dbfca2",
+      "original_description_sha256": "b52ad04e51770a5c27e8effc32b088da6da4e9e5a63f10d5fc88f6922a6d30a4",
+      "public_description_sha256": "3e98cd896328786ecbbce9b470dc9542f9ec319ded7a495b1d12a45043422604",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "15d25dac1bf0b96f": {
+      "field": "internal_description",
+      "original_base_sha256": "62d8803618ba5183ab4eaa9524e688b33c17991f846b43bba31061daf9ba7ee1",
+      "original_description_sha256": "42c8534bd52ae587514a582f5511591f8f4281d004d092f0bf661977ec8d9a6c",
+      "public_description_sha256": "d5af4454c8a1993e2c68322f3aaba6b0730a29566c5204535abea0aa6be269b9",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "17bd845f1a26323f": {
+      "field": "internal_description",
+      "original_base_sha256": "8dc63ed60e25c061cb6a0a72fbe8e49cc50156f883c73ed1536a593b6a4baead",
+      "original_description_sha256": "e75e987fbf26e7b69cccde1e5e955cd75385ecaf9e36b594bf33fd2cf7f4717e",
+      "public_description_sha256": "8a8a901959defceb77d9605b59f72916a9ac456aac807c35367213f31f00e66f",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "18795588987e8773": {
+      "field": "internal_description",
+      "original_base_sha256": "a7a6d99d11064a6051d7442d45476de4a2fdd0aa400be166cec6592779709ba3",
+      "original_description_sha256": "260cf0b28674ac9565f5e798d942bdb2b9f2012ad50a07493d342f8891d8c21e",
+      "public_description_sha256": "a24b2c6a49c68bcafc372c8d1b365021179e9a8f0a6601b7c1189aa7d286ed32",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "1cf58583fa1798ca": {
+      "field": "internal_description",
+      "original_base_sha256": "c8426e0774b704d705bb86d21464c4b6b0611830add5a13efa82c6e33c404c67",
+      "original_description_sha256": "d0aa23da83754f9a3e416806cd091fe2d527f1fa78cc4d0584aff2a723245065",
+      "public_description_sha256": "0fe7c08bf27c8389a5213444ddb5592c5da2447d5647348214042dea4a178605",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "1e7b5b0fc5497fbe": {
+      "field": "technical_description",
+      "original_base_sha256": "ddecc00991654ec7e427b8c2f6dc4c1d6ef15b5d537bde65c98650520db97a1d",
+      "original_description_sha256": "07686ea1565da2cf658a723b5ada7b987da3d7e87ad6da4fdd39ea09b969cf95",
+      "public_description_sha256": "4fac91a2ca0d06d95e08e162905f34352c7c4e5c717b6d30e7f0044138e39842",
+      "public_policy": "metadata/policies/technical-descriptions.json"
+    },
+    "1f246ee65f99cf20": {
+      "field": "internal_description",
+      "original_base_sha256": "5af646c996db770fec99fac57e8343311366f364a3de0b951331acd5af501a74",
+      "original_description_sha256": "962ddbf39aac1a36f493f6d5cb034dd52f876f75f76ba30d223342c523b2e357",
+      "public_description_sha256": "fedaeacfc9c8d4c7f1d80f0427d5081527b4de03c78f9eb8e85e985c9cc07cc3",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "207962cbbe3a8d36": {
+      "field": "internal_description",
+      "original_base_sha256": "4c5fe4e29a238babae701b334287e501733be130e7240b5fe3890b6ad1dd553f",
+      "original_description_sha256": "77564bd34cca42aef83fbf92e1b8a7c2330e411c4ee1319de881a132e5972584",
+      "public_description_sha256": "9b5b9c22587a0ba68f4077f6ca1687ba147e1ad6105e481d39e1065152ce5cc9",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "2101bfad74f6f3c9": {
+      "field": "internal_description",
+      "original_base_sha256": "4212c2f6df75ba8c6d98187fe31a116d6b109fe7c9f3f9da625e5fee7a4946ba",
+      "original_description_sha256": "a21a9c290f924e9a07152cc3ecaf78c8c9ec57ca086e0c0c225257d0fc9bad12",
+      "public_description_sha256": "3042391b4a42369cf6eb7b456ae50fbc30edad751787cddbd7ed511f74f39b45",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "2269fbecbf18b9ed": {
+      "field": "internal_description",
+      "original_base_sha256": "97a7c72a76f76d1428f2505e50f206948a3eb3d576a6d7291f051a5704b6ac65",
+      "original_description_sha256": "c9a35fcaec47bcbe030d586c425de3290879e9448cc782c8d1c02448ecb6b816",
+      "public_description_sha256": "0912da3fe44697315c989f32ca1f81348db73c45eabc70e4c405e7f8c570840d",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "22af75fb5b56473f": {
+      "field": "internal_description",
+      "original_base_sha256": "58379c4ff4686c597f03162dfdbca9a21d7b5f3b0ad7a98bd8057b21e20835cc",
+      "original_description_sha256": "554ff6551d1a2ccd12bd50fd7c4040f248e17c708664f985ec8fbf3b118de8f5",
+      "public_description_sha256": "e324432ff63cd839834e11e8a0ad6486f9710fa88d1013c06e37b7cdf17da6ef",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "22d70848e61c2f0c": {
+      "field": "internal_description",
+      "original_base_sha256": "87ab2adc869e5b58e188f1e638b4f9ee6806695ba1609fd8ca8ee454913f6625",
+      "original_description_sha256": "00ab8c896c15f6afc4116a8a47d3475c7e5aeda9782d87d9bedae1ac484c2940",
+      "public_description_sha256": "112512172f52481d00ef2e9b610381511e086579dc601479916bbfa38d92c99f",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "241fba411583575a": {
+      "field": "internal_description",
+      "original_base_sha256": "0d22bb6c7e88da02ae7f4875cb26d42c167be80b22345517c79ddbfa2efbe909",
+      "original_description_sha256": "a088973f35820ddce99630c0065eefb65720c059ae91727e75dd26daf25e6a97",
+      "public_description_sha256": "e311e657787f5cced79bc42ca731717facb511fd43f2dcd14dba287fa871a7d1",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "252f48bbd0918446": {
+      "field": "technical_description",
+      "original_base_sha256": "ddecc00991654ec7e427b8c2f6dc4c1d6ef15b5d537bde65c98650520db97a1d",
+      "original_description_sha256": "ba633293c95ad36d597e2d3042de80b09e0cfa679076c85e278ad19bfcaa3da2",
+      "public_description_sha256": "945bfb9b2687dad07289e9751794e1bfc6b737c44ef4bd0c44fd944396187739",
+      "public_policy": "metadata/policies/technical-descriptions.json"
+    },
+    "2b6e117e98d3733f": {
+      "field": "internal_description",
+      "original_base_sha256": "ef8b48e350e7d16b2cff426a6f5c2c8c9a855b4a186326595161e58fd1aae8e0",
+      "original_description_sha256": "33981fcc8d6d4c29bffda6585f8a828dd12747518c29f247a4ff17e7b05a6718",
+      "public_description_sha256": "91463dfbb65ef340c5f7f14149bb493c6c8cc3fb3b9909effed21bfa462ab5e2",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "2c4563450670827a": {
+      "field": "internal_description",
+      "original_base_sha256": "f434ccf4e02a5944936be4e297c7cb29e2f07f70b29da8e6c767cdf99d045e5f",
+      "original_description_sha256": "05d11e7f7f4ac18d3a9a5f01701671f99a6c87de915bd90742b809f17917df37",
+      "public_description_sha256": "607ce22c24bf7dca40d5dcac13064d69d080d1031192aa23130ecc4985302688",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "2e434d4937105092": {
+      "field": "internal_description",
+      "original_base_sha256": "fcb1ff132fbeb6a6a07a9a3f2877eee2f81403ee352661feb717bcb88a632cdf",
+      "original_description_sha256": "89183e1001a652b466e5d6292043254081d98e3020d979c38fb7ea7b39ccd51f",
+      "public_description_sha256": "7db0277c4a5641afc75759872c5e57e07090dfe733ecaa19517f23185f773fa8",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "2e9ad42c82f3c7c0": {
+      "field": "internal_description",
+      "original_base_sha256": "049af120e510d90d90a6fe1f8209329ca0f814264b73544ed0836e3511f4a64e",
+      "original_description_sha256": "1bd7904f1a3bb7ae65d9c0dd20d4dd52067d836b7ae47029d2a8285ea314cc1e",
+      "public_description_sha256": "0e9f67e56a2fac8cd0bc0d9cbaf4245686069ca89245e557d4e6cc3ecbc24335",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "31c7b6b6428d213c": {
+      "field": "internal_description",
+      "original_base_sha256": "2d3eba39687bb4e8312b521822ab7b72967dbd1d2ef5380e1fe38e610d897538",
+      "original_description_sha256": "79ad5c4d18ad96e0b705af3bffbeeccfe22b1e0f8e1c5388f5bbc9b66b8a6164",
+      "public_description_sha256": "1ede07df628e7672b09cf4fdb7d349aaca240e85863abd2d44dc3ca7582302ae",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "31e0b5a45f33ce01": {
+      "field": "internal_description",
+      "original_base_sha256": "34a1f60adcbbc4eff090b819a683a321cbd359fcf7f26375a0a013929e8e0e45",
+      "original_description_sha256": "881aaf701075aad573dbd46a4881e234890b7e6dbcd0ad6032d4ef1a52b4c313",
+      "public_description_sha256": "409197bfd61df607c96fb1ae39bf97e65a9b90d30019de5acb15db3082e87948",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "348dd7727c72982d": {
+      "field": "internal_description",
+      "original_base_sha256": "d0b82201f134edf3366dc39aff0843c356eda67042806efe29f42c5f0d6ff45d",
+      "original_description_sha256": "c7aa1be90234f9984c16583cb19385b5697b7b8d309786217bf25ad82e3892d1",
+      "public_description_sha256": "d0fac2eef4ac1da1f92c6de553f7ce22bc290ba1e5eb9f62bee9001821a299ae",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "364ab8104d3b600c": {
+      "field": "internal_description",
+      "original_base_sha256": "0171eeaf660d95d5a9364e7006a8cf91f874a87c45790fe7e217fceb478063a2",
+      "original_description_sha256": "98ca797022fa931097ae2cae3c798fa4f998fc384657671161c7edc48db33f11",
+      "public_description_sha256": "9416f0fe33ed62eaa0d5e5d9f5a9408869b71409bb1fcf1e61ff16da8a923bb9",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "36d4079caf8b45b5": {
+      "field": "internal_description",
+      "original_base_sha256": "c130d48321bddb3905312017b57e7cdd6ae8d01d631a8ee6d3ba5fdc0487f37c",
+      "original_description_sha256": "893471d0c409b67d8f39e8a5c323cd083944fb15455e56c7089c666b2063888f",
+      "public_description_sha256": "78352455a8c02eeeb467e931e4e182aae0750a98012aa05e7bdad784a6525a60",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "3783b227d98da33e": {
+      "field": "internal_description",
+      "original_base_sha256": "b85270f552875e337aaef8b1afcf9ca35d60d3b716cee23f8beface70587cbe9",
+      "original_description_sha256": "cf2d440208465ecae3cd27889a830b2b6378d5843accafdcd993d098e87d0c0c",
+      "public_description_sha256": "13af74347eebf048d64d26301fd4cc798be775d25c14cd292c478bd360967319",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "385b80168aedffc5": {
+      "field": "internal_description",
+      "original_base_sha256": "372508c520ac872fe941ae3424d71ab4e425eb67aa12ceb3c47c133c2e279189",
+      "original_description_sha256": "e6e3409f3d640cb9d5c7db94f2191c484a4172a8a5ab390da02fe63290a45402",
+      "public_description_sha256": "32d7e8fdf7edf4f6d7b3452df6eeda3f431ef6c12b8f2fe5bb3f94b9f4f5c49a",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "3b888d4b50e96673": {
+      "field": "internal_description",
+      "original_base_sha256": "4742f4a61a3fe5727960627f9747862e4dcb016a11421fea7e0e83b83c141ae2",
+      "original_description_sha256": "18504a072e006c489cbb0d01a5105109152460bf7f8a8066bab60bf234500f50",
+      "public_description_sha256": "ca3e1b999d86d6f5c9a07f3b2b42a3e9fe0a5a7f98279d3e222f660fe18d4a26",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "3b95e40068e0cd6a": {
+      "field": "internal_description",
+      "original_base_sha256": "0032f3cef88978e69b9f27d181b7ee5c81b8df9316733face83dc7f6f0d364c6",
+      "original_description_sha256": "a731e8f5e35de4e0822a857cad9c53dc5688d9ccf63855c6b7efac05fa450225",
+      "public_description_sha256": "dcb974b3a587c6020675f9be0875e6206f1cb570f9c101b6a5c8c4065693d4ba",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "3f732ce2e265eec9": {
+      "field": "internal_description",
+      "original_base_sha256": "67598aaad67bfe1ec62a60ef8c0fd4e3d02a23762af0e0e4b8aa0fec8b1ee7eb",
+      "original_description_sha256": "4984bd59114cde8b33966228a539bf21574e241c4ccd062dd73354a89ccc7263",
+      "public_description_sha256": "0105120b260fcdce872dcff14e906afd6d6c730e5e9750b834c41c59640d53d8",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "40476f68dd7c6f0b": {
+      "field": "internal_description",
+      "original_base_sha256": "76084b4aa678ac6f792a80f2b062358b4686ebef0b4514867e8a1396de8bbdfd",
+      "original_description_sha256": "d19f2b8cf468de93e05999c06754d328a9084af5b9e7c8661253958df51771d3",
+      "public_description_sha256": "3b805c4105a84d94856521b5f03c0ea00205ecc8e114625721656baf9ed9cdfb",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "409a40a9e315c521": {
+      "field": "technical_description",
+      "original_base_sha256": "ddecc00991654ec7e427b8c2f6dc4c1d6ef15b5d537bde65c98650520db97a1d",
+      "original_description_sha256": "eae5bf94f652303ad9bfc200dd6ce44c43c5ade5986c5700e698dca8fc322f05",
+      "public_description_sha256": "760667acd280b3b4630405a551022a5bdd207e1d176b5af41520eaac644dec76",
+      "public_policy": "metadata/policies/technical-descriptions.json"
+    },
+    "40ab0083a34096ea": {
+      "field": "internal_description",
+      "original_base_sha256": "8a3d1dc2ef7a6913c271c16f2fd17a161636f84422b60c321d6a39f807a6dae7",
+      "original_description_sha256": "96d60c905cd8560676de7c8b5a1c3b6adc5a39b7367f7009900246334a8e80c2",
+      "public_description_sha256": "c99a9de0fd6042633ca8405023bdff132ec51abce730033cbf7bbcac74cbf18d",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "414345d9cb6e56be": {
+      "field": "internal_description",
+      "original_base_sha256": "25bd2e9bdc3f78622a9e77c550012d22c542a7e101b4f0aa37300bdcf753d9a0",
+      "original_description_sha256": "46984c7047e68a579be5e383c5136441192ca10dc7836c27ea315b604bdf55eb",
+      "public_description_sha256": "14949a4a50bf2ee57fa9daa60ae5df8aa482a6038976ab1378f877de9b477f38",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "4233511a8264b377": {
+      "field": "internal_description",
+      "original_base_sha256": "6597bad0a6703eb21942c268e76e4c9b2619709a9470444beb8c36bae995f2d4",
+      "original_description_sha256": "afe045ca9f7b8eb71f0451d28124ccc52684efd66b0cf00116b60f391d4b9d0a",
+      "public_description_sha256": "2c08094c5961edfddbd8b9fa4e9b3f7f25815e79241548db823d9cc7ac0d3e7e",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "427899df06f61aac": {
+      "field": "technical_description",
+      "original_base_sha256": "ddecc00991654ec7e427b8c2f6dc4c1d6ef15b5d537bde65c98650520db97a1d",
+      "original_description_sha256": "b507ad751584b3aee5534e8714bc164f15bf537ee3f9ac249e409063e6588d04",
+      "public_description_sha256": "6ccd569a66072db2056b3da80b09abeabb4620f1947add7fb413578202451a01",
+      "public_policy": "metadata/policies/technical-descriptions.json"
+    },
+    "434c692ce1b00d5c": {
+      "field": "internal_description",
+      "original_base_sha256": "6a09e2cfa8606d6450e361459e41b9bc0f6e9c91a96ff808b11956d01d1dc882",
+      "original_description_sha256": "aa05657c9d04383d6f54300a26767696e306dfb7a475b3b84fbace5761d9a202",
+      "public_description_sha256": "8d318a80d448705421652bde05090e6786bb2082ffb24ec61a0c5e833324755c",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "456f6831d04ffc02": {
+      "field": "technical_description",
+      "original_base_sha256": "ddecc00991654ec7e427b8c2f6dc4c1d6ef15b5d537bde65c98650520db97a1d",
+      "original_description_sha256": "79bb88797477189d31cdf86a26ce745ec49f976fafe0bfee36cb90f1cc88983b",
+      "public_description_sha256": "d7b59f9a5b801440eaab39d082e5d0eb5b6325eeb95c890db1e1c39b9b20f2b7",
+      "public_policy": "metadata/policies/technical-descriptions.json"
+    },
+    "46b9be9836e937db": {
+      "field": "internal_description",
+      "original_base_sha256": "ab06b73cc96f9f42bbf91af9667640396e9d16ca6442d5e1a06650bb6faee4e6",
+      "original_description_sha256": "d0f361b327baaa6d95dacbaaf7d37ac98c51fbba7a34189e7098790efdc37dc0",
+      "public_description_sha256": "6ea70a6901170b69aff0619381f6126347fbf85945793e3e52883a0689c91030",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "4814687c3c3cae09": {
+      "field": "internal_description",
+      "original_base_sha256": "302c662c1a41533ddaec6a8ebf30ddf519fd049f6391e179bcd6d9db8b05fc19",
+      "original_description_sha256": "fcceb4be8654f8b232d9fd63b54d34774ed854d3f4c8902d231c7011dc80e455",
+      "public_description_sha256": "19c757d6611d962125359d19dd84972dfb17e7cffde203c5406620d9e579c988",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "484664b9876dce3e": {
+      "field": "internal_description",
+      "original_base_sha256": "088c8c62d1c8802ca88863308f91fc52a5eb9da6470e2c48985564a66b56d894",
+      "original_description_sha256": "e5e71045d1e1d1c0a59ed06b70236f6ba4a63b013847f745772aa20eccc622c2",
+      "public_description_sha256": "aaee48eb315210a01b6c300cfd9c1688a53c6e16c91a1eb729d441c2e6e97636",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "49b8a977752b5cc5": {
+      "field": "internal_description",
+      "original_base_sha256": "5ddcbcf74ace969d2e1f58e28d6199c2d052e2863003206840a3edad2f8b9e60",
+      "original_description_sha256": "4884406e89cddb6d9d636dba78072d5d646e5da352be277061557eaf92196591",
+      "public_description_sha256": "4dadba978fa37efd77e0fe82225340f89a324020b4f9772391bc4fbb0b91e334",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "4d268a4bccd417d0": {
+      "field": "technical_description",
+      "original_base_sha256": "ddecc00991654ec7e427b8c2f6dc4c1d6ef15b5d537bde65c98650520db97a1d",
+      "original_description_sha256": "88ca573c042576b3252951081eac6a828edfb83d2675772b735e8babdf721d95",
+      "public_description_sha256": "9f64d0c4c791a2ef8a9deaf032609f066666f7d9100097d87ab00fe6da7f36f0",
+      "public_policy": "metadata/policies/technical-descriptions.json"
+    },
+    "4fdc37f0da4d2c3c": {
+      "field": "internal_description",
+      "original_base_sha256": "07a2fb62d67150fb4cb2364c38f1780dadd13b09744997ab5b464d2652338ec1",
+      "original_description_sha256": "d653a5d96b653cbc84c0889412572b339d7371b114dc6172f4c3fbb3e3a432b0",
+      "public_description_sha256": "d9ca0bf4093a2ab05d6cf0d7b439c10fdf5c63c132c364c34df92216eb6ef783",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "526972b25eb16781": {
+      "field": "internal_description",
+      "original_base_sha256": "e7f0532e0be2d9167ffaa9f57e7e3d074f53cf4d16b4f347049e9c305c31f645",
+      "original_description_sha256": "88f074a1e8ba26947c0e054d4ef8f22aadeb0263fb79b6973eddc858fef56f4b",
+      "public_description_sha256": "b0f12e1f36983356f47b1080a51552fbea80beaaf0427785fe41def3b314d5a9",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "54e48c9d7e4c508f": {
+      "field": "internal_description",
+      "original_base_sha256": "61749516d17b309ff3e8b8768d6d205b44115e83ff8a344bf46f9af24799ff58",
+      "original_description_sha256": "83a84b4c7cb586825796fda0f05c1ead9141b67ba75a3663602975419cdaccaf",
+      "public_description_sha256": "068514d91a9f74e00cc3d8cf238c3e1e5be91a75cec5b67ec6e8fb386a16a916",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "54e48d9d7e4c5242": {
+      "field": "internal_description",
+      "original_base_sha256": "18ba5f0808e7552c313e2cef176ba7eda222b8dab831bbe037d5e3ea3706d4b2",
+      "original_description_sha256": "8bbae5868340fbfea6a8cea0b35071a11f70cddec7ec80ffe9c60b8a18935ccd",
+      "public_description_sha256": "7b334e4e5b42a35c7fba17f895d05779e67b742aa03f950736d6b1331abfc70a",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "55c4ca3b3028e4b2": {
+      "field": "internal_description",
+      "original_base_sha256": "979cbb41900b7b5b731c81cd3e87997ae0544dc12a68489315b64a11b89177aa",
+      "original_description_sha256": "dddb3a5a993a82133923d0ed868413871d802f9d4348ade8b13e8b4eb3145d07",
+      "public_description_sha256": "0480813fb67a0511b29d60a9cb3a043e77302ae58b34bc5f127ac1bd945c30a7",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "57cdf8fd235aa7b4": {
+      "field": "technical_description",
+      "original_base_sha256": "ddecc00991654ec7e427b8c2f6dc4c1d6ef15b5d537bde65c98650520db97a1d",
+      "original_description_sha256": "4b51dcc1b2e4a95414685ce220d17cb2128a0d9dcc4bd91de7d71faf85765b47",
+      "public_description_sha256": "f5df1191ba8970f76f7870b043eaf18428d13c53341275bdd29045bb76a6922a",
+      "public_policy": "metadata/policies/technical-descriptions.json"
+    },
+    "5acd02cc0843ac83": {
+      "field": "internal_description",
+      "original_base_sha256": "26da1cccf9fa99f8a6c93dd79e55b01f8b6ccedd4acfdb2c297fb99825d8ce6a",
+      "original_description_sha256": "2b2caa8b0b7828608966e3ef750cee44044a89122b91c2b6eac3c319a8c8e055",
+      "public_description_sha256": "dc1ab2aaead3c6d61082a1256f232016a771672c26800878dfe6a1d5082b0342",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "5b689416e6d976ca": {
+      "field": "internal_description",
+      "original_base_sha256": "e2be0da23b0a6306d8d5ada7ef491c78e451e6dbb785656ab2c462c339caf990",
+      "original_description_sha256": "6c932e065aad787a83ae0685fdfa14a636d2d889e7c4a7a39f823c69c7f1a612",
+      "public_description_sha256": "490574224985882e6b5974dea40dc038e14904eaf348ee033beb825d2e394434",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "5c25a49c26fbb600": {
+      "field": "internal_description",
+      "original_base_sha256": "f42a98e0e2bfe0390ceb2af4b70cb8998f65b849c88136a7e036056d267793f0",
+      "original_description_sha256": "35d082293d5bcac7f1d8ec0b23ade2fc5ef2d46caf09521b8fd7e0bd16d7d83b",
+      "public_description_sha256": "a62caf840b99de1dafaeb1620d0c07d9e94b565b15d0ca06ff6691ea0b6ad130",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "5c59a40d25ce88d4": {
+      "field": "internal_description",
+      "original_base_sha256": "5ae1725ad010a7d1b5fd5a2a23e6fcea9886fbd8011706bf59e55f09f1dc822b",
+      "original_description_sha256": "92a1a8fc6a75eb9a31ab45745c29e0dff90c759d705a8661890b12bcc41e934a",
+      "public_description_sha256": "9eadea8d2b5c184cdbbdc0ec4787fe43043f93828221028d737ecdc3b97bfbeb",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "5cecc23577494031": {
+      "field": "internal_description",
+      "original_base_sha256": "badd1091c07d9770f21fe0dc6aee17963d65076ca324798f11ce35f7183df24e",
+      "original_description_sha256": "60ca689fd69e5e65839bf45d5b878c3653a8b66c718499257d07aa3ff3a39c56",
+      "public_description_sha256": "7a216bd028a208b634139b847575b9cb4c169a2650084764882a90ac2380ae02",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "60d87b27f81d7458": {
+      "field": "internal_description",
+      "original_base_sha256": "268d106cd6959ed5a53aab96ee837258d662c8151f1d242c313defcfe5f8a400",
+      "original_description_sha256": "9f2b619a94ba51848ba33c1a82f5843394b27c820c57e7a56d17eac49d3cd5cb",
+      "public_description_sha256": "b97b2f1a1249dc9605a8747cfc86a92530b9cb79c12ce25a36a92f032a8a8e95",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "660fcdf24aca86a6": {
+      "field": "internal_description",
+      "original_base_sha256": "2853e3432e2647e87aa55345550dbb888d9a95712278f6e1370bd25a6471049a",
+      "original_description_sha256": "1455a20a094e9edd9a5953bbca4a5d2fef5bc34d952688ed4e005831c5ff7ea7",
+      "public_description_sha256": "055277ea5f926d40238ca771fa15aaebbbcd2d5da5c71372ad2c716641ad49c9",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "6747dc7df498343b": {
+      "field": "internal_description",
+      "original_base_sha256": "acb693ec1d241d80dbe7d5bb73e5881c2cc551c064dd9a9d58f5afb5920721b1",
+      "original_description_sha256": "b5272c08ac24a5366947765bfa6360080fdb73433b649308043d5dd16a9b3ad3",
+      "public_description_sha256": "e830606e78814521b6fcfa6277db6cfa9c624253c8f9b50f982a1189827a010e",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "67c8bfa5cc4c4dd1": {
+      "field": "internal_description",
+      "original_base_sha256": "1620124c09cd2070b91687236ba88e25e562bba8ee1b549d0122d972ca10e9fd",
+      "original_description_sha256": "7ed3893d3029767fe64d32d187184244b76563fa2e1b338071a657f0f7de789e",
+      "public_description_sha256": "fd21f03d47ff9afd7956912a1de0a364eb28cf2735f70d10cbc3f80dc1487803",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "67f19c6bad5b1c0d": {
+      "field": "technical_description",
+      "original_base_sha256": "ddecc00991654ec7e427b8c2f6dc4c1d6ef15b5d537bde65c98650520db97a1d",
+      "original_description_sha256": "3944409a3f34142f5bb05442f18fd4ff025e698ac1e103ce42126782562fa578",
+      "public_description_sha256": "d19a1513d2e8a3a63cb0f77afb2366eb6a4447904b68ab1fe4e98d83f5be8112",
+      "public_policy": "metadata/policies/technical-descriptions.json"
+    },
+    "68840e398c882dcf": {
+      "field": "internal_description",
+      "original_base_sha256": "7ebb8f7fb264b63c88bb5e86ce861b3bf1977281a28ce0a98bb9a6a23724b818",
+      "original_description_sha256": "5740e39e15dcfd4a88451dfa5252dcdb28c5fd6e773ddb2f480158d83d127949",
+      "public_description_sha256": "3fe2163b7e05b21a34d6af353582d6bc71d48eeae5bc40045026aa44e465fc1e",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "6980e441febbc744": {
+      "field": "internal_description",
+      "original_base_sha256": "45944b686361b8d6d32655cc0b5d6c9ffbd69c10b2a6075bc29f0db23480e364",
+      "original_description_sha256": "8be501be926cd778b4e02e2b8e48438c56e2709f1e6d53ef8300e5664c3c82fa",
+      "public_description_sha256": "7692c2903c7cf3b0884021dff409f2406813caccab05e5834f2572b92e2969b8",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "6b701a29f3e36776": {
+      "field": "internal_description",
+      "original_base_sha256": "db262da454cb08a69a69e4f9cc1577c164c32568777a84aba9cc4dffae14682d",
+      "original_description_sha256": "6d9339f8553069fffa7d991443adf9246cffd6da3eac82c9a49e6c912561f24c",
+      "public_description_sha256": "ed534883cb1597002b5ce4eb172d895d933b417c5f5f9cb565913725c32f06e8",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "6cda80d968379cca": {
+      "field": "internal_description",
+      "original_base_sha256": "b9d011e35d500d29ff2be922df01f250b7bbceaeca40ac8718c80e7a559e0fb6",
+      "original_description_sha256": "b50d3b08bc8df26d4048b7b023cdcd85f84769cb4a899a0717d9e5888a05b978",
+      "public_description_sha256": "db4b860a9f1fbfb775d01a9256d0bf38a3d8d3520c9a82072fac0fc530d423d8",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "6e91a0b1c9fb22ba": {
+      "field": "internal_description",
+      "original_base_sha256": "9a92a36021eb52e849e7c64f037ef7abc31e4989030032636a3fda83a95fc996",
+      "original_description_sha256": "5c11b41aacf6607ca00dd76eb0c7c35d846ec394f0fd38b5a6967ce66c2ed913",
+      "public_description_sha256": "ed169bd8e7bd318c6ecd9fd4d1bcbc6c7bc6dcf70870b5650d8a67a6b96dc38f",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "7580076752e5b3b4": {
+      "field": "internal_description",
+      "original_base_sha256": "e47cca52eafcdf3079133a0e31d15cb2924cbec5e576f085e9aa055cc2c788d3",
+      "original_description_sha256": "e57ac907f980fbb9e66077b74947a6fd9b53c0fbc942c43d7b8868fda5d88f3a",
+      "public_description_sha256": "8a863a1162703cc940aa1911366056e626986de4d41801be0cc408aca3d3e9e3",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "771cd47fa148b721": {
+      "field": "internal_description",
+      "original_base_sha256": "46e2ace28687fcc1b6bd5e7f33e30676218a7ebfb1813376a8b60b489db7f5b6",
+      "original_description_sha256": "9b2064e8ccf6bb4098e97cccbe4e7503dd73e547591c652599b9e7e7431cd100",
+      "public_description_sha256": "b907781f315e85d3840f57491c0a686b204b7384fd36191d1032a509448b5574",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "78cf2559999910fe": {
+      "field": "internal_description",
+      "original_base_sha256": "64e989b16a8183ed406a440d4c15286cd73134679f073d787af6d0e5d6fb1984",
+      "original_description_sha256": "f1b40f55cd150f5daaf65e3d7384ceb5bed85b15b4207b9ec050f7a1b63627ee",
+      "public_description_sha256": "77cdb8ee299db2107ed724351cd61e7acfb1dbd2a45b17a6801569b68e9c1331",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "7be8a6721b6d80a6": {
+      "field": "internal_description",
+      "original_base_sha256": "c75595a639b9c085864c44cf226a548f5c8a1b32153a8128137050fbcfc4b7fa",
+      "original_description_sha256": "08be5eb80a2559b8f48c47b5579b919afd0b3e669c853b371f132ba8ba9269c6",
+      "public_description_sha256": "c7c422c8a221633ffcf3cfcfdd5fb8864e8ad1f960ec50e703d20dfc0aac8a91",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "7e43654da8ac730b": {
+      "field": "internal_description",
+      "original_base_sha256": "9fdb595fb370b30f4cfe4f7630d024111b955290d5f8f7d3547364c4aca891b8",
+      "original_description_sha256": "b7b2430ffe2107ac10a732e39d57f48646d5b2c570db697ceaa3c4715b5be231",
+      "public_description_sha256": "f03ce0bae8d1cc2d35c3d7261ea94e0a14d4d1db3d7108301c6f413cdce4b07c",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    },
+    "7ebadba55ee81a20": {
+      "field": "internal_description",
+      "original_base_sha256": "cae012631006dcab72d83ca35e37b1257433b99a577637c4ef123922ee268283",
+      "original_description_sha256": "040ed82fadd547f34053ea28b6412b60ec9775f37e713ef6110b4771fec0cb08",
+      "public_description_sha256": "fa1aaca7859d7981e96963b4966135e5239a1eed004da5702ec012c155fa1641",
+      "public_policy": "metadata/policies/internal-descriptions.json"
+    }
+  },
+  "format_version": 1,
+  "policies": {
+    "internal": {
+      "canonical_manifest_sha256": "994f3cf6089441552de2063632921d451389728a93f0be47f8095f0fc6e34369",
+      "canonical_review_sha256": "2c3d64b1e22d1209b74b0b551b2263ebe39d2eeabc119a21f6185cf6acd7908d",
+      "policy_sha256": "c6242d8c49e0fada0c61c168bcf809786c6e389e8657ac69649eab18a1b10f8b",
+      "record_hashes_sha256": "1b8de16d1c4e38d1b089da44733f3366ad764175e52858a77e468fdc91ea1c7e",
+      "scope_asset_ids_sha256": "afbc05fafed513e8a673ea2061367c0f38109914d302781e957918a14ab6c428",
+      "source_sha256": "a8abe7b3faefa89d2bf4c4cfddc9096cf7daf109f47fb228e43770ed7f38e593"
+    },
+    "technical": {
+      "canonical_manifest_sha256": "db7e3e68536fe706311a9c82604cdb85f884c9dca66174864f3d0f7b0eb3cb9f",
+      "canonical_review_sha256": "b83099465f7c22396363a9b6e5fd07f27d7e64b1a3f1914da014d716d15d2dc9",
+      "policy_sha256": "2dbf7f6f36526587f546be44708de60381f9671c75e7ab1cb6fd596a8e03352e",
+      "record_hashes_sha256": "523678cfe5d545a131f60ecb9cf0ea44d8fcb7f073edc1cd755254f1688aee82",
+      "scope_asset_ids_sha256": "0d176fcb55552685f68d8715d97ed045d93606e685eb35df561e6b17ee65c652",
+      "source_sha256": "92910c52044cf8fd5b383e06bb9bdbeb2f23c744e09ac66394fcd81a6acd395f"
+    }
+  },
+  "scope": "Replace only description evidence/source declarations with portable public policy facts; preserve all caption bodies and original asset fields.",
+  "source_replacements": {
+    "reviewed-internal-descriptions-2026-11-09": {
+      "original_source_sha256": "e44b6061e5ce8bbaa4d64fc2689678d45c6b8e30d78652dd62550510f7242c78",
+      "public_policy": "metadata/policies/internal-descriptions.json",
+      "public_source_sha256": "a8abe7b3faefa89d2bf4c4cfddc9096cf7daf109f47fb228e43770ed7f38e593"
+    },
+    "reviewed-technical-descriptions-2026-11-09": {
+      "original_source_sha256": "36390ebe2564665c042e722ebe5b412d98529a8575462662ca26e50d83e81d20",
+      "public_policy": "metadata/policies/technical-descriptions.json",
+      "public_source_sha256": "92910c52044cf8fd5b383e06bb9bdbeb2f23c744e09ac66394fcd81a6acd395f"
+    }
+  }
+}

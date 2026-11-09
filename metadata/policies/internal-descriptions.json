@@ -1,0 +1,3701 @@
+{
+  "canonical_review_sha256": "2c3d64b1e22d1209b74b0b551b2263ebe39d2eeabc119a21f6185cf6acd7908d",
+  "format_version": 2,
+  "policy": {
+    "classification": "separate_descriptions_never_canonical_names",
+    "id": "mw4-internal-descriptions-v1",
+    "language": "en",
+    "preservation": "Preserve original names, qualities, native identities, aliases and claims; prefer future verified names without double counting.",
+    "review_date": "2026-11-09",
+    "review_status": "reviewed",
+    "scope_asset_count": 72,
+    "scope_asset_ids_sha256": "afbc05fafed513e8a673ea2061367c0f38109914d302781e957918a14ab6c428",
+    "scope_type": "source_proven_nonselectable_internal_records",
+    "version": 1
+  },
+  "records": {
+    "0018162cba4edcc8": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_dmscope_vz01_sp",
+        "kind": "attachment",
+        "loot_id": 102931,
+        "name": "Dmscope Vz01 Sp",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "0018162cba4edcc8",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "4797e4c146f1459aaeeeb150a5378d7c213ea1a3b5b7df57fe97bb89b718a3db",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 39,
+              "prefix": "R04",
+              "slot": "optic"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/0018162cba4edcc8",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Optic slot component; excluded by the source UI flag."
+      }
+    },
+    "01fc874357ea00a6": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_rec_decho_auto_minijugg",
+        "kind": "attachment",
+        "loot_id": 155199,
+        "name": "Rec Decho Auto Minijugg",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "01fc874357ea00a6",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "59f796cff663bdde48ef510312c07aa0da0f4486f50f0960873187157bfac4cd",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 3,
+              "prefix": "P02",
+              "slot": "apex"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/01fc874357ea00a6",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Apex slot component; excluded by the source UI flag."
+      }
+    },
+    "0228aeb2b9cee992": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_mag_fmgolf",
+        "kind": "attachment",
+        "loot_id": 123643,
+        "name": "Mag Fmgolf",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "0228aeb2b9cee992",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "02d55f8b12d4a9962e70df93cc6e2141ea269ab461f19b1a8295fe59050d2037",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "S01",
+              "slot": "magazine"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/0228aeb2b9cee992",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Magazine slot component; excluded by the source UI flag."
+      }
+    },
+    "06da833464bae609": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_stock_bmike3",
+        "kind": "attachment",
+        "loot_id": 61345,
+        "name": "Stock Bmike3",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "06da833464bae609",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "0eacdc2081ef0ebd7457893b92626b805194b81cfe6b94297a327389e97b7333",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "C03",
+              "slot": "stock"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/06da833464bae609",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Stock slot component; excluded by the source UI flag."
+      }
+    },
+    "08e6d16a87a5f59d": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_findia_vault_offset",
+        "kind": "attachment",
+        "loot_id": 151190,
+        "name": "Findia Vault Offset",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "08e6d16a87a5f59d",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "a0ebed3784905691bf819cd247013dbac7941622bd3a138f58bf11f9c79fe99a",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "M01",
+              "slot": "calibration"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/08e6d16a87a5f59d",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Calibration slot component; excluded by the source UI flag."
+      }
+    },
+    "09758be9c149c604": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_addsway_psierra41",
+        "kind": "attachment",
+        "loot_id": 136485,
+        "name": "Addsway Psierra41",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "09758be9c149c604",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "dd1d6060f197b031214fbe9e6f731e141cf8d2e14da0cede4c0ba8347d0d54c1",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "S05",
+              "slot": "other"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/09758be9c149c604",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Component in the Other slot; excluded by the source UI flag."
+      }
+    },
+    "0f9af35e9c08d6a2": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_fourx_therm02",
+        "kind": "attachment",
+        "loot_id": 128765,
+        "name": "Fourx Therm02",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "0f9af35e9c08d6a2",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "a10bcd6c26dbdf1d045cafe950190b9665187f9c5e2e8bdc73ffdfcd63bb6c90",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 14,
+              "prefix": "A01",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 15,
+              "prefix": "A02",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 15,
+              "prefix": "A03",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 15,
+              "prefix": "A04",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 15,
+              "prefix": "A05",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 15,
+              "prefix": "A09",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 15,
+              "prefix": "B01",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 15,
+              "prefix": "B03",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 15,
+              "prefix": "B04",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 17,
+              "prefix": "L02",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 16,
+              "prefix": "L03",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 17,
+              "prefix": "L04",
+              "slot": "optic"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/0f9af35e9c08d6a2",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Optic slot component; excluded by the source UI flag."
+      }
+    },
+    "103594464a18a5e8": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_shscope_fauxhybrid01",
+        "kind": "attachment",
+        "loot_id": 104842,
+        "name": "Shscope Fauxhybrid01",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "103594464a18a5e8",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed category reference is absent; the source selection path rejects its empty derived reference.",
+          "historical_evidence_sha256": "6fdeae3f9c44c8f6b4e7c9c367714959069801feb56154548b8feffe1bd825a5",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 24,
+              "prefix": "C04",
+              "slot": "optic"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/103594464a18a5e8",
+          "rejection_reason": "empty_auxiliary_reference",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Optic slot component; rejected because its auxiliary reference is empty."
+      }
+    },
+    "1067bbe63a3ca74e": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "br_rangeext_snpr",
+        "kind": "attachment",
+        "loot_id": 1638,
+        "name": "Br Rangeext Snpr",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "1067bbe63a3ca74e",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed category reference is absent; the source selection path rejects its empty derived reference.",
+          "historical_evidence_sha256": "80a7c8dd394ff65e9de9804b27041ea961ea38b48939d49dde9709c661988a41",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "R02",
+              "slot": "other"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/1067bbe63a3ca74e",
+          "rejection_reason": "empty_auxiliary_reference",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Component in the Other slot; rejected because its auxiliary reference is empty."
+      }
+    },
+    "10d33356eb86c8c0": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_anims_hotel45_nyc",
+        "kind": "attachment",
+        "loot_id": 86892,
+        "name": "Anims Hotel45 Nyc",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "10d33356eb86c8c0",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "8933d82511137e1721059bc9b76fbd844b6ca1d2841f54515e2ca6966d7f2e66",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "P03",
+              "slot": "calibration"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/10d33356eb86c8c0",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Calibration slot component; excluded by the source UI flag."
+      }
+    },
+    "114cfb716b0dee1a": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_cal_tuning_sm_akilo_545",
+        "kind": "attachment",
+        "loot_id": 107306,
+        "name": "Cal Tuning Sm Akilo 545",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "114cfb716b0dee1a",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "316a010e1a01bcb2349db4a5ce5954113bba4c7bbec0bf9ab4211a43273ce20c",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "A01",
+              "slot": "calibration"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/114cfb716b0dee1a",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Calibration slot component; excluded by the source UI flag."
+      }
+    },
+    "11c371364cdc1d13": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_addsway_akilo",
+        "kind": "attachment",
+        "loot_id": 150451,
+        "name": "Addsway Akilo",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "11c371364cdc1d13",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "d396547bba4173276ef4078bbfd325d5f180036ed449ea28c90a2f3b7ffb375a",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "A01",
+              "slot": "other"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/11c371364cdc1d13",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Component in the Other slot; excluded by the source UI flag."
+      }
+    },
+    "145344f1b9602a0f": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_anims_spier9_vault",
+        "kind": "attachment",
+        "loot_id": 145012,
+        "name": "Anims Spier9 Vault",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "145344f1b9602a0f",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "5c93c6667804e0070a584ed75f445e186538c6b3218c3ca6ec9786043710357e",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 2,
+              "prefix": "S06",
+              "slot": "other"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/145344f1b9602a0f",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Component in the Other slot; excluded by the source UI flag."
+      }
+    },
+    "15d25dac1bf0b96f": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_ub_gl_mike4_sp",
+        "kind": "attachment",
+        "loot_id": 94140,
+        "name": "Ub Gl Mike4 Sp",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "15d25dac1bf0b96f",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "65639d84b0485d1bf6f0aa5915ed41608ee87f5c1380170513cb3bf7e613f3fb",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 3,
+              "prefix": "A05",
+              "slot": "launcher"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/15d25dac1bf0b96f",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Launcher slot component; excluded by the source UI flag."
+      }
+    },
+    "17bd845f1a26323f": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_audio_sierrax_acv",
+        "kind": "attachment",
+        "loot_id": 91735,
+        "name": "Audio Sierrax Acv",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "17bd845f1a26323f",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "6b28476d31680b5e4332f14f9530ae090856f4ce33455611f4dcb2655f47ac7a",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "L03",
+              "slot": "calibration"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/17bd845f1a26323f",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Calibration slot component; excluded by the source UI flag."
+      }
+    },
+    "18795588987e8773": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_anims_iw9mpapa7",
+        "kind": "attachment",
+        "loot_id": 94246,
+        "name": "Anims Iw9mpapa7",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "18795588987e8773",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "a8f1891d7acebfa22dda18f2585e538bcc24d5689d5c77a914a7e5d31833c95a",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "S03",
+              "slot": "other"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/18795588987e8773",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Component in the Other slot; excluded by the source UI flag."
+      }
+    },
+    "1cf58583fa1798ca": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_comp_hoz_cromeo",
+        "kind": "attachment",
+        "loot_id": 157581,
+        "name": "Comp Hoz Cromeo",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "1cf58583fa1798ca",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed category reference is absent; the source selection path rejects its empty derived reference.",
+          "historical_evidence_sha256": "64c821bb39f0f1448166ceb824a248ef7033dd769e28722dd9165c12f298c946",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 15,
+              "prefix": "A02",
+              "slot": "muzzle"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/1cf58583fa1798ca",
+          "rejection_reason": "empty_auxiliary_reference",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Muzzle slot component; rejected because its auxiliary reference is empty."
+      }
+    },
+    "1f246ee65f99cf20": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_guard_fmgolf",
+        "kind": "attachment",
+        "loot_id": 123649,
+        "name": "Guard Fmgolf",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "1f246ee65f99cf20",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "df4dc61b80ece84968d154f01f017a8bb7a1b558f17dcc745ee2b3d1cab4ba5f",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "S01",
+              "slot": "barrel"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/1f246ee65f99cf20",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Barrel slot component; excluded by the source UI flag."
+      }
+    },
+    "207962cbbe3a8d36": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_mag_cromeo",
+        "kind": "attachment",
+        "loot_id": 122370,
+        "name": "Mag Cromeo",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "207962cbbe3a8d36",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "f6ffa95543afddd799922ba4e6651e427ded442ce54b0848e846be701978a4c9",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "A02",
+              "slot": "magazine"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/207962cbbe3a8d36",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Magazine slot component; excluded by the source UI flag."
+      }
+    },
+    "2101bfad74f6f3c9": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_laserir_thermal",
+        "kind": "attachment",
+        "loot_id": 110150,
+        "name": "Laserir Thermal",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "2101bfad74f6f3c9",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "965224c7ecc568eec8187f4f01b4cb343c1c5c827eaf98b06e4f394186ad0c43",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 7,
+              "prefix": "A01",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 8,
+              "prefix": "A02",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 7,
+              "prefix": "A03",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 7,
+              "prefix": "A04",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 8,
+              "prefix": "A05",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 8,
+              "prefix": "A09",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 4,
+              "prefix": "B01",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 8,
+              "prefix": "B03",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 8,
+              "prefix": "B04",
+              "slot": "laser"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/2101bfad74f6f3c9",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Laser slot component; excluded by the source UI flag."
+      }
+    },
+    "2269fbecbf18b9ed": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_cal_tuning_akilo_545",
+        "kind": "attachment",
+        "loot_id": 136071,
+        "name": "Cal Tuning Akilo 545",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "2269fbecbf18b9ed",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "204b30a98bcaba05fcda5dce2c6f3890f02b4f00d2aa61321d197db5b9a7e6e6",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 3,
+              "prefix": "A01",
+              "slot": "calibration"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/2269fbecbf18b9ed",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Calibration slot component; excluded by the source UI flag."
+      }
+    },
+    "22af75fb5b56473f": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_cal_tuning_sierrax_adversefire",
+        "kind": "attachment",
+        "loot_id": 151869,
+        "name": "Cal Tuning Sierrax Adversefire",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "22af75fb5b56473f",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "9fb4f8fd6cad1a5b7aa2fa52d3034c058734a71dfb0dbb834681f1a1cc3bcce2",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 3,
+              "prefix": "L03",
+              "slot": "calibration"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/22af75fb5b56473f",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Calibration slot component; excluded by the source UI flag."
+      }
+    },
+    "22d70848e61c2f0c": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_cal_tuning_sn_asierra12",
+        "kind": "attachment",
+        "loot_id": 99471,
+        "name": "Cal Tuning Sn Asierra12",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "22d70848e61c2f0c",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "1208f4169a98d2e61d1c250f9ba0432eafa63f3d303f28582ea77d8ac3bad289",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "B01",
+              "slot": "calibration"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/22d70848e61c2f0c",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Calibration slot component; excluded by the source UI flag."
+      }
+    },
+    "241fba411583575a": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_ub_gl_std_sp",
+        "kind": "attachment",
+        "loot_id": 121975,
+        "name": "Ub Gl Std Sp",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "241fba411583575a",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "dbd7e8520223985455e28d9897c2e4a71d5d31fabc7b73f2f0b89f5a8a19e4c1",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 5,
+              "prefix": "A01",
+              "slot": "launcher"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/241fba411583575a",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Launcher slot component; excluded by the source UI flag."
+      }
+    },
+    "2b6e117e98d3733f": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_anims_uxray_killkim",
+        "kind": "attachment",
+        "loot_id": 146430,
+        "name": "Anims Uxray Killkim",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "2b6e117e98d3733f",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "eaa542fa767abba7cd6b93f50af352ac1f52fb332db1f62fbd750324bd793579",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "B04",
+              "slot": "other"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/2b6e117e98d3733f",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Component in the Other slot; excluded by the source UI flag."
+      }
+    },
+    "2c4563450670827a": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_cal_tuning_lm_stocksaw_sierrax",
+        "kind": "attachment",
+        "loot_id": 144350,
+        "name": "Cal Tuning Lm Stocksaw Sierrax",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "2c4563450670827a",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "b0b7361fcc38af1f3e3a191e30c0086c26570235e6cdad7c1d4256f98bb5b23d",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 2,
+              "prefix": "L03",
+              "slot": "calibration"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/2c4563450670827a",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Calibration slot component; excluded by the source UI flag."
+      }
+    },
+    "2e434d4937105092": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_cal_tuning_cromeo_apex",
+        "kind": "attachment",
+        "loot_id": 157251,
+        "name": "Cal Tuning Cromeo Apex",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "2e434d4937105092",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "744787677192c840a1d416c22105b39e5f19daac7973c20a10c2af361f09979a",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "A02",
+              "slot": "calibration"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/2e434d4937105092",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Calibration slot component; excluded by the source UI flag."
+      }
+    },
+    "2e9ad42c82f3c7c0": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_guard_uxray",
+        "kind": "attachment",
+        "loot_id": 65552,
+        "name": "Guard Uxray",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "2e9ad42c82f3c7c0",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "5c773fbc02371baba14904b5f36f04de5a93afb6c7ed35ff488d6f60ffa1b72e",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 2,
+              "prefix": "B04",
+              "slot": "night_vision_modifier"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/2e9ad42c82f3c7c0",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Night Vision Modifier slot component; excluded by the source UI flag."
+      }
+    },
+    "31c7b6b6428d213c": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_addsway_hotel45",
+        "kind": "attachment",
+        "loot_id": 136314,
+        "name": "Addsway Hotel45",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "31c7b6b6428d213c",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "0d828a59c538ab065ff7e98310b123a0030dab48ce4a8f4001b28ab0195757b4",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "P03",
+              "slot": "other"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/31c7b6b6428d213c",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Component in the Other slot; excluded by the source UI flag."
+      }
+    },
+    "31e0b5a45f33ce01": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_scope_reload_moscar",
+        "kind": "attachment",
+        "loot_id": 138720,
+        "name": "Scope Reload Moscar",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "31e0b5a45f33ce01",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "8b0f90d427e6e5a07d2d77f4a3e51f326c11513f2884085524ed7d89b60e7cd2",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "M03",
+              "slot": "other"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/31e0b5a45f33ce01",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Component in the Other slot; excluded by the source UI flag."
+      }
+    },
+    "348dd7727c72982d": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_addsway_kilo5",
+        "kind": "attachment",
+        "loot_id": 129290,
+        "name": "Addsway Kilo5",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "348dd7727c72982d",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "23b1b93456e4ffc946ddf9bc5c28dd59b5876f714f16235d964ad876dd5cb282",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "P04",
+              "slot": "calibration"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/348dd7727c72982d",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Calibration slot component; excluded by the source UI flag."
+      }
+    },
+    "364ab8104d3b600c": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_mag_tango73_topload_std",
+        "kind": "attachment",
+        "loot_id": 130097,
+        "name": "Mag Tango73 Topload Std",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "364ab8104d3b600c",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "06e8be23e3f8f97ed74d49b87022122870e95e6c763fb0a4f7382826c8600c1e",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 3,
+              "prefix": "L04",
+              "slot": "magazine"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/364ab8104d3b600c",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Magazine slot component; excluded by the source UI flag."
+      }
+    },
+    "36d4079caf8b45b5": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_irons_apex_cromeo",
+        "kind": "attachment",
+        "loot_id": 157252,
+        "name": "Irons Apex Cromeo",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "36d4079caf8b45b5",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed category reference is absent; the source selection path rejects its empty derived reference.",
+          "historical_evidence_sha256": "272260557adfb96cae97f07e155d32d29e701b2c3a11b1cfe19ca0a3fb6aad71",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 29,
+              "prefix": "A02",
+              "slot": "optic"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/36d4079caf8b45b5",
+          "rejection_reason": "empty_auxiliary_reference",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Optic slot component; rejected because its auxiliary reference is empty."
+      }
+    },
+    "3783b227d98da33e": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_cal_tuning_dechoauto",
+        "kind": "attachment",
+        "loot_id": 70236,
+        "name": "Cal Tuning Dechoauto",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "3783b227d98da33e",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "a1d83c0719464df3b0d625013cdd58a60068966d477d4834b00bdb3670ea4690",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "P02",
+              "slot": "calibration"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/3783b227d98da33e",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Calibration slot component; excluded by the source UI flag."
+      }
+    },
+    "385b80168aedffc5": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_laserir_lrg",
+        "kind": "attachment",
+        "loot_id": 100794,
+        "name": "Laserir Lrg",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "385b80168aedffc5",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "0f5a970eb5874c9a6920fa1991f3842b76f8ddbdf29090966f267e493f5e9a96",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 9,
+              "prefix": "A02",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 7,
+              "prefix": "A05",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 7,
+              "prefix": "A09",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 7,
+              "prefix": "B03",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 7,
+              "prefix": "B04",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 8,
+              "prefix": "C04",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 4,
+              "prefix": "L02",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 7,
+              "prefix": "L03",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 4,
+              "prefix": "M02",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 7,
+              "prefix": "S01",
+              "slot": "laser"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/385b80168aedffc5",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Laser slot component; excluded by the source UI flag."
+      }
+    },
+    "3b888d4b50e96673": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_cal_tuning_mike4_burst",
+        "kind": "attachment",
+        "loot_id": 129512,
+        "name": "Cal Tuning Mike4 Burst",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "3b888d4b50e96673",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed category reference is absent; the source selection path rejects its empty derived reference.",
+          "historical_evidence_sha256": "16e33ceb7bd7982d3a0fe64057aa6ae942484055041f7b777b3e328fe1b8fb20",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 2,
+              "prefix": "A05",
+              "slot": "calibration"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/3b888d4b50e96673",
+          "rejection_reason": "empty_auxiliary_reference",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Calibration slot component; rejected because its auxiliary reference is empty."
+      }
+    },
+    "3b95e40068e0cd6a": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_guardtac_optic_fmgolf",
+        "kind": "attachment",
+        "loot_id": 143535,
+        "name": "Guardtac Optic Fmgolf",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "3b95e40068e0cd6a",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "510a2b5ad615b5dc4bfce6c7eebda70b81bafaf19ab24910fc464259552ba772",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 12,
+              "prefix": "S01",
+              "slot": "optic"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/3b95e40068e0cd6a",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Optic slot component; excluded by the source UI flag."
+      }
+    },
+    "3f732ce2e265eec9": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_irons_apex_fmgolf",
+        "kind": "attachment",
+        "loot_id": 157258,
+        "name": "Irons Apex Fmgolf",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "3f732ce2e265eec9",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed category reference is absent; the source selection path rejects its empty derived reference.",
+          "historical_evidence_sha256": "b1f24fc4a52df950db8aeec4e6e78fbe4d3a344515df3bad9f48bbc5531a0a04",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 13,
+              "prefix": "S01",
+              "slot": "optic"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/3f732ce2e265eec9",
+          "rejection_reason": "empty_auxiliary_reference",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Optic slot component; rejected because its auxiliary reference is empty."
+      }
+    },
+    "40476f68dd7c6f0b": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_cal_tuning_xar1_hyperburst",
+        "kind": "attachment",
+        "loot_id": 121778,
+        "name": "Cal Tuning Xar1 Hyperburst",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "40476f68dd7c6f0b",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed category reference is absent; the source selection path rejects its empty derived reference.",
+          "historical_evidence_sha256": "187ca32d59e40bad2c9d07a82ae4744048ae2990482bd138d90451f217d1d360",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "A09",
+              "slot": "calibration"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/40476f68dd7c6f0b",
+          "rejection_reason": "empty_auxiliary_reference",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Calibration slot component; rejected because its auxiliary reference is empty."
+      }
+    },
+    "40ab0083a34096ea": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_muzzle_fmgolf",
+        "kind": "attachment",
+        "loot_id": 123651,
+        "name": "Muzzle Fmgolf",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "40ab0083a34096ea",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "9f728c527123c4a457914514cea56e8e5baf09f96e37101b0fb1e418aea83d4d",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "S01",
+              "slot": "muzzle"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/40ab0083a34096ea",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Muzzle slot component; excluded by the source UI flag."
+      }
+    },
+    "414345d9cb6e56be": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_addsway_svictor98",
+        "kind": "attachment",
+        "loot_id": 129291,
+        "name": "Addsway Svictor98",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "414345d9cb6e56be",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "5a96721d0a75d1503e52010d73699550b0a9afd0f671ed2c52193c739bf416b1",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "R04",
+              "slot": "calibration"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/414345d9cb6e56be",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Calibration slot component; excluded by the source UI flag."
+      }
+    },
+    "4233511a8264b377": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_pgrip_fmgolf",
+        "kind": "attachment",
+        "loot_id": 123655,
+        "name": "Pgrip Fmgolf",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "4233511a8264b377",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "c99fd0ff7c7c396e61b6123dcbf2b1d11f6db7ca550ef11e877b7889c32d831e",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "S01",
+              "slot": "rear_grip"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/4233511a8264b377",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Rear Grip slot component; excluded by the source UI flag."
+      }
+    },
+    "434c692ce1b00d5c": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_cal_tuning_golf28_auto",
+        "kind": "attachment",
+        "loot_id": 141019,
+        "name": "Cal Tuning Golf28 Auto",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "434c692ce1b00d5c",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "bb0df4fb5b1c5e5443f6185c58e730ca1b56916c9980d5324dd5f8e31c51fc08",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "M02",
+              "slot": "calibration"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/434c692ce1b00d5c",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Calibration slot component; excluded by the source UI flag."
+      }
+    },
+    "46b9be9836e937db": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_addsway_mike4",
+        "kind": "attachment",
+        "loot_id": 144651,
+        "name": "Addsway Mike4",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "46b9be9836e937db",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "0967d8b7bb8a3757ca1c55e90cd80a6ad8bd4eada7c9efb6e2501b49840ac5db",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 3,
+              "prefix": "A05",
+              "slot": "other"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/46b9be9836e937db",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Component in the Other slot; excluded by the source UI flag."
+      }
+    },
+    "4814687c3c3cae09": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_addsway_xar1",
+        "kind": "attachment",
+        "loot_id": 129292,
+        "name": "Addsway Xar1",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "4814687c3c3cae09",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "0b333b8a911f5072295fd387efb149aabe46f147ad281d65315ac771c8f03af8",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "A09",
+              "slot": "other"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/4814687c3c3cae09",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Component in the Other slot; excluded by the source UI flag."
+      }
+    },
+    "484664b9876dce3e": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_anims_iw9m4",
+        "kind": "attachment",
+        "loot_id": 94245,
+        "name": "Anims Iw9m4",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "484664b9876dce3e",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "ccd6634da1865713a666d2db1a1b2574ac758537ef5beea613747125f70d98c6",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "A05",
+              "slot": "other"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/484664b9876dce3e",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Component in the Other slot; excluded by the source UI flag."
+      }
+    },
+    "49b8a977752b5cc5": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_stock_fmgolf",
+        "kind": "attachment",
+        "loot_id": 123668,
+        "name": "Stock Fmgolf",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "49b8a977752b5cc5",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "e6645cfe42605006c3805fa16a5b1d2e186c106903494fe934e7782e3dd761ae",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "S01",
+              "slot": "stock"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/49b8a977752b5cc5",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Stock slot component; excluded by the source UI flag."
+      }
+    },
+    "4fdc37f0da4d2c3c": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_cal_tuning_mike4_pdw",
+        "kind": "attachment",
+        "loot_id": 122453,
+        "name": "Cal Tuning Mike4 Pdw",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "4fdc37f0da4d2c3c",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed category reference is absent; the source selection path rejects its empty derived reference.",
+          "historical_evidence_sha256": "8e9d79d7b79289d9d3899537119c8411f7e2da89a5fb0d140c5ea19cc0996628",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "A05",
+              "slot": "calibration"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/4fdc37f0da4d2c3c",
+          "rejection_reason": "empty_auxiliary_reference",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Calibration slot component; rejected because its auxiliary reference is empty."
+      }
+    },
+    "526972b25eb16781": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_stock_cromeo",
+        "kind": "attachment",
+        "loot_id": 122366,
+        "name": "Stock Cromeo",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "526972b25eb16781",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "fcb304c511c49fad39400c06f7ae3ca4489aa3347a0dd912044fe985c6cc0b24",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "A02",
+              "slot": "stock"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/526972b25eb16781",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Stock slot component; excluded by the source UI flag."
+      }
+    },
+    "54e48c9d7e4c508f": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_reflex06",
+        "kind": "attachment",
+        "loot_id": 158545,
+        "name": "Reflex06",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "54e48c9d7e4c508f",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "72e692d2083bf562229e3d111f7ab25130fa7b2a43f2692b83357411722fe5fa",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 34,
+              "prefix": "A01",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 31,
+              "prefix": "A02",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 36,
+              "prefix": "A03",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 33,
+              "prefix": "A04",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 37,
+              "prefix": "A05",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 30,
+              "prefix": "A09",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 4,
+              "prefix": "B01",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 30,
+              "prefix": "B03",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 30,
+              "prefix": "B04",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 28,
+              "prefix": "C03",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 26,
+              "prefix": "C04",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 28,
+              "prefix": "L02",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 24,
+              "prefix": "L03",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 29,
+              "prefix": "L04",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 37,
+              "prefix": "M01",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 41,
+              "prefix": "M02",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 29,
+              "prefix": "M03",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 8,
+              "prefix": "P07",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 42,
+              "prefix": "R02",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 44,
+              "prefix": "R04",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 15,
+              "prefix": "S01",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 23,
+              "prefix": "S03",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 23,
+              "prefix": "S04",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 25,
+              "prefix": "S05",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 24,
+              "prefix": "S06",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 23,
+              "prefix": "S08",
+              "slot": "optic"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/54e48c9d7e4c508f",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Optic slot component; excluded by the source UI flag."
+      }
+    },
+    "54e48d9d7e4c5242": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_reflex05",
+        "kind": "attachment",
+        "loot_id": 94866,
+        "name": "Reflex05",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "54e48d9d7e4c5242",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "3aa08b688ebbaf9bdc53f84fa7f0a608039364fea32a9df4fd41204e64f14b41",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 33,
+              "prefix": "A01",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 30,
+              "prefix": "A02",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 35,
+              "prefix": "A03",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 32,
+              "prefix": "A04",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 36,
+              "prefix": "A05",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 29,
+              "prefix": "A09",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 3,
+              "prefix": "B01",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 29,
+              "prefix": "B03",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 29,
+              "prefix": "B04",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 27,
+              "prefix": "C03",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 25,
+              "prefix": "C04",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 27,
+              "prefix": "L02",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 23,
+              "prefix": "L03",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 28,
+              "prefix": "L04",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 36,
+              "prefix": "M01",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 40,
+              "prefix": "M02",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 23,
+              "prefix": "M03",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 41,
+              "prefix": "R02",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 43,
+              "prefix": "R04",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 14,
+              "prefix": "S01",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 22,
+              "prefix": "S03",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 22,
+              "prefix": "S04",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 24,
+              "prefix": "S05",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 23,
+              "prefix": "S06",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 22,
+              "prefix": "S08",
+              "slot": "optic"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/54e48d9d7e4c5242",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Optic slot component; excluded by the source UI flag."
+      }
+    },
+    "55c4ca3b3028e4b2": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_cal_tuning_pump_bmike3",
+        "kind": "attachment",
+        "loot_id": 151364,
+        "name": "Cal Tuning Pump Bmike3",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "55c4ca3b3028e4b2",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "52cb04aba0f3be8b7334e79de55a9b762f3df2c4d7327730c46f762c34465cbd",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "C03",
+              "slot": "calibration"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/55c4ca3b3028e4b2",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Calibration slot component; excluded by the source UI flag."
+      }
+    },
+    "5acd02cc0843ac83": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_anims_kilo5_firstraise",
+        "kind": "attachment",
+        "loot_id": 123757,
+        "name": "Anims Kilo5 Firstraise",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "5acd02cc0843ac83",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "be65120702640012c4d9eaa435fa54a833b4ff61498ea1e5e91a657938394cba",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "P04",
+              "slot": "other"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/5acd02cc0843ac83",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Component in the Other slot; excluded by the source UI flag."
+      }
+    },
+    "5b689416e6d976ca": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_laserir_sml",
+        "kind": "attachment",
+        "loot_id": 151844,
+        "name": "Laserir Sml",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "5b689416e6d976ca",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "94c68aab79b4ac11164f61c9af64dab0c17bd4f6ada089719659ac290b26939d",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 9,
+              "prefix": "A01",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 10,
+              "prefix": "A03",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 10,
+              "prefix": "A04",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 6,
+              "prefix": "B01",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 10,
+              "prefix": "C03",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 8,
+              "prefix": "L04",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 5,
+              "prefix": "M01",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 5,
+              "prefix": "M03",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 5,
+              "prefix": "R02",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 5,
+              "prefix": "R03",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 6,
+              "prefix": "R04",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 8,
+              "prefix": "S03",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 8,
+              "prefix": "S04",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 9,
+              "prefix": "S05",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 8,
+              "prefix": "S06",
+              "slot": "laser"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 8,
+              "prefix": "S08",
+              "slot": "laser"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/5b689416e6d976ca",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Laser slot component; excluded by the source UI flag."
+      }
+    },
+    "5c25a49c26fbb600": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_lasertrap1",
+        "kind": "attachment",
+        "loot_id": 82792,
+        "name": "Lasertrap1",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "5c25a49c26fbb600",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "8a61e480283942347840ee57ddd971105b4950414d2b5e1022efc94daa7a87dc",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 9,
+              "prefix": "A05",
+              "slot": "laser"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/5c25a49c26fbb600",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Laser slot component; excluded by the source UI flag."
+      }
+    },
+    "5c59a40d25ce88d4": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_comp_cromeo",
+        "kind": "attachment",
+        "loot_id": 122861,
+        "name": "Comp Cromeo",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "5c59a40d25ce88d4",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "0f89ef557ceb18e70585cc4be70e0533c5c8e3bae5b5a0f79075c54c44903b88",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 10,
+              "prefix": "A02",
+              "slot": "muzzle"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/5c59a40d25ce88d4",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Muzzle slot component; excluded by the source UI flag."
+      }
+    },
+    "5cecc23577494031": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_nvgads_disable",
+        "kind": "attachment",
+        "loot_id": 113100,
+        "name": "Nvgads Disable",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "5cecc23577494031",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "f9836b25de1ef8ec2dd586d8c00c81a7a110078ff5e4c81cab771d59f1372787",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "A01",
+              "slot": "night_vision_modifier"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "A02",
+              "slot": "night_vision_modifier"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "A03",
+              "slot": "night_vision_modifier"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "A04",
+              "slot": "night_vision_modifier"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "A05",
+              "slot": "night_vision_modifier"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "A09",
+              "slot": "night_vision_modifier"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "B01",
+              "slot": "night_vision_modifier"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "B03",
+              "slot": "night_vision_modifier"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "B04",
+              "slot": "night_vision_modifier"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "C03",
+              "slot": "magazine"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "C04",
+              "slot": "night_vision_modifier"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "L02",
+              "slot": "night_vision_modifier"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "L03",
+              "slot": "night_vision_modifier"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "L04",
+              "slot": "night_vision_modifier"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "M01",
+              "slot": "night_vision_modifier"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "M02",
+              "slot": "night_vision_modifier"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "M03",
+              "slot": "night_vision_modifier"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "P02",
+              "slot": "night_vision_modifier"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "P03",
+              "slot": "night_vision_modifier"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "P04",
+              "slot": "night_vision_modifier"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "P07",
+              "slot": "night_vision_modifier"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "R02",
+              "slot": "night_vision_modifier"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "R03",
+              "slot": "night_vision_modifier"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "R04",
+              "slot": "night_vision_modifier"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "S01",
+              "slot": "night_vision_modifier"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "S03",
+              "slot": "night_vision_modifier"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "S04",
+              "slot": "night_vision_modifier"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "S05",
+              "slot": "night_vision_modifier"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "S06",
+              "slot": "night_vision_modifier"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "S08",
+              "slot": "night_vision_modifier"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/5cecc23577494031",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Component in Magazine and Night Vision Modifier slots; excluded by the source UI flag."
+      }
+    },
+    "60d87b27f81d7458": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_cal_tuning_xar1_auto",
+        "kind": "attachment",
+        "loot_id": 121777,
+        "name": "Cal Tuning Xar1 Auto",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "60d87b27f81d7458",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed category reference is absent; the source selection path rejects its empty derived reference.",
+          "historical_evidence_sha256": "dbec990a96b72a425b49c690641d946904077577987643933c29d5f7694827a8",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 2,
+              "prefix": "A09",
+              "slot": "calibration"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/60d87b27f81d7458",
+          "rejection_reason": "empty_auxiliary_reference",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Calibration slot component; rejected because its auxiliary reference is empty."
+      }
+    },
+    "660fcdf24aca86a6": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_hammer_swhiskey_ss",
+        "kind": "attachment",
+        "loot_id": 143893,
+        "name": "Hammer Swhiskey Ss",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "660fcdf24aca86a6",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "4b1df15f046cbe58c66d1fb8332fb476aa10cf5ff6613c4d4579237ce1fdbf01",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 6,
+              "prefix": "P07",
+              "slot": "launcher"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/660fcdf24aca86a6",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Launcher slot component; excluded by the source UI flag."
+      }
+    },
+    "6747dc7df498343b": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_pgrip_cromeo",
+        "kind": "attachment",
+        "loot_id": 122368,
+        "name": "Pgrip Cromeo",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "6747dc7df498343b",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "74ef623d325e12021cfb473449983ec00a79c67c341743474d809a4852ab7cd5",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "A02",
+              "slot": "rear_grip"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/6747dc7df498343b",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Rear Grip slot component; excluded by the source UI flag."
+      }
+    },
+    "67c8bfa5cc4c4dd1": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_anims_hotel45_paris",
+        "kind": "attachment",
+        "loot_id": 91785,
+        "name": "Anims Hotel45 Paris",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "67c8bfa5cc4c4dd1",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "1b5aa512aa30b762d1611e894e5b1a838cea808fb56d143bf7ea439b5f9bbdb0",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 2,
+              "prefix": "P03",
+              "slot": "calibration"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/67c8bfa5cc4c4dd1",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Calibration slot component; excluded by the source UI flag."
+      }
+    },
+    "68840e398c882dcf": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_addsway_spier9",
+        "kind": "attachment",
+        "loot_id": 129295,
+        "name": "Addsway Spier9",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "68840e398c882dcf",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "5cc23a258c59195b3b83f7d6614952f8c6ceac378eae31b19da1f0beb7ceb662",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "S06",
+              "slot": "other"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/68840e398c882dcf",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Component in the Other slot; excluded by the source UI flag."
+      }
+    },
+    "6980e441febbc744": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_handcuffed_ak",
+        "kind": "attachment",
+        "loot_id": 114124,
+        "name": "Handcuffed Ak",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "6980e441febbc744",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "378a110482524ac37689997534d8388ad9e4b4888cf97c487cea9881221d2fc7",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 2,
+              "prefix": "A01",
+              "slot": "calibration"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/6980e441febbc744",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Calibration slot component; excluded by the source UI flag."
+      }
+    },
+    "6b701a29f3e36776": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_audio_mike4_iw9",
+        "kind": "attachment",
+        "loot_id": 108391,
+        "name": "Audio Mike4 Iw9",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "6b701a29f3e36776",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "ccc2c588d415465d9a36b1b9efe6101a08eea1d5ed31c6d4ee446e3fa36fe55b",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 2,
+              "prefix": "A05",
+              "slot": "night_vision_modifier"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/6b701a29f3e36776",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Night Vision Modifier slot component; excluded by the source UI flag."
+      }
+    },
+    "6cda80d968379cca": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_rail_asierra12",
+        "kind": "attachment",
+        "loot_id": 68848,
+        "name": "Rail Asierra12",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "6cda80d968379cca",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "8a4bfe40dc58b023beee2f477b21c0cc0fb9571d72e4f64ad928e44fac3d37b9",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 2,
+              "prefix": "B01",
+              "slot": "night_vision_modifier"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/6cda80d968379cca",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Night Vision Modifier slot component; excluded by the source UI flag."
+      }
+    },
+    "6e91a0b1c9fb22ba": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_mag_limax_lrgstock_sp",
+        "kind": "attachment",
+        "loot_id": 99686,
+        "name": "Mag Limax Lrgstock Sp",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "6e91a0b1c9fb22ba",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "19d13fcb9d5a480b3e54b6f4daa5a8a12b4212ca87caac94101d40562fbc72b9",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 5,
+              "prefix": "R02",
+              "slot": "magazine"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/6e91a0b1c9fb22ba",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Magazine slot component; excluded by the source UI flag."
+      }
+    },
+    "7580076752e5b3b4": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_cal_tuning_decho_burst",
+        "kind": "attachment",
+        "loot_id": 157257,
+        "name": "Cal Tuning Decho Burst",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "7580076752e5b3b4",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "055a6ac5b00cf8f36b1836585b731b511282a52aaf6899f612f8d36bf25f9997",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 3,
+              "prefix": "P02",
+              "slot": "calibration"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/7580076752e5b3b4",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Calibration slot component; excluded by the source UI flag."
+      }
+    },
+    "771cd47fa148b721": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_cal_tuning_stocksaw_kilo437",
+        "kind": "attachment",
+        "loot_id": 70247,
+        "name": "Cal Tuning Stocksaw Kilo437",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "771cd47fa148b721",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "3e6faeb82044dc1d5b74bc7e7bdb8e64c6c6b67111566ffe6b9949f303bb00ce",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "A04",
+              "slot": "calibration"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/771cd47fa148b721",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Calibration slot component; excluded by the source UI flag."
+      }
+    },
+    "78cf2559999910fe": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_bar_stockno_lgt_moscar",
+        "kind": "attachment",
+        "loot_id": 122978,
+        "name": "Bar Stockno Lgt Moscar",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "78cf2559999910fe",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "b6075cdd1457e35e41d8226ac60d3799245b4af24a908240af987f9917431f69",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 6,
+              "prefix": "M03",
+              "slot": "barrel"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/78cf2559999910fe",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Barrel slot component; excluded by the source UI flag."
+      }
+    },
+    "7be8a6721b6d80a6": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_reflex05_swhiskey",
+        "kind": "attachment",
+        "loot_id": 157821,
+        "name": "Reflex05 Swhiskey",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "7be8a6721b6d80a6",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "0a473c3fc59dc7ea370671aca70020ab8cba17195d149818ab4c98de9a00078d",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 5,
+              "prefix": "P07",
+              "slot": "optic"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/7be8a6721b6d80a6",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Optic slot component; excluded by the source UI flag."
+      }
+    },
+    "7e43654da8ac730b": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_fourx_therm01_sp",
+        "kind": "attachment",
+        "loot_id": 90996,
+        "name": "Fourx Therm01 Sp",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "7e43654da8ac730b",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "43386539b7a6e18968c32584f74cded7f9188225c1d9e8ea3460668b08fc30dd",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 20,
+              "prefix": "A01",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 21,
+              "prefix": "A02",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 21,
+              "prefix": "A03",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 21,
+              "prefix": "A04",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 21,
+              "prefix": "A05",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 21,
+              "prefix": "A09",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 21,
+              "prefix": "B01",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 21,
+              "prefix": "B03",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 21,
+              "prefix": "B04",
+              "slot": "optic"
+            },
+            {
+              "metadata_locked": false,
+              "native_id": 21,
+              "prefix": "L03",
+              "slot": "optic"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/7e43654da8ac730b",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Optic slot component; excluded by the source UI flag."
+      }
+    },
+    "7ebadba55ee81a20": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_cal_tuning_recho_xsmag",
+        "kind": "attachment",
+        "loot_id": 144409,
+        "name": "Cal Tuning Recho Xsmag",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "internal_description": {
+        "evidence": {
+          "asset_id": "7ebadba55ee81a20",
+          "description_basis": "Native sharing slot categories and exact source rejection evidence only; no gameplay function or canonical product name inferred.",
+          "finding": "The reviewed source UI flag excludes this record.",
+          "historical_evidence_sha256": "b8ec752f568c14cac2eceb7576dcaf7cddb59f915176ad7e0c8b18d861365afe",
+          "native_references": [
+            {
+              "metadata_locked": false,
+              "native_id": 1,
+              "prefix": "L02",
+              "slot": "calibration"
+            }
+          ],
+          "policy_reference": "metadata/policies/internal-descriptions.json#/records/7ebadba55ee81a20",
+          "rejection_reason": "source_ui_flag",
+          "source_proven_nonselectable": true
+        },
+        "language": "en",
+        "quality": "reviewed_internal_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-internal-descriptions-2026-11-09",
+        "text": "Internal · Calibration slot component; excluded by the source UI flag."
+      }
+    }
+  },
+  "review_date": "2026-11-09",
+  "review_kind": "public_release_description_policy",
+  "scope_asset_count": 72,
+  "scope_asset_ids": [
+    "0018162cba4edcc8",
+    "01fc874357ea00a6",
+    "0228aeb2b9cee992",
+    "06da833464bae609",
+    "08e6d16a87a5f59d",
+    "09758be9c149c604",
+    "0f9af35e9c08d6a2",
+    "103594464a18a5e8",
+    "1067bbe63a3ca74e",
+    "10d33356eb86c8c0",
+    "114cfb716b0dee1a",
+    "11c371364cdc1d13",
+    "145344f1b9602a0f",
+    "15d25dac1bf0b96f",
+    "17bd845f1a26323f",
+    "18795588987e8773",
+    "1cf58583fa1798ca",
+    "1f246ee65f99cf20",
+    "207962cbbe3a8d36",
+    "2101bfad74f6f3c9",
+    "2269fbecbf18b9ed",
+    "22af75fb5b56473f",
+    "22d70848e61c2f0c",
+    "241fba411583575a",
+    "2b6e117e98d3733f",
+    "2c4563450670827a",
+    "2e434d4937105092",
+    "2e9ad42c82f3c7c0",
+    "31c7b6b6428d213c",
+    "31e0b5a45f33ce01",
+    "348dd7727c72982d",
+    "364ab8104d3b600c",
+    "36d4079caf8b45b5",
+    "3783b227d98da33e",
+    "385b80168aedffc5",
+    "3b888d4b50e96673",
+    "3b95e40068e0cd6a",
+    "3f732ce2e265eec9",
+    "40476f68dd7c6f0b",
+    "40ab0083a34096ea",
+    "414345d9cb6e56be",
+    "4233511a8264b377",
+    "434c692ce1b00d5c",
+    "46b9be9836e937db",
+    "4814687c3c3cae09",
+    "484664b9876dce3e",
+    "49b8a977752b5cc5",
+    "4fdc37f0da4d2c3c",
+    "526972b25eb16781",
+    "54e48c9d7e4c508f",
+    "54e48d9d7e4c5242",
+    "55c4ca3b3028e4b2",
+    "5acd02cc0843ac83",
+    "5b689416e6d976ca",
+    "5c25a49c26fbb600",
+    "5c59a40d25ce88d4",
+    "5cecc23577494031",
+    "60d87b27f81d7458",
+    "660fcdf24aca86a6",
+    "6747dc7df498343b",
+    "67c8bfa5cc4c4dd1",
+    "68840e398c882dcf",
+    "6980e441febbc744",
+    "6b701a29f3e36776",
+    "6cda80d968379cca",
+    "6e91a0b1c9fb22ba",
+    "7580076752e5b3b4",
+    "771cd47fa148b721",
+    "78cf2559999910fe",
+    "7be8a6721b6d80a6",
+    "7e43654da8ac730b",
+    "7ebadba55ee81a20"
+  ],
+  "scope_asset_ids_sha256": "afbc05fafed513e8a673ea2061367c0f38109914d302781e957918a14ab6c428",
+  "source": {
+    "canonical_review_sha256": "2c3d64b1e22d1209b74b0b551b2263ebe39d2eeabc119a21f6185cf6acd7908d",
+    "documentation": "docs/DATA.md#description-policies",
+    "input_filename": "internal-descriptions.json",
+    "input_sha256": "2c3d64b1e22d1209b74b0b551b2263ebe39d2eeabc119a21f6185cf6acd7908d",
+    "kind": "reviewed_internal_description",
+    "language": "en",
+    "policy": "Preserve original names, qualities, native identities, aliases and claims; prefer future verified names without double counting. Descriptions remain separate from canonical-name evidence; no other asset, reference or account is covered.",
+    "policy_reference": "metadata/policies/internal-descriptions.json",
+    "policy_sha256": "c6242d8c49e0fada0c61c168bcf809786c6e389e8657ac69649eab18a1b10f8b",
+    "provenance_mode": "Sanitized reviewed facts and immutable content digests; proprietary inputs are excluded.",
+    "scope_asset_count": 72,
+    "scope_asset_ids_sha256": "afbc05fafed513e8a673ea2061367c0f38109914d302781e957918a14ab6c428",
+    "source_date": "2026-11-09",
+    "title": "Reviewed English descriptions for 72 retained MW4 internal records"
+  },
+  "source_id": "reviewed-internal-descriptions-2026-11-09"
+}

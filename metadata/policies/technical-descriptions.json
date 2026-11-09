@@ -1,0 +1,547 @@
+{
+  "canonical_review_sha256": "b83099465f7c22396363a9b6e5fd07f27d7e64b1a3f1914da014d716d15d2dc9",
+  "format_version": 2,
+  "policy": {
+    "classification": "separate_descriptions_never_canonical_names",
+    "id": "mw4-technical-descriptions-v1",
+    "language": "en",
+    "preservation": "Preserve original names, qualities, native identities, aliases and claims; prefer future verified names without double counting.",
+    "review_date": "2026-11-09",
+    "review_status": "reviewed",
+    "scope_asset_count": 11,
+    "scope_asset_ids_sha256": "0d176fcb55552685f68d8715d97ed045d93606e685eb35df561e6b17ee65c652",
+    "scope_type": "exact_retained_native_record_bindings",
+    "version": 1
+  },
+  "records": {
+    "082948453ab4d9e3": {
+      "base": {
+        "aliases": [],
+        "internal_ref": null,
+        "kind": "attachment",
+        "loot_id": null,
+        "name": "Uncatalogued attachment",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "technical_description": {
+        "evidence": {
+          "asset_id": "082948453ab4d9e3",
+          "description_basis": "Exact retained native weapon/slot identity binding only.",
+          "empty_slot_semantics_asserted": false,
+          "exact_internal_ref": "rex_dynamic_null_golf28",
+          "historical_evidence_sha256": "dc2fa241f8d4a75ff312a8a128b1022246acf3fdd61802012a71ba902fb332cb",
+          "is_canonical_name": false,
+          "live_selectability_proven_by_caption": false,
+          "native_reference": {
+            "metadata_locked": false,
+            "native_id": 1,
+            "prefix": "M02",
+            "slot": "dynamic"
+          },
+          "policy_reference": "metadata/policies/technical-descriptions.json#/records/082948453ab4d9e3",
+          "reviewed_own_base_default_relationship": true,
+          "source_limits": [
+            "A retained native dictionary binding does not prove in-game selection, import acceptance, effects, statistics or availability.",
+            "The technical wording is authored from a binding; it is not recovered English localization.",
+            "The source audit is limited to inspected copies and documented routes. Other runtime contexts, files or future evidence may provide a real name.",
+            "Exact own base default component is established; an empty slot, a canonical label and live menu selectability are not established by that relationship."
+          ]
+        },
+        "language": "en",
+        "quality": "reviewed_technical_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-technical-descriptions-2026-11-09",
+        "text": "Technical record · Dynamic-slot entry for MAR-9."
+      }
+    },
+    "0f8717576adcedb5": {
+      "base": {
+        "aliases": [],
+        "internal_ref": "rex_misc_sam_site_missile",
+        "kind": "weapon",
+        "loot_id": 146015,
+        "name": "Sam Site Missile",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "technical_description": {
+        "evidence": {
+          "asset_id": "0f8717576adcedb5",
+          "description_basis": "Exact retained P01 utility weapon identity binding only.",
+          "exact_internal_ref": "rex_misc_sam_site_missile",
+          "historical_evidence_sha256": "0b0544c4c8489ae965750d762f0feed737095f480341762720f250b551ac44ed",
+          "is_canonical_name": false,
+          "live_selectability_proven_by_caption": false,
+          "native_reference": {
+            "metadata_locked": false,
+            "prefix": "P01",
+            "slot": "weapon",
+            "utility": true
+          },
+          "policy_reference": "metadata/policies/technical-descriptions.json#/records/0f8717576adcedb5",
+          "separate_utility_ids": {
+            "catalog_loot_id": 146015,
+            "dmz_loot_id": 148028,
+            "meaning": "Distinct retained identity values; no English name is inferred."
+          },
+          "source_limits": [
+            "A retained native dictionary binding does not prove in-game selection, import acceptance, effects, statistics or availability.",
+            "The technical wording is authored from a binding; it is not recovered English localization.",
+            "The source audit is limited to inspected copies and documented routes. Other runtime contexts, files or future evidence may provide a real name.",
+            "The three inspected dmzLootID Lua reads concern progression/unlocks rather than a display-name lookup. This is bounded static route evidence, not proof of every future runtime context."
+          ]
+        },
+        "language": "en",
+        "quality": "reviewed_technical_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-technical-descriptions-2026-11-09",
+        "text": "Technical record · P01 utility weapon entry."
+      }
+    },
+    "110091e80861c775": {
+      "base": {
+        "aliases": [],
+        "internal_ref": null,
+        "kind": "attachment",
+        "loot_id": null,
+        "name": "Uncatalogued attachment",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "technical_description": {
+        "evidence": {
+          "asset_id": "110091e80861c775",
+          "description_basis": "Exact retained native weapon/slot identity binding only.",
+          "exact_internal_ref": "rex_cal_tuning_pistock_decho",
+          "historical_evidence_sha256": "8bb5ae6c498f2dad56bc6984b1aed27251c74d88dc9729d3f3b6cfd8183b1676",
+          "is_canonical_name": false,
+          "live_selectability_proven_by_caption": false,
+          "native_reference": {
+            "metadata_locked": false,
+            "native_id": 2,
+            "prefix": "P02",
+            "slot": "calibration"
+          },
+          "policy_reference": "metadata/policies/technical-descriptions.json#/records/110091e80861c775",
+          "source_limits": [
+            "A retained native dictionary binding does not prove in-game selection, import acceptance, effects, statistics or availability.",
+            "The technical wording is authored from a binding; it is not recovered English localization.",
+            "The source audit is limited to inspected copies and documented routes. Other runtime contexts, files or future evidence may provide a real name."
+          ]
+        },
+        "language": "en",
+        "quality": "reviewed_technical_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-technical-descriptions-2026-11-09",
+        "text": "Technical record · Calibration-slot entry for .50 GS."
+      }
+    },
+    "1e7b5b0fc5497fbe": {
+      "base": {
+        "aliases": [],
+        "internal_ref": null,
+        "kind": "attachment",
+        "loot_id": null,
+        "name": "Uncatalogued attachment",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "technical_description": {
+        "evidence": {
+          "asset_id": "1e7b5b0fc5497fbe",
+          "description_basis": "Exact retained native weapon/slot identity binding only.",
+          "empty_slot_semantics_asserted": false,
+          "exact_internal_ref": "rex_dynamic_null_xsm1",
+          "historical_evidence_sha256": "bc84421837bdd8238ba4b8a0614d0c1fccb546eec95eb053f405628b0691961b",
+          "is_canonical_name": false,
+          "live_selectability_proven_by_caption": false,
+          "native_reference": {
+            "metadata_locked": false,
+            "native_id": 1,
+            "prefix": "S08",
+            "slot": "dynamic"
+          },
+          "policy_reference": "metadata/policies/technical-descriptions.json#/records/1e7b5b0fc5497fbe",
+          "reviewed_own_base_default_relationship": true,
+          "source_limits": [
+            "A retained native dictionary binding does not prove in-game selection, import acceptance, effects, statistics or availability.",
+            "The technical wording is authored from a binding; it is not recovered English localization.",
+            "The source audit is limited to inspected copies and documented routes. Other runtime contexts, files or future evidence may provide a real name.",
+            "Exact own base default component is established; an empty slot, a canonical label and live menu selectability are not established by that relationship."
+          ]
+        },
+        "language": "en",
+        "quality": "reviewed_technical_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-technical-descriptions-2026-11-09",
+        "text": "Technical record · Dynamic-slot entry for X-58 Nyx."
+      }
+    },
+    "252f48bbd0918446": {
+      "base": {
+        "aliases": [],
+        "internal_ref": null,
+        "kind": "attachment",
+        "loot_id": null,
+        "name": "Uncatalogued attachment",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "technical_description": {
+        "evidence": {
+          "asset_id": "252f48bbd0918446",
+          "description_basis": "Exact retained native weapon/slot identity binding only.",
+          "empty_slot_semantics_asserted": false,
+          "exact_internal_ref": "rex_dynamic_null_sierra100",
+          "historical_evidence_sha256": "fed2bd4b835798459be805c32e9c3e3f8de589f2c4bc6a40f2b4e577e4007bbe",
+          "is_canonical_name": false,
+          "live_selectability_proven_by_caption": false,
+          "native_reference": {
+            "metadata_locked": false,
+            "native_id": 1,
+            "prefix": "R03",
+            "slot": "dynamic"
+          },
+          "policy_reference": "metadata/policies/technical-descriptions.json#/records/252f48bbd0918446",
+          "reviewed_own_base_default_relationship": true,
+          "source_limits": [
+            "A retained native dictionary binding does not prove in-game selection, import acceptance, effects, statistics or availability.",
+            "The technical wording is authored from a binding; it is not recovered English localization.",
+            "The source audit is limited to inspected copies and documented routes. Other runtime contexts, files or future evidence may provide a real name.",
+            "Exact own base default component is established; an empty slot, a canonical label and live menu selectability are not established by that relationship."
+          ]
+        },
+        "language": "en",
+        "quality": "reviewed_technical_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-technical-descriptions-2026-11-09",
+        "text": "Technical record · Dynamic-slot entry for Astaroth .57."
+      }
+    },
+    "409a40a9e315c521": {
+      "base": {
+        "aliases": [],
+        "internal_ref": null,
+        "kind": "attachment",
+        "loot_id": null,
+        "name": "Uncatalogued attachment",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "technical_description": {
+        "evidence": {
+          "asset_id": "409a40a9e315c521",
+          "description_basis": "Exact retained native weapon/slot identity binding only.",
+          "empty_slot_semantics_asserted": false,
+          "exact_internal_ref": "rex_dynamic_null_sierrax",
+          "historical_evidence_sha256": "0d6f4cc00a37fc2d5753b0a3633b6c71bd48c489069f092ecb3f087a019c5202",
+          "is_canonical_name": false,
+          "live_selectability_proven_by_caption": false,
+          "native_reference": {
+            "metadata_locked": false,
+            "native_id": 1,
+            "prefix": "L03",
+            "slot": "dynamic"
+          },
+          "policy_reference": "metadata/policies/technical-descriptions.json#/records/409a40a9e315c521",
+          "reviewed_own_base_default_relationship": true,
+          "source_limits": [
+            "A retained native dictionary binding does not prove in-game selection, import acceptance, effects, statistics or availability.",
+            "The technical wording is authored from a binding; it is not recovered English localization.",
+            "The source audit is limited to inspected copies and documented routes. Other runtime contexts, files or future evidence may provide a real name.",
+            "Exact own base default component is established; an empty slot, a canonical label and live menu selectability are not established by that relationship."
+          ]
+        },
+        "language": "en",
+        "quality": "reviewed_technical_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-technical-descriptions-2026-11-09",
+        "text": "Technical record · Dynamic-slot entry for FiNN LMG."
+      }
+    },
+    "427899df06f61aac": {
+      "base": {
+        "aliases": [],
+        "internal_ref": null,
+        "kind": "attachment",
+        "loot_id": null,
+        "name": "Uncatalogued attachment",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "technical_description": {
+        "evidence": {
+          "asset_id": "427899df06f61aac",
+          "description_basis": "Exact retained native weapon/slot identity binding only.",
+          "empty_slot_semantics_asserted": false,
+          "exact_internal_ref": "rex_dynamic_null_recho",
+          "historical_evidence_sha256": "36bed855433b19839e5a9911ff678d437c346daa081c9eec965bef3323bb26ec",
+          "is_canonical_name": false,
+          "live_selectability_proven_by_caption": false,
+          "native_reference": {
+            "metadata_locked": false,
+            "native_id": 1,
+            "prefix": "L02",
+            "slot": "dynamic"
+          },
+          "policy_reference": "metadata/policies/technical-descriptions.json#/records/427899df06f61aac",
+          "reviewed_own_base_default_relationship": true,
+          "source_limits": [
+            "A retained native dictionary binding does not prove in-game selection, import acceptance, effects, statistics or availability.",
+            "The technical wording is authored from a binding; it is not recovered English localization.",
+            "The source audit is limited to inspected copies and documented routes. Other runtime contexts, files or future evidence may provide a real name.",
+            "Exact own base default component is established; an empty slot, a canonical label and live menu selectability are not established by that relationship."
+          ]
+        },
+        "language": "en",
+        "quality": "reviewed_technical_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-technical-descriptions-2026-11-09",
+        "text": "Technical record · Dynamic-slot entry for APOC-338."
+      }
+    },
+    "456f6831d04ffc02": {
+      "base": {
+        "aliases": [],
+        "internal_ref": null,
+        "kind": "attachment",
+        "loot_id": null,
+        "name": "Uncatalogued attachment",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "technical_description": {
+        "evidence": {
+          "asset_id": "456f6831d04ffc02",
+          "description_basis": "Exact retained native weapon/slot identity binding only.",
+          "empty_slot_semantics_asserted": false,
+          "exact_internal_ref": "rex_dynamic_null_hotel45",
+          "historical_evidence_sha256": "398237ae91aa388923a6fea79ecd76276ac911cc675151777a57b223bbd5b04c",
+          "is_canonical_name": false,
+          "live_selectability_proven_by_caption": false,
+          "native_reference": {
+            "metadata_locked": false,
+            "native_id": 1,
+            "prefix": "P03",
+            "slot": "dynamic"
+          },
+          "policy_reference": "metadata/policies/technical-descriptions.json#/records/456f6831d04ffc02",
+          "reviewed_own_base_default_relationship": true,
+          "source_limits": [
+            "A retained native dictionary binding does not prove in-game selection, import acceptance, effects, statistics or availability.",
+            "The technical wording is authored from a binding; it is not recovered English localization.",
+            "The source audit is limited to inspected copies and documented routes. Other runtime contexts, files or future evidence may provide a real name.",
+            "Exact own base default component is established; an empty slot, a canonical label and live menu selectability are not established by that relationship."
+          ]
+        },
+        "language": "en",
+        "quality": "reviewed_technical_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-technical-descriptions-2026-11-09",
+        "text": "Technical record · Dynamic-slot entry for Krait P68."
+      }
+    },
+    "4d268a4bccd417d0": {
+      "base": {
+        "aliases": [],
+        "internal_ref": null,
+        "kind": "attachment",
+        "loot_id": null,
+        "name": "Uncatalogued attachment",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "technical_description": {
+        "evidence": {
+          "asset_id": "4d268a4bccd417d0",
+          "description_basis": "Exact retained native weapon/slot identity binding only.",
+          "empty_slot_semantics_asserted": false,
+          "exact_internal_ref": "rex_dynamic_null_limax",
+          "historical_evidence_sha256": "2082dc16f75e497d44269de83e571ca20ad94dce0a9b3d8ab83b8a10b040b765",
+          "is_canonical_name": false,
+          "live_selectability_proven_by_caption": false,
+          "native_reference": {
+            "metadata_locked": false,
+            "native_id": 1,
+            "prefix": "R02",
+            "slot": "dynamic"
+          },
+          "policy_reference": "metadata/policies/technical-descriptions.json#/records/4d268a4bccd417d0",
+          "reviewed_own_base_default_relationship": true,
+          "source_limits": [
+            "A retained native dictionary binding does not prove in-game selection, import acceptance, effects, statistics or availability.",
+            "The technical wording is authored from a binding; it is not recovered English localization.",
+            "The source audit is limited to inspected copies and documented routes. Other runtime contexts, files or future evidence may provide a real name.",
+            "Exact own base default component is established; an empty slot, a canonical label and live menu selectability are not established by that relationship."
+          ]
+        },
+        "language": "en",
+        "quality": "reviewed_technical_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-technical-descriptions-2026-11-09",
+        "text": "Technical record · Dynamic-slot entry for Signal 50."
+      }
+    },
+    "57cdf8fd235aa7b4": {
+      "base": {
+        "aliases": [],
+        "internal_ref": null,
+        "kind": "attachment",
+        "loot_id": null,
+        "name": "Uncatalogued attachment",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "technical_description": {
+        "evidence": {
+          "asset_id": "57cdf8fd235aa7b4",
+          "description_basis": "Exact retained native weapon/slot identity binding only.",
+          "empty_slot_semantics_asserted": false,
+          "exact_internal_ref": "rex_dynamic_null_bmike3",
+          "historical_evidence_sha256": "9250da82a64972286d91cb2c20be5d9b13f27bb4f6064b38e087bca24e148505",
+          "is_canonical_name": false,
+          "live_selectability_proven_by_caption": false,
+          "native_reference": {
+            "metadata_locked": false,
+            "native_id": 1,
+            "prefix": "C03",
+            "slot": "dynamic"
+          },
+          "policy_reference": "metadata/policies/technical-descriptions.json#/records/57cdf8fd235aa7b4",
+          "reviewed_own_base_default_relationship": true,
+          "source_limits": [
+            "A retained native dictionary binding does not prove in-game selection, import acceptance, effects, statistics or availability.",
+            "The technical wording is authored from a binding; it is not recovered English localization.",
+            "The source audit is limited to inspected copies and documented routes. Other runtime contexts, files or future evidence may provide a real name.",
+            "Exact own base default component is established; an empty slot, a canonical label and live menu selectability are not established by that relationship."
+          ]
+        },
+        "language": "en",
+        "quality": "reviewed_technical_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-technical-descriptions-2026-11-09",
+        "text": "Technical record · Dynamic-slot entry for Rezi 12."
+      }
+    },
+    "67f19c6bad5b1c0d": {
+      "base": {
+        "aliases": [],
+        "internal_ref": null,
+        "kind": "attachment",
+        "loot_id": null,
+        "name": "Uncatalogued attachment",
+        "name_ambiguous": false,
+        "name_claims": null,
+        "quality": "internal",
+        "source_ids": [
+          "local-item-catalog"
+        ]
+      },
+      "technical_description": {
+        "evidence": {
+          "asset_id": "67f19c6bad5b1c0d",
+          "description_basis": "Exact retained native weapon/slot identity binding only.",
+          "empty_slot_semantics_asserted": false,
+          "exact_internal_ref": "rex_dynamic_null_akilo",
+          "historical_evidence_sha256": "b2fd49b9d8d731f62e499d150af3a3640bdef98c86d4bea68dd0572babeb61d9",
+          "is_canonical_name": false,
+          "live_selectability_proven_by_caption": false,
+          "native_reference": {
+            "metadata_locked": false,
+            "native_id": 1,
+            "prefix": "A01",
+            "slot": "dynamic"
+          },
+          "policy_reference": "metadata/policies/technical-descriptions.json#/records/67f19c6bad5b1c0d",
+          "reviewed_own_base_default_relationship": true,
+          "source_limits": [
+            "A retained native dictionary binding does not prove in-game selection, import acceptance, effects, statistics or availability.",
+            "The technical wording is authored from a binding; it is not recovered English localization.",
+            "The source audit is limited to inspected copies and documented routes. Other runtime contexts, files or future evidence may provide a real name.",
+            "Exact own base default component is established; an empty slot, a canonical label and live menu selectability are not established by that relationship."
+          ]
+        },
+        "language": "en",
+        "quality": "reviewed_technical_description",
+        "source_date": "2026-11-09",
+        "source_id": "reviewed-technical-descriptions-2026-11-09",
+        "text": "Technical record · Dynamic-slot entry for Kastov 762."
+      }
+    }
+  },
+  "review_date": "2026-11-09",
+  "review_kind": "public_release_description_policy",
+  "scope_asset_count": 11,
+  "scope_asset_ids": [
+    "082948453ab4d9e3",
+    "0f8717576adcedb5",
+    "110091e80861c775",
+    "1e7b5b0fc5497fbe",
+    "252f48bbd0918446",
+    "409a40a9e315c521",
+    "427899df06f61aac",
+    "456f6831d04ffc02",
+    "4d268a4bccd417d0",
+    "57cdf8fd235aa7b4",
+    "67f19c6bad5b1c0d"
+  ],
+  "scope_asset_ids_sha256": "0d176fcb55552685f68d8715d97ed045d93606e685eb35df561e6b17ee65c652",
+  "source": {
+    "canonical_review_sha256": "b83099465f7c22396363a9b6e5fd07f27d7e64b1a3f1914da014d716d15d2dc9",
+    "documentation": "docs/DATA.md#description-policies",
+    "input_filename": "technical-descriptions.json",
+    "input_sha256": "b83099465f7c22396363a9b6e5fd07f27d7e64b1a3f1914da014d716d15d2dc9",
+    "kind": "reviewed_technical_description",
+    "language": "en",
+    "policy": "Preserve original names, qualities, native identities, aliases and claims; prefer future verified names without double counting. Descriptions remain separate from canonical-name evidence; no other asset, reference or account is covered.",
+    "policy_reference": "metadata/policies/technical-descriptions.json",
+    "policy_sha256": "2dbf7f6f36526587f546be44708de60381f9671c75e7ab1cb6fd596a8e03352e",
+    "provenance_mode": "Sanitized reviewed facts and immutable content digests; proprietary inputs are excluded.",
+    "scope_asset_count": 11,
+    "scope_asset_ids_sha256": "0d176fcb55552685f68d8715d97ed045d93606e685eb35df561e6b17ee65c652",
+    "source_date": "2026-11-09",
+    "title": "Reviewed English descriptions for 11 retained MW4 technical records"
+  },
+  "source_id": "reviewed-technical-descriptions-2026-11-09"
+}

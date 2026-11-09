@@ -1,0 +1,2 @@
+-r plugin/requirements.txt
+yourbot-sdk==0.10.1
