@@ -20,6 +20,7 @@ import threading
 import time
 
 ROOT = Path(__file__).resolve().parents[1]
+MANIFEST = json.loads((ROOT / "plugin/manifest.json").read_text(encoding="utf-8"))
 CAPS = ["interaction:respond", "storage:kv", "discord:send_message", "proxy:http"]
 CODE = "A01-42J19-BU11"
 
@@ -171,7 +172,7 @@ class LocalHost:
         token = "boot-" + mode
         self.boots.add(token)
         self.write({"jsonrpc": "2.0", "id": token, "method": "host.boot", "params": {
-            "discord_srv_id": "999", "plugin_id": "yourbot-cod-hub", "version": "0.1.0",
+            "discord_srv_id": "999", "plugin_id": MANIFEST["id"], "version": MANIFEST["version"],
             "capabilities": CAPS, "mode": mode}})
         self.pump(lambda: not self.boots)
 
@@ -185,7 +186,7 @@ class LocalHost:
                               "acknowledgments": [], "messages": [], "allow_post": allow_post}
         self.write({"jsonrpc": "2.0", "method": "event.interaction_create", "params": {
             "event_id": token, "event": event, "discord_srv_id": server,
-            "plugin_id": "yourbot-cod-hub", "version": "0.1.0", "capabilities": CAPS}})
+            "plugin_id": MANIFEST["id"], "version": MANIFEST["version"], "capabilities": CAPS}})
         self.pump(lambda: token in self.acks)
         result = self.events[token]
         assert len(result["acknowledgments"]) == 1

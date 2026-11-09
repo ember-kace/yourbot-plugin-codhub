@@ -10,18 +10,21 @@ import stat
 import zipfile
 
 try:
+    from .check_plugin_security import evaluate_sources
     from .english_release_gate import evaluate_documents
 except ImportError:
+    from check_plugin_security import evaluate_sources
     from english_release_gate import evaluate_documents
 
 ROOT = Path(__file__).resolve().parents[1]
 SDK_VERSION = "0.10.1"
+PLATFORM_PLUGIN_ID = "rmg84ete7r8b"
 FILES = (
     "manifest.json", "__main__.py", "requirements.txt", "README.md",
     "cod_hub/__init__.py", "cod_hub/app.py", "cod_hub/cards.py", "cod_hub/catalog.py",
     "cod_hub/codec.py", "cod_hub/meta.py", "cod_hub/reference.py", "cod_hub/store.py",
     "cod_hub/hub.py", "cod_hub/hub_cards.py", "cod_hub/library_ui.py",
-    "cod_hub/artwork.py",
+    "cod_hub/artwork.py", "cod_hub/urls.py",
     "cod_hub/comparison.py", "cod_hub/comparison_ui.py", "cod_hub/comparison_charts.py",
     "cod_hub/meta_browser.py", "cod_hub/telemetry.py",
     "cod_hub/fonts/font.ttf", "cod_hub/fonts/LICENSE.txt",
@@ -50,7 +53,7 @@ def _member_path(plugin_path, relative):
     return resolved
 
 
-def prepare(plugin_path):
+def prepare(plugin_path, *, plugin_id=PLATFORM_PLUGIN_ID, version=None):
     from yourbot_sdk import __version__
     from yourbot_sdk._validation import validate_artifact
     if __version__ != SDK_VERSION:
@@ -80,16 +83,21 @@ def prepare(plugin_path):
             members.append({"path": relative, "bytes": len(data), "sha256": hashlib.sha256(data).hexdigest()})
     data = buffer.getvalue()
     manifest = json.loads(captured["manifest.json"])
-    sdk = validate_artifact(plugin_id=manifest["id"], version=manifest["version"], artifact_bytes=data).to_payload()
+    if (not isinstance(manifest, dict) or not isinstance(manifest.get("id"), str)
+            or not isinstance(manifest.get("version"), str)):
+        raise ValueError("Manifest must contain string id and version fields.")
+    sdk = validate_artifact(plugin_id=plugin_id, version=version or manifest["version"], artifact_bytes=data).to_payload()
+    security = evaluate_sources(captured)
     # The gate must approve the bytes in this archive, even if an import changes
     # the source folder concurrently after capture.
     english = evaluate_documents(json.loads(captured["cod_hub/data/catalog.json"]),
                                  json.loads(captured["cod_hub/data/facts-sources.json"]))
     report = {
         "plugin_id": manifest["id"], "version": manifest["version"], "sdk_version": __version__,
-        "release_ready": english["ready"] and not sdk["errors"] and not sdk["warnings"],
+        "release_ready": english["ready"] and security["ready"] and not sdk["errors"] and not sdk["warnings"],
         "english": {key: english[key] for key in ("ready", "required", "total_translated", "total_described", "total_english_covered", "counts")},
         "english_issue_count": len(english["issues"]), "sdk_validation": sdk,
+        "artifact_policy": security,
         "archive_bytes": len(data), "uncompressed_bytes": sum(m["bytes"] for m in members),
         "archive_sha256": hashlib.sha256(data).hexdigest(), "members": members,
     }
@@ -99,11 +107,14 @@ def prepare(plugin_path):
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--plugin", type=Path, default=ROOT / "plugin")
+    parser.add_argument("--plugin-id", default=PLATFORM_PLUGIN_ID,
+                        help="Assigned platform plugin ID to validate against (defaults to COD Hub).")
+    parser.add_argument("--version", help="Expected version on the platform, when known.")
     parser.add_argument("--output", type=Path, help="Write a release ZIP; omitted for read-only validation.")
     parser.add_argument("--report", type=Path, help="Optional local validation report.")
     args = parser.parse_args(argv)
     try:
-        data, report = prepare(args.plugin)
+        data, report = prepare(args.plugin, plugin_id=args.plugin_id, version=args.version)
     except (ValueError, OSError, ImportError, SyntaxError) as error:
         print(json.dumps({"release_ready": False, "error": str(error)})); return 1
     if args.output and report["release_ready"]:

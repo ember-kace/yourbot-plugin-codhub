@@ -47,7 +47,7 @@ def button(payload, label):
 class MetaBrowserTests(unittest.TestCase):
     def setUp(self):
         self.clock = MockClock(start=1_000_000)
-        self.ctx = MockContext(server_id="999", plugin_id="yourbot-cod-hub", capabilities=CAPS, clock=self.clock)
+        self.ctx = MockContext(server_id="999", plugin_id="rmg84ete7r8b", capabilities=CAPS, clock=self.clock)
         self.ctx.http.mock_response(MP_URL, body=json.dumps(feed()))
         self.ctx.http.mock_response(WZ_URL, body=json.dumps(feed("warzone")))
 
@@ -87,7 +87,7 @@ class MetaBrowserTests(unittest.TestCase):
         self.view(kind="SMGs")
         self.view(kind="LMGs")
         self.assertEqual(len(self.ctx.http.requests), 1)
-        fresh = MockContext(server_id="999", plugin_id="yourbot-cod-hub", capabilities=CAPS, clock=self.clock)
+        fresh = MockContext(server_id="999", plugin_id="rmg84ete7r8b", capabilities=CAPS, clock=self.clock)
         fresh.kv = self.ctx.kv
         value = browser.get_mode_meta(fresh, "multiplayer", "AR", now=self.clock.now()+30)
         self.assertTrue(value["available"])

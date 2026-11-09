@@ -33,7 +33,7 @@ def menu(payload, placeholder):
 
 class HubJourneys(unittest.TestCase):
     def setUp(self):
-        self.ctx = MockContext(server_id="999", plugin_id="yourbot-cod-hub", capabilities=CAPS)
+        self.ctx = MockContext(server_id="999", plugin_id="rmg84ete7r8b", capabilities=CAPS)
 
     def test_public_launcher_creates_separate_private_browser_without_kv(self):
         hub.handle_home(self.ctx, event(interaction_type=2))

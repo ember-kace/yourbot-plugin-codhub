@@ -35,7 +35,7 @@ def menu(payload, placeholder):
 
 class ComparisonJourneys(unittest.TestCase):
     def setUp(self):
-        self.ctx = MockContext(server_id="999", plugin_id="yourbot-cod-hub", capabilities=CAPS)
+        self.ctx = MockContext(server_id="999", plugin_id="rmg84ete7r8b", capabilities=CAPS)
 
     def open(self, left="A01", right="A05", view="overview", mode="multiplayer"):
         ui.handle_command(self.ctx, event(interaction_type=2, options={"left": left, "right": right, "view": view, "mode": mode}))

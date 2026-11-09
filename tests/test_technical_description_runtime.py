@@ -128,7 +128,7 @@ class TechnicalDescriptionRuntimeTests(unittest.TestCase):
             for handler, values in ((app.handle_build, {"options": {"code": code}}),
                                     (hub.handle_import, {"modal_values": {"code": code, "title": ""}})):
                 with self.subTest(asset=asset_id, handler=handler.__name__):
-                    ctx = MockContext(server_id="999", plugin_id="yourbot-cod-hub", capabilities=CAPS)
+                    ctx = MockContext(server_id="999", plugin_id="rmg84ete7r8b", capabilities=CAPS)
                     handler(ctx, event(**values))
                     response = ctx.interaction.followups[-1]
                     self.assertIn(expected_error, response["content"])

@@ -37,7 +37,7 @@ def build_menu(payload):
 class RefreshedMetaChoiceTests(unittest.TestCase):
     def setUp(self):
         self.clock = MockClock(start=1_000_000)
-        self.ctx = MockContext(server_id="999", plugin_id="yourbot-cod-hub", capabilities=CAPS, clock=self.clock)
+        self.ctx = MockContext(server_id="999", plugin_id="rmg84ete7r8b", capabilities=CAPS, clock=self.clock)
         self.data = feed()
         self.ctx.http.mock_response(MP_URL, body=json.dumps(self.data))
         clock_patch = patch.object(meta.time, "time", side_effect=self.clock.now)
@@ -136,7 +136,7 @@ class MetaProviderBoundsTests(unittest.TestCase):
                        url=prefix + "x" * (weapon_url_length - len(prefix)))
             row["build"].update(label="L" * 160, shareCode=CODE,
                                  attachments=[{"slot": "S" * 80, "name": "A" * 200} for _ in range(20)])
-        ctx = MockContext(server_id="999", plugin_id="yourbot-cod-hub", capabilities=CAPS)
+        ctx = MockContext(server_id="999", plugin_id="rmg84ete7r8b", capabilities=CAPS)
         ctx.http.mock_response(MP_URL, body=json.dumps(data))
         view = meta_browser.get_mode_meta(ctx, "multiplayer", now=1_000_000)
         self.assertTrue(view["available"], view.get("error"))
@@ -225,7 +225,7 @@ class EntryPointNamePolicyTests(unittest.TestCase):
         self.addCleanup(patcher.stop)
 
     def context(self):
-        return MockContext(server_id="999", plugin_id="yourbot-cod-hub", capabilities=CAPS)
+        return MockContext(server_id="999", plugin_id="rmg84ete7r8b", capabilities=CAPS)
 
     def test_slash_and_modal_reject_untranslated_build_before_any_preview_write(self):
         self.assertEqual(catalog.resolve_build(UNTRANSLATED_CODE)["label_status"], "fallback")
@@ -297,7 +297,7 @@ class RegisteredInteractionTests(unittest.TestCase):
         self.assertEqual(set(examples), {item["name"] for item in manifest["slash_commands"]})
         for name, options in examples.items():
             with self.subTest(command=name):
-                ctx = MockContext(server_id="999", plugin_id="yourbot-cod-hub", capabilities=CAPS)
+                ctx = MockContext(server_id="999", plugin_id="rmg84ete7r8b", capabilities=CAPS)
                 ctx.http.mock_response(reference.API_URL, body=json.dumps(wiki_response()))
                 command = make_event("interaction_create", interaction_type=2, command_name=name,
                                      user_id="111", channel_id="333", options=options)
@@ -324,7 +324,7 @@ class RegisteredInteractionTests(unittest.TestCase):
         }
         for custom_id, values in examples.items():
             with self.subTest(custom_id=custom_id):
-                ctx = MockContext(server_id="999", plugin_id="yourbot-cod-hub", capabilities=CAPS)
+                ctx = MockContext(server_id="999", plugin_id="rmg84ete7r8b", capabilities=CAPS)
                 ctx.http.mock_response(reference.API_URL, body=json.dumps(wiki_response()))
                 submitted = make_event("interaction_create", interaction_type=5, custom_id=custom_id,
                                        user_id="111", channel_id="333", modal_values=values)

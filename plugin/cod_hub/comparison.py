@@ -9,7 +9,7 @@ from copy import deepcopy
 from datetime import date
 import math
 import re
-from urllib.parse import urlsplit
+from .urls import split_https
 
 from . import catalog
 
@@ -76,7 +76,7 @@ def _provenance(value):
         raise ValueError("Measurement provenance is required.")
     source = _text(value.get("source_url"), "Source URL", 2048)
     try:
-        url = urlsplit(source)
+        url = split_https(source)
         if url.scheme != "https" or not url.hostname or url.username or url.password or url.port not in (None, 443):
             raise ValueError("Source URL must be a public HTTPS citation.")
         source_date = _text(value.get("source_date"), "Source date", 10)
@@ -99,7 +99,7 @@ def _provenance(value):
                    "source_url": _text(component.get("source_url"), "Component URL", 2048),
                    "source_date": _text(component.get("source_date"), "Component date", 10)}
             try:
-                url = urlsplit(row["source_url"])
+                url = split_https(row["source_url"])
                 if (url.scheme != "https" or not url.hostname or url.username or url.password
                         or url.port not in (None, 443) or date.fromisoformat(row["source_date"]).isoformat() != row["source_date"]):
                     raise ValueError("Invalid source component URL/date.")

@@ -1,6 +1,6 @@
 """Discord cards and an original text-first PNG layout."""
 from io import BytesIO
-from urllib.parse import quote, urlsplit
+from .urls import percent_encode, split_https
 
 from .artwork import decorate_embed
 
@@ -25,7 +25,7 @@ def _link(label, url):
     if not isinstance(url, str) or any(ord(c) < 32 or ord(c) == 127 for c in url):
         return _safe(label)
     try:
-        parts = urlsplit(url)
+        parts = split_https(url)
         port = parts.port
     except ValueError:
         return _safe(label)
@@ -34,7 +34,7 @@ def _link(label, url):
         return _safe(label)
     # Encode Markdown delimiters without changing the destination or cutting a URL.
     unsafe = "()<>[]\\\"`"
-    destination = "".join(quote(c, safe="") if c in unsafe or c.isspace() else c for c in url)
+    destination = "".join(percent_encode(c) if c in unsafe or c.isspace() else c for c in url)
     return f"[{_safe(label)}]({destination})"
 
 

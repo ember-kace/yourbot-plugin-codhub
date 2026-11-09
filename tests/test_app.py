@@ -35,7 +35,7 @@ def buttons(response):
 
 class AppFlowTests(unittest.TestCase):
     def setUp(self):
-        self.ctx = MockContext(server_id="999", plugin_id="yourbot-cod-hub", capabilities=CAPS,
+        self.ctx = MockContext(server_id="999", plugin_id="rmg84ete7r8b", capabilities=CAPS,
                                clock=MockClock(start=1000))
         self.catalog = SimpleNamespace(
             resolve_build=Mock(side_effect=lambda code, game="mw4": build(code)),
@@ -96,7 +96,7 @@ class AppFlowTests(unittest.TestCase):
         store = BuildStore(self.ctx.kv, self.ctx.server_id)
         self.assertIsNone(store.get("p", "111", identifier))
         self.assertIsNotNone(store.get("s", "111", identifier))
-        fresh = MockContext(server_id="999", plugin_id="yourbot-cod-hub", capabilities=CAPS)
+        fresh = MockContext(server_id="999", plugin_id="rmg84ete7r8b", capabilities=CAPS)
         fresh.kv = self.ctx.kv
         app.handle_saved(fresh, event(options={"action": "show", "id": identifier}))
         self.assertEqual(fresh.interaction.defers, [{"ephemeral": True}])
@@ -221,7 +221,7 @@ class RealServiceFlowTests(unittest.TestCase):
     def test_reference_command_defers_privately_and_keeps_revision_credit_in_cached_result(self):
         from cod_hub import reference
 
-        ctx = MockContext(server_id="999", plugin_id="yourbot-cod-hub", capabilities=CAPS)
+        ctx = MockContext(server_id="999", plugin_id="rmg84ete7r8b", capabilities=CAPS)
         data = {"batchcomplete": True, "query": {
             "rightsinfo": {"text": "CC-BY-SA", "url": "https://www.fandom.com/licensing"},
             "pages": [{"pageid": 123, "ns": 0, "title": "Sample map", "index": 1,
@@ -246,14 +246,14 @@ class RealServiceFlowTests(unittest.TestCase):
         self.assertTrue(result["ephemeral"])
         self.assertEqual(result["allowed_mentions"], {"parse": []})
         self.assertEqual(ctx.messages_sent, [])
-        restarted = MockContext(server_id="999", plugin_id="yourbot-cod-hub", capabilities=CAPS)
+        restarted = MockContext(server_id="999", plugin_id="rmg84ete7r8b", capabilities=CAPS)
         restarted.kv = ctx.kv
         app.handle_reference(restarted, event(options={"query": "sample", "category": "maps", "game": "bo7"}))
         self.assertEqual(restarted.http.requests, [])
         self.assertEqual(restarted.interaction.followups[-1]["embeds"], result["embeds"])
 
     def test_reference_invalid_inputs_are_private_and_do_not_fetch(self):
-        ctx = MockContext(server_id="999", plugin_id="yourbot-cod-hub", capabilities=CAPS)
+        ctx = MockContext(server_id="999", plugin_id="rmg84ete7r8b", capabilities=CAPS)
         for options in [{"query": ""}, {"query": "x" * 121}, {"query": "map", "category": "unsupported"},
                         {"query": "map", "game": "mw3"}]:
             with self.subTest(options=options):
@@ -267,7 +267,7 @@ class RealServiceFlowTests(unittest.TestCase):
     def test_packaged_catalog_save_reopen_and_png_without_game_files(self):
         from PIL import Image
 
-        ctx = MockContext(server_id="999", plugin_id="yourbot-cod-hub", capabilities=CAPS)
+        ctx = MockContext(server_id="999", plugin_id="rmg84ete7r8b", capabilities=CAPS)
         app.handle_build(ctx, event(options={"code": "A09-43QCD-D4HTW-VI11", "game": "mw4"}))
         card = ctx.interaction.followups[-1]
         self.assertEqual(card["embeds"][0]["title"], "Hyeon Burst")

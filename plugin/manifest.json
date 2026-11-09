@@ -1,7 +1,7 @@
 {
-  "id": "yourbot-cod-hub",
+  "id": "rmg84ete7r8b",
   "name": "COD Hub",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Open a COD Hub card to import MW4 builds, explore weapons and attachments, manage saved loadouts, and share cards or PNGs. Includes attributed meta loadouts and dated wiki references.",
   "capabilities_required": ["interaction:respond", "storage:kv", "discord:send_message", "proxy:http"],
   "proxy_domains_requested": ["metaradar.gg", "callofduty.fandom.com"],

@@ -28,11 +28,13 @@ See [the usage guide](docs/USAGE.md) for all eight commands, sharing controls an
 
 ## Install through YourBot
 
-1. Download `COD-Hub-0.1.0.zip` from [GitHub Releases](https://github.com/ember-kace/yourbot-plugin-codhub/releases/latest), or build it using the commands below. The ZIP contains `manifest.json` and `__main__.py` at its root.
+1. Download `COD-Hub-0.1.1.zip` from [GitHub Releases](https://github.com/ember-kace/yourbot-plugin-codhub/releases/latest), or build it using the commands below. The ZIP contains `manifest.json` and `__main__.py` at its root.
 2. To publish your own installation package, sign in to the [YourBot Dev Portal](https://yourbot.gg/dev), use the plugin ID assigned there, upload the validated ZIP and follow the review process. Upload the ZIP contents as built; do not upload this whole repository. [Official publishing guide](https://yourbot.gg/docs/developers/production/publish).
 3. Once a version is available to install, use the Marketplace in your custom-bot server's YourBot dashboard, review its permissions and domains, and allow its commands through Command Access. Then run `/codhub` in Discord. [Official installation guidance](https://yourbot.gg/docs/platform/marketplace-plugins).
 
 This repository uses a `plugin/` source directory. The documented artifact workflow is ZIP upload; the public YourBot guidance does not establish GitHub-pull subdirectory support. A public GitHub repository does not itself publish or install a YourBot plugin.
+
+The supplied manifest targets COD Hub's assigned platform ID, `rmg84ete7r8b`. If you create a separate plugin in the Dev Portal, replace `manifest.json`'s `id` with that plugin's assigned ID and package it with `python tools/package_plugin.py --plugin-id YOUR_ASSIGNED_ID --output dist/COD-Hub.zip`. The platform ID must match the upload destination. YourBot assigns the uploaded version independently of the GitHub release tag.
 
 ## Develop and package
 
@@ -47,7 +49,7 @@ python tools/dev.py validate
 python tools/dev.py package
 ```
 
-The package command writes `dist/COD-Hub-0.1.0.zip` from an explicit runtime file list and validates it with YourBot SDK 0.10.1. The SDK also supplies `yourbot validate --path plugin` and `yourbot doctor --path plugin`. Review the [current YourBot developer documentation](https://yourbot.gg/docs/developers) before changing platform APIs or dependencies.
+The package command writes `dist/COD-Hub-0.1.1.zip` from an explicit runtime file list, checks the captured Python files for disallowed imports and dynamic code, and validates it with YourBot SDK 0.10.1 against COD Hub's assigned ID. To also pin the expected manifest version before upload, use `python tools/package_plugin.py --version 0.1.1`. These local checks supplement the portal's separate security scan; they do not predict its risk score. The SDK also supplies `yourbot validate --path plugin --id rmg84ete7r8b --version 0.1.1` and `yourbot doctor --path plugin`. Review the [current YourBot developer documentation](https://yourbot.gg/docs/developers) before changing platform APIs or dependencies.
 
 Optional: `python tools/dev.py preview` generates local card demonstrations. No game installation, player credentials or Discord bot token is needed for the offline tests and build tools. Live YourBot/Discord installation testing remains pending.
 

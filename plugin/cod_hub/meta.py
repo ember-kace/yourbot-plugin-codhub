@@ -10,7 +10,7 @@ import json
 import math
 import threading
 import time
-from urllib.parse import urlsplit
+from .urls import split_https
 
 PROVIDER = "MetaRadar"
 TERMS_URL = "https://metaradar.gg/developers"
@@ -46,7 +46,7 @@ def _url(value, *, required=False):
         return None
     value = _text(value, 1200, required=required)
     try:
-        parsed = urlsplit(value or "")
+        parsed = split_https(value or "")
         port = parsed.port
     except ValueError as error:
         raise _InvalidFeed("invalid provider link") from error

@@ -25,7 +25,7 @@ def components(response):
 
 class LibraryUiTests(unittest.TestCase):
     def setUp(self):
-        self.ctx = MockContext(server_id="999", plugin_id="yourbot-cod-hub", capabilities=CAPS)
+        self.ctx = MockContext(server_id="999", plugin_id="rmg84ete7r8b", capabilities=CAPS)
         self.store = BuildStore(self.ctx.kv, self.ctx.server_id)
 
     def seed(self, owner="111", code=CODE, title="Ranked Kastov"):
@@ -34,7 +34,7 @@ class LibraryUiTests(unittest.TestCase):
         return self.store.save(owner, build)[0]
 
     def fresh(self):
-        ctx = MockContext(server_id="999", plugin_id="yourbot-cod-hub", capabilities=CAPS)
+        ctx = MockContext(server_id="999", plugin_id="rmg84ete7r8b", capabilities=CAPS)
         ctx.kv = self.ctx.kv
         return ctx
 

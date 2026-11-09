@@ -43,6 +43,66 @@ def synthetic_plugin(parent):
 
 
 class PackagingTests(unittest.TestCase):
+    def test_manifest_matches_assigned_platform_id_and_runtime_version(self):
+        from cod_hub import __version__
+        from tools.package_plugin import PLATFORM_PLUGIN_ID
+
+        manifest = json.loads((ROOT / "plugin/manifest.json").read_text(encoding="utf-8"))
+        self.assertEqual(manifest["id"], "rmg84ete7r8b")
+        self.assertEqual(manifest["id"], PLATFORM_PLUGIN_ID)
+        self.assertEqual(manifest["version"], __version__)
+
+    def test_package_rejects_manifest_for_a_different_platform_plugin(self):
+        with tempfile.TemporaryDirectory(prefix="cod-hub-package-identity-test-") as temporary:
+            plugin, _ = synthetic_plugin(temporary)
+            manifest_path = plugin / "manifest.json"
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            manifest["id"] = "another_plugin"
+            manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+            _, report = prepare(plugin)
+            self.assertFalse(report["release_ready"])
+            self.assertTrue(report["sdk_validation"]["errors"])
+            _, report = prepare(plugin, plugin_id="another_plugin")
+            self.assertTrue(report["release_ready"])
+
+    def test_local_policy_blocks_url_import_even_when_sdk_validation_passes(self):
+        with tempfile.TemporaryDirectory(prefix="cod-hub-package-security-test-") as temporary:
+            plugin, _ = synthetic_plugin(temporary)
+            source_path = plugin / "cod_hub/cards.py"
+            source_path.write_text("from urllib.parse import urlsplit\n" + source_path.read_text(encoding="utf-8"),
+                                   encoding="utf-8")
+            output = Path(temporary) / "COD-Hub.zip"
+            report_path = Path(temporary) / "report.json"
+            with redirect_stdout(StringIO()):
+                result = main(["--plugin", str(plugin), "--output", str(output), "--report", str(report_path)])
+            report = json.loads(report_path.read_text(encoding="utf-8"))
+            self.assertEqual(report["sdk_validation"]["errors"], [])
+            self.assertFalse(report["artifact_policy"]["ready"])
+            self.assertEqual(report["artifact_policy"]["findings"][0]["symbol"], "urllib.parse")
+            self.assertEqual(result, 1)
+            self.assertFalse(output.exists())
+
+    def test_package_rejects_a_different_expected_platform_version(self):
+        with tempfile.TemporaryDirectory(prefix="cod-hub-package-version-test-") as temporary:
+            plugin, _ = synthetic_plugin(temporary)
+            _, report = prepare(plugin, version="99.0.0")
+            self.assertFalse(report["release_ready"])
+            self.assertTrue(report["sdk_validation"]["errors"])
+
+    def test_missing_manifest_version_returns_a_clean_failure_without_a_zip(self):
+        with tempfile.TemporaryDirectory(prefix="cod-hub-package-manifest-test-") as temporary:
+            plugin, _ = synthetic_plugin(temporary)
+            manifest_path = plugin / "manifest.json"
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            del manifest["version"]
+            manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+            output = Path(temporary) / "COD-Hub.zip"
+            with redirect_stdout(StringIO()) as printed:
+                result = main(["--plugin", str(plugin), "--output", str(output)])
+            self.assertEqual(result, 1)
+            self.assertFalse(output.exists())
+            self.assertIn("version fields", json.loads(printed.getvalue())["error"])
+
     def test_ancestor_symlink_cannot_supply_inside_or_outside_package_members(self):
         for escape in (False, True):
             with self.subTest(escape=escape), tempfile.TemporaryDirectory(prefix="cod-hub-package-link-test-") as temporary:

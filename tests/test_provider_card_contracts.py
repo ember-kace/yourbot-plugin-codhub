@@ -9,7 +9,7 @@ from cod_hub import cards, meta, reference
 
 
 def context():
-    return MockContext(server_id="999", plugin_id="yourbot-cod-hub",
+    return MockContext(server_id="999", plugin_id="rmg84ete7r8b",
                        capabilities=["storage:kv", "proxy:http"])
 
 

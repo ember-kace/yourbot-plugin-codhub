@@ -82,7 +82,7 @@ class NativeSPNameTests(unittest.TestCase):
             for handler, values in ((app.handle_build, {"options": {"code": expected["code"]}}),
                                     (hub.handle_import, {"modal_values": {"code": expected["code"], "title": ""}})):
                 with self.subTest(name=expected["name"], handler=handler.__name__):
-                    ctx = MockContext(server_id="999", plugin_id="yourbot-cod-hub", capabilities=CAPS)
+                    ctx = MockContext(server_id="999", plugin_id="rmg84ete7r8b", capabilities=CAPS)
                     event = make_event("interaction_create", interaction_type=3, user_id="111", channel_id="333", **values)
                     handler(ctx, event)
                     response = ctx.interaction.followups[-1]

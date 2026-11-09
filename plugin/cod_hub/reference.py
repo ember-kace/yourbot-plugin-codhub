@@ -13,7 +13,7 @@ import re
 import threading
 import time
 from html.parser import HTMLParser
-from urllib.parse import urlencode, urlsplit
+from .urls import encode_query, split_https
 
 API_URL = "https://callofduty.fandom.com/api.php"
 WIKI_URL = "https://callofduty.fandom.com/"
@@ -133,7 +133,7 @@ def _text(value, limit, *, required=False):
 def _page_url(value):
     value = _text(value, 1500, required=True)
     try:
-        url = urlsplit(value)
+        url = split_https(value)
         port = url.port
     except ValueError as error:
         raise _BadResponse("invalid page URL") from error
@@ -198,7 +198,7 @@ def _normalize(data, query, category, game):
         items.append({"title": title, "extract": _plain_intro(content), "page_url": url,
                       "url": url + "?oldid=" + str(revid), "revision": revid, "timestamp": timestamp,
                       "license_name": license_name, "license_url": license_url})
-    search_url = "https://callofduty.fandom.com/wiki/Special:Search?" + urlencode({"query": _request(query, category, game)["gsrsearch"]})
+    search_url = "https://callofduty.fandom.com/wiki/Special:Search?" + encode_query({"query": _request(query, category, game)["gsrsearch"]})
     return {"schema_version": _VERSION, "provider": "Call of Duty Wiki", "query": query,
             "category": category, "game": game, "items": items, "source_url": search_url,
             "attribution": {"text": "Call of Duty Wiki contributors", "url": WIKI_URL,

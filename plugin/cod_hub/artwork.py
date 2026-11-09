@@ -4,7 +4,7 @@ from functools import lru_cache
 import json
 from pathlib import Path
 import re
-from urllib.parse import urlsplit
+from .urls import split_https
 
 
 MANIFEST_PATH = Path(__file__).parent / "data/artwork.json"
@@ -36,7 +36,7 @@ def _url_path(value, host="metaradar.gg"):
             or "?" in value or "#" in value or "\\" in value):
         return None
     try:
-        parsed = urlsplit(value)
+        parsed = split_https(value)
         if (parsed.scheme != "https" or parsed.hostname != host
                 or parsed.username is not None or parsed.password is not None
                 or parsed.port not in (None, 443) or parsed.query or parsed.fragment):
