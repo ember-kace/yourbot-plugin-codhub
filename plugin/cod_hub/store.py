@@ -91,7 +91,7 @@ class BuildStore:
         owner = owner_id(owner)
         code, game = source.get("code"), source.get("game")
         if game != "mw4" or not isinstance(code, str) or not 0 < len(code) <= 256:
-            raise ValueError("That build record is invalid. Run /codbuild again.")
+            raise ValueError("That build record is invalid. Import the build again to create a new preview.")
         identifier = build_id(game, code)
         key = self._key("s", owner, identifier)
         with self._lock(owner):
@@ -99,7 +99,7 @@ class BuildStore:
             if existing is not None:
                 return existing, False
             if self.kv.count(prefix=self._saved_prefix(owner)) >= MAX_SAVED:
-                raise ValueError("Your library has 50 builds. Delete one with /codsaved before saving another.")
+                raise ValueError("Your library has 50 builds. Delete a saved build from My builds before saving another.")
             record = {"schema": 1, "id": identifier, "owner": owner, "game": game,
                       "code": code, "title": clean_title(source.get("title") or "MW4 build"),
                       "created_at": int(time.time())}

@@ -43,15 +43,22 @@ def _snapshot(page_data, items):
 def home_embed():
     return {
         "title": "COD Hub",
-        "description": "Your loadout, ready to share.\n\nImport a build, explore weapons, compare selections, or open your saved builds.",
+        "description": "**Paste a code. Open your build.**\n\n**Import build** opens a popup with a code box. Paste an MW4 code and submit to see a card you can save, compare or share.",
         "color": COLOR,
         "fields": [
-            {"name": "Import a build", "value": "Paste a code. Preview the weapon and attachments.", "inline": False},
-            {"name": "Explore weapons", "value": "Browse by class and open weapon or attachment cards.", "inline": False},
-            {"name": "Compare", "value": "Compare weapons or two builds. Switch between overview and available charts.", "inline": False},
-            {"name": "My builds", "value": "Keep your favorites together. Open, share or export a card.", "inline": False},
+            {"name": "Build tools", "value": "Explore weapons and attachments. Compare two weapons, two builds, or one of each.", "inline": True},
+            {"name": "Discover", "value": "Find meta builds by mode, or look up maps, operators, camos and challenges.", "inline": True},
         ],
         "footer": {"text": "Browse privately. Share when you're ready."},
+    }
+
+
+def meta_home_embed():
+    return {
+        "title": "Meta builds",
+        "description": "Choose a mode or game below, then filter recommendations by weapon type.\n\nMultiplayer and Warzone open in-card recommendations. DMZ opens its dedicated external-source card. BO7 loadouts are also available.",
+        "color": COLOR,
+        "footer": {"text": "Provider recommendations · Check each build's source and date"},
     }
 
 

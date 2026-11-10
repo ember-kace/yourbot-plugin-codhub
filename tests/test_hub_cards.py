@@ -22,9 +22,21 @@ class HubCardsTests(unittest.TestCase):
     def test_home_has_clear_paths_and_explicit_private_browsing(self):
         embed = hub_cards.home_embed()
         self.assertEqual(embed["title"], "COD Hub")
-        self.assertEqual([field["name"] for field in embed["fields"]], ["Import a build", "Explore weapons", "Compare", "My builds"])
+        self.assertIn("**Import build** opens a popup with a code box", embed["description"])
+        self.assertIn("Paste an MW4 code and submit", embed["description"])
+        self.assertEqual([field["name"] for field in embed["fields"]], ["Build tools", "Discover"])
+        self.assertTrue(all(field["inline"] for field in embed["fields"]))
         self.assertIn("privately", embed["footer"]["text"])
         self.assertNotIn("complete catalog", str(embed).lower())
+        self.assertNotIn("/codbuild", str(embed))
+        assert_embed_limits(self, embed)
+
+    def test_meta_chooser_explains_mode_coverage_without_claiming_dmz_feed(self):
+        embed = hub_cards.meta_home_embed()
+        self.assertEqual(embed["title"], "Meta builds")
+        self.assertIn("Multiplayer and Warzone", embed["description"])
+        self.assertIn("DMZ opens its dedicated external-source card", embed["description"])
+        self.assertIn("BO7", embed["description"])
         assert_embed_limits(self, embed)
 
     def test_weapon_page_has_snapshot_and_reference_distinction(self):

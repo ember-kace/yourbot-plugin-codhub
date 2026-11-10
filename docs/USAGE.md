@@ -1,6 +1,6 @@
 # Using COD Hub
 
-Run `/codhub` to post the shared home card. Each person can open a private import form, weapon explorer, comparison or saved library from its controls. The More menu opens meta recommendations and article references. The plugin is used entirely through chat cards and slash commands; there is no separate plugin dashboard.
+Run `/codhub` to post the shared home card. Its buttons open Import build, Explore weapons, Compare, My builds, Meta builds and References. Each person's browsing and previews are private. The plugin works through Discord cards, popup forms and slash commands; there is no separate plugin dashboard.
 
 ![COD Hub home card](images/hub.png)
 
@@ -23,7 +23,7 @@ Build and catalog commands currently accept only the MW4 game catalog. Reference
 
 ## Import, save and share
 
-1. Choose **Import build** on the home card, paste a native MW4 build code and optionally name it. Alternatively, run `/codbuild` and paste the code into its `code` option.
+1. Choose **Import build** on the home card or in My builds. A Discord popup opens with a **Paste build code** box and an optional build name. Paste a native MW4 code, then submit the form to generate your private card. You do not need another slash command. Alternatively, run `/codbuild` and paste the code into its `code` option.
 2. Check the private weapon/attachment card. **Save** creates your own saved copy. **Get code** displays copyable text for the game's own import flow.
 3. Use **Share card** or **Post PNG** only when you want to publish to the current channel. A shared build lets other people save their own copy or explore its weapon.
 
@@ -43,7 +43,13 @@ Internal and technical descriptions are kept separate from verified game names. 
 
 ## Compare weapons or builds
 
-Run `/codcompare left:<weapon-or-code> right:<weapon-or-code>` or choose **Compare** from the home card. A build code is optional: plain names and prefixes work too. Choose `multiplayer`, `dmz` or `warzone` as the measurement context.
+Open **Compare** from the home card, a weapon card or a build card:
+
+1. Choose **A** or **B**, then pick a weapon from the dropdown. Use the class filter and page buttons to find it. Opening Compare from a weapon or build keeps that selection as A.
+2. Once both sides are selected, choose **Compare A / B**. For builds or exact names, **Paste names / codes** opens a popup where you can enter both sides instead.
+3. The result starts in Multiplayer. Switch mode, comparison view and available hit location from its menus. Missing measurement data is explained on the card; it does not prevent an overview comparison.
+
+The slash alternative is `/codcompare left:<weapon or code> right:<weapon or code>`, with optional `mode` and `view` options.
 
 | View | What it shows |
 |---|---|
@@ -63,7 +69,7 @@ Attachment performance is not inferred from names or UI stat bars. Modified buil
 
 ## Meta and reference sources
 
-`/codmeta` offers Multiplayer, DMZ and Warzone plus weapon-type filters: all, AR, BR, SMG, LMG, shotgun, sniper, marksman, pistol, launcher and melee. Multiplayer and Warzone use attributed [MetaRadar](https://metaradar.gg/) snapshots with at most hourly refreshes. Ranks, source dates and stale-state notices are retained. DMZ currently provides an external [DMZ Radar](https://dmzradar.com/meta.html) link rather than an in-card feed. BO7 recommendations are available through the More menu; MW4 build import remains a separate feature.
+**Meta builds** on the home card opens a mode chooser for Multiplayer, DMZ, Warzone and BO7. `/codmeta` offers Multiplayer, DMZ and Warzone plus weapon-type filters: all, AR, BR, SMG, LMG, shotgun, sniper, marksman, pistol, launcher and melee. Multiplayer and Warzone use attributed [MetaRadar](https://metaradar.gg/) snapshots with at most hourly refreshes. Ranks, source dates and stale-state notices are retained. DMZ currently provides an external [DMZ Radar](https://dmzradar.com/meta.html) link rather than an in-card feed. MW4 build import remains a separate feature.
 
 `/codreference` searches [COD Wiki](https://callofduty.fandom.com/) article excerpts. Category choices are all, maps, operators, camos, challenges, prestige, perks and equipment. Game choices are all, MW4, BO7 and Warzone. These options add search terms; verify the result's actual game and revision. Each result retains contributor credit, revision links and source-license information. Searches refresh at most every 12 hours and do not fetch wiki artwork.
 

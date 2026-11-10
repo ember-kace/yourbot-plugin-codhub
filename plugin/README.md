@@ -6,7 +6,7 @@ COD Hub is an unofficial Call of Duty companion for YourBot SDK 0.10.1. Import M
 
 Install the validated plugin ZIP through YourBot's developer publishing and Marketplace workflow, grant the requested permissions, then run **`/codhub`**. The ZIP places `manifest.json` and `__main__.py` at its root. Full installation and development instructions are in the [public repository](https://github.com/ember-kace/yourbot-plugin-codhub).
 
-The home card offers **Import build**, **Explore weapons**, **Compare** and **My builds**. Browsing and imported previews are private. **Share card**, **Post PNG** and **Post graphs** explicitly publish to the current channel. Shared builds let others save their own copy; saved-build edits remain owner-bound. **Get code** displays copyable code text.
+The home card offers **Import build**, **Explore weapons**, **Compare**, **My builds**, **Meta builds** and **References**. Import build opens a Discord popup: paste your code, optionally name it, and submit to generate a private card. Compare opens an A/B weapon picker; choose both weapons and select **Compare A / B**, or use **Paste names / codes** for builds. Browsing and imported previews are private. **Share card**, **Post PNG** and **Post graphs** explicitly publish to the current channel. Shared builds let others save their own copy; saved-build edits remain owner-bound. **Get code** displays copyable code text.
 
 | Command | Use |
 |---|---|

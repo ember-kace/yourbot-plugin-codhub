@@ -33,29 +33,32 @@ def _write_png(destination, body):
 
 
 def _hub_png(payload):
-    """Lay out actual embed text and SDK controls in a labelled local preview."""
+    """Lay out the actual embed and controls, sizing to their measured content."""
     from PIL import Image, ImageDraw, ImageFont
 
-    image = Image.new("RGB", (1200, 970), "#0b111a")
-    draw = ImageDraw.Draw(image)
     font_path = PLUGIN / "cod_hub/fonts/font.ttf"
     fonts = {size: ImageFont.truetype(str(font_path), size=size)
              for size in (18, 20, 22, 24, 30, 42)}
     ink, muted, accent = "#edf3fa", "#a4b5c8", "#a9f1c4"
+    labels = []
+
+    def plain(value):
+        # Discord renders these formatting markers; they are not visible text.
+        return str(value).replace("**", "").replace("`", "")
 
     def text(x, y, value, size=22, fill=ink):
-        draw.text((x, y), value, font=fonts[size], fill=fill)
+        labels.append((x, y, plain(value), size, fill))
 
     def wrapped(x, y, value, width, size=22, fill=ink, gap=8):
         line_height = size + gap
-        for paragraph in value.split("\n"):
+        for paragraph in plain(value).split("\n"):
             if not paragraph:
                 y += line_height // 2
                 continue
             current = ""
             for word in paragraph.split():
                 candidate = (current + " " + word).strip()
-                if current and draw.textlength(candidate, font=fonts[size]) > width:
+                if current and fonts[size].getlength(candidate) > width:
                     text(x, y, current, size, fill)
                     y += line_height
                     current = word
@@ -67,41 +70,65 @@ def _hub_png(payload):
         return y
 
     embed = payload["embeds"][0]
-    draw.rounded_rectangle((56, 42, 1144, 97), radius=14, fill="#142230")
     text(78, 57, "COD HUB / CHAT TOOLS", 20, accent)
     text(812, 57, "LOCAL SDK PREVIEW", 20, muted)
-    draw.rounded_rectangle((56, 126, 1144, 760), radius=18,
-                           fill="#131f2c", outline="#293c50", width=2)
-    draw.rounded_rectangle((56, 126, 64, 760), radius=4, fill=accent)
     text(92, 155, embed["title"], 42)
-    y = wrapped(92, 218, embed["description"], 980, 24, muted)
-    y += 19
-    for field in embed.get("fields", []):
-        text(92, y, field["name"], 24, ink)
-        y = wrapped(92, y + 34, field["value"], 980, 22, muted) + 19
-    text(92, 713, embed.get("footer", {}).get("text", ""), 20, accent)
+    y = wrapped(92, 218, embed["description"], 1016, 24, muted) + 24
+    fields, index = embed.get("fields", []), 0
+    while index < len(fields):
+        # Keep inline fields together in two readable columns, as on the card.
+        group = [fields[index]]
+        if fields[index].get("inline") and index + 1 < len(fields) and fields[index + 1].get("inline"):
+            group.append(fields[index + 1])
+        width = 488 if len(group) == 2 else 1016
+        ends = []
+        for column, field in enumerate(group):
+            x = 92 + column * 528
+            heading_end = wrapped(x, y, field["name"], width, 24, ink)
+            ends.append(wrapped(x, heading_end + 3, field["value"], width, 22, muted))
+        y = max(ends) + 24
+        index += len(group)
+    y = wrapped(92, y, embed.get("footer", {}).get("text", ""), 1016, 20, accent)
+    card_bottom = y + 24
 
     controls = [row.to_dict() if hasattr(row, "to_dict") else row
                 for row in payload.get("components", [])]
-    y = 789
+    button_shapes = []
+    menu_shapes = []
+    y = card_bottom + 24
     for row in controls:
         x = 56
         for control in row["components"]:
             if control["type"] == 2:
                 label = control["label"]
-                width = max(170, int(draw.textlength(label, font=fonts[22])) + 48)
+                width = max(170, int(fonts[22].getlength(label)) + 48)
+                if x + width > 1144:
+                    raise ValueError("The local preview's button row exceeds its content width.")
                 primary = control.get("style") == 1
-                draw.rounded_rectangle((x, y, x + width, y + 57), radius=10,
-                                       fill="#9bdcb9" if primary else "#24384b")
+                button_shapes.append(((x, y, x + width, y + 57), primary))
                 text(x + 24, y + 15, label, 22, "#12241d" if primary else ink)
                 x += width + 14
             elif control["type"] == 3:
-                draw.rounded_rectangle((56, y, 1144, y + 55), radius=10,
-                                       fill="#172735", outline="#344b62", width=1)
+                menu_shapes.append(y)
                 text(80, y + 14, control.get("placeholder", "Choose an option"), 22, muted)
-                draw.line((1101, y + 24, 1109, y + 32, 1117, y + 24), fill=muted, width=2)
         y += 71
-    text(56, 937, "Actual /codhub response. Local layout; controls are illustrated, not interactive.", 18, muted)
+    caption_y = y + 8
+    text(56, caption_y, "Actual /codhub response. Local layout; controls are illustrated, not interactive.", 18, muted)
+
+    image = Image.new("RGB", (1200, caption_y + 50), "#0b111a")
+    draw = ImageDraw.Draw(image)
+    draw.rounded_rectangle((56, 42, 1144, 97), radius=14, fill="#142230")
+    draw.rounded_rectangle((56, 126, 1144, card_bottom), radius=18,
+                           fill="#131f2c", outline="#293c50", width=2)
+    draw.rounded_rectangle((56, 126, 64, card_bottom), radius=4, fill=accent)
+    for rectangle, primary in button_shapes:
+        draw.rounded_rectangle(rectangle, radius=10, fill="#9bdcb9" if primary else "#24384b")
+    for menu_y in menu_shapes:
+        draw.rounded_rectangle((56, menu_y, 1144, menu_y + 55), radius=10,
+                               fill="#172735", outline="#344b62", width=1)
+        draw.line((1101, menu_y + 24, 1109, menu_y + 32, 1117, menu_y + 24), fill=muted, width=2)
+    for x, label_y, value, size, fill in labels:
+        draw.text((x, label_y), value, font=fonts[size], fill=fill)
     buffer = BytesIO()
     image.save(buffer, format="PNG", optimize=False)
     image.close()

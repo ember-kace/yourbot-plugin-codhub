@@ -4,7 +4,7 @@ import re
 
 from yourbot_sdk import ActionRow, Button, SelectMenu, SelectOption, TextInput
 
-from . import comparison, telemetry
+from . import catalog, comparison, telemetry
 from .cards import COLOR, WARNING, _safe, _link
 from .store import owner_id
 
@@ -324,10 +324,77 @@ def controls(result, owner, view, location, detail_page=0):
     return rows
 
 
-def _form(ctx, left=""):
-    ctx.interaction.send_modal(title="Compare MW4 weapons or builds", custom_id=MODAL, fields=[
-        TextInput("First weapon or build code", "left", value=left, placeholder="Kastov 762, A01 or an MW4 build code", max_length=256),
-        TextInput("Second weapon or build code", "right", placeholder="M4, A05 or another MW4 build code", max_length=256)])
+def _setup_id(action, owner, target, left="_", right="_", class_key="all", page=1):
+    value = ":".join(("chc", action, owner, target, left, right, class_key, str(page)))
+    if len(value) > 100:
+        raise ValueError("This setup cannot fit in a card control. Start a new comparison.")
+    return value
+
+
+def _setup_subject(token):
+    return None if token == "_" else comparison.resolve_subject(_input(token))
+
+
+def setup_view(owner, target="a", left="_", right="_", class_key="all", page=1):
+    """Choose two exact catalog weapons without requiring a modal dialog."""
+    if target not in {"a", "b"}:
+        raise ValueError("Choose selection A or B.")
+    subjects = [_setup_subject(left), _setup_subject(right)]
+    weapons = catalog.browse_weapons(class_key, page=page)
+    class_key = weapons["class_key"] or "all"
+    fields = []
+    for side, subject in zip(("A", "B"), subjects):
+        value = "Not selected"
+        if subject:
+            value = _safe(subject["label"], 180)
+            if subject["code"]:
+                value += "\n`" + subject["code"] + "`"
+        fields.append({"name": "Selection " + side, "value": value, "inline": True})
+    ready = all(subjects)
+    embed = {"title": "Set up a comparison", "color": COLOR,
+        "description": ("**1. Choose A · 2. Choose B · 3. Compare**\n"
+            "Choose a weapon below for **" + target.upper() + "**. Use the class filter or page buttons to find it.\n"
+            "Have build codes or exact names? Choose **Paste names / codes**.\n\n"
+            + ("Both selections are ready. Choose **Compare A / B**." if ready else
+               "Select both weapons to enable **Compare A / B**.")
+            + "\nStarts in Multiplayer; change mode or view on the result card."),
+        "fields": fields, "footer": {"text": "Private setup · Only Share card or Post graphs publishes to the channel"}}
+    def control(action, **changes):
+        values = {"target": target, "left": left, "right": right, "class_key": class_key, "page": page}
+        values.update(changes)
+        return _setup_id(action, owner, **values)
+    rows = [ActionRow(
+        Button("Choose A", custom_id=control("x", target="a"), style="primary" if target == "a" else "secondary"),
+        Button("Choose B", custom_id=control("x", target="b"), style="primary" if target == "b" else "secondary"))]
+    classes = catalog.list_weapon_classes()
+    rows.append(ActionRow(SelectMenu(control("k"), [SelectOption("All classes", "all", default=class_key == "all")]
+        + [SelectOption(item["label"], item["key"], default=class_key == item["key"]) for item in classes],
+        placeholder="Filter comparison weapons")))
+    if weapons["items"]:
+        rows.append(ActionRow(SelectMenu(control("w"), [SelectOption(item["name"], item["id"],
+            description=item.get("class") or "Base weapon") for item in weapons["items"]],
+            placeholder="Choose weapon for " + target.upper())))
+    if weapons["pages"] > 1:
+        rows.append(ActionRow(
+            Button("Previous weapons", custom_id=control("x", page=max(1, page - 1)), style="secondary", disabled=page == 1),
+            Button("Next weapons", custom_id=control("x", page=min(weapons["pages"], page + 1)), style="secondary", disabled=page == weapons["pages"])))
+    rows.append(ActionRow(
+        Button("Paste names / codes", custom_id=control("f"), style="secondary"),
+        Button("Compare A / B", custom_id=control("r"), style="primary", disabled=not ready),
+        Button("Home", custom_id="chh:private", style="secondary")))
+    return embed, rows
+
+
+def _show_setup(ctx, owner, target="a", left="_", right="_", class_key="all", page=1, *, update=False, content=""):
+    embed, rows = setup_view(owner, target, left, right, class_key, page)
+    ctx.interaction.respond(content=content, embeds=[embed], components=rows, ephemeral=True,
+                            update_message=update, allowed_mentions=NO_MENTIONS)
+
+
+def _form(ctx, left="", right=""):
+    ctx.interaction.send_modal(title="Compare: paste names or build codes", custom_id=MODAL, fields=[
+        TextInput("A: weapon name or MW4 build code", "left", value=left, placeholder="Kastov 762, A01 or A01-42J19-BU11", max_length=256),
+        TextInput("B: weapon name or MW4 build code", "right", value=right, placeholder="M4, A05 or another MW4 build code", max_length=256)])
 
 
 def _show(ctx, result, owner, view="overview", location="base_profile", update=False, initial=False, detail_page=0):
@@ -363,7 +430,9 @@ def handle_modal(ctx, event):
         result = _resolve(values.get("left"), values.get("right"), "multiplayer", "base_profile")
         _show(ctx, result, _actor(event))
     except Exception as error:
-        _failure(ctx, error)
+        _failure(ctx, error, components=[ActionRow(
+            Button("Choose weapons", custom_id="chc:open", style="primary"),
+            Button("Home", custom_id="chh:private", style="secondary"))])
 
 
 def _public_controls(result, owner, view, location, *, graph_bundle=False):
@@ -386,17 +455,48 @@ def _public_controls(result, owner, view, location, *, graph_bundle=False):
 def handle_component(ctx, event):
     from .app import _failure
     deferred = False
+    modal_recovery = None
     try:
         owner = _actor(event)
         raw = event.get("custom_id")
         if not isinstance(raw, str) or len(raw) > 100:
             raise ValueError("That comparison control is invalid.")
         if raw == "chc:open":
-            return _form(ctx)
+            return _show_setup(ctx, owner)
         if raw.startswith("chc:open:"):
             subject = comparison.resolve_subject(_input(raw[len("chc:open:"):]))
-            return _form(ctx, subject["code"] or subject["weapon"]["name"])
+            return _show_setup(ctx, owner, "b", _token(subject))
         parts = raw.split(":")
+        if len(parts) >= 2 and parts[1] in {"x", "k", "w", "f", "r"}:
+            if len(parts) != 8 or parts[0] != "chc" or parts[2] != owner:
+                raise ValueError("This setup belongs to another person. Open your own comparison.")
+            action, target, left, right, class_key, page_value = parts[1], *parts[3:]
+            if target not in {"a", "b"} or not re.fullmatch(r"[1-9][0-9]{0,2}", page_value):
+                raise ValueError("That comparison setup is invalid. Start a new comparison.")
+            page = int(page_value)
+            subjects = [_setup_subject(left), _setup_subject(right)]
+            choices = catalog.browse_weapons(class_key, page=page)
+            if action == "k":
+                class_key = _selection(event, {"all", *(item["key"] for item in catalog.list_weapon_classes())})
+                page = 1
+            elif action == "w":
+                selected = _selection(event, {item["id"] for item in choices["items"]})
+                token = _token(comparison.resolve_subject(selected))
+                if target == "a":
+                    left = token
+                    target = "b" if right == "_" else "a"
+                else:
+                    right = token
+            elif action == "f":
+                modal_recovery = (target, left, right, class_key, page)
+                values = [subject["code"] or subject["weapon"]["name"] if subject else "" for subject in subjects]
+                return _form(ctx, *values)
+            elif action == "r":
+                if not all(subjects):
+                    raise ValueError("Choose both A and B before comparing.")
+                result = _resolve(_input(left), _input(right), "multiplayer", "base_profile")
+                return _show(ctx, result, owner, initial=True, update=True)
+            return _show_setup(ctx, owner, target, left, right, class_key, page, update=True)
         clone = len(parts) == 7 and parts[:2] == ["chc", "copy"]
         if clone:
             action, args = "copy", parts[2:]
@@ -480,5 +580,15 @@ def handle_component(ctx, event):
         if deferred:
             _failure(ctx, error)
         else:
+            if not isinstance(error, ValueError):
+                code = getattr(error, "code", None)
+                ctx.log("COD Hub comparison control failed", level="error",
+                        error_type=type(error).__name__[:60],
+                        rpc_code=code if type(code) is int else None,
+                        action="paste_form" if modal_recovery else "comparison_control")
+            if modal_recovery:
+                return _show_setup(ctx, owner, *modal_recovery,
+                    content="The paste form couldn't open. You can still choose weapons below, "
+                            "or choose **Paste names / codes** to try the form again.")
             message = str(error)[:1800] if isinstance(error, ValueError) else "COD Hub couldn't open that comparison. Try again."
             ctx.interaction.respond(content=message, ephemeral=True, allowed_mentions=NO_MENTIONS)

@@ -61,6 +61,18 @@ class AppFlowTests(unittest.TestCase):
         cid = next(b["custom_id"] for b in buttons(response) if b["label"] == "Save")
         return cid
 
+    def test_empty_saved_library_opens_the_gui_import_box_without_a_code_command(self):
+        from cod_hub import hub
+
+        app.handle_saved(self.ctx, event(options={"action": "list"}))
+        response = self.ctx.interaction.followups[-1]
+        self.assertIn("empty", response["content"])
+        self.assertNotIn("/codbuild", response["content"])
+        action = next(item for item in buttons(response) if item["label"] == "Import build")
+        hub.handle_component(self.ctx, event(interaction_type=3, custom_id=action["custom_id"]))
+        self.assertEqual(self.ctx.interaction.modals_sent[-1]["custom_id"], hub.IMPORT_MODAL)
+        self.assertEqual(self.ctx.messages_sent, [])
+
     def test_build_acknowledges_before_resolution_and_preserves_unknowns(self):
         def resolve(code, game):
             self.assertEqual(self.ctx.interaction.defers, [{"ephemeral": True}])

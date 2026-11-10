@@ -56,7 +56,13 @@ class LibraryUiTests(unittest.TestCase):
         response = self.ctx.interaction.followups[-1]
         self.assertEqual(response["embeds"][0]["title"], "My builds")
         self.assertIn("Your next build", response["embeds"][0]["description"])
-        self.assertEqual(components(response)[0]["custom_id"], "chh:private")
+        controls = {item["label"]: item["custom_id"] for item in components(response)}
+        self.assertEqual(controls["Home"], "chh:private")
+        self.assertEqual(controls["Import build"], "chh:import")
+        # An empty library offers the same paste box as the home card.
+        from cod_hub import hub
+        hub.handle_component(self.ctx, event(interaction_type=3, custom_id=controls["Import build"]))
+        self.assertEqual(self.ctx.interaction.modals_sent[-1]["custom_id"], hub.IMPORT_MODAL)
         self.assert_private(self.ctx)
 
     def test_saved_menu_opens_real_build_card_and_never_leaks_another_library(self):

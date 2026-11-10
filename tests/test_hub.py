@@ -35,6 +35,59 @@ class HubJourneys(unittest.TestCase):
     def setUp(self):
         self.ctx = MockContext(server_id="999", plugin_id="rmg84ete7r8b", capabilities=CAPS)
 
+    def test_home_import_button_opens_code_box_and_submits_without_slash_command(self):
+        hub.handle_home(self.ctx, event(interaction_type=2))
+        home = self.ctx.interaction.followups[-1]
+        self.assertEqual(len(home["components"]), 2)
+        import_button = next(item for item in components(home) if item.get("label") == "Import build")
+        self.assertEqual(import_button["style"], 1)
+        before_defers = len(self.ctx.interaction.defers)
+        hub.handle_component(self.ctx, event(custom_id=import_button["custom_id"]))
+        self.assertEqual(len(self.ctx.interaction.defers), before_defers)
+        modal = self.ctx.interaction.modals_sent[-1]
+        self.assertEqual(modal["title"], "Import build")
+        self.assertEqual(modal["custom_id"], hub.IMPORT_MODAL)
+        fields = [field.to_dict() for field in modal["fields"]]
+        self.assertEqual(fields[0]["custom_id"], "code")
+        self.assertEqual(fields[0]["label"], "Paste build code")
+        self.assertTrue(fields[0]["required"])
+        self.assertFalse(fields[1]["required"])
+        self.assertEqual(self.ctx.kv_writes, [])
+        hub.handle_import(self.ctx, event(interaction_type=5, custom_id=modal["custom_id"], modal_values={"code": CODE}))
+        preview = self.ctx.interaction.followups[-1]
+        self.assertEqual(preview["embeds"][0]["title"], "Kastov 762")
+        self.assertIn(CODE, str(preview["embeds"]))
+        self.assertNotIn("/codbuild", str(preview))
+        self.assertTrue(preview["ephemeral"])
+        self.assertEqual(self.ctx.messages_sent, [])
+
+    def test_invalid_import_keeps_retry_code_box_and_home_available(self):
+        hub.handle_import(self.ctx, event(interaction_type=5, modal_values={"code": "not-a-code"}))
+        error = self.ctx.interaction.followups[-1]
+        self.assertTrue(error["ephemeral"])
+        self.assertEqual(button(error, "Try another code"), "chh:import")
+        self.assertEqual(button(error, "Home"), "chh:private")
+        self.assertEqual(self.ctx.kv_writes, [])
+        hub.handle_component(self.ctx, event(custom_id=button(error, "Try another code")))
+        self.assertEqual(self.ctx.interaction.modals_sent[-1]["custom_id"], hub.IMPORT_MODAL)
+        self.assertEqual(self.ctx.messages_sent, [])
+
+    def test_home_meta_chooser_and_reference_button_work_without_provider_io(self):
+        home = {"components": hub.home_controls()}
+        self.assertEqual(button(home, "References"), "chh:reference")
+        hub.handle_component(self.ctx, event(custom_id=button(home, "Meta builds")))
+        choice = self.ctx.interaction.responses[-1]
+        self.assertTrue(choice["ephemeral"])
+        self.assertEqual(choice["embeds"][0]["title"], "Meta builds")
+        selected = menu(choice, "Choose a mode or game")
+        self.assertEqual({item["value"] for item in selected["options"]},
+                         {"mode-multiplayer", "mode-dmz", "mode-warzone", "meta-bo7"})
+        self.assertEqual(self.ctx.interaction.defers, [])
+        self.assertEqual(self.ctx.http.requests, [])
+        self.assertEqual(self.ctx.kv_writes, [])
+        hub.handle_component(self.ctx, event(custom_id=button(home, "References")))
+        self.assertEqual(self.ctx.interaction.modals_sent[-1]["custom_id"], hub.REFERENCE_MODAL)
+
     def test_public_launcher_creates_separate_private_browser_without_kv(self):
         hub.handle_home(self.ctx, event(interaction_type=2))
         home = self.ctx.interaction.followups[-1]

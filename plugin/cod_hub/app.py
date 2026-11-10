@@ -46,13 +46,14 @@ def _followup(ctx, **kwargs):
     ctx.interaction.followup(allowed_mentions=NO_MENTIONS, **kwargs)
 
 
-def _failure(ctx, error):
+def _failure(ctx, error, *, components=None):
     if isinstance(error, ValueError):
         message = str(error)[:1800] or "That request is invalid."
     else:
         ctx.log("COD Hub action failed", level="error", error_type=type(error).__name__)
         message = "COD Hub couldn't complete that action. Please try again."
-    _followup(ctx, content=message, ephemeral=True)
+    options = {"components": components} if components is not None else {}
+    _followup(ctx, content=message, ephemeral=True, **options)
 
 
 def _record_build(record):
@@ -173,7 +174,10 @@ def _saved_list(ctx, store, owner, page=1):
     if type(page) is not int or page < 1 or page > pages:
         raise ValueError("That saved-build page doesn't exist.")
     if not records:
-        _followup(ctx, content="Your saved library is empty. Run /codbuild and choose Save.", ephemeral=True)
+        _followup(ctx, content="Your saved library is empty. Choose Import build, paste a code, then Save the preview.",
+                  components=[ActionRow(Button("Import build", custom_id="chh:import", style="primary"),
+                                        Button("Hub", custom_id="chh:private", style="secondary"))],
+                  ephemeral=True)
         return
     selected = records[(page - 1) * 10:page * 10]
     description = "\n\n".join("**" + _safe(clean_title(r.get("title")), 180) + "**\nID: `" + r["id"] + "` · MW4" for r in selected)
@@ -260,7 +264,7 @@ def handle_component(ctx, event):
             raise ValueError("That build control is invalid.")
         record = store.get(kind, owner, identifier)
         if record is None:
-            raise ValueError("This build preview has expired or was deleted. Run /codbuild or /codsaved again.")
+            raise ValueError("This build preview has expired or was deleted. Import the code again or open My builds.")
         if action == "save":
             _record_build(record)
             saved, created = store.save(user, record)

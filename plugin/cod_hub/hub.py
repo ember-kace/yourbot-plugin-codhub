@@ -82,13 +82,18 @@ def home_controls():
         Button("Explore weapons", custom_id="chh:explore", style="secondary"),
         Button("Compare", custom_id="chc:open", style="secondary"),
         Button("My builds", custom_id="chh:library", style="secondary")),
-        ActionRow(SelectMenu("chh:more", [
+        ActionRow(Button("Meta builds", custom_id="chh:meta", style="secondary"),
+                  Button("References", custom_id="chh:reference", style="secondary"))]
+
+
+def meta_controls():
+    return [ActionRow(SelectMenu("chh:more", [
             SelectOption("Multiplayer meta builds", "mode-multiplayer", description="Filter MW4 recommendations by weapon type"),
             SelectOption("DMZ meta builds", "mode-dmz", description="Dedicated DMZ source and availability"),
             SelectOption("Warzone meta builds", "mode-warzone", description="Filter Battle Royale recommendations by weapon type"),
-            SelectOption("BO7 meta loadouts", "meta-bo7"),
-            SelectOption("Search references", "references", description="Maps, operators, camos, challenges and more"),
-        ], placeholder="More to explore"))]
+            SelectOption("BO7 meta loadouts", "meta-bo7", description="Open attributed Black Ops 7 recommendations"),
+        ], placeholder="Choose a mode or game")),
+        ActionRow(Button("Home", custom_id="chh:private", style="secondary"))]
 
 
 def handle_home(ctx, event):
@@ -185,9 +190,9 @@ def _form(ctx, custom_id, title, fields):
 
 
 def _import_form(ctx):
-    _form(ctx, IMPORT_MODAL, "Import an MW4 build", [
-        TextInput("Build code", "code", placeholder="A01-42J19-BU11", max_length=256),
-        TextInput("Build name (optional)", "title", required=False, max_length=80)])
+    _form(ctx, IMPORT_MODAL, "Import build", [
+        TextInput("Paste build code", "code", placeholder="A01-42J19-BU11", min_length=7, max_length=256),
+        TextInput("Build name (optional)", "title", placeholder="My ranked setup", required=False, max_length=80)])
 
 
 def _search_form(ctx):
@@ -227,6 +232,8 @@ def handle_component(ctx, event):
             return handle_open(ctx, event)
         if raw == "chh:explore":
             return _reply(ctx, *weapons_view(owner))
+        if raw == "chh:meta":
+            return _reply(ctx, hub_cards.meta_home_embed(), meta_controls())
         if raw.startswith("chh:openweapon:"):
             identifier = raw[len("chh:openweapon:"):]
             return _reply(ctx, *_weapon_view(identifier, owner))
@@ -314,6 +321,11 @@ def handle_import(ctx, event):
         if not isinstance(title, str) or len(title) > 80:
             raise ValueError("Use a build name of up to 80 characters.")
         _preview(ctx, event, values["code"], title)
+    except ValueError as error:
+        ctx.interaction.followup(content=str(error)[:1800] or "Paste a valid MW4 build code.",
+            components=[ActionRow(Button("Try another code", custom_id="chh:import", style="primary"),
+                                  Button("Home", custom_id="chh:private", style="secondary"))],
+            ephemeral=True, allowed_mentions=NO_MENTIONS)
     except Exception as error:
         _failure(ctx, error)
 

@@ -33,6 +33,10 @@ def control(payload, label):
     return next(item["custom_id"] for item in components(payload) if item.get("label") == label)
 
 
+def menu(payload, placeholder):
+    return next(item for item in components(payload) if item.get("placeholder") == placeholder)
+
+
 def message_contract(payload):
     """Validate actual serialized messages, independently of SDK mock objects."""
     total = 0
@@ -59,6 +63,33 @@ def message_contract(payload):
                     assert 0 < len(option["label"]) <= 100
                     assert 0 < len(option["value"]) <= 100
     assert payload.get("allowed_mentions") == {"parse": []}
+
+
+def modal_contract(payload):
+    """Validate the SDK's serialized modal rows, not MockContext's raw fields."""
+    assert 0 < len(payload["title"]) <= 45
+    assert 0 < len(payload["custom_id"]) <= 100
+    rows = payload.get("components")
+    assert isinstance(rows, list) and 1 <= len(rows) <= 5
+    seen = set()
+    for row in rows:
+        assert row.get("type") == 1
+        assert len(row.get("components", [])) == 1
+        field = row["components"][0]
+        assert field.get("type") == 4
+        assert field.get("style") in (1, 2)
+        assert 0 < len(field["custom_id"]) <= 100
+        assert field["custom_id"] not in seen
+        seen.add(field["custom_id"])
+        assert 0 < len(field["label"]) <= 45
+        assert isinstance(field.get("required", True), bool)
+        assert len(field.get("placeholder", "")) <= 100
+        assert len(field.get("value", "")) <= 4000
+        assert 0 <= field.get("min_length", 0) <= field.get("max_length", 4000) <= 4000
+
+
+def modal_fields(payload):
+    return {row["components"][0]["custom_id"]: row["components"][0] for row in payload["components"]}
 
 
 class LocalHost:
@@ -138,7 +169,8 @@ class LocalHost:
                 event["messages"].append(deepcopy(params))
             elif method == "interaction.send_modal":
                 assert event["acknowledgments"] == [method]
-                assert 0 < len(params["custom_id"]) <= 100
+                modal_contract(params)
+                event["modals"].append(deepcopy(params))
             return {"message_id": "700", "channel_id": "333"}
         assert event["acknowledgments"], "Work before initial interaction acknowledgment"
         if method == "kv.get":
@@ -183,14 +215,15 @@ class LocalHost:
                  "interaction_id": iid, **fields}
         event.update({"command_name": name} if name else {"custom_id": custom_id})
         self.events[token] = {"server": server, "interaction_id": iid, "started": time.monotonic(),
-                              "acknowledgments": [], "messages": [], "allow_post": allow_post}
+                              "acknowledgments": [], "messages": [], "modals": [], "allow_post": allow_post}
         self.write({"jsonrpc": "2.0", "method": "event.interaction_create", "params": {
             "event_id": token, "event": event, "discord_srv_id": server,
             "plugin_id": MANIFEST["id"], "version": MANIFEST["version"], "capabilities": CAPS}})
         self.pump(lambda: token in self.acks)
         result = self.events[token]
         assert len(result["acknowledgments"]) == 1
-        return result["messages"][-1] if result["messages"] else {}
+        return (result["messages"][-1] if result["messages"]
+                else result["modals"][-1] if result["modals"] else {})
 
     def close(self):
         if self.process.poll() is None:
@@ -238,9 +271,44 @@ def exercise(command):
             host.boot(mode)
             home = host.event(name="codhub")
             assert home["embeds"][0]["title"] == "COD Hub"
-            host.event(custom_id="chh:import")  # A modal must precede all KV work.
-            imported = host.event(name="codbuild", options={"code": CODE, "title": "Transport staging"})
+            import_control = next(item for item in components(home) if item.get("custom_id") == "chh:import")
+            before = len(host.calls)
+            import_form = host.event(custom_id=import_control["custom_id"])
+            assert [call["method"] for call in host.calls[before:]] == ["interaction.send_modal"]
+            fields = modal_fields(import_form)
+            assert fields["code"]["required"] and not fields["title"]["required"]
+            assert fields["code"]["placeholder"] == CODE
+            imported = host.event(custom_id=import_form["custom_id"], interaction_type=5,
+                                  modal_values={"code": CODE, "title": "Transport staging"})
+            assert imported["ephemeral"] and CODE in str(imported["embeds"])
             saved = host.event(custom_id=control(imported, "Save"))
+            empty_setup = host.event(custom_id=control(home, "Compare"))
+            assert empty_setup["ephemeral"] and empty_setup["embeds"][0]["title"] == "Set up a comparison"
+            assert next(item for item in components(empty_setup) if item.get("label") == "Compare A / B")["disabled"]
+            # Reproduce the exact reported entry point: Astaroth .57 -> Compare.
+            weapon = host.event(custom_id="chh:openweapon:R03")
+            setup = host.event(custom_id=control(weapon, "Compare"))
+            assert setup["ephemeral"] and "Astaroth .57" in str(setup["embeds"][0]["fields"])
+            filters = menu(setup, "Filter comparison weapons")
+            assault = next(option["value"] for option in filters["options"] if "assault" in option["label"].lower())
+            setup = host.event(custom_id=filters["custom_id"], values=[assault])
+            choices = menu(setup, "Choose weapon for B")
+            second = next(option["value"] for option in choices["options"] if option["label"] == "M4")
+            setup = host.event(custom_id=choices["custom_id"], values=[second])
+            run = next(item for item in components(setup) if item.get("label") == "Compare A / B")
+            assert not run.get("disabled")
+            gui_comparison = host.event(custom_id=run["custom_id"])
+            assert gui_comparison["ephemeral"] and gui_comparison["update_message"]
+            assert "Astaroth .57" in str(gui_comparison["embeds"]) and "M4" in str(gui_comparison["embeds"])
+            assert "couldn't open" not in str(gui_comparison).lower()
+            before = len(host.calls)
+            paste_form = host.event(custom_id=control(setup, "Paste names / codes"))
+            assert [call["method"] for call in host.calls[before:]] == ["interaction.send_modal"]
+            assert modal_fields(paste_form)["left"]["value"] == "Astaroth .57"
+            assert modal_fields(paste_form)["right"]["value"] == "M4"
+            pasted_comparison = host.event(custom_id=paste_form["custom_id"], interaction_type=5,
+                                            modal_values={"left": CODE, "right": "M4"})
+            assert pasted_comparison["ephemeral"] and CODE in str(pasted_comparison["embeds"])
             host.event(name="codweapon", options={"query": "A01"})
             host.event(name="codattachment", options={"query": "FSS TAC90 GRIP", "weapon": "A01"})
             listing = host.event(name="codsaved", options={"action": "list"})
@@ -273,6 +341,8 @@ def exercise(command):
             assert len(host.messages) == 1, "Unexpected implicit public message"
             result.append({"mode": mode, "events": len(host.events), "rpc_calls": len(host.calls),
                            "maximum_initial_ack_ms": max(e["ack_ms"] for e in host.events.values()),
+                           "modal_forms_checked": sum(len(e["modals"]) for e in host.events.values()),
+                           "gui_journeys": ["home_import", "home_comparison_setup", "astaroth_weapon_comparison", "pasted_build_comparison"],
                            "public_messages_simulated": len(host.messages), "http_outage_fixtures": len(host.http_requests),
                            "chart_dimensions": list(struct.unpack_from(">II", decoded, 16)),
                            "attachments": [f["filename"] for f in files],

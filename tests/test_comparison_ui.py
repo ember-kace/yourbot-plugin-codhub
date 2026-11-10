@@ -2,10 +2,12 @@
 import base64
 from copy import deepcopy
 from io import BytesIO
+import json
 import unittest
 from unittest.mock import patch
 
 from PIL import Image
+from yourbot_sdk import Context
 from yourbot_sdk.testing import MockContext, make_event
 from cod_hub import app, comparison_ui as ui, hub, telemetry
 
@@ -41,20 +43,134 @@ class ComparisonJourneys(unittest.TestCase):
         ui.handle_command(self.ctx, event(interaction_type=2, options={"left": left, "right": right, "view": view, "mode": mode}))
         return self.ctx.interaction.followups[-1]
 
-    def test_home_and_weapon_compare_forms_acknowledge_before_any_io(self):
-        self.assertEqual(button({"components": hub.home_controls()}, "Compare")["custom_id"], "chc:open")
-        ui.handle_component(self.ctx, event(custom_id="chc:open:wA01"))
-        self.assertEqual(self.ctx.interaction.defers, [])
-        self.assertEqual(self.ctx.interaction.responses, [])
+    def test_invalid_pasted_comparison_keeps_a_gui_recovery_path(self):
+        ui.handle_modal(self.ctx, event(interaction_type=5, modal_values={"left": "Kastov 762", "right": ""}))
+        error = self.ctx.interaction.followups[-1]
+        self.assertTrue(error["ephemeral"])
+        action = button(error, "Choose weapons")
+        ui.handle_component(self.ctx, event(custom_id=action["custom_id"]))
+        setup = self.ctx.interaction.responses[-1]
+        self.assertEqual(setup["embeds"][0]["title"], "Set up a comparison")
+        self.assertEqual(self.ctx.messages_sent, [])
         self.assertEqual(self.ctx.kv_writes, [])
+
+    def test_home_and_seeded_weapon_setup_acknowledge_without_requiring_a_modal(self):
+        self.assertTrue(any(c.get("custom_id") == "chc:open" for c in components({"components": hub.home_controls()})))
+        ui.handle_component(self.ctx, event(custom_id="chc:open:wR03"))
+        self.assertEqual(self.ctx.interaction.defers, [])
+        self.assertEqual(self.ctx.kv_writes, [])
+        self.assertEqual(self.ctx.interaction.modals_sent, [])
+        setup = self.ctx.interaction.responses[-1]
+        self.assertTrue(setup["ephemeral"])
+        self.assertEqual(setup["embeds"][0]["fields"][0]["value"], "Astaroth .57")
+        self.assertEqual(setup["embeds"][0]["fields"][1]["value"], "Not selected")
+        self.assertTrue(button(setup, "Compare A / B")["disabled"])
+        self.assertEqual(menu(setup, "Choose weapon for B")["type"], 3)
+        ui.handle_component(self.ctx, event(custom_id=button(setup, "Paste names / codes")["custom_id"]))
         modal = self.ctx.interaction.modals_sent[-1]
         self.assertEqual(modal["custom_id"], ui.MODAL)
-        self.assertEqual(modal["fields"][0].to_dict()["value"], "Kastov 762")
-        ui.handle_modal(self.ctx, event(interaction_type=5, modal_values={"left": "Kastov 762", "right": "M4"}))
+        self.assertEqual(modal["fields"][0].to_dict()["value"], "Astaroth .57")
+        ui.handle_modal(self.ctx, event(interaction_type=5, modal_values={"left": "Astaroth .57", "right": "M4"}))
         result = self.ctx.interaction.followups[-1]
         self.assertTrue(result["ephemeral"])
-        self.assertIn("Kastov 762", result["embeds"][0]["description"])
+        self.assertIn("Astaroth .57", result["embeds"][0]["description"])
         self.assertEqual(self.ctx.messages_sent, [])
+
+    def test_asteroth_card_choose_m4_and_compare_works_entirely_through_dropdowns(self):
+        ui.handle_component(self.ctx, event(custom_id="chc:open:wR03"))
+        setup = self.ctx.interaction.responses[-1]
+        ui.handle_component(self.ctx, event(custom_id=menu(setup, "Filter comparison weapons")["custom_id"], values=["A"]))
+        setup = self.ctx.interaction.responses[-1]
+        weapons = menu(setup, "Choose weapon for B")
+        self.assertIn("A05", {item["value"] for item in weapons["options"]})
+        ui.handle_component(self.ctx, event(custom_id=weapons["custom_id"], values=["A05"]))
+        setup = self.ctx.interaction.responses[-1]
+        self.assertFalse(button(setup, "Compare A / B").get("disabled", False))
+        self.assertEqual([field["value"] for field in setup["embeds"][0]["fields"]], ["Astaroth .57", "M4"])
+        ui.handle_component(self.ctx, event(custom_id=button(setup, "Compare A / B")["custom_id"]))
+        result = self.ctx.interaction.responses[-1]
+        self.assertTrue(result["update_message"])
+        self.assertIn("Astaroth .57", result["embeds"][0]["description"])
+        self.assertIn("M4", result["embeds"][0]["description"])
+        self.assertTrue(button(result, "Post graphs")["disabled"])
+        self.assertEqual(self.ctx.interaction.modals_sent, [])
+        self.assertEqual(self.ctx.kv_writes, [])
+        self.assertEqual(self.ctx.messages_sent, [])
+
+    def test_setup_pages_cover_every_named_weapon_and_preserve_build_seed(self):
+        from cod_hub import catalog
+        first_page = catalog.browse_weapons(page_size=25)
+        expected = {item["id"] for page in range(1, first_page["pages"] + 1)
+                    for item in catalog.browse_weapons(page=page, page_size=25)["items"]}
+        seen = set()
+        ui.handle_component(self.ctx, event(custom_id="chc:open:c" + CODE_A))
+        setup = self.ctx.interaction.responses[-1]
+        for _ in range(10):
+            self.assertIn(CODE_A, setup["embeds"][0]["fields"][0]["value"])
+            seen.update(item["value"] for item in menu(setup, "Choose weapon for B")["options"])
+            next_button = button(setup, "Next weapons")
+            if next_button.get("disabled"):
+                break
+            ui.handle_component(self.ctx, event(custom_id=next_button["custom_id"]))
+            setup = self.ctx.interaction.responses[-1]
+        self.assertEqual(seen, expected)
+        ui.handle_component(self.ctx, event(custom_id=button(setup, "Paste names / codes")["custom_id"]))
+        self.assertEqual(self.ctx.interaction.modals_sent[-1]["fields"][0].to_dict()["value"], CODE_A)
+
+    def test_setup_is_owner_bound_and_rejects_unlisted_weapons_or_missing_selection(self):
+        ui.handle_component(self.ctx, event(custom_id="chc:open"))
+        setup = self.ctx.interaction.responses[-1]
+        ui.handle_component(self.ctx, event("222", custom_id=button(setup, "Choose B")["custom_id"]))
+        self.assertIn("another person", self.ctx.interaction.responses[-1]["content"])
+        ui.handle_component(self.ctx, event(custom_id=menu(setup, "Choose weapon for A")["custom_id"], values=["not_in_menu"]))
+        self.assertIn("Choose one", self.ctx.interaction.responses[-1]["content"])
+        ui.handle_component(self.ctx, event(custom_id=button(setup, "Compare A / B")["custom_id"]))
+        self.assertIn("Choose both", self.ctx.interaction.responses[-1]["content"])
+        self.assertEqual(self.ctx.messages_sent, [])
+        self.assertEqual(self.ctx.kv_writes, [])
+
+    def test_setup_fits_discord_limits_for_longest_owner_and_two_build_codes(self):
+        embed, rows = ui.setup_view("9" * 22, "b", "cA09-43QCD-D4HTW-VI11", "c" + CODE_A, "melee")
+        self.assertLessEqual(len(rows), 5)
+        self.assertLessEqual(len(embed["description"]), 4096)
+        for component in components({"components": rows}):
+            self.assertLessEqual(len(component.get("custom_id", "")), 100)
+            if component.get("type") == 3:
+                self.assertLessEqual(len(component["options"]), 25)
+
+    def test_real_context_rejected_modal_returns_working_setup_and_safe_diagnostics(self):
+        class RejectedModal(RuntimeError):
+            code = -32602
+
+        class Wire:
+            calls, notifications = [], []
+
+            def call(self, method, params):
+                payload = json.loads(json.dumps(params))
+                self.calls.append((method, payload))
+                if method == "interaction.send_modal":
+                    raise RejectedModal("Synthetic host rejection with private request details")
+                return {}
+
+            def notify(self, method, params):
+                self.notifications.append((method, json.loads(json.dumps(params))))
+
+        wire = Wire()
+        ctx = Context(server_id="999", plugin_id="rmg84ete7r8b", version="0.1.1", capabilities=CAPS, transport=wire)
+        ctx._current_interaction_id = "synthetic-interaction"
+        ui.handle_component(ctx, event(custom_id="chc:open:wR03"))
+        setup = wire.calls[-1][1]
+        ui.handle_component(ctx, event(custom_id=button(setup, "Paste names / codes")["custom_id"]))
+        attempt = next(params for method, params in wire.calls if method == "interaction.send_modal")
+        self.assertEqual(attempt["components"][0]["components"][0]["value"], "Astaroth .57")
+        method, fallback = wire.calls[-1]
+        self.assertEqual(method, "interaction.respond")
+        self.assertIn("choose weapons below", fallback["content"])
+        self.assertTrue(fallback["ephemeral"])
+        self.assertEqual(fallback["embeds"][0]["fields"][0]["value"], "Astaroth .57")
+        self.assertEqual(menu(fallback, "Choose weapon for B")["type"], 3)
+        self.assertIn("-32602", str(wire.notifications))
+        self.assertNotIn("private request details", str(wire.notifications))
 
     def test_two_builds_compare_actual_selections_without_adjusted_damage(self):
         card = self.open(CODE_A, CODE_B)

@@ -66,7 +66,8 @@ def _library(ctx, owner, page=1, *, notice=""):
         navigation.append(Button("Previous", custom_id=f"chl:list:{owner}:{page-1}", style="secondary"))
     if page < pages:
         navigation.append(Button("Next", custom_id=f"chl:list:{owner}:{page+1}", style="secondary"))
-    navigation.append(Button("Home", custom_id="chh:private", style="secondary"))
+    navigation += [Button("Import build", custom_id="chh:import", style="primary"),
+                   Button("Home", custom_id="chh:private", style="secondary")]
     rows.append(ActionRow(*navigation))
     _followup(ctx, content=notice, embeds=[hub_cards.saved_embed(selected, page, pages, len(records))],
               components=rows)
