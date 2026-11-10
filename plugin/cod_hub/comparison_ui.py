@@ -226,6 +226,28 @@ def _summary_rows(fields, name, lines):
     fields.append({"name": name, "value": "\n".join(kept), "inline": False})
 
 
+def _available_views(result):
+    return {key: label for key, label in VIEWS.items()
+            if key in {"overview", "details"} or result["metrics"][key]["available"]}
+
+
+def _graph_metric(result, view):
+    if view in {"overview", "details"}:
+        return next((key for key, metric in result["metrics"].items() if metric["available"]), None)
+    return view if result["metrics"][view]["available"] else None
+
+
+def _coverage(result):
+    available = [VIEWS[key] for key, metric in result["metrics"].items() if metric["available"]]
+    missing = [VIEWS[key] for key, metric in result["metrics"].items() if not metric["available"]]
+    lines = ["Available: " + ", ".join(available) + "." if available else
+             "No reviewed graphs match these selections in this mode."]
+    if missing:
+        lines.append("Needs matching reviewed measurements: " + ", ".join(missing) + ".")
+    lines.append("Measurements / sources explains coverage, dates and limits.")
+    return "\n".join(lines)
+
+
 def comparison_embed(result, view="overview", detail_page=0, *, presentation="private"):
     if view not in VIEWS:
         raise ValueError("Choose a comparison view from the menu.")
@@ -257,7 +279,7 @@ def comparison_embed(result, view="overview", detail_page=0, *, presentation="pr
             _summary_rows(fields, label, [_safe(a["slot_label"]) + ": " + _safe(a["name"]) for a in diff[key]])
         if not diff["comparable"] and (diff["left_only"] or diff["right_only"]):
             description += "\nAttachments are weapon-specific; their performance is not equated."
-        fields.append({"name": "Chart coverage", "value": "\n".join(VIEWS[key] + ": " + ("Available for these selections" if metric["available"] else "Not verified for these selections") for key, metric in result["metrics"].items()), "inline": False})
+        fields.append({"name": "Chart coverage", "value": _coverage(result), "inline": False})
     else:
         metric = result["metrics"][view]
         if not metric["available"]:
@@ -265,7 +287,7 @@ def comparison_embed(result, view="overview", detail_page=0, *, presentation="pr
             fields.append({"name": "Missing measurements", "value": _safe(metric["reason"], 950), "inline": False})
             description += "\nUse Overview for selections. Missing measurements are not estimated."
         else:
-            instruction = {"private": "Choose **Post graphs** to display the chart in this channel.",
+            instruction = {"private": "Choose **Post graphs to channel** to display the chart here.",
                            "shared": "Open comparison to explore privately or post its graph.",
                            "graph": "Chart posted below. Open comparison to explore privately."}[presentation]
             description += "\n\n**" + VIEWS[view] + "** · " + instruction
@@ -281,7 +303,7 @@ def comparison_embed(result, view="overview", detail_page=0, *, presentation="pr
                                    "value": f"{len(series['points'])} reviewed points · {series['unit']}\n" + _safe(series.get("condition") or series.get("stance") or "Declared source conditions", 200), "inline": True})
             fields.append({"name": "Source dates", "value": _source_dates(metric) + "\nFull links, conditions and limits: Measurements / sources.", "inline": False})
             description += "\nDated measurements; later hotfix completeness is unverified."
-    footer = {"private": "Share and Post graphs publish in this channel",
+    footer = {"private": "Post to channel and Post graphs to channel publish here",
               "shared": "Open comparison to explore privately",
               "graph": "Complete source notes attached"}[presentation]
     embed = {"title": "Weapon / build comparison", "description": description[:1800],
@@ -306,7 +328,7 @@ def _locations(result):
 def controls(result, owner, view, location, detail_page=0):
     state = _state(result, view, location)
     rows = [ActionRow(SelectMenu(_id("m", owner, state), [SelectOption(label, key, default=key == result["mode"]) for key, label in comparison.MODES.items()], placeholder="Comparison mode")),
-            ActionRow(SelectMenu(_id("v", owner, state), [SelectOption(label, key, default=key == view) for key, label in VIEWS.items()], placeholder="Comparison view"))]
+            ActionRow(SelectMenu(_id("v", owner, state), [SelectOption(label, key, default=key == view) for key, label in _available_views(result).items()], placeholder="Comparison view"))]
     locations = _locations(result)
     if view == "dps" and len(locations) > 1:
         rows.append(ActionRow(SelectMenu(_id("l", owner, state), [SelectOption(comparison.HIT_LOCATION_LABELS[key], key, default=key == location) for key in locations], placeholder="Damage profile / hit location")))
@@ -315,12 +337,13 @@ def controls(result, owner, view, location, detail_page=0):
         rows.append(ActionRow(
             Button("Previous details", custom_id=_id("n", owner, state, str(max(0, detail_page - 1))), style="secondary", disabled=detail_page == 0),
             Button("Next details", custom_id=_id("n", owner, state, str(min(count - 1, detail_page + 1))), style="secondary", disabled=detail_page == count - 1)))
-    metric = "dps" if view in {"overview", "details"} else view
+    graph_available = _graph_metric(result, view) is not None
     rows.append(ActionRow(Button("New comparison", custom_id="chc:open", style="secondary"),
         Button("Swap A / B", custom_id=_id("s", owner, state), style="secondary"),
-        Button("Share card", custom_id=_id("p", owner, state, *([str(detail_page)] if view == "details" else [])), style="secondary"),
-        Button("Post graphs", custom_id=_id("g", owner, state), style="primary", disabled=not result["metrics"][metric]["available"]),
         Button("Home", custom_id="chh:private", style="secondary")))
+    rows.append(ActionRow(
+        Button("Post to channel", custom_id=_id("p", owner, state, *([str(detail_page)] if view == "details" else [])), style="secondary" if graph_available else "primary"),
+        Button("Post graphs to channel", custom_id=_id("g", owner, state), style="primary" if graph_available else "secondary", disabled=not graph_available)))
     return rows
 
 
@@ -358,14 +381,14 @@ def setup_view(owner, target="a", left="_", right="_", class_key="all", page=1):
             + ("Both selections are ready. Choose **Compare A / B**." if ready else
                "Select both weapons to enable **Compare A / B**.")
             + "\nStarts in Multiplayer; change mode or view on the result card."),
-        "fields": fields, "footer": {"text": "Private setup · Only Share card or Post graphs publishes to the channel"}}
+        "fields": fields, "footer": {"text": "Multiplayer · Private setup · Posting is a separate action on the result card"}}
     def control(action, **changes):
         values = {"target": target, "left": left, "right": right, "class_key": class_key, "page": page}
         values.update(changes)
         return _setup_id(action, owner, **values)
     rows = [ActionRow(
-        Button("Choose A", custom_id=control("x", target="a"), style="primary" if target == "a" else "secondary"),
-        Button("Choose B", custom_id=control("x", target="b"), style="primary" if target == "b" else "secondary"))]
+        Button("Choose A", custom_id=control("x", target="a"), style="primary" if target == "a" and not ready else "secondary"),
+        Button("Choose B", custom_id=control("x", target="b"), style="primary" if target == "b" and not ready else "secondary"))]
     classes = catalog.list_weapon_classes()
     rows.append(ActionRow(SelectMenu(control("k"), [SelectOption("All classes", "all", default=class_key == "all")]
         + [SelectOption(item["label"], item["key"], default=class_key == item["key"]) for item in classes],
@@ -380,15 +403,19 @@ def setup_view(owner, target="a", left="_", right="_", class_key="all", page=1):
             Button("Next weapons", custom_id=control("x", page=min(weapons["pages"], page + 1)), style="secondary", disabled=page == weapons["pages"])))
     rows.append(ActionRow(
         Button("Paste names / codes", custom_id=control("f"), style="secondary"),
-        Button("Compare A / B", custom_id=control("r"), style="primary", disabled=not ready),
+        Button("Compare A / B", custom_id=control("r"), style="primary" if ready else "secondary", disabled=not ready),
         Button("Home", custom_id="chh:private", style="secondary")))
     return embed, rows
 
 
-def _show_setup(ctx, owner, target="a", left="_", right="_", class_key="all", page=1, *, update=False, content=""):
+def _show_setup(ctx, owner, target="a", left="_", right="_", class_key="all", page=1, *, update=False, content="", followup=False):
     embed, rows = setup_view(owner, target, left, right, class_key, page)
-    ctx.interaction.respond(content=content, embeds=[embed], components=rows, ephemeral=True,
-                            update_message=update, allowed_mentions=NO_MENTIONS)
+    if followup:
+        ctx.interaction.followup(content=content, embeds=[embed], components=rows, ephemeral=True,
+                                 allowed_mentions=NO_MENTIONS)
+    else:
+        ctx.interaction.respond(content=content, embeds=[embed], components=rows, ephemeral=True,
+                                update_message=update, allowed_mentions=NO_MENTIONS)
 
 
 def _form(ctx, left="", right=""):
@@ -427,7 +454,24 @@ def handle_modal(ctx, event):
         values = event.get("modal_values")
         if not isinstance(values, dict):
             raise ValueError("Enter two weapon names, prefixes or MW4 build codes.")
-        result = _resolve(values.get("left"), values.get("right"), "multiplayer", "base_profile")
+        owner = _actor(event)
+        subjects, errors = [], []
+        for label, key in (("A", "left"), ("B", "right")):
+            try:
+                subjects.append(comparison.resolve_subject(values.get(key)))
+            except ValueError as error:
+                subjects.append(None)
+                errors.append("**" + label + " needs another selection.** " + _safe(str(error), 300))
+        tokens = [_token(subject) if subject else "_" for subject in subjects]
+        if errors:
+            target = "a" if subjects[0] is None else "b"
+            kept = [label for label, subject in zip(("A", "B"), subjects) if subject]
+            if kept:
+                errors.append("Selection **" + kept[0] + "** is kept. Choose a weapon for **" + target.upper() + "** below, or reopen **Paste names / codes**.")
+            else:
+                errors.append("Choose A and B below, or reopen **Paste names / codes**.")
+            return _show_setup(ctx, owner, target, *tokens, content="\n\n".join(errors), followup=True)
+        result = _resolve(_input(tokens[0]), _input(tokens[1]), "multiplayer", "base_profile")
         _show(ctx, result, _actor(event))
     except Exception as error:
         _failure(ctx, error, components=[ActionRow(
@@ -555,8 +599,8 @@ def handle_component(ctx, event):
         files = None
         if action == "g":
             from .comparison_charts import render_chart, measurement_notes
-            metric = "dps" if view in {"overview", "details"} else view
-            if not result["metrics"][metric]["available"]:
+            metric = _graph_metric(result, view)
+            if metric is None:
                 raise ValueError("This graph needs matching reviewed measurements. No values will be estimated.")
             files = []
             for key, entry in result["metrics"].items():

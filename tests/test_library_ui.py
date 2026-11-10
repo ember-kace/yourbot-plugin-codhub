@@ -58,10 +58,10 @@ class LibraryUiTests(unittest.TestCase):
         self.assertIn("Your next build", response["embeds"][0]["description"])
         controls = {item["label"]: item["custom_id"] for item in components(response)}
         self.assertEqual(controls["Home"], "chh:private")
-        self.assertEqual(controls["Import build"], "chh:import")
+        self.assertEqual(controls["Import code"], "chh:import")
         # An empty library offers the same paste box as the home card.
         from cod_hub import hub
-        hub.handle_component(self.ctx, event(interaction_type=3, custom_id=controls["Import build"]))
+        hub.handle_component(self.ctx, event(interaction_type=3, custom_id=controls["Import code"]))
         self.assertEqual(self.ctx.interaction.modals_sent[-1]["custom_id"], hub.IMPORT_MODAL)
         self.assert_private(self.ctx)
 

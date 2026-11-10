@@ -68,7 +68,7 @@ class AppFlowTests(unittest.TestCase):
         response = self.ctx.interaction.followups[-1]
         self.assertIn("empty", response["content"])
         self.assertNotIn("/codbuild", response["content"])
-        action = next(item for item in buttons(response) if item["label"] == "Import build")
+        action = next(item for item in buttons(response) if item["label"] == "Import code")
         hub.handle_component(self.ctx, event(interaction_type=3, custom_id=action["custom_id"]))
         self.assertEqual(self.ctx.interaction.modals_sent[-1]["custom_id"], hub.IMPORT_MODAL)
         self.assertEqual(self.ctx.messages_sent, [])
@@ -127,6 +127,34 @@ class AppFlowTests(unittest.TestCase):
         self.assertEqual(message["allowed_mentions"], {"parse": []})
         self.assertTrue(base64.b64decode(message["files"][0]["data_b64"]).startswith(b"\x89PNG"))
         self.assertTrue(self.ctx.interaction.followups[-1]["ephemeral"])
+
+    def test_card_controls_separate_private_utilities_and_explicit_posting(self):
+        save_id = self.preview()
+        preview = self.ctx.interaction.followups[-1]
+        rows = [row.to_dict()["components"] for row in preview["components"]]
+        self.assertEqual([item["label"] for item in rows[0]], ["Save", "Show code"])
+        self.assertEqual([item["label"] for item in rows[1]], ["Post to channel", "Post PNG to channel"])
+        self.assertTrue(all(item["style"] == 2 for item in rows[1]))
+        self.assertEqual(len(rows), 3)
+        self.assertEqual(self.ctx.messages_sent, [])
+        self.assertIn("PNG exports are text-only", preview["content"])
+        app.handle_component(self.ctx, event(custom_id=save_id))
+        saved_rows = [row.to_dict()["components"] for row in self.ctx.interaction.followups[-1]["components"]]
+        self.assertEqual([item["label"] for item in saved_rows[0]], ["Show code", "Rename", "Delete"])
+        self.assertEqual([item["label"] for item in saved_rows[1]], ["Post to channel", "Post PNG to channel"])
+        self.assertTrue(all(len(row) <= 5 for row in saved_rows))
+
+    def test_show_code_returns_private_copyable_text_without_posting(self):
+        self.preview()
+        preview = self.ctx.interaction.followups[-1]
+        show_id = next(item["custom_id"] for item in buttons(preview) if item["label"] == "Show code")
+        before_writes = len(self.ctx.kv_writes)
+        app.handle_component(self.ctx, event(custom_id=show_id))
+        response = self.ctx.interaction.followups[-1]
+        self.assertTrue(response["ephemeral"])
+        self.assertIn("```\n" + CODE + "\n```", response["content"])
+        self.assertEqual(self.ctx.messages_sent, [])
+        self.assertEqual(len(self.ctx.kv_writes), before_writes)
 
     def test_wrong_title_and_validation_errors_do_not_write_state(self):
         app.handle_build(self.ctx, event(options={"code": CODE, "game": "bo7"}))

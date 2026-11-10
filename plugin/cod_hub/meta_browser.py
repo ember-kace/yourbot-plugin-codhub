@@ -238,7 +238,7 @@ def browser_controls(owner, view):
     if view["mode"] == "dmz":
         buttons.append(Button("Open external DMZ builds", style="link", url=DMZ_SOURCE))
     buttons += [Button("Refresh", custom_id=_cid("page", owner, view), style="secondary"),
-                Button("Import build", custom_id="chh:import", style="primary"),
+                Button("Import code", custom_id="chh:import", style="primary"),
                 Button("Home", custom_id="chh:private", style="secondary")]
     rows.append(ActionRow(*buttons))
     return rows
@@ -352,7 +352,7 @@ def handle_component(ctx, event):
                 raise ValueError("Recommendations changed. Refresh this meta page and choose the build again.")
             controls = [ActionRow(Button("Back to meta", custom_id=_cid("page", owner, view), style="secondary"),
                                   Button("Open provider", style="link", url=row["url"]),
-                                  Button("Import build", custom_id="chh:import", style="primary"),
+                                  Button("Import code", custom_id="chh:import", style="primary"),
                                   Button("Home", custom_id="chh:private", style="secondary"))]
             ctx.interaction.followup(embeds=[detail_embed(view, row)], components=controls,
                                      ephemeral=True, allowed_mentions=NO_MENTIONS)

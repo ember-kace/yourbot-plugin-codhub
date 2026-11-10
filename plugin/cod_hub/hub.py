@@ -78,12 +78,12 @@ def _error(ctx, error):
 
 def home_controls():
     return [ActionRow(
-        Button("Import build", custom_id="chh:import", style="primary"),
-        Button("Explore weapons", custom_id="chh:explore", style="secondary"),
-        Button("Compare", custom_id="chc:open", style="secondary"),
-        Button("My builds", custom_id="chh:library", style="secondary")),
-        ActionRow(Button("Meta builds", custom_id="chh:meta", style="secondary"),
-                  Button("References", custom_id="chh:reference", style="secondary"))]
+        Button("Import code", custom_id="chh:import", style="primary"),
+        Button("My builds", custom_id="chh:library", style="secondary"),
+        Button("Compare", custom_id="chc:open", style="secondary")),
+        ActionRow(Button("Weapons", custom_id="chh:explore", style="secondary"),
+                  Button("Meta builds", custom_id="chh:meta", style="secondary"),
+                  Button("Game guide", custom_id="chh:reference", style="secondary"))]
 
 
 def meta_controls():
@@ -190,7 +190,7 @@ def _form(ctx, custom_id, title, fields):
 
 
 def _import_form(ctx):
-    _form(ctx, IMPORT_MODAL, "Import build", [
+    _form(ctx, IMPORT_MODAL, "Import MW4 build code", [
         TextInput("Paste build code", "code", placeholder="A01-42J19-BU11", min_length=7, max_length=256),
         TextInput("Build name (optional)", "title", placeholder="My ranked setup", required=False, max_length=80)])
 

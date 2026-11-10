@@ -271,6 +271,11 @@ def exercise(command):
             host.boot(mode)
             home = host.event(name="codhub")
             assert home["embeds"][0]["title"] == "COD Hub"
+            assert [len(row["components"]) for row in home["components"]] == [3, 3]
+            assert [item["label"] for item in components(home)] == [
+                "Import code", "My builds", "Compare", "Weapons", "Meta builds", "Game guide"]
+            assert sum(item.get("style") == 1 for item in components(home)) == 1
+            assert not home["embeds"][0].get("fields"), "Public launcher should not contain personal fields"
             import_control = next(item for item in components(home) if item.get("custom_id") == "chh:import")
             before = len(host.calls)
             import_form = host.event(custom_id=import_control["custom_id"])
@@ -281,6 +286,8 @@ def exercise(command):
             imported = host.event(custom_id=import_form["custom_id"], interaction_type=5,
                                   modal_values={"code": CODE, "title": "Transport staging"})
             assert imported["ephemeral"] and CODE in str(imported["embeds"])
+            assert control(imported, "Show code") and control(imported, "Post to channel")
+            assert control(imported, "Post PNG to channel")
             saved = host.event(custom_id=control(imported, "Save"))
             empty_setup = host.event(custom_id=control(home, "Compare"))
             assert empty_setup["ephemeral"] and empty_setup["embeds"][0]["title"] == "Set up a comparison"
@@ -309,12 +316,29 @@ def exercise(command):
             pasted_comparison = host.event(custom_id=paste_form["custom_id"], interaction_type=5,
                                             modal_values={"left": CODE, "right": "M4"})
             assert pasted_comparison["ephemeral"] and CODE in str(pasted_comparison["embeds"])
+            missing_graphs = menu(pasted_comparison, "Comparison view")
+            assert {item["value"] for item in missing_graphs["options"]} == {"overview", "details"}
+            # A valid side survives a rejected B input through the real modal wire.
+            recovered = host.event(custom_id=paste_form["custom_id"], interaction_type=5,
+                                   modal_values={"left": CODE, "right": "no-such-weapon-for-transport"})
+            assert recovered["ephemeral"] and "B needs another selection" in recovered["content"]
+            assert CODE in str(recovered["embeds"][0]["fields"])
+            filters = menu(recovered, "Filter comparison weapons")
+            assault = next(option["value"] for option in filters["options"] if "assault" in option["label"].lower())
+            recovered = host.event(custom_id=filters["custom_id"], values=[assault])
+            choices = menu(recovered, "Choose weapon for B")
+            second = next(option["value"] for option in choices["options"] if option["label"] == "M4")
+            recovered = host.event(custom_id=choices["custom_id"], values=[second])
+            recovered = host.event(custom_id=control(recovered, "Compare A / B"))
+            assert recovered["ephemeral"] and CODE in str(recovered["embeds"])
+            assert "M4" in str(recovered["embeds"])
             host.event(name="codweapon", options={"query": "A01"})
             host.event(name="codattachment", options={"query": "FSS TAC90 GRIP", "weapon": "A01"})
             listing = host.event(name="codsaved", options={"action": "list"})
             assert "Transport staging" in listing["embeds"][0]["description"]
             comparison = host.event(name="codcompare", options={"left": "A01", "right": "A05", "view": "dps"})
-            graphs = control(comparison, "Post graphs")
+            assert {item["value"] for item in menu(comparison, "Comparison view")["options"]} == {"overview", "dps", "details"}
+            graphs = control(comparison, "Post graphs to channel")
             host.event(custom_id=graphs, allow_post=True)
             files = host.messages[-1]["files"]
             pngs = [f for f in files if f["filename"].endswith(".png")]
@@ -342,7 +366,7 @@ def exercise(command):
             result.append({"mode": mode, "events": len(host.events), "rpc_calls": len(host.calls),
                            "maximum_initial_ack_ms": max(e["ack_ms"] for e in host.events.values()),
                            "modal_forms_checked": sum(len(e["modals"]) for e in host.events.values()),
-                           "gui_journeys": ["home_import", "home_comparison_setup", "astaroth_weapon_comparison", "pasted_build_comparison"],
+                           "gui_journeys": ["home_import", "home_comparison_setup", "astaroth_weapon_comparison", "pasted_build_comparison", "invalid_side_recovery", "available_graph_views"],
                            "public_messages_simulated": len(host.messages), "http_outage_fixtures": len(host.http_requests),
                            "chart_dimensions": list(struct.unpack_from(">II", decoded, 16)),
                            "attachments": [f["filename"] for f in files],

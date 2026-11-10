@@ -43,13 +43,9 @@ def _snapshot(page_data, items):
 def home_embed():
     return {
         "title": "COD Hub",
-        "description": "**Paste a code. Open your build.**\n\n**Import build** opens a popup with a code box. Paste an MW4 code and submit to see a card you can save, compare or share.",
+        "description": "**Your next loadout starts here.**\n\nImport an MW4 code, compare weapons, or find a build to try.",
         "color": COLOR,
-        "fields": [
-            {"name": "Build tools", "value": "Explore weapons and attachments. Compare two weapons, two builds, or one of each.", "inline": True},
-            {"name": "Discover", "value": "Find meta builds by mode, or look up maps, operators, camos and challenges.", "inline": True},
-        ],
-        "footer": {"text": "Browse privately. Share when you're ready."},
+        "footer": {"text": "Personal cards open privately. You choose what to share."},
     }
 
 

@@ -1,6 +1,6 @@
 # Using COD Hub
 
-Run `/codhub` to post the shared home card. Its buttons open Import build, Explore weapons, Compare, My builds, Meta builds and References. Each person's browsing and previews are private. The plugin works through Discord cards, popup forms and slash commands; there is no separate plugin dashboard.
+Run `/codhub` to post the shared home card. Its first row opens Import code, My builds and Compare; the second opens Weapons, Meta builds and Game guide. Each person's browsing and previews are private. Personal saved counts and builds stay off the shared launcher. The plugin works through Discord cards, popup forms and slash commands; there is no separate plugin dashboard.
 
 ![COD Hub home card](images/hub.png)
 
@@ -23,9 +23,9 @@ Build and catalog commands currently accept only the MW4 game catalog. Reference
 
 ## Import, save and share
 
-1. Choose **Import build** on the home card or in My builds. A Discord popup opens with a **Paste build code** box and an optional build name. Paste a native MW4 code, then submit the form to generate your private card. You do not need another slash command. Alternatively, run `/codbuild` and paste the code into its `code` option.
-2. Check the private weapon/attachment card. **Save** creates your own saved copy. **Get code** displays copyable text for the game's own import flow.
-3. Use **Share card** or **Post PNG** only when you want to publish to the current channel. A shared build lets other people save their own copy or explore its weapon.
+1. Choose **Import code** on the home card or in My builds. A Discord popup opens with a **Paste build code** box and an optional build name. Paste a native MW4 code, then submit the form to generate your private card. You do not need another slash command. Alternatively, run `/codbuild` and paste the code into its `code` option.
+2. Check the private weapon/attachment card. **Save** creates your own saved copy. **Show code** displays private copyable text for the game's own import flow.
+3. Use **Post to channel** or **Post PNG to channel** when you want to publish to the current channel. These posting controls have their own row, separate from saved-build utilities and navigation. A shared build lets other people save their own copy or explore its weapon.
 
 ![Build-card demonstration](images/build.png)
 
@@ -37,7 +37,7 @@ Codes represent a build selection; they do not unlock items or verify your accou
 
 ## Explore weapons
 
-Choose **Explore weapons** to filter by class, page through named weapons and open weapon-specific attachment cards. Search, Back and Home controls keep navigation inside chat. Reference-only weapons do not expose unsupported build or attachment controls.
+Choose **Weapons** to filter by class, page through named weapons and open weapon-specific attachment cards. Search, Back and Home controls keep navigation inside chat. Reference-only weapons do not expose unsupported build or attachment controls.
 
 Internal and technical descriptions are kept separate from verified game names. They are not presented as selectable attachment names. Native identity retention is broader than the set of builds the plugin will present as a fully named player build.
 
@@ -47,7 +47,9 @@ Open **Compare** from the home card, a weapon card or a build card:
 
 1. Choose **A** or **B**, then pick a weapon from the dropdown. Use the class filter and page buttons to find it. Opening Compare from a weapon or build keeps that selection as A.
 2. Once both sides are selected, choose **Compare A / B**. For builds or exact names, **Paste names / codes** opens a popup where you can enter both sides instead.
-3. The result starts in Multiplayer. Switch mode, comparison view and available hit location from its menus. Missing measurement data is explained on the card; it does not prevent an overview comparison.
+3. The result starts in Multiplayer. Switch mode, comparison view and available hit location from its menus. The view menu offers Overview, Measurements / sources, and only compatible reviewed graph views. Missing measurements are explained on the card; they do not prevent an overview comparison.
+
+If one pasted input is invalid, the private setup identifies A or B and keeps the valid side selected. Choose the missing weapon and compare again. Compare becomes the primary action once both selections are ready.
 
 The slash alternative is `/codcompare left:<weapon or code> right:<weapon or code>`, with optional `mode` and `view` options.
 
@@ -65,13 +67,13 @@ Current numerical DPS support is limited to five automatic base weapons in Multi
 
 Attachment performance is not inferred from names or UI stat bars. Modified builds, other modes, recoil and sway show an unavailable state when matching reviewed measurements are missing. Overview remains useful for selections without numerical coverage.
 
-**Share card** publishes a comparison to the current channel. **Post graphs** publishes available plots and a `comparison-measurements.txt` attachment containing their complete sources and caveats. Anyone can open private measurement details from a shared comparison. Shared graph controls switch only among the reviewed plots attached to that post.
+**Post to channel** publishes a comparison to the current channel. **Post graphs to channel** publishes available plots and a `comparison-measurements.txt` attachment containing their complete sources and caveats. Posting a comparison remains available when measurements are missing; graph posting requires reviewed compatible data. Anyone can open private measurement details from a shared comparison. Shared graph controls switch only among the reviewed plots attached to that post.
 
 ## Meta and reference sources
 
 **Meta builds** on the home card opens a mode chooser for Multiplayer, DMZ, Warzone and BO7. `/codmeta` offers Multiplayer, DMZ and Warzone plus weapon-type filters: all, AR, BR, SMG, LMG, shotgun, sniper, marksman, pistol, launcher and melee. Multiplayer and Warzone use attributed [MetaRadar](https://metaradar.gg/) snapshots with at most hourly refreshes. Ranks, source dates and stale-state notices are retained. DMZ currently provides an external [DMZ Radar](https://dmzradar.com/meta.html) link rather than an in-card feed. MW4 build import remains a separate feature.
 
-`/codreference` searches [COD Wiki](https://callofduty.fandom.com/) article excerpts. Category choices are all, maps, operators, camos, challenges, prestige, perks and equipment. Game choices are all, MW4, BO7 and Warzone. These options add search terms; verify the result's actual game and revision. Each result retains contributor credit, revision links and source-license information. Searches refresh at most every 12 hours and do not fetch wiki artwork.
+**Game guide** or `/codreference` searches [COD Wiki](https://callofduty.fandom.com/) article excerpts. Category choices are all, maps, operators, camos, challenges, prestige, perks and equipment. Game choices are all, MW4, BO7 and Warzone. These options add search terms; verify the result's actual game and revision. Each result retains contributor credit, revision links and source-license information. Searches refresh at most every 12 hours and do not fetch wiki artwork.
 
 These are references and provider recommendations, not complete structured databases of maps, operators, progression or challenges. Player statistics and match history are not connected.
 

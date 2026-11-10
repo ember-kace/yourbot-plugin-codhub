@@ -11,7 +11,7 @@ COD Hub brings Call of Duty build codes, weapon browsing, comparisons and saved 
 
 ## What it does
 
-- Choose Import build, paste a native MW4 code into the Discord popup and submit to generate a private card with named attachments and a copyable code.
+- Choose Import code, paste a native MW4 code into the Discord popup and submit to generate a private card with named attachments and a copyable code.
 - Explore weapons and their attachments; save, rename and delete your own builds in each server.
 - Share a build card or text-based PNG to the current channel when you choose to post it.
 - Choose two weapons in the guided A/B picker, or paste build codes to compare builds or one of each. Switch between overview, DPS, recoil, aiming sway and measurement sources.
@@ -28,7 +28,7 @@ See [the usage guide](docs/USAGE.md) for all eight commands, sharing controls an
 
 ## Install through YourBot
 
-1. Download `COD-Hub-0.1.2.zip` from [GitHub Releases](https://github.com/ember-kace/yourbot-plugin-codhub/releases/latest), or build it using the commands below. The ZIP contains `manifest.json` and `__main__.py` at its root.
+1. Build `COD-Hub-0.1.3.zip` from this checkout using the commands below, or download an available package from [GitHub Releases](https://github.com/ember-kace/yourbot-plugin-codhub/releases). The ZIP contains `manifest.json` and `__main__.py` at its root.
 2. To publish your own installation package, sign in to the [YourBot Dev Portal](https://yourbot.gg/dev), use the plugin ID assigned there, upload the validated ZIP and follow the review process. Upload the ZIP contents as built; do not upload this whole repository. [Official publishing guide](https://yourbot.gg/docs/developers/production/publish).
 3. Once a version is available to install, use the Marketplace in your custom-bot server's YourBot dashboard, review its permissions and domains, and allow its commands through Command Access. Then run `/codhub` in Discord. [Official installation guidance](https://yourbot.gg/docs/platform/marketplace-plugins).
 
@@ -49,7 +49,7 @@ python tools/dev.py validate
 python tools/dev.py package
 ```
 
-The package command writes `dist/COD-Hub-0.1.2.zip` from an explicit runtime file list, checks the captured Python files for disallowed imports and dynamic code, and validates it with YourBot SDK 0.10.1 against COD Hub's assigned ID. To also pin the expected manifest version before upload, use `python tools/package_plugin.py --version 0.1.2`. These local checks supplement the portal's separate security scan; they do not predict its risk score. The SDK also supplies `yourbot validate --path plugin --id rmg84ete7r8b --version 0.1.2` and `yourbot doctor --path plugin`. Review the [current YourBot developer documentation](https://yourbot.gg/docs/developers) before changing platform APIs or dependencies.
+The package command writes `dist/COD-Hub-0.1.3.zip` from an explicit runtime file list, checks the captured Python files for disallowed imports and dynamic code, and validates it with YourBot SDK 0.10.1 against COD Hub's assigned ID. To also pin the expected manifest version before upload, use `python tools/package_plugin.py --version 0.1.3`. These local checks supplement the portal's separate security scan; they do not predict its risk score. The SDK also supplies `yourbot validate --path plugin --id rmg84ete7r8b --version 0.1.3` and `yourbot doctor --path plugin`. Review the [current YourBot developer documentation](https://yourbot.gg/docs/developers) before changing platform APIs or dependencies.
 
 Optional: `python tools/dev.py preview` generates local card demonstrations. No game installation, player credentials or Discord bot token is needed for the offline tests and build tools. Live YourBot/Discord installation testing remains pending.
 
@@ -65,7 +65,7 @@ Meta recommendations are provider opinions and can change. Wiki results are attr
 
 The plugin requests `interaction:respond`, `storage:kv`, `discord:send_message` and `proxy:http`. HTTP requests are limited to `metaradar.gg` and `callofduty.fandom.com`. It does not subscribe to ordinary channel messages or request moderation permissions.
 
-Saved builds contain your Discord user identifier, build code, title and creation time in YourBot's server-scoped plugin storage. Previews expire after seven days; saved builds persist until deleted. Browsing and import previews are private. **Share card**, **Post PNG** and **Post graphs** deliberately publish to the current channel. Reference search terms are sent to COD Wiki through YourBot's proxy; weapon images are loaded by Discord from the linked provider.
+Saved builds contain your Discord user identifier, build code, title and creation time in YourBot's server-scoped plugin storage. Previews expire after seven days; saved builds persist until deleted. Browsing and import previews are private. **Post to channel**, **Post PNG to channel** and **Post graphs to channel** deliberately publish to the current channel. Reference search terms are sent to COD Wiki through YourBot's proxy; weapon images are loaded by Discord from the linked provider.
 
 ## Sources and rights
 

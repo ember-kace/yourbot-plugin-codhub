@@ -106,7 +106,7 @@ def _hub_png(payload):
                     raise ValueError("The local preview's button row exceeds its content width.")
                 primary = control.get("style") == 1
                 button_shapes.append(((x, y, x + width, y + 57), primary))
-                text(x + 24, y + 15, label, 22, "#12241d" if primary else ink)
+                text(x + 24, y + 15, label, 22, ink)
                 x += width + 14
             elif control["type"] == 3:
                 menu_shapes.append(y)
@@ -122,7 +122,7 @@ def _hub_png(payload):
                            fill="#131f2c", outline="#293c50", width=2)
     draw.rounded_rectangle((56, 126, 64, card_bottom), radius=4, fill=accent)
     for rectangle, primary in button_shapes:
-        draw.rounded_rectangle(rectangle, radius=10, fill="#9bdcb9" if primary else "#24384b")
+        draw.rounded_rectangle(rectangle, radius=10, fill="#5865f2" if primary else "#24384b")
     for menu_y in menu_shapes:
         draw.rounded_rectangle((56, menu_y, 1144, menu_y + 55), radius=10,
                                fill="#172735", outline="#344b62", width=1)

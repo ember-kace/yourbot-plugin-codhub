@@ -45,14 +45,55 @@ class ComparisonJourneys(unittest.TestCase):
 
     def test_invalid_pasted_comparison_keeps_a_gui_recovery_path(self):
         ui.handle_modal(self.ctx, event(interaction_type=5, modal_values={"left": "Kastov 762", "right": ""}))
-        error = self.ctx.interaction.followups[-1]
-        self.assertTrue(error["ephemeral"])
-        action = button(error, "Choose weapons")
-        ui.handle_component(self.ctx, event(custom_id=action["custom_id"]))
-        setup = self.ctx.interaction.responses[-1]
+        setup = self.ctx.interaction.followups[-1]
+        self.assertTrue(setup["ephemeral"])
         self.assertEqual(setup["embeds"][0]["title"], "Set up a comparison")
+        self.assertIn("**B needs another selection.**", setup["content"])
+        self.assertIn("Selection **A** is kept", setup["content"])
+        self.assertEqual([field["value"] for field in setup["embeds"][0]["fields"]], ["Kastov 762", "Not selected"])
+        self.assertEqual(menu(setup, "Choose weapon for B")["type"], 3)
+        self.assertEqual(self.ctx.interaction.responses, [])
+        ui.handle_component(self.ctx, event(custom_id=button(setup, "Paste names / codes")["custom_id"]))
+        fields = [field.to_dict() for field in self.ctx.interaction.modals_sent[-1]["fields"]]
+        self.assertEqual([field.get("value", "") for field in fields], ["Kastov 762", ""])
         self.assertEqual(self.ctx.messages_sent, [])
         self.assertEqual(self.ctx.kv_writes, [])
+
+    def test_invalid_a_retains_valid_build_b_and_owner_bound_recovery(self):
+        invalid = "<@everyone>:" + "x" * 240
+        ui.handle_modal(self.ctx, event(interaction_type=5, modal_values={"left": invalid, "right": CODE_B}))
+        setup = self.ctx.interaction.followups[-1]
+        self.assertIn("**A needs another selection.**", setup["content"])
+        self.assertIn("Selection **B** is kept", setup["content"])
+        self.assertIn(CODE_B, setup["embeds"][0]["fields"][1]["value"])
+        self.assertEqual(menu(setup, "Choose weapon for A")["type"], 3)
+        retry = button(setup, "Paste names / codes")["custom_id"]
+        self.assertLessEqual(len(retry), 100)
+        self.assertNotIn(invalid, retry)
+        ui.handle_component(self.ctx, event("222", custom_id=retry))
+        self.assertIn("another person", self.ctx.interaction.responses[-1]["content"])
+        self.assertEqual(self.ctx.interaction.modals_sent, [])
+        ui.handle_component(self.ctx, event(custom_id=retry))
+        fields = [field.to_dict() for field in self.ctx.interaction.modals_sent[-1]["fields"]]
+        self.assertEqual([field.get("value", "") for field in fields], ["", CODE_B])
+        self.assertEqual(self.ctx.kv_writes, [])
+        self.assertEqual(self.ctx.messages_sent, [])
+
+    def test_two_invalid_modal_sides_identify_both_and_start_with_a(self):
+        ui.handle_modal(self.ctx, event(interaction_type=5, modal_values={"left": "not a weapon", "right": ""}))
+        setup = self.ctx.interaction.followups[-1]
+        self.assertIn("**A needs another selection.**", setup["content"])
+        self.assertIn("**B needs another selection.**", setup["content"])
+        self.assertEqual([field["value"] for field in setup["embeds"][0]["fields"]], ["Not selected", "Not selected"])
+        self.assertEqual(menu(setup, "Choose weapon for A")["type"], 3)
+        self.assertEqual(self.ctx.kv_writes, [])
+        self.assertEqual(self.ctx.messages_sent, [])
+
+    def test_completed_setup_has_one_primary_compare_action(self):
+        embed, rows = ui.setup_view("111", left="wA01", right="wA05")
+        controls = components({"components": rows})
+        self.assertEqual([item["label"] for item in controls if item.get("style") == 1], ["Compare A / B"])
+        self.assertIn("Multiplayer", embed["footer"]["text"])
 
     def test_home_and_seeded_weapon_setup_acknowledge_without_requiring_a_modal(self):
         self.assertTrue(any(c.get("custom_id") == "chc:open" for c in components({"components": hub.home_controls()})))
@@ -92,7 +133,7 @@ class ComparisonJourneys(unittest.TestCase):
         self.assertTrue(result["update_message"])
         self.assertIn("Astaroth .57", result["embeds"][0]["description"])
         self.assertIn("M4", result["embeds"][0]["description"])
-        self.assertTrue(button(result, "Post graphs")["disabled"])
+        self.assertTrue(button(result, "Post graphs to channel")["disabled"])
         self.assertEqual(self.ctx.interaction.modals_sent, [])
         self.assertEqual(self.ctx.kv_writes, [])
         self.assertEqual(self.ctx.messages_sent, [])
@@ -179,12 +220,27 @@ class ComparisonJourneys(unittest.TestCase):
         self.assertIn("Only A", text)
         self.assertIn(CODE_A, text)
         self.assertIn(CODE_B, text)
-        self.assertTrue(button(card, "Post graphs")["disabled"])
+        self.assertTrue(button(card, "Post graphs to channel")["disabled"])
         selector = menu(card, "Comparison view")
+        self.assertEqual({option["value"] for option in selector["options"]}, {"overview", "details"})
         ui.handle_component(self.ctx, event(custom_id=selector["custom_id"], values=["dps"]))
         view = self.ctx.interaction.responses[-1]
         self.assertTrue(view["update_message"])
         self.assertIn("No attachment-adjusted measurements", str(view["embeds"]))
+        self.assertEqual(self.ctx.messages_sent, [])
+
+    def test_graph_choices_and_posting_primary_follow_reviewed_coverage(self):
+        card = self.open()
+        self.assertEqual({option["value"] for option in menu(card, "Comparison view")["options"]}, {"overview", "dps", "details"})
+        self.assertEqual(button(card, "Post graphs to channel")["style"], 1)
+        self.assertEqual(button(card, "Post to channel")["style"], 2)
+        self.assertIn("Needs matching reviewed measurements: Recoil / gun kick, Aiming sway", str(card["embeds"]))
+        missing = self.open("R03", "A05")
+        self.assertEqual({option["value"] for option in menu(missing, "Comparison view")["options"]}, {"overview", "details"})
+        self.assertEqual(button(missing, "Post to channel")["style"], 1)
+        self.assertEqual(button(missing, "Post graphs to channel")["style"], 2)
+        self.assertTrue(button(missing, "Post graphs to channel")["disabled"])
+        self.assertIn("No reviewed graphs match these selections in this mode", str(missing["embeds"]))
         self.assertEqual(self.ctx.messages_sent, [])
 
     def test_both_stability_views_are_distinct_and_missing_data_is_explicit(self):
@@ -194,7 +250,7 @@ class ComparisonJourneys(unittest.TestCase):
             card = self.ctx.interaction.responses[-1]
             self.assertTrue(card["update_message"])
             self.assertIn("not available", card["embeds"][0]["description"])
-            self.assertTrue(button(card, "Post graphs")["disabled"])
+            self.assertTrue(button(card, "Post graphs to channel")["disabled"])
         self.assertEqual(self.ctx.messages_sent, [])
 
     def test_real_dps_dates_location_switch_and_mode_isolation(self):
@@ -212,11 +268,11 @@ class ComparisonJourneys(unittest.TestCase):
             ui.handle_component(self.ctx, event(custom_id=menu(head, "Comparison mode")["custom_id"], values=[mode]))
             empty = self.ctx.interaction.responses[-1]
             self.assertIn("not available", empty["embeds"][0]["description"])
-            self.assertTrue(button(empty, "Post graphs")["disabled"])
+            self.assertTrue(button(empty, "Post graphs to channel")["disabled"])
 
     def test_post_graph_is_owner_bound_explicit_and_uses_real_png(self):
         card = self.open(view="dps")
-        custom_id = button(card, "Post graphs")["custom_id"]
+        custom_id = button(card, "Post graphs to channel")["custom_id"]
         ui.handle_component(self.ctx, event("222", custom_id=custom_id))
         self.assertIn("another person", self.ctx.interaction.responses[-1]["content"])
         self.assertEqual(self.ctx.messages_sent, [])
@@ -252,7 +308,7 @@ class ComparisonJourneys(unittest.TestCase):
 
     def test_share_text_card_has_no_chart_attachment_controls(self):
         card = self.open()
-        ui.handle_component(self.ctx, event(custom_id=button(card, "Share card")["custom_id"]))
+        ui.handle_component(self.ctx, event(custom_id=button(card, "Post to channel")["custom_id"]))
         posted = self.ctx.messages_sent[-1]
         self.assertFalse(posted.get("files"))
         self.assertFalse(any(c.get("placeholder") == "Graph view" for c in components(posted)))
@@ -305,7 +361,7 @@ class ComparisonJourneys(unittest.TestCase):
         updated = self.ctx.interaction.responses[-1]
         self.assertTrue(updated["update_message"])
         self.assertEqual(updated["embeds"][0]["image"]["url"], "attachment://comparison-recoil.png")
-        self.assertNotIn("Choose **Post graphs**", updated["embeds"][0]["description"])
+        self.assertNotIn("Choose **Post graphs to channel**", updated["embeds"][0]["description"])
         self.assertIn("Chart posted below", updated["embeds"][0]["description"])
         self.assertEqual(len(self.ctx.messages_sent), 1)
 
@@ -325,6 +381,24 @@ class ComparisonJourneys(unittest.TestCase):
         with patch.object(telemetry, "fingerprint", side_effect=AssertionError("No second live fingerprint read")):
             rows = ui._public_controls(result, "111", "dps", "base_profile", graph_bundle=True)
         self.assertTrue(menu({"components": rows}, "Graph view")["custom_id"].endswith(old_fingerprint))
+
+    def test_overview_can_post_available_stability_graph_without_dps(self):
+        # Synthetic UI coverage only; no real recoil measurements are created.
+        result = ui._resolve("A01", "A05", "multiplayer", "base_profile")
+        result["metrics"]["dps"]["available"] = False
+        result["metrics"]["recoil"] = {"available": True, "reason": None, "series": [
+            {"side": side, "label": "Synthetic UI fixture", "points": [{"shot": 1, "x": 0, "y": 0}, {"shot": 2, "x": 1, "y": 1}],
+             "unit": "degrees", "condition": "Synthetic test only", "statistic": "single_trial", "sample_count": 1,
+             "provenance": {"source_url": "https://example.invalid/synthetic", "source_date": "2026-01-01",
+                            "patch": "Synthetic", "method": "UI test"}}
+            for side in ("left", "right")]}
+        card = {"components": ui.controls(result, "111", "overview", "base_profile")}
+        self.assertFalse(button(card, "Post graphs to channel").get("disabled", False))
+        with patch.object(ui, "_resolve", return_value=result), patch("cod_hub.comparison_charts.render_chart", return_value=b"\x89PNG\r\n\x1a\nTEST"):
+            ui.handle_component(self.ctx, event(custom_id=button(card, "Post graphs to channel")["custom_id"]))
+        posted = self.ctx.messages_sent[-1]
+        self.assertEqual(posted["embeds"][0]["image"]["url"], "attachment://comparison-recoil.png")
+        self.assertEqual([file["filename"] for file in posted["files"]], ["comparison-recoil.png", "comparison-measurements.txt"])
 
     def test_details_are_private_paginated_and_keep_complete_measurement_provenance(self):
         card = self.open(view="dps")
@@ -370,7 +444,7 @@ class ComparisonJourneys(unittest.TestCase):
         ui.handle_component(self.ctx, event(custom_id=button(detail, "Next details")["custom_id"]))
         detail = self.ctx.interaction.responses[-1]
         expected = deepcopy(detail["embeds"][0])
-        ui.handle_component(self.ctx, event(custom_id=button(detail, "Share card")["custom_id"]))
+        ui.handle_component(self.ctx, event(custom_id=button(detail, "Post to channel")["custom_id"]))
         posted = self.ctx.messages_sent[-1]
         self.assertEqual(posted["embeds"][0], expected)
         source_button = button(posted, "Measurements / sources")
@@ -421,17 +495,17 @@ class ComparisonJourneys(unittest.TestCase):
 
     def test_public_graph_and_shared_card_instructions_match_available_controls(self):
         private = self.open(view="dps")
-        self.assertIn("Choose **Post graphs**", private["embeds"][0]["description"])
-        self.assertIn("Post graphs", [c.get("label") for c in components(private)])
-        for action in ("Share card", "Post graphs"):
+        self.assertIn("Choose **Post graphs to channel**", private["embeds"][0]["description"])
+        self.assertIn("Post graphs to channel", [c.get("label") for c in components(private)])
+        for action in ("Post to channel", "Post graphs to channel"):
             ui.handle_component(self.ctx, event(custom_id=button(private, action)["custom_id"]))
             public = self.ctx.messages_sent[-1]
             text = str(public["embeds"])
-            self.assertNotIn("Choose **Post graphs**", text)
-            self.assertNotIn("Share and Post graphs publish", text)
-            self.assertNotIn("Post graphs", [c.get("label") for c in components(public)])
+            self.assertNotIn("Choose **Post graphs to channel**", text)
+            self.assertNotIn("Post to channel and Post graphs to channel publish here", text)
+            self.assertNotIn("Post graphs to channel", [c.get("label") for c in components(public)])
             self.assertIn("Open comparison", text)
-            if action == "Post graphs":
+            if action == "Post graphs to channel":
                 self.assertIn("Chart posted below", text)
                 self.assertIn("Complete source notes attached", text)
 

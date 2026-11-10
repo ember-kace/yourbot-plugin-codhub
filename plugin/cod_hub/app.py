@@ -8,7 +8,7 @@ from .store import BuildStore, clean_title, owner_id
 
 
 NO_MENTIONS = {"parse": []}
-POST_NOTICE = "Share card and Post PNG publish this build in the current channel. PNG exports are text-only."
+POST_NOTICE = "Post to channel and Post PNG to channel publish in the current channel. PNG exports are text-only."
 _CUSTOM_ID = re.compile(r"ch:(save|code|share|png|delete|list):([psl]):([0-9]{1,22}):([a-z0-9]{1,16})\Z")
 
 
@@ -72,22 +72,19 @@ def _named_build(build):
 
 def _controls(record, kind):
     stem = ":" + kind + ":" + record["owner"] + ":" + record["id"]
-    buttons = []
+    utility = []
     if kind == "p":
-        buttons.append(Button("Save", custom_id="ch:save" + stem, style="success"))
-    buttons.extend([
-        Button("Get code", custom_id="ch:code" + stem, style="secondary"),
-        Button("Share card", custom_id="ch:share" + stem, style="secondary"),
-        Button("Post PNG", custom_id="ch:png" + stem, style="primary"),
-    ])
+        utility.append(Button("Save", custom_id="ch:save" + stem, style="success"))
+    utility.append(Button("Show code", custom_id="ch:code" + stem, style="secondary"))
     if kind == "s":
-        buttons.append(Button("Rename", custom_id="chl:rename:" + record["owner"] + ":" + record["code"], style="secondary"))
-        buttons.append(Button("Delete", custom_id="chl:ask:" + record["owner"] + ":" + record["id"], style="danger"))
+        utility.append(Button("Rename", custom_id="chl:rename:" + record["owner"] + ":" + record["code"], style="secondary"))
+        utility.append(Button("Delete", custom_id="chl:ask:" + record["owner"] + ":" + record["id"], style="danger"))
+    posting = [
+        Button("Post to channel", custom_id="ch:share" + stem, style="secondary"),
+        Button("Post PNG to channel", custom_id="ch:png" + stem, style="secondary"),
+    ]
     from .hub import build_navigation
-    rows = [ActionRow(*buttons)]
-    navigation = build_navigation(record["code"])
-    rows.append(navigation)
-    return rows
+    return [ActionRow(*utility), ActionRow(*posting), build_navigation(record["code"])]
 
 
 def _show(ctx, record, kind, *, ephemeral=False, notice=POST_NOTICE):
@@ -174,8 +171,8 @@ def _saved_list(ctx, store, owner, page=1):
     if type(page) is not int or page < 1 or page > pages:
         raise ValueError("That saved-build page doesn't exist.")
     if not records:
-        _followup(ctx, content="Your saved library is empty. Choose Import build, paste a code, then Save the preview.",
-                  components=[ActionRow(Button("Import build", custom_id="chh:import", style="primary"),
+        _followup(ctx, content="Your saved library is empty. Choose Import code, paste a code, then Save the preview.",
+                  components=[ActionRow(Button("Import code", custom_id="chh:import", style="primary"),
                                         Button("Hub", custom_id="chh:private", style="secondary"))],
                   ephemeral=True)
         return

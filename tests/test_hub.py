@@ -39,13 +39,13 @@ class HubJourneys(unittest.TestCase):
         hub.handle_home(self.ctx, event(interaction_type=2))
         home = self.ctx.interaction.followups[-1]
         self.assertEqual(len(home["components"]), 2)
-        import_button = next(item for item in components(home) if item.get("label") == "Import build")
+        import_button = next(item for item in components(home) if item.get("label") == "Import code")
         self.assertEqual(import_button["style"], 1)
         before_defers = len(self.ctx.interaction.defers)
         hub.handle_component(self.ctx, event(custom_id=import_button["custom_id"]))
         self.assertEqual(len(self.ctx.interaction.defers), before_defers)
         modal = self.ctx.interaction.modals_sent[-1]
-        self.assertEqual(modal["title"], "Import build")
+        self.assertEqual(modal["title"], "Import MW4 build code")
         self.assertEqual(modal["custom_id"], hub.IMPORT_MODAL)
         fields = [field.to_dict() for field in modal["fields"]]
         self.assertEqual(fields[0]["custom_id"], "code")
@@ -72,9 +72,24 @@ class HubJourneys(unittest.TestCase):
         self.assertEqual(self.ctx.interaction.modals_sent[-1]["custom_id"], hub.IMPORT_MODAL)
         self.assertEqual(self.ctx.messages_sent, [])
 
+    def test_public_home_has_balanced_stable_routes_without_personal_state(self):
+        with patch.object(BuildStore, "list_saved", side_effect=AssertionError("Public home must not read a personal library")):
+            hub.handle_home(self.ctx, event(interaction_type=2))
+        home = self.ctx.interaction.followups[-1]
+        rows = [row.to_dict()["components"] for row in home["components"]]
+        self.assertEqual([[item["label"] for item in row] for row in rows], [
+            ["Import code", "My builds", "Compare"], ["Weapons", "Meta builds", "Game guide"]])
+        self.assertEqual([[item["custom_id"] for item in row] for row in rows], [
+            ["chh:import", "chh:library", "chc:open"], ["chh:explore", "chh:meta", "chh:reference"]])
+        self.assertEqual([item["label"] for row in rows for item in row if item["style"] == 1], ["Import code"])
+        self.assertFalse(home["ephemeral"])
+        self.assertEqual(self.ctx.kv_writes, [])
+        self.assertEqual(self.ctx.http.requests, [])
+        self.assertEqual(self.ctx.messages_sent, [])
+
     def test_home_meta_chooser_and_reference_button_work_without_provider_io(self):
         home = {"components": hub.home_controls()}
-        self.assertEqual(button(home, "References"), "chh:reference")
+        self.assertEqual(button(home, "Game guide"), "chh:reference")
         hub.handle_component(self.ctx, event(custom_id=button(home, "Meta builds")))
         choice = self.ctx.interaction.responses[-1]
         self.assertTrue(choice["ephemeral"])
@@ -85,7 +100,7 @@ class HubJourneys(unittest.TestCase):
         self.assertEqual(self.ctx.interaction.defers, [])
         self.assertEqual(self.ctx.http.requests, [])
         self.assertEqual(self.ctx.kv_writes, [])
-        hub.handle_component(self.ctx, event(custom_id=button(home, "References")))
+        hub.handle_component(self.ctx, event(custom_id=button(home, "Game guide")))
         self.assertEqual(self.ctx.interaction.modals_sent[-1]["custom_id"], hub.REFERENCE_MODAL)
 
     def test_public_launcher_creates_separate_private_browser_without_kv(self):
@@ -93,7 +108,7 @@ class HubJourneys(unittest.TestCase):
         home = self.ctx.interaction.followups[-1]
         self.assertFalse(home["ephemeral"])
         self.assertEqual(home["embeds"][0]["title"], "COD Hub")
-        hub.handle_component(self.ctx, event(custom_id=button(home, "Explore weapons")))
+        hub.handle_component(self.ctx, event(custom_id=button(home, "Weapons")))
         first = self.ctx.interaction.responses[-1]
         self.assertTrue(first["ephemeral"])
         self.assertFalse(first["update_message"])
@@ -153,7 +168,7 @@ class HubJourneys(unittest.TestCase):
         saved = self.ctx.interaction.followups[-1]
         self.assertTrue(button(saved, "Rename").startswith("chl:rename:111:"))
         self.assertTrue(button(saved, "Delete").startswith("chl:ask:111:"))
-        app.handle_component(self.ctx, event(custom_id=button(saved, "Share card")))
+        app.handle_component(self.ctx, event(custom_id=button(saved, "Post to channel")))
         published = self.ctx.messages_sent[-1]
         self.assertEqual(published["channel_id"], "333")
         self.assertEqual(published["allowed_mentions"], {"parse": []})
@@ -218,7 +233,7 @@ class HubJourneys(unittest.TestCase):
         self.assertIn("Base weapon image", illustration["description"])
         self.assertIn("Data by MetaRadar", illustration["description"])
         self.assertIn("PNG exports are text-only", private["content"])
-        app.handle_component(self.ctx, event(custom_id=button(private, "Share card")))
+        app.handle_component(self.ctx, event(custom_id=button(private, "Post to channel")))
         public = self.ctx.messages_sent[-1]["embeds"][0]
         self.assertEqual(public["image"], illustration["image"])
         self.assertEqual(public["description"], illustration["description"])

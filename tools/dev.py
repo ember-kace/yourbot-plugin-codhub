@@ -19,7 +19,7 @@ def main(argv=None):
     commands = {
         'test': [['-m', 'unittest', 'discover', '-s', 'tests', '-q']],
         'validate': [['tools/check_public_tree.py'], ['tools/validate_catalog.py'], ['tools/package_plugin.py']],
-        'package': [['tools/package_plugin.py', '--output', 'dist/COD-Hub-0.1.2.zip', '--report', 'dist/package.json']],
+        'package': [['tools/package_plugin.py', '--output', 'dist/COD-Hub-0.1.3.zip', '--report', 'dist/package.json']],
         'preview': [['tools/render_readme_previews.py', '--output', 'docs/images']],
     }
     for command in commands[args.command]:

@@ -165,7 +165,7 @@ class MetaBrowserTests(unittest.TestCase):
         self.assertIn("In-card DMZ", result["embeds"][0]["description"])
         self.assertIn("October 28, 2026", result["embeds"][0]["description"])
         self.assertEqual(button(result, "Open external DMZ builds")["url"], browser.DMZ_SOURCE)
-        self.assertEqual(button(result, "Import build")["custom_id"], "chh:import")
+        self.assertEqual(button(result, "Import code")["custom_id"], "chh:import")
         self.assertTrue(menu(result, "Choose mode"))
         self.assertTrue(menu(result, "Filter by weapon type"))
         self.assertEqual(self.ctx.http.requests, [])
