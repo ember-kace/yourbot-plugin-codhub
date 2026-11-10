@@ -8,6 +8,8 @@ Install the validated plugin ZIP through YourBot's developer publishing and Mark
 
 The compact home card offers **Import code**, **My builds** and **Compare**, followed by **Weapons**, **Meta builds** and **Game guide**. Import code opens a Discord popup: paste your code, optionally name it, and submit to generate a private card. Compare opens an A/B weapon picker; choose both weapons and select **Compare A / B**, or use **Paste names / codes** for builds. Invalid pasted comparison input keeps the valid selection and identifies which side needs another choice. Browsing and imported previews are private. **Post to channel**, **Post PNG to channel** and **Post graphs to channel** explicitly publish to the current channel. Shared builds let others save their own copy; saved-build edits remain owner-bound. **Show code** displays private copyable code text. Only graph views with compatible reviewed measurements appear in the result's view menu.
 
+If YourBot rejects the popup before it opens, import directly with `/codbuild code:A01-42J19-BU11`. A live modal request has returned an unexplained Discord HTTP 400. Version 0.1.4 adds specific recovery and safe diagnostics; the popup rejection itself remains unresolved. See [troubleshooting](https://github.com/ember-kace/yourbot-plugin-codhub/blob/main/docs/USAGE.md#installation-and-troubleshooting).
+
 | Command | Use |
 |---|---|
 | `/codhub` | Open the shared home card and private tools. |

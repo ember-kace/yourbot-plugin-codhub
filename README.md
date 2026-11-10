@@ -26,9 +26,11 @@ Build cards display transparent base-weapon artwork where verified artwork is av
 
 See [the usage guide](docs/USAGE.md) for all eight commands, sharing controls and data limits. These are locally rendered demonstrations, not screenshots of a live Discord installation.
 
+If **Import code** fails before a popup appears, use `/codbuild code:A01-42J19-BU11` to test import directly. A live installation has returned an unexplained Discord HTTP 400 for the popup request; this remains under investigation. Version 0.1.4 adds specific recovery messages and safe diagnostics, rather than treating this as an invalid build code. See [popup troubleshooting](docs/USAGE.md#installation-and-troubleshooting).
+
 ## Install through YourBot
 
-1. Build `COD-Hub-0.1.3.zip` from this checkout using the commands below, or download an available package from [GitHub Releases](https://github.com/ember-kace/yourbot-plugin-codhub/releases). The ZIP contains `manifest.json` and `__main__.py` at its root.
+1. Build `COD-Hub-0.1.4.zip` from this checkout using the commands below, or download an available package from [GitHub Releases](https://github.com/ember-kace/yourbot-plugin-codhub/releases). The ZIP contains `manifest.json` and `__main__.py` at its root.
 2. To publish your own installation package, sign in to the [YourBot Dev Portal](https://yourbot.gg/dev), use the plugin ID assigned there, upload the validated ZIP and follow the review process. Upload the ZIP contents as built; do not upload this whole repository. [Official publishing guide](https://yourbot.gg/docs/developers/production/publish).
 3. Once a version is available to install, use the Marketplace in your custom-bot server's YourBot dashboard, review its permissions and domains, and allow its commands through Command Access. Then run `/codhub` in Discord. [Official installation guidance](https://yourbot.gg/docs/platform/marketplace-plugins).
 
@@ -49,9 +51,9 @@ python tools/dev.py validate
 python tools/dev.py package
 ```
 
-The package command writes `dist/COD-Hub-0.1.3.zip` from an explicit runtime file list, checks the captured Python files for disallowed imports and dynamic code, and validates it with YourBot SDK 0.10.1 against COD Hub's assigned ID. To also pin the expected manifest version before upload, use `python tools/package_plugin.py --version 0.1.3`. These local checks supplement the portal's separate security scan; they do not predict its risk score. The SDK also supplies `yourbot validate --path plugin --id rmg84ete7r8b --version 0.1.3` and `yourbot doctor --path plugin`. Review the [current YourBot developer documentation](https://yourbot.gg/docs/developers) before changing platform APIs or dependencies.
+The package command writes `dist/COD-Hub-0.1.4.zip` from an explicit runtime file list, checks the captured Python files for disallowed imports and dynamic code, and validates it with YourBot SDK 0.10.1 against COD Hub's assigned ID. To also pin the expected manifest version before upload, use `python tools/package_plugin.py --version 0.1.4`. These local checks supplement the portal's separate security scan; they do not predict its risk score. The SDK also supplies `yourbot validate --path plugin --id rmg84ete7r8b --version 0.1.4` and `yourbot doctor --path plugin`. Review the [current YourBot developer documentation](https://yourbot.gg/docs/developers) before changing platform APIs or dependencies.
 
-Optional: `python tools/dev.py preview` generates local card demonstrations. No game installation, player credentials or Discord bot token is needed for the offline tests and build tools. Live YourBot/Discord installation testing remains pending.
+Optional: `python tools/dev.py preview` generates local card demonstrations. No game installation, player credentials or Discord bot token is needed for the offline tests and build tools. A live menu has been observed; popup import remains blocked by the HTTP 400 described above. Offline and simulated-transport success does not establish live Discord compatibility.
 
 ## Data coverage and accuracy
 

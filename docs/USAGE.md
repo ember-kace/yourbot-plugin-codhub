@@ -93,4 +93,16 @@ See the [README](../README.md#install-through-yourbot) for the ZIP publishing an
 
 If a code is rejected, check that it is a native MW4 code and re-copy it without extra text. If a saved-build control expires, reopen the library or import the code again. If a numerical comparison is unavailable, open Measurements / sources to see which profile or condition is missing.
 
-Local regression and SDK validation do not replace a real server installation test. Live YourBot/Discord installation has not yet been verified. No project license granted; see [third-party notices](../THIRD_PARTY_NOTICES.md) for resources with their own terms.
+If **Import code** fails immediately before the popup appears, the code has not reached the decoder. Use the direct command:
+
+```text
+/codbuild code:A01-42J19-BU11
+```
+
+This sample resolves to Kastov 762 with five attachments. Search and references also have direct `/codweapon query:Kastov` and `/codreference query:Terminal` alternatives. Comparison retains its guided weapon picker when its paste form is unavailable.
+
+A live popup attempt returned `Discord API error 400` for `interaction.send_modal`, without Discord's response body. The current official SDK 0.10.1 serializes the request into legacy action rows. [Discord now recommends Label containers instead](https://docs.discord.com/developers/components/reference#text-input); whether that deprecation is related to this rejection is unconfirmed. The local transport tests simulate the host and cannot explain the live rejection. Version 0.1.4 improves recovery and logs the form, SDK version, error class/code and HTTP status without raw error text, user input or interaction credentials. It does not claim to repair the live popup rejection.
+
+For YourBot support, report that the first response to the `chh:import` component is `send_modal(title="Import MW4 build code", custom_id="chh:import:v1", fields=[TextInput("Paste build code", "code", min_length=7, max_length=256), TextInput("Build name (optional)", "title", required=False, max_length=80)])`. There is no preceding defer. Ask them to inspect the host's modal payload and the complete Discord HTTP error response, with tokens redacted. The request follows the [official modal API](https://yourbot.gg/docs/developers/build/modals). A missing response body does not establish whether the cause is host translation, acknowledgment state or another Discord validation error.
+
+Local regression and SDK validation do not replace a real server installation test. A live menu has been observed, while popup import remains unresolved as described above. No project license granted; see [third-party notices](../THIRD_PARTY_NOTICES.md) for resources with their own terms.

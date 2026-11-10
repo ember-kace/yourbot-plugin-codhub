@@ -3,7 +3,7 @@ import base64
 import binascii
 import re
 
-from yourbot_sdk import ActionRow, Button, SelectMenu, SelectOption, TextInput
+from yourbot_sdk import ActionRow, Button, SelectMenu, SelectOption, TextInput, __version__ as SDK_VERSION
 
 from . import cards, catalog, hub_cards
 from .store import BuildStore, owner_id
@@ -185,8 +185,51 @@ def _attachments_view(owner, weapon_id, slot="_", page=1):
     return hub_cards.attachments_embed(weapon, payload, None if slot == "_" else slot), rows
 
 
+def _log_form_failure(ctx, error, form, method):
+    # Only fixed context and known machine metadata may enter diagnostics.
+    code = getattr(error, "code", None)
+    known_code = isinstance(code, str) and code in {
+        "SDK_ERROR", "CAPABILITY_DENIED", "RATE_LIMITED", "QUOTA_EXCEEDED",
+        "DISCORD_API_ERROR", "BOT_MISSING_PERMISSION", "VALIDATION_ERROR", "RPC_ERROR", "RPC_TIMEOUT",
+    }
+    known_rpc_code = type(code) is int and code in {-32700, -32600, -32601, -32602, -32603}
+    status = getattr(error, "status_code", None)
+    diagnostic = {"method": method, "form": form,
+                  "sdk_version": SDK_VERSION, "error_type": type(error).__name__[:60]}
+    if known_code or known_rpc_code:
+        diagnostic["error_code"] = code
+    if type(status) is int and 400 <= status <= 599:
+        diagnostic["status_code"] = status
+    message = "COD Hub popup request failed" if method == "interaction.send_modal" else "COD Hub popup recovery failed"
+    try:
+        ctx.log(message, level="error", **diagnostic)
+    except Exception:
+        # A failed log must not trigger another Discord response attempt.
+        pass
+
+
 def _form(ctx, custom_id, title, fields):
-    ctx.interaction.send_modal(title=title, custom_id=custom_id, fields=fields)
+    try:
+        ctx.interaction.send_modal(title=title, custom_id=custom_id, fields=fields)
+    except Exception as error:
+        # Attempt one private recovery response without resending a modal whose
+        # outcome may be uncertain. Never log the host's raw error detail.
+        form, retry, command = {
+            IMPORT_MODAL: ("import_build", "chh:import", "/codbuild code:<your build code>"),
+            SEARCH_MODAL: ("weapon_search", "chh:search", "/codweapon query:<weapon name>"),
+            REFERENCE_MODAL: ("reference_search", "chh:reference", "/codreference query:<search>"),
+        }[custom_id]
+        _log_form_failure(ctx, error, form, "interaction.send_modal")
+        try:
+            ctx.interaction.respond(
+                content="The popup couldn't open. You can still use `" + command + "`, or try the popup again.",
+                components=[ActionRow(Button("Try popup again", custom_id=retry, style="primary"),
+                                      Button("Home", custom_id="chh:private", style="secondary"))],
+                ephemeral=True, allowed_mentions=NO_MENTIONS)
+        except Exception as recovery_error:
+            # The interaction may have expired or already been acknowledged.
+            # Do not let the outer handler attempt a second recovery response.
+            _log_form_failure(ctx, recovery_error, form, "interaction.respond")
 
 
 def _import_form(ctx):
