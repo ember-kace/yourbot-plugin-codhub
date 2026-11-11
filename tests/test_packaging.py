@@ -12,14 +12,14 @@ import unittest
 import zipfile
 from unittest.mock import patch
 
-from tools.package_plugin import ROOT, FILES, main, prepare
+from tools.package_plugin import ROOT, runtime_files, main, prepare
 from tools.english_release_gate import evaluate_release
 
 
 def synthetic_plugin(parent):
     """A complete synthetic fixture; it never changes production name evidence."""
     plugin = Path(parent) / "plugin"
-    for relative in FILES:
+    for relative in runtime_files(ROOT / "plugin"):
         target = plugin / relative
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes((ROOT / "plugin" / relative).read_bytes())
@@ -176,8 +176,8 @@ class PackagingTests(unittest.TestCase):
             self.assertFalse(output.exists())
             state = json.loads(report.read_text())
             self.assertFalse(state["release_ready"])
-            self.assertEqual(state["english"]["required"], 1299)
-            self.assertLess(state["english"]["total_translated"], 1299)
+            self.assertEqual(state["english"]["required"], 1302)
+            self.assertLess(state["english"]["total_translated"], 1302)
 
     def test_concurrent_completion_cannot_approve_an_older_incomplete_archive(self):
         from yourbot_sdk._validation import validate_artifact
@@ -207,8 +207,8 @@ class PackagingTests(unittest.TestCase):
         self.assertEqual(report["sdk_validation"]["errors"], [])
         self.assertEqual(report["sdk_validation"]["warnings"], [])
         self.assertTrue(report["native_artwork"]["ready"])
-        self.assertEqual(report["native_artwork"]["image_count"], 20)
-        self.assertEqual(report["native_artwork"]["image_bytes"], 2_001_102)
+        self.assertEqual(report["native_artwork"]["image_count"], 38)
+        self.assertEqual(report["native_artwork"]["image_bytes"], 3_694_872)
         with zipfile.ZipFile(BytesIO(data)) as archive:
             paths = archive.namelist()
             self.assertIn("manifest.json", paths)

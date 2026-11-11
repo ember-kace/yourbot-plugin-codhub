@@ -60,6 +60,9 @@ def _record_build(record):
     build = _named_build(_catalog().resolve_build(record["code"], game=record["game"]))
     build = dict(build)
     build["title"] = clean_title(record.get("title"))
+    if record.get("snapshot_date") != build.get("snapshot_date"):
+        build["notes"] = [*build.get("notes", []),
+                          "The game's attachment mappings have changed. Verify this older saved code in-game."]
     return build
 
 
@@ -294,7 +297,23 @@ def handle_component(ctx, event):
 
 
 def register(plugin):
-    from . import hub, library_ui, comparison_ui, meta_browser
+    from . import hub, library_ui, comparison_ui, meta_browser, item_catalog_ui, native_guide_ui
+
+    @plugin.on_slash_command("codguide")
+    def codguide(ctx, event):
+        native_guide_ui.handle_command(ctx, event)
+
+    @plugin.on_component(prefix="chg:")
+    def guide_component(ctx, event):
+        native_guide_ui.handle_component(ctx, event)
+
+    @plugin.on_slash_command("codcatalog")
+    def codcatalog(ctx, event):
+        item_catalog_ui.handle_command(ctx, event)
+
+    @plugin.on_component(prefix="chx:")
+    def catalog_component(ctx, event):
+        item_catalog_ui.handle_component(ctx, event)
 
     @plugin.on_slash_command("codcompare")
     def codcompare(ctx, event):

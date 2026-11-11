@@ -1,6 +1,6 @@
 # Using COD Hub
 
-Run `/codhub` to post the shared home card. Its first row opens Import code, My builds and Compare; the second opens Weapons, Meta builds and Game guide. Each person's browsing and previews are private. Personal saved counts and builds stay off the shared launcher. The plugin works through Discord cards, popup forms and slash commands; there is no separate plugin dashboard.
+Run `/codhub` to post the shared home card. Its first row opens Import code, My builds and Compare; the second opens Weapons, Item catalog, Meta builds and Game guide. Each person's browsing and previews are private. Personal saved counts and builds stay off the shared launcher. The plugin works through Discord cards, popup forms and slash commands; there is no separate plugin dashboard.
 
 ![COD Hub home card](images/hub.png)
 
@@ -12,11 +12,13 @@ The command names and options below match `plugin/manifest.json`.
 |---|---|---|
 | `/codhub` | None | Shared home card with entry points into private tools. |
 | `/codbuild` | Required `code`; optional `game:mw4`, `title` | Decode a native MW4 code into a private build preview. |
+| `/codcatalog` | Optional `category`, `query`, `page` | Browse native item and cosmetic cards privately. |
 | `/codweapon` | Required `query`; optional `game:mw4` | Search the packaged weapon catalog by name, reference or prefix. |
 | `/codattachment` | Required `query`; optional `weapon`, `game:mw4` | Search named attachments; a prefix such as `A01` narrows the weapon. |
 | `/codsaved` | Optional `action:list\|show\|delete`, `id`, `page` | Manage your builds in this server. Show/delete use an ID from your saved list. |
 | `/codcompare` | Required `left`, `right`; optional `mode`, `view` | Compare weapon names, prefixes or supported native MW4 codes. |
 | `/codmeta` | Optional `mode`, `weapon_type` | Private mode/type browser for attributed recommendations. |
+| `/codguide` | Optional `category`, `query` (36 characters), `page` | Browse packaged native map, challenge, mission and event references. |
 | `/codreference` | Required `query`; optional `category`, `game` | Private, dated COD Wiki article search. |
 
 Build and catalog commands currently accept only the MW4 game catalog. Reference search also offers BO7 and Warzone search terms. This does not add native build-code support for those games.
@@ -33,17 +35,31 @@ Open **My builds** or `/codsaved` to select a saved build. **Rename** opens a fo
 
 Saved builds persist independently of previews. Preview controls expire after seven days and may be replaced sooner in the bounded preview cache. Re-import a code if an old preview has expired. The library has an advisory limit of 50 builds per person per server; simultaneous saves on separate workers can exceed that limit, so all retained records remain manageable.
 
+The current native tables include changed positions since the previous plugin snapshot. Older saved codes show a reminder to verify their current attachment selection in-game.
+
 Codes represent a build selection; they do not unlock items or verify your account's inventory. An unsupported or unnamed selection is rejected with an explanation. Existing affected saved records still permit code retrieval and deletion.
 
-Native transparent previews cover 17 weapons. Three Kastov codes show their verified primary attachment layouts: `A01-42J19-BU11`, `A01-A11NP-B11` and `A01-9YGBJ-D11`. Other builds use a clearly labeled base-weapon preview where available. Camos, charms, every runtime component and full game shader appearance are not reproduced. Eleven additional weapons retain provider artwork; seven remain text-only. PNG exports include the bundled native image where available and retain its credit and limitations.
+All 35 main-browser weapons have native artwork: 30 reviewed model references and five catalog icons. Three Kastov codes show verified primary attachment layouts; other builds use clearly labeled weapon references. Four views simplify lens shaders, and CSG35 uses its folded native reference. PNG exports include the corresponding bundled image and its scope. Camos, charms, arbitrary attachment layouts and full in-game shader appearance are not reproduced.
 
-The [preview gallery](https://ember-kace.github.io/yourbot-plugin-codhub/artwork/) and card images are hosted on free GitHub Pages. The same 20 lossless transparent WebPs are bundled for PNG exports. Hosted and bundled copies have matching hashes; the 1.91 MiB image set preserves every decoded pixel from its PNG sources. Private YourBot interaction replies currently require an HTTPS image URL because their SDK methods have no file-attachment parameter. [Official YourBot API](https://yourbot.gg/docs/developers/reference/context).
+The [weapon gallery](https://ember-kace.github.io/yourbot-plugin-codhub/artwork/) and [item gallery](https://ember-kace.github.io/yourbot-plugin-codhub/artwork/items/) use free GitHub Pages hosting. Thirty-eight weapon/build WebPs are also bundled for PNG exports; the larger item library is hosted and selected through an offline packaged index. Private interaction cards require HTTPS images under the current SDK API. Image-host outages may hide embed art while bundled weapon PNG exports remain available.
 
 ## Explore weapons
 
 Choose **Weapons** to filter by class, page through named weapons and open weapon-specific attachment cards. Search, Back and Home controls keep navigation inside chat. Reference-only weapons do not expose unsupported build or attachment controls.
 
 Internal and technical descriptions are kept separate from verified game names. They are not presented as selectable attachment names. Native identity retention is broader than the set of builds the plugin will present as a fully named player build.
+
+## Explore items and cosmetics
+
+Choose **Item catalog** on the home card, then select a category. Browse named weapons and blueprints, attachments, camos, reticles, charms, stickers, operators, skins, finishing moves, equipment, perks and other native categories. The category menu and item pages stay in Discord.
+
+Use `/codcatalog query:gold category:camo` to search, `/codcatalog category:operator` to browse one category, or add `page:2` for more results. Category keys use the native spelling, such as `weapon_charm`, `operator_skin`, `equipment` and `playercards`; the GUI supplies friendly labels.
+
+An item opens privately with its name, category, source date and native artwork when available. Choose **Post card to channel** to share that item. Other people can open their own private catalog from the shared card. Browsing does not modify saved builds.
+
+Artwork is a catalog reference. A camo tile does not apply that camo to a rendered gun, and a blueprint icon does not establish a complete attachment-specific appearance. Layered graphics carry **Static native artwork preview**. Where the native source assigns different English labels to the same item in different contexts, the card preserves both and says **Native labels vary by context**.
+
+The native census also contains tracking records, unnamed stubs and internal components. These remain counted in coverage and are kept out of named player-item browsing. The catalog does not report your account unlocks, current store availability or live challenge progress.
 
 ## Compare weapons or builds
 
@@ -77,9 +93,11 @@ Attachment performance is not inferred from names or UI stat bars. Modified buil
 
 **Meta builds** on the home card opens a mode chooser for Multiplayer, DMZ, Warzone and BO7. `/codmeta` offers Multiplayer, DMZ and Warzone plus weapon-type filters: all, AR, BR, SMG, LMG, shotgun, sniper, marksman, pistol, launcher and melee. Multiplayer and Warzone use attributed [MetaRadar](https://metaradar.gg/) snapshots with at most hourly refreshes. Ranks, source dates and stale-state notices are retained. DMZ currently provides an external [DMZ Radar](https://dmzradar.com/meta.html) link rather than an in-card feed. MW4 build import remains a separate feature.
 
-**Game guide** or `/codreference` searches [COD Wiki](https://callofduty.fandom.com/) article excerpts. Category choices are all, maps, operators, camos, challenges, prestige, perks and equipment. Game choices are all, MW4, BO7 and Warzone. These options add search terms; verify the result's actual game and revision. Each result retains contributor credit, revision links and source-license information. Searches refresh at most every 12 hours and do not fetch wiki artwork.
+**Game guide** or `/codguide` opens 587 verified English references from 683 native map, challenge, weapon-mastery, DMZ mission and event records. Choose a category or search by name; cards can be posted only through an explicit owner action. Duplicated map rows remain distinct source references. Context-dependent objective templates direct you to the in-game challenge rather than inventing counts, rewards or progress. These references do not establish current rotations, event schedules or account completion.
 
-These are references and provider recommendations, not complete structured databases of maps, operators, progression or challenges. Player statistics and match history are not connected.
+**Wiki search** in that guide, or `/codreference`, searches [COD Wiki](https://callofduty.fandom.com/) article excerpts. Category choices are all, maps, operators, camos, challenges, prestige, perks and equipment. Game choices are all, MW4, BO7 and Warzone. These options add search terms; verify the result's actual game and revision. Each result retains contributor credit, revision links and source-license information. Searches refresh at most every 12 hours and do not fetch wiki artwork.
+
+The native item and guide catalogs are dated structured references. Wiki results and meta recommendations remain separate provider sources. Live rotations, progression and unlocks are not connected; player statistics and match history are not retrieved.
 
 ## Privacy and permissions
 

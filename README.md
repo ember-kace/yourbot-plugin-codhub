@@ -5,7 +5,7 @@
 ![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776ab)
 ![MW4 build tools](https://img.shields.io/badge/Build_tools-MW4-cba45c)
 
-COD Hub brings Call of Duty build codes, weapon browsing, comparisons and saved loadouts into Discord through YourBot. Start with `/codhub`, then use the cards and menus or jump directly to a slash command.
+COD Hub brings Call of Duty build codes, native item browsing, weapon comparisons and saved loadouts into Discord through YourBot. Start with `/codhub`, then use the cards and menus or jump directly to a slash command.
 
 ![COD Hub home card](docs/images/hub.png)
 
@@ -13,26 +13,30 @@ COD Hub brings Call of Duty build codes, weapon browsing, comparisons and saved 
 
 - Choose Import code, paste a native MW4 code into the Discord popup and submit to generate a private card with named attachments and a copyable code.
 - Explore weapons and their attachments; save, rename and delete your own builds in each server.
+- Open **Item catalog** to browse and share named camos, blueprints, reticles, charms, stickers, operators, skins, equipment and more. Use `/codcatalog` to search.
 - Share a build card or PNG to the current channel when you choose to post it. PNGs include bundled native previews where a reviewed image is available.
 - Choose two weapons in the guided A/B picker, or paste build codes to compare builds or one of each. Switch between overview, DPS, recoil, aiming sway and measurement sources.
 - Browse attributed Multiplayer and Warzone meta recommendations by weapon type. DMZ currently links to an external dedicated source.
+- Browse **Game guide** or `/codguide` for native map, challenge, mastery, DMZ mission and event references.
 - Search dated COD Wiki references for maps, operators, camos, challenges, prestige, perks and equipment.
 
-Build cards prefer transparent native previews for 17 weapons. Three verified Kastov codes have their own primary attachment-layout previews: `A01-42J19-BU11`, `A01-A11NP-B11` and `A01-9YGBJ-D11`. Other builds use a clearly labeled base preview where available. Camos, charms, every runtime component and full game shader appearance are not reproduced. Remaining weapons retain attributed provider artwork or text-only cards.
+All 35 weapons in the main browser have native artwork: 30 reviewed model references and five native catalog icons. Four models explicitly simplify lens shaders; CSG35 shows a folded reference. Three verified Kastov codes have their own primary attachment-layout previews: `A01-42J19-BU11`, `A01-A11NP-B11` and `A01-9YGBJ-D11`. Other builds use a labeled weapon reference. Arbitrary build rendering, applying camos or charms, and full in-game shader appearance remain outside visual coverage.
 
-The [weapon preview gallery](https://ember-kace.github.io/yourbot-plugin-codhub/artwork/) is hosted free on GitHub Pages. The same 20 lossless transparent WebPs are bundled with the plugin for PNG exports: 2,001,102 bytes total, 43.86% smaller than their PNG sources with identical decoded pixels. Private Discord cards use the hosted HTTPS images because YourBot SDK 0.10.1 does not expose file attachments on private interaction replies. PNG exports read the bundled copies without an image-host request. [GitHub Pages availability](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages), [YourBot API](https://yourbot.gg/docs/developers/reference/context).
+The [weapon gallery](https://ember-kace.github.io/yourbot-plugin-codhub/artwork/) and [searchable item gallery](https://ember-kace.github.io/yourbot-plugin-codhub/artwork/items/) are hosted free on GitHub Pages. The item library has 2,980 native image identities in 2,962 content-addressed lossless WebPs, about 119 MB at card resolution. Images are resized proportionally to at most 768 pixels; the WebP stage preserves every resulting RGBA pixel and alpha value. The plugin carries the compact item index and bundles 38 weapon/build images (3,694,872 bytes) for PNG exports. Private Discord cards use hosted HTTPS images because SDK 0.10.1 does not expose attachments on private interaction replies. [YourBot API](https://yourbot.gg/docs/developers/reference/context).
+
+![Native item gallery in a local browser](docs/images/catalog.png)
 
 | Build card | DPS comparison |
 |---|---|
 | ![Imported build example](docs/images/build.png) | ![Weapon comparison chart](docs/images/compare.png) |
 
-See [the usage guide](docs/USAGE.md) for all eight commands, sharing controls and data limits. These are locally rendered demonstrations, not screenshots of a live Discord installation.
+See [the usage guide](docs/USAGE.md) for all commands, sharing controls and data limits. These are locally rendered demonstrations, not screenshots of a live Discord installation.
 
 If **Import code** fails before a popup appears, use `/codbuild code:A01-42J19-BU11` to test import directly. A live installation has returned an unexplained Discord HTTP 400 for the popup request; this remains under investigation. Version 0.1.4 adds specific recovery messages and safe diagnostics, rather than treating this as an invalid build code. See [popup troubleshooting](docs/USAGE.md#installation-and-troubleshooting).
 
 ## Install through YourBot
 
-1. Build `COD-Hub-0.1.5.zip` from this checkout using the commands below, or download an available package from [GitHub Releases](https://github.com/ember-kace/yourbot-plugin-codhub/releases). The ZIP contains `manifest.json` and `__main__.py` at its root.
+1. Build `COD-Hub-0.2.0.zip` from this checkout using the commands below, or download an available package from [GitHub Releases](https://github.com/ember-kace/yourbot-plugin-codhub/releases). The ZIP contains `manifest.json` and `__main__.py` at its root.
 2. To publish your own installation package, sign in to the [YourBot Dev Portal](https://yourbot.gg/dev), use the plugin ID assigned there, upload the validated ZIP and follow the review process. Upload the ZIP contents as built; do not upload this whole repository. [Official publishing guide](https://yourbot.gg/docs/developers/production/publish).
 3. Once a version is available to install, use the Marketplace in your custom-bot server's YourBot dashboard, review its permissions and domains, and allow its commands through Command Access. Then run `/codhub` in Discord. [Official installation guidance](https://yourbot.gg/docs/platform/marketplace-plugins).
 
@@ -53,13 +57,13 @@ python tools/dev.py validate
 python tools/dev.py package
 ```
 
-The package command writes `dist/COD-Hub-0.1.5.zip` from an explicit runtime file list, checks the captured Python files for disallowed imports and dynamic code, verifies the native image hashes and packaged resources, and validates it with YourBot SDK 0.10.1 against COD Hub's assigned ID. To also pin the expected manifest version before upload, use `python tools/package_plugin.py --version 0.1.5`. These local checks supplement the portal's separate security scan; they do not predict its risk score. The SDK also supplies `yourbot validate --path plugin --id rmg84ete7r8b --version 0.1.5` and `yourbot doctor --path plugin`. Review the [current YourBot developer documentation](https://yourbot.gg/docs/developers) before changing platform APIs or dependencies.
+The package command writes `dist/COD-Hub-0.2.0.zip` from an explicit runtime file list, checks the captured Python files for disallowed imports and dynamic code, verifies the native image hashes and packaged resources, and validates it with YourBot SDK 0.10.1 against COD Hub's assigned ID. To also pin the expected manifest version before upload, use `python tools/package_plugin.py --version 0.2.0`. These local checks supplement the portal's separate security scan; they do not predict its risk score. The SDK also supplies `yourbot validate --path plugin --id rmg84ete7r8b --version 0.2.0` and `yourbot doctor --path plugin`. Review the [current YourBot developer documentation](https://yourbot.gg/docs/developers) before changing platform APIs or dependencies.
 
 Optional: `python tools/dev.py preview` generates local card demonstrations. No game installation, player credentials or Discord bot token is needed for the offline tests and build tools. A live menu has been observed; popup import remains blocked by the HTTP 400 described above. Offline and simulated-transport success does not establish live Discord compatibility.
 
 ## Data coverage and accuracy
 
-The November 9, 2026 snapshot retains 1,264 catalog assets and 35 weapon-reference records: 1,216 verified names plus 83 separately marked internal or technical descriptions. Descriptions preserve otherwise unnamed identities; they are not canonical game names and are excluded from normal player-item searches. The player-facing weapon browser has 35 named weapons: 17 native previews, 11 additional provider images, and 7 text-only cards.
+The November 11, 2026 native item snapshot retains all **8,029 source records across 31 categories**, with **6,720 named references** available as cards. Another 1,238 records remain held and 71 retain separate internal status; these include tracking records, numeric progression steps, placeholders and definitions without assigned names. No fallback ID is presented as a verified player-item name. This is a complete census of the installed source table, not a claim that every record is a released or currently selectable item. The separate build-code dictionary retains 1,267 factual asset records, 2,401 active attachment bindings and the 35-weapon browser; its 83 previously reviewed technical captions remain separate from real names.
 
 Reviewed theoretical DPS currently covers five automatic **base weapons in Multiplayer**: Kastov 762, M4, Patriot XMR, ISO Nightshade and Type 73. Damage is dated November 5, 2026; RPM is from the October 19 launch reference. The source's base hit region is unspecified. Modified-build DPS, DMZ/Warzone damage, recoil and aiming-sway measurements remain unavailable until comparable measurements are reviewed. No performance curve is inferred from UI bars.
 
@@ -73,6 +77,6 @@ Saved builds contain your Discord user identifier, build code, title and creatio
 
 ## Sources and rights
 
-COD Hub is an unofficial community project, unaffiliated with Activision, Call of Duty or YourBot. Call of Duty and related names and artwork belong to their respective owners. Cards preserve factual-source links and dates, native-preview credits, MetaRadar attribution where used, and COD Wiki revision/contributor/license information. Only the reviewed rendered previews are bundled; raw game packages, models, textures and private extraction receipts are excluded.
+COD Hub is an unofficial community project, unaffiliated with Activision, Call of Duty or YourBot. Call of Duty names and artwork belong to their respective owners. Cards retain native-artwork scope and credits, MetaRadar attribution where used, and COD Wiki revision/contributor/license information. Prepared card artwork is published; source containers, 3D models, material texture sets, program code and private extraction records are excluded.
 
 No project license granted. Third-party licenses/notices apply to their respective resources. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

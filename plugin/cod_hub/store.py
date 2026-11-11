@@ -16,6 +16,7 @@ PREVIEW_SLOTS = 512
 PREVIEW_TTL = 7 * 24 * 60 * 60
 _OWNER = re.compile(r"[0-9]{1,22}\Z")
 _IDENTIFIER = re.compile(r"[a-f0-9]{16}\Z")
+_SNAPSHOT = re.compile(r"[0-9]{4}-[0-9]{2}-[0-9]{2}\Z")
 _LOCKS = [threading.RLock() for _ in range(64)]
 
 
@@ -84,6 +85,9 @@ class BuildStore:
                   "code": code, "title": clean_title(title or build.get("title")
                     or build.get("weapon", {}).get("name") or "MW4 build"),
                   "created_at": int(time.time())}
+        snapshot = build.get("snapshot_date")
+        if isinstance(snapshot, str) and _SNAPSHOT.fullmatch(snapshot):
+            record["snapshot_date"] = snapshot
         self.kv.set(self._key("p", owner, identifier), record, ttl_seconds=PREVIEW_TTL)
         return record
 
@@ -103,6 +107,9 @@ class BuildStore:
             record = {"schema": 1, "id": identifier, "owner": owner, "game": game,
                       "code": code, "title": clean_title(source.get("title") or "MW4 build"),
                       "created_at": int(time.time())}
+            snapshot = source.get("snapshot_date")
+            if isinstance(snapshot, str) and _SNAPSHOT.fullmatch(snapshot):
+                record["snapshot_date"] = snapshot
             self.kv.set(key, record)
             return record, True
 

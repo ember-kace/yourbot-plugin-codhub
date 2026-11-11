@@ -61,6 +61,19 @@ class AppFlowTests(unittest.TestCase):
         cid = next(b["custom_id"] for b in buttons(response) if b["label"] == "Save")
         return cid
 
+    def test_saved_snapshot_is_preserved_and_older_saved_codes_get_a_mapping_note(self):
+        store = BuildStore(self.ctx.kv, self.ctx.server_id)
+        preview = store.preview('111', build())
+        saved, _ = store.save('111', preview)
+        self.assertEqual(saved['snapshot_date'], '2026-11-09')
+        current = app._record_build(saved)
+        self.assertFalse(any('older saved code' in note for note in current['notes']))
+        legacy = dict(saved)
+        legacy.pop('snapshot_date')
+        current = app._record_build(legacy)
+        self.assertTrue(any('older saved code' in note for note in current['notes']))
+
+
     def test_empty_saved_library_opens_the_gui_import_box_without_a_code_command(self):
         from cod_hub import hub
 

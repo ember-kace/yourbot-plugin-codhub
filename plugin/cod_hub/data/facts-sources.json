@@ -1,35 +1,32 @@
 {
   "coverage": {
-    "attachment_name_assets_observed": 248,
-    "attachment_reference_positions": 2392,
-    "english_name_assets": 1181,
+    "attachment_reference_positions": 2401,
+    "current_english_name_assets": 1178,
+    "english_name_assets": 1184,
     "english_reference_weapons": 35,
-    "launch_baseline_weapons": 28,
     "name_ambiguities": 0,
-    "native_english_claim_assets": 1181,
     "native_weapon_records": 31,
     "preferred_name_qualities": {
       "internal": 83,
-      "native_localization": 1175,
-      "user_capture": 6
+      "native_localization": 1184
     },
     "reference_weapons": 35,
-    "reserved_attachment_positions": 24,
+    "reserved_attachment_positions": 17,
     "reserved_weapon_positions": 860,
-    "untranslated_name_assets": 83,
-    "weapon_names_published": 28
+    "retired_factual_assets": 7
   },
   "dataset_contents": "Normalized native IDs, short English labels, dated numeric references, separate internal descriptions and source attribution.",
-  "dataset_id": "cod-hub-mw4-2026-11-09",
+  "dataset_id": "cod-hub-mw4-current-2026-11-11",
   "format_version": 1,
   "limits": {
     "baseline_statistics_are_current_balance": false,
     "complete_readable_english_names": false,
+    "english_localization_decrypted": true,
     "maps_operators_camos_challenges_available": false,
     "player_unlocks_known": false,
     "runtime_game_eligibility_verified": false
   },
-  "snapshot_date": "2026-11-09",
+  "snapshot_date": "2026-11-11",
   "sources": {
     "codloadout-launch": {
       "kind": "published_launch_snapshot",
@@ -74,6 +71,37 @@
       "kind": "local_game_facts",
       "source_date": "2026-11-09",
       "title": "MW4 curated native catalog facts"
+    },
+    "mw4-current-code-settings-2026-11-11": {
+      "asset_id": "6d5059522e69f091",
+      "kind": "local_game_facts",
+      "sha256": "a69fb9fdc312332a6196bc6707ea3fb9bfde3397b3f7e26df56a2bfe725cd655",
+      "source_date": "2026-11-11",
+      "title": "MW4 current installed native build-sharing settings",
+      "zone": "cod26/global.patched.zone"
+    },
+    "mw4-current-item-tables-2026-11-11": {
+      "kind": "local_game_facts",
+      "sha256": "2c4d7afa41c08fab3f8a3015851a4895b8d19280be9507d8867f4e7aa86c8854",
+      "source_date": "2026-11-11",
+      "table_hashes": [
+        "5e1d9ca98612c18c",
+        "7696a6b59ed5f4ad",
+        "30457101334f63f3"
+      ],
+      "title": "MW4 current installed item and progression tables",
+      "zone": "cod26/code_post_gfx.patched.zone"
+    },
+    "mw4-current-native-english-items-2026-11-11": {
+      "data_reference": "metadata/names/mw4-current-native-english-items-2026-11-11.json",
+      "documentation": "docs/DATA.md#name-reviews",
+      "input_filename": "mw4-current-native-english-items-2026-11-11.json",
+      "input_sha256": "b6f25ace75a1d61f29a935acc3ce4cfe0e340a9c64163df7de01506ce33ccfb7",
+      "kind": "native_localization",
+      "language": "en",
+      "scope": "Current exact native Name localization hashes, current own DEFAULT-variant accessor names and independently audited typed base-reference string joins; authored technical captions remain separate.",
+      "source_date": "2026-11-11",
+      "title": "MW4 current native English names and audited native name routes"
     },
     "mw4-native-default-variants-2026-11-09": {
       "data_reference": "metadata/names/mw4-native-default-variants-2026-11-09.json",

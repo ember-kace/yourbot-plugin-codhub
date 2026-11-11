@@ -216,7 +216,7 @@ class ComparisonJourneys(unittest.TestCase):
     def test_two_builds_compare_actual_selections_without_adjusted_damage(self):
         card = self.open(CODE_A, CODE_B)
         text = str(card["embeds"])
-        self.assertIn("FSS TAC90 GRIP", text)
+        self.assertIn("FSS Tac90 Grip", text)
         self.assertIn("Only A", text)
         self.assertIn(CODE_A, text)
         self.assertIn(CODE_B, text)

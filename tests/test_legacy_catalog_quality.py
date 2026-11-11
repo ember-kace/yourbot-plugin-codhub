@@ -24,8 +24,8 @@ class LegacyCatalogQualityTests(unittest.TestCase):
             rows = catalog.search_attachments(query, weapon="A01", limit=25)
             self.assertTrue(rows)
             self.assertEqual(rows[0]["asset_id"], "01ddc439e1180539")
-            self.assertEqual(rows[0]["name"], "FIELD TAC 1.4 COMP")
-            self.assertEqual(rows[0]["quality"], "user_capture")
+            self.assertEqual(rows[0]["name"], "Field Tac 1.4 Comp")
+            self.assertEqual(rows[0]["quality"], "native_localization")
 
     def test_partial_slot_queries_only_return_verified_english_results(self):
         for query in ("laser", "stock", "tuning", "thermal", "all"):

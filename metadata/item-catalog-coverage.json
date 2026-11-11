@@ -1,0 +1,62 @@
+{
+  "native_records": 8029,
+  "categories": 31,
+  "resolved": 6720,
+  "held": 1238,
+  "source_internal": 71,
+  "resource_bytes": 3227153,
+  "manifest_sha256": "1c48e7f88911e7e3df70c759e7ae838dc3b36ed70baf62ad27a3e32dc0a42ca1",
+  "files": 101,
+  "source_id": "mw4-native-item-registry-current-2026-11-11",
+  "snapshot_date": "2026-11-11",
+  "english_evidence": {
+    "metadata/names/current-item-English.json": "01b8467a4175a3abfbf36eaae8a96129394511dca766dfa13e561bae8c3d46b2",
+    "metadata/item-name-inventory.json": "5c73af65af166acb803ef95054901f82f755437f5091bb37bffc537ec18dab70"
+  },
+  "source_census_sha256": "1e1cee35fcef73a2d3b19b5d04806678ef6e8d6e010495620a238a03a9bf5bc1",
+  "scope": "Complete installed item census; only named English references enter cards. Live selectability, ownership and completeness of runtime visuals are not asserted.",
+  "known_active_code_name_holds": 0,
+  "held_by_kind": {
+    "attachment": 42,
+    "battlepass": 16,
+    "calloutmarkerpingitem": 32,
+    "camo": 8,
+    "clantag": 31,
+    "consumable": 7,
+    "emblems": 1,
+    "emotes": 5,
+    "equipment": 3,
+    "executions": 1,
+    "feature": 1,
+    "killstreak": 5,
+    "parachute": 1,
+    "perk": 37,
+    "playercards": 5,
+    "progression": 56,
+    "reticle": 6,
+    "sentinel": 913,
+    "sticker": 7,
+    "super": 1,
+    "weapon": 57,
+    "weapon_charm": 3
+  },
+  "held_by_source_name_state": {
+    "assigned_current_english_is_empty": 2,
+    "assigned_text_is_placeholder_or_internal_key": 38,
+    "native_definition_has_no_assigned_name": 146,
+    "native_sentinel_record_without_verified_display_name": 913,
+    "no_accepted_current_kind_definition": 31,
+    "structured_rank_step_without_proper_name": 56,
+    "zero_asset_progression_tracker_reference": 52
+  },
+  "held_scope": "These are records without accepted assigned current English names; no general non-player or live-selectability conclusion is inferred.",
+  "visual_scope": {
+    "main_browser_weapons": 35,
+    "model_references": 30,
+    "native_icon_fallbacks": 5,
+    "exact_build_layouts": 3,
+    "item_image_identities": 2980,
+    "ordinary_2d_images": 2873,
+    "static_native_part_previews": 107
+  }
+}

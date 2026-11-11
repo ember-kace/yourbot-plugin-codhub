@@ -78,7 +78,7 @@ class NativeVariantNameTests(unittest.TestCase):
 
     def test_public_inventory_retains_each_exact_own_default_name_hash(self):
         inventory = {row["asset_id"]: row for row in read(INVENTORY)["assets"]}
-        self.assertEqual(len(inventory), 1264)
+        self.assertEqual(len(inventory), 1267)
         for asset_id, expected in self.records.items():
             row = inventory[asset_id]
             self.assertIn(expected["selected_name_hash"], row["localize_hashes"])

@@ -272,11 +272,31 @@ def exercise(command):
             host.boot(mode)
             home = host.event(name="codhub")
             assert home["embeds"][0]["title"] == "COD Hub"
-            assert [len(row["components"]) for row in home["components"]] == [3, 3]
+            assert [len(row["components"]) for row in home["components"]] == [3, 4]
             assert [item["label"] for item in components(home)] == [
-                "Import code", "My builds", "Compare", "Weapons", "Meta builds", "Game guide"]
+                "Import code", "My builds", "Compare", "Weapons", "Item catalog", "Meta builds", "Game guide"]
             assert sum(item.get("style") == 1 for item in components(home)) == 1
             assert not home["embeds"][0].get("fields"), "Public launcher should not contain personal fields"
+            native_items = host.event(custom_id=control(home, "Item catalog"))
+            assert native_items["ephemeral"] and native_items["embeds"][0]["title"] == "MW4 catalog"
+            categories = menu(native_items, "Choose an item category")
+            assert any(row["value"] == "camo" for row in categories["options"])
+            camos = host.event(custom_id=categories["custom_id"], values=["camo"])
+            selection = menu(camos, "Choose an item")
+            first_camo = host.event(custom_id=selection["custom_id"], values=[selection["options"][0]["value"]])
+            assert first_camo["ephemeral"]
+            assert first_camo["embeds"][0]["title"]
+            assert control(first_camo, "Post card to channel")
+            assert not host.http_requests, "Item browsing must not request a data or image provider"
+            guide_home = host.event(custom_id=control(home, "Game guide"))
+            assert guide_home["ephemeral"] and guide_home["embeds"][0]["title"] == "MW4 game guide"
+            guide_categories = menu(guide_home, "Choose a guide category")
+            maps = host.event(custom_id=guide_categories["custom_id"], values=["maps"])
+            guide_selection = menu(maps, "Choose a guide reference")
+            map_card = host.event(custom_id=guide_selection["custom_id"], values=[guide_selection["options"][0]["value"]])
+            assert map_card["ephemeral"] and "Reference ID" in str(map_card["embeds"])
+            assert control(map_card, "Post card to channel")
+            assert not host.http_requests, "Native guide must stay offline"
             import_control = next(item for item in components(home) if item.get("custom_id") == "chh:import")
             before = len(host.calls)
             import_form = host.event(custom_id=import_control["custom_id"])
@@ -371,7 +391,7 @@ def exercise(command):
             result.append({"mode": mode, "events": len(host.events), "rpc_calls": len(host.calls),
                            "maximum_initial_ack_ms": max(e["ack_ms"] for e in host.events.values()),
                            "modal_forms_checked": sum(len(e["modals"]) for e in host.events.values()),
-                           "gui_journeys": ["home_import", "home_comparison_setup", "astaroth_weapon_comparison", "pasted_build_comparison", "invalid_side_recovery", "available_graph_views"],
+                           "gui_journeys": ["native_item_catalog", "native_game_guide", "home_import", "home_comparison_setup", "astaroth_weapon_comparison", "pasted_build_comparison", "invalid_side_recovery", "available_graph_views"],
                            "public_messages_simulated": len(host.messages), "http_outage_fixtures": len(host.http_requests),
                            "chart_dimensions": list(struct.unpack_from(">II", decoded, 16)),
                            "attachments": [f["filename"] for f in files],

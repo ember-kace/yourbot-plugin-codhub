@@ -45,8 +45,8 @@ class CatalogDataTests(unittest.TestCase):
         self.assertIn(8, magazine["reserved_ids"])
         self.assertNotIn("8", magazine["ids"])
         self.assertEqual(sum(len(c["reserved_ids"]) for c in self.schema["classes"].values()), 860)
-        self.assertEqual(sum(len(s["reserved_ids"]) for w in self.catalog["weapons"].values() for s in w["slots"].values()), 24)
-        self.assertEqual(sum(len(s["ids"]) for w in self.catalog["weapons"].values() for s in w["slots"].values()), 2392)
+        self.assertEqual(sum(len(s["reserved_ids"]) for w in self.catalog["weapons"].values() for s in w["slots"].values()), 17)
+        self.assertEqual(sum(len(s["ids"]) for w in self.catalog["weapons"].values() for s in w["slots"].values()), 2401)
 
     def test_reference_and_selection_identity_closure(self):
         assets = self.catalog["assets"]
@@ -82,8 +82,9 @@ class CatalogDataTests(unittest.TestCase):
                     self.assertRegex(claim["name_hash"], r"^[0-9a-f]{16}$")
                     self.assertEqual(self.sources["sources"][claim["source_id"]]["language"], "en")
         self.assertNotIn("english_decrypted", self.labels)
-        self.assertEqual(self.catalog["assets"]["01ddc439e1180539"]["quality"], "user_capture")
-        self.assertEqual(self.catalog["assets"]["01ddc439e1180539"]["name"], "FIELD TAC 1.4 COMP")
+        self.assertEqual(self.catalog["assets"]["01ddc439e1180539"]["quality"], "native_localization")
+        self.assertEqual(self.labels["assets"]["01ddc439e1180539"]["quality"], "user_capture")
+        self.assertEqual(self.catalog["assets"]["01ddc439e1180539"]["name"], "Field Tac 1.4 Comp")
 
     def test_ui_specific_slots_are_not_mislabelled_as_generic_grips(self):
         weapons = self.catalog["weapons"]
@@ -105,8 +106,11 @@ class CatalogDataTests(unittest.TestCase):
 
     def test_packaged_data_contains_facts_without_private_paths_or_game_blobs(self):
         self.assertEqual({p.name for p in DATA.iterdir() if p.is_file()},
-                         {"schema.json", "catalog.json", "facts-sources.json", "artwork.json", "native-artwork.json", "telemetry.json", "NOTICE-HashIndex.txt"})
-        for path in DATA.iterdir():
+                         {"schema.json", "catalog.json", "facts-sources.json", "artwork.json", "native-artwork.json", "telemetry.json", "NOTICE-HashIndex.txt",
+                          "item-catalog.json", "item-artwork.json", "native-guide.json", "native-guide-sources.json"})
+        for path in DATA.rglob("*"):
+            if not path.is_file():
+                continue
             text = path.read_text(encoding="utf-8")
             self.assertNotRegex(text, r"(?<![A-Za-z0-9])[A-Za-z]:[\\/]")
             self.assertNotIn("data_b64", text)

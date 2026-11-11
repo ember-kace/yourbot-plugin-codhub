@@ -116,6 +116,7 @@ def weapon_embed(weapon):
 
 
 def attachment_embed(item):
+    from . import item_artwork
     configured = item.get("configured_for", item.get("compatible_weapons", []))
     rows = []
     for entry in configured[:8]:
@@ -131,9 +132,9 @@ def attachment_embed(item):
     description = "Attachment reference; current loadout restrictions and unlocks are checked in-game."
     if item.get("quality") in {"internal", "unknown", "unresolved"}:
         description += "\nAn exact English name is not available for this entry."
-    return {"title": _text(item["name"], 180), "description": description,
+    return item_artwork.decorate_embed({"title": _text(item["name"], 180), "description": description,
             "color": COLOR, "fields": fields,
-            "footer": {"text": f"COD Hub · Catalog {item.get('snapshot_date', 'unknown')} · Source labels"}}
+            "footer": {"text": f"COD Hub · Catalog {item.get('snapshot_date', 'unknown')} · Source labels"}}, item)
 
 
 def meta_embed(payload):

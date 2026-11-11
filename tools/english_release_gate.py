@@ -15,11 +15,11 @@ import unicodedata
 from urllib.parse import urlsplit
 
 ACCEPTED_QUALITIES = frozenset({"user_capture", "published_fixture", "native_localization", "official_reference"})
-EXPECTED_ASSETS = 1264
+EXPECTED_ASSETS = 1267
 EXPECTED_REFERENCES = 35
-EXPECTED_ASSET_IDS_SHA256 = "2bbcc3902b3c62211ef65d1cbebf5724a875ec4388dbf2869c7edb6fa5d1485e"
+EXPECTED_ASSET_IDS_SHA256 = '64694bfac1bc0a8aaafb8fa5d4a3ee9efb3bc7490e546852cc0af3a947b6398a'
 EXPECTED_REFERENCE_IDS_SHA256 = "5c192a08ef771757e1630b65fd5c4395e5e99938b3c7ec5658f2028ecf8c98ff"
-EXPECTED_NATIVE_IDENTITY_SHA256 = "5b2bb80785e6cb7b4873824a17c5b0121b7f353ee81f81c5ea166f54fe2d1f09"
+EXPECTED_NATIVE_IDENTITY_SHA256 = 'f470195f02ef367d319537d2a035d0cdbfdd0185a9abeae88ab8540cd970807d'
 MAX_JSON_BYTES = 32 * 1024 * 1024
 _ID = re.compile(r"[0-9a-f]{16}\Z")
 _PLACEHOLDER = re.compile(r"\b(?:untranslated|unresolved|uncatalogued|unknown|placeholder|todo|tbd|null|undefined)\b", re.I)

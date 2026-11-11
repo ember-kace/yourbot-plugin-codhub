@@ -65,7 +65,7 @@ class BrowseCatalogTests(unittest.TestCase):
                  for item in browse_attachments("A01", page=number, page_size=25)["items"]]
         self.assertEqual(len(items), page["total"])
         self.assertEqual(len({item["binding_id"] for item in items}), len(items))
-        self.assertEqual(get_attachment("A01", "muzzle:3")["name"], "FIELD TAC 1.4 COMP")
+        self.assertEqual(get_attachment("A01", "muzzle:3")["name"], "Field Tac 1.4 Comp")
         self.assertEqual(get_attachment("A01", "muzzle:3")["configured_for"][0]["index"], 3)
         bolt_items = browse_attachments("M03", slot="rear_grip")["items"]
         self.assertTrue(bolt_items)

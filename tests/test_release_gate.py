@@ -131,8 +131,8 @@ class EnglishReleaseGateTests(unittest.TestCase):
     def test_partial_fixture_is_blocked_and_reports_all_required_records(self):
         result = gate.evaluate_release(self.plugin)
         self.assertFalse(result["ready"])
-        self.assertEqual(result["required"], 1299)
-        self.assertEqual(result["counts"]["assets_required"], 1264)
+        self.assertEqual(result["required"], 1302)
+        self.assertEqual(result["counts"]["assets_required"], 1267)
         self.assertEqual(result["counts"]["reference_weapons_required"], 35)
         self.assertEqual(len(result["missing_ids"]), result["required"] - result["total_translated"])
         for row in self.inventory["assets"][:2]:
@@ -147,7 +147,7 @@ class EnglishReleaseGateTests(unittest.TestCase):
         self.write_documents()
         result = gate.evaluate_release(self.plugin)
         self.assertFalse(result["ready"])
-        self.assertEqual(result["required"], 1299)
+        self.assertEqual(result["required"], 1302)
         self.assertIn("required_scope_changed", {i["code"] for i in result["issues"]})
 
     def test_placeholder_internal_source_and_reference_conflicts_are_blocked(self):
@@ -251,7 +251,7 @@ class EnglishReleaseGateTests(unittest.TestCase):
             rows.append({"asset_id": asset_id, "name_hash": "", "name": name})
         result = self.run_import(self.input_csv(rows), quality="official_reference", source_url="https://example.invalid/test-catalog", apply=True)
         self.assertTrue(result["release_after"]["ready"])
-        self.assertEqual(result["release_after"]["total_translated"], 1299)
+        self.assertEqual(result["release_after"]["total_translated"], 1302)
         self.assertTrue(gate.evaluate_release(self.plugin)["ready"])
         current = gate.read_json(self.data / "catalog.json")
         for reference in current["reference_weapons"]:

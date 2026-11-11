@@ -1,5 +1,5 @@
 {
-  "asset_ids_sha256": "2bbcc3902b3c62211ef65d1cbebf5724a875ec4388dbf2869c7edb6fa5d1485e",
+  "asset_ids_sha256": "64694bfac1bc0a8aaafb8fa5d4a3ee9efb3bc7490e546852cc0af3a947b6398a",
   "assets": [
     {
       "asset_id": "0004dd81bd1a27ae",
@@ -1121,6 +1121,22 @@
         "38be3d8c0453b541"
       ],
       "loot_id": 90716
+    },
+    {
+      "asset_id": "0c62b11ed517cd1a",
+      "internal_ref": "rex_ub_sh_cromeo",
+      "localize_hashes": [
+        "1701c39b1498bb22"
+      ],
+      "loot_id": 158799
+    },
+    {
+      "asset_id": "0c9c78929cf02f1a",
+      "internal_ref": "rex_ub_gl_cromeo",
+      "localize_hashes": [
+        "56aee7ca5b90642a"
+      ],
+      "loot_id": 158800
     },
     {
       "asset_id": "0ca7091490208a58",
@@ -2417,6 +2433,14 @@
         "4d62ace541f30d0e"
       ],
       "loot_id": 90679
+    },
+    {
+      "asset_id": "1d4cb5997b67afcb",
+      "internal_ref": "rex_piscope01",
+      "localize_hashes": [
+        "458f9fa0d8be8a91"
+      ],
+      "loot_id": 52439
     },
     {
       "asset_id": "1d6967431a0c9ffa",
@@ -8411,6 +8435,7 @@
       "asset_id": "6af8eddcdc523762",
       "internal_ref": "rex_snscope_therm01_sp",
       "localize_hashes": [
+        "35ce7eb4a1843c6a",
         "6b869f2c401ea10c"
       ],
       "loot_id": 113101

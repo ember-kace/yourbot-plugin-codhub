@@ -292,6 +292,7 @@ class RegisteredInteractionTests(unittest.TestCase):
             "codattachment": {"query": "FSS Tac90 Grip"}, "codsaved": {},
             "codmeta": {"mode": "dmz"}, "codreference": {"query": "Sample map"},
             "codcompare": {"left": "A01", "right": "A05"},
+            "codcatalog": {}, "codguide": {},
         }
         manifest = json.loads((Path(__file__).resolve().parents[1] / "plugin" / "manifest.json").read_text(encoding="utf8"))
         self.assertEqual(set(examples), {item["name"] for item in manifest["slash_commands"]})

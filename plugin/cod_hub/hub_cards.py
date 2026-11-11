@@ -43,7 +43,7 @@ def _snapshot(page_data, items):
 def home_embed():
     return {
         "title": "COD Hub",
-        "description": "**Your next loadout starts here.**\n\nImport an MW4 code, compare weapons, or find a build to try.",
+        "description": "**Your next loadout starts here.**\n\nImport an MW4 code, compare weapons, or find a build to try.\nBrowse camos, attachments and more in **Item catalog**.",
         "color": COLOR,
         "footer": {"text": "Personal cards open privately. You choose what to share."},
     }

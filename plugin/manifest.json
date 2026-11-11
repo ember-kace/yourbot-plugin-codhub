@@ -1,76 +1,443 @@
 {
   "id": "rmg84ete7r8b",
   "name": "COD Hub",
-  "version": "0.1.5",
-  "description": "Open a COD Hub card to import MW4 builds, explore weapons and attachments, manage saved loadouts, and share cards or PNGs. Includes attributed meta loadouts and dated wiki references.",
-  "capabilities_required": ["interaction:respond", "storage:kv", "discord:send_message", "proxy:http"],
-  "proxy_domains_requested": ["metaradar.gg", "callofduty.fandom.com"],
-  "tags": ["gaming", "call-of-duty", "loadouts"],
+  "version": "0.2.0",
+  "description": "Import MW4 builds, explore native weapons, attachments and cosmetics, compare selections, and share private-to-public cards. Includes native reference artwork and attributed recommendations.",
+  "capabilities_required": [
+    "interaction:respond",
+    "storage:kv",
+    "discord:send_message",
+    "proxy:http"
+  ],
+  "proxy_domains_requested": [
+    "metaradar.gg",
+    "callofduty.fandom.com"
+  ],
+  "tags": [
+    "gaming",
+    "call-of-duty",
+    "loadouts"
+  ],
   "slash_commands": [
     {
       "name": "codhub",
       "description": "Open COD Hub to import, explore and share builds"
     },
     {
+      "name": "codcatalog",
+      "description": "Browse native MW4 items, camos, attachments, operators and cosmetics",
+      "options": [
+        {
+          "name": "query",
+          "description": "Item name, catalog ID or internal reference",
+          "type": 3,
+          "max_length": 100
+        },
+        {
+          "name": "category",
+          "description": "Category key, such as camo, attachment, operator or weapon_charm",
+          "type": 3,
+          "max_length": 40
+        },
+        {
+          "name": "page",
+          "description": "Result page",
+          "type": 4,
+          "min_value": 1,
+          "max_value": 2000
+        }
+      ]
+    },
+    {
+      "name": "codguide",
+      "description": "Browse packaged MW4 map and challenge references privately",
+      "options": [
+        {
+          "name": "category",
+          "description": "Native reference category",
+          "type": 3,
+          "choices": [
+            {
+              "name": "All references",
+              "value": "all"
+            },
+            {
+              "name": "Maps",
+              "value": "maps"
+            },
+            {
+              "name": "Multiplayer daily challenges",
+              "value": "mp_daily"
+            },
+            {
+              "name": "Warzone daily challenges",
+              "value": "wz_daily"
+            },
+            {
+              "name": "Calling card challenges",
+              "value": "calling_cards"
+            },
+            {
+              "name": "Weapon mastery references",
+              "value": "mastery"
+            },
+            {
+              "name": "DMZ missions",
+              "value": "dmz"
+            },
+            {
+              "name": "Events",
+              "value": "events"
+            }
+          ]
+        },
+        {
+          "name": "query",
+          "description": "Reference name or short search terms",
+          "type": 3,
+          "max_length": 36
+        },
+        {
+          "name": "page",
+          "description": "Reference result page",
+          "type": 4,
+          "min_value": 1,
+          "max_value": 1000
+        }
+      ]
+    },
+    {
       "name": "codcompare",
       "description": "Compare two MW4 weapons or builds and inspect available charts",
       "options": [
-        {"name": "left", "description": "First weapon name, prefix or MW4 build code", "type": 3, "required": true, "max_length": 256},
-        {"name": "right", "description": "Second weapon name, prefix or MW4 build code", "type": 3, "required": true, "max_length": 256},
-        {"name": "mode", "description": "Comparison measurement context", "type": 3, "choices": [{"name": "Multiplayer", "value": "multiplayer"}, {"name": "DMZ", "value": "dmz"}, {"name": "Warzone", "value": "warzone"}]},
-        {"name": "view", "description": "Overview, reviewed measurements or their sources", "type": 3, "choices": [{"name": "Overview", "value": "overview"}, {"name": "DPS by distance", "value": "dps"}, {"name": "Recoil / gun kick", "value": "recoil"}, {"name": "Aiming sway", "value": "sway"}, {"name": "Measurements / sources", "value": "details"}]}
+        {
+          "name": "left",
+          "description": "First weapon name, prefix or MW4 build code",
+          "type": 3,
+          "required": true,
+          "max_length": 256
+        },
+        {
+          "name": "right",
+          "description": "Second weapon name, prefix or MW4 build code",
+          "type": 3,
+          "required": true,
+          "max_length": 256
+        },
+        {
+          "name": "mode",
+          "description": "Comparison measurement context",
+          "type": 3,
+          "choices": [
+            {
+              "name": "Multiplayer",
+              "value": "multiplayer"
+            },
+            {
+              "name": "DMZ",
+              "value": "dmz"
+            },
+            {
+              "name": "Warzone",
+              "value": "warzone"
+            }
+          ]
+        },
+        {
+          "name": "view",
+          "description": "Overview, reviewed measurements or their sources",
+          "type": 3,
+          "choices": [
+            {
+              "name": "Overview",
+              "value": "overview"
+            },
+            {
+              "name": "DPS by distance",
+              "value": "dps"
+            },
+            {
+              "name": "Recoil / gun kick",
+              "value": "recoil"
+            },
+            {
+              "name": "Aiming sway",
+              "value": "sway"
+            },
+            {
+              "name": "Measurements / sources",
+              "value": "details"
+            }
+          ]
+        }
       ]
     },
     {
       "name": "codbuild",
       "description": "Decode an MW4 build code and create a shareable card",
       "options": [
-        {"name": "code", "description": "The native in-game build code", "type": 3, "required": true},
-        {"name": "game", "description": "Code catalog to use (defaults to MW4)", "type": 3, "choices": [{"name": "Modern Warfare 4", "value": "mw4"}]},
-        {"name": "title", "description": "Optional name for your build", "type": 3, "max_length": 80}
+        {
+          "name": "code",
+          "description": "The native in-game build code",
+          "type": 3,
+          "required": true
+        },
+        {
+          "name": "game",
+          "description": "Code catalog to use (defaults to MW4)",
+          "type": 3,
+          "choices": [
+            {
+              "name": "Modern Warfare 4",
+              "value": "mw4"
+            }
+          ]
+        },
+        {
+          "name": "title",
+          "description": "Optional name for your build",
+          "type": 3,
+          "max_length": 80
+        }
       ]
     },
     {
       "name": "codweapon",
       "description": "Find a weapon in the packaged MW4 catalog",
       "options": [
-        {"name": "query", "description": "Weapon name, internal reference or code prefix", "type": 3, "required": true},
-        {"name": "game", "description": "Catalog to search (defaults to MW4)", "type": 3, "choices": [{"name": "Modern Warfare 4", "value": "mw4"}]}
+        {
+          "name": "query",
+          "description": "Weapon name, internal reference or code prefix",
+          "type": 3,
+          "required": true
+        },
+        {
+          "name": "game",
+          "description": "Catalog to search (defaults to MW4)",
+          "type": 3,
+          "choices": [
+            {
+              "name": "Modern Warfare 4",
+              "value": "mw4"
+            }
+          ]
+        }
       ]
     },
     {
       "name": "codattachment",
       "description": "Find an attachment in the packaged MW4 catalog",
       "options": [
-        {"name": "query", "description": "Attachment name or internal reference", "type": 3, "required": true},
-        {"name": "weapon", "description": "Optional weapon prefix such as A01", "type": 3},
-        {"name": "game", "description": "Catalog to search (defaults to MW4)", "type": 3, "choices": [{"name": "Modern Warfare 4", "value": "mw4"}]}
+        {
+          "name": "query",
+          "description": "Attachment name or internal reference",
+          "type": 3,
+          "required": true
+        },
+        {
+          "name": "weapon",
+          "description": "Optional weapon prefix such as A01",
+          "type": 3
+        },
+        {
+          "name": "game",
+          "description": "Catalog to search (defaults to MW4)",
+          "type": 3,
+          "choices": [
+            {
+              "name": "Modern Warfare 4",
+              "value": "mw4"
+            }
+          ]
+        }
       ]
     },
     {
       "name": "codsaved",
       "description": "List, open or delete your saved builds in this server",
       "options": [
-        {"name": "action", "description": "What to do (defaults to list)", "type": 3, "choices": [{"name": "List", "value": "list"}, {"name": "Show", "value": "show"}, {"name": "Delete", "value": "delete"}]},
-        {"name": "id", "description": "Build ID shown in your saved list", "type": 3},
-        {"name": "page", "description": "Saved-list page", "type": 4, "min_value": 1, "max_value": 5}
+        {
+          "name": "action",
+          "description": "What to do (defaults to list)",
+          "type": 3,
+          "choices": [
+            {
+              "name": "List",
+              "value": "list"
+            },
+            {
+              "name": "Show",
+              "value": "show"
+            },
+            {
+              "name": "Delete",
+              "value": "delete"
+            }
+          ]
+        },
+        {
+          "name": "id",
+          "description": "Build ID shown in your saved list",
+          "type": 3
+        },
+        {
+          "name": "page",
+          "description": "Saved-list page",
+          "type": 4,
+          "min_value": 1,
+          "max_value": 5
+        }
       ]
     },
     {
       "name": "codmeta",
       "description": "Browse meta builds by mode and weapon type",
       "options": [
-        {"name": "mode", "description": "Multiplayer, DMZ or Warzone", "type": 3, "choices": [{"name": "Multiplayer", "value": "multiplayer"}, {"name": "DMZ", "value": "dmz"}, {"name": "Warzone", "value": "warzone"}]},
-        {"name": "weapon_type", "description": "Filter recommendations by weapon type", "type": 3, "choices": [{"name": "All types", "value": "all"}, {"name": "Assault rifles", "value": "ar"}, {"name": "Battle rifles", "value": "br"}, {"name": "SMGs", "value": "smg"}, {"name": "LMGs", "value": "lmg"}, {"name": "Shotguns", "value": "sg"}, {"name": "Sniper rifles", "value": "sr"}, {"name": "Marksman rifles", "value": "mr"}, {"name": "Pistols", "value": "pistols"}, {"name": "Launchers", "value": "launchers"}, {"name": "Melee", "value": "melee"}]}
+        {
+          "name": "mode",
+          "description": "Multiplayer, DMZ or Warzone",
+          "type": 3,
+          "choices": [
+            {
+              "name": "Multiplayer",
+              "value": "multiplayer"
+            },
+            {
+              "name": "DMZ",
+              "value": "dmz"
+            },
+            {
+              "name": "Warzone",
+              "value": "warzone"
+            }
+          ]
+        },
+        {
+          "name": "weapon_type",
+          "description": "Filter recommendations by weapon type",
+          "type": 3,
+          "choices": [
+            {
+              "name": "All types",
+              "value": "all"
+            },
+            {
+              "name": "Assault rifles",
+              "value": "ar"
+            },
+            {
+              "name": "Battle rifles",
+              "value": "br"
+            },
+            {
+              "name": "SMGs",
+              "value": "smg"
+            },
+            {
+              "name": "LMGs",
+              "value": "lmg"
+            },
+            {
+              "name": "Shotguns",
+              "value": "sg"
+            },
+            {
+              "name": "Sniper rifles",
+              "value": "sr"
+            },
+            {
+              "name": "Marksman rifles",
+              "value": "mr"
+            },
+            {
+              "name": "Pistols",
+              "value": "pistols"
+            },
+            {
+              "name": "Launchers",
+              "value": "launchers"
+            },
+            {
+              "name": "Melee",
+              "value": "melee"
+            }
+          ]
+        }
       ]
     },
     {
       "name": "codreference",
       "description": "Search dated, attributed COD Wiki article references privately",
       "options": [
-        {"name": "query", "description": "Article name or search terms", "type": 3, "required": true, "max_length": 120},
-        {"name": "category", "description": "Add a category search term (defaults to all)", "type": 3, "choices": [{"name": "All", "value": "all"}, {"name": "Maps", "value": "maps"}, {"name": "Operators", "value": "operators"}, {"name": "Camos", "value": "camos"}, {"name": "Challenges", "value": "challenges"}, {"name": "Prestige", "value": "prestige"}, {"name": "Perks", "value": "perks"}, {"name": "Equipment", "value": "equipment"}]},
-        {"name": "game", "description": "Add a game search term (defaults to all)", "type": 3, "choices": [{"name": "All", "value": "all"}, {"name": "Modern Warfare 4", "value": "mw4"}, {"name": "Black Ops 7", "value": "bo7"}, {"name": "Warzone", "value": "warzone"}]}
+        {
+          "name": "query",
+          "description": "Article name or search terms",
+          "type": 3,
+          "required": true,
+          "max_length": 120
+        },
+        {
+          "name": "category",
+          "description": "Add a category search term (defaults to all)",
+          "type": 3,
+          "choices": [
+            {
+              "name": "All",
+              "value": "all"
+            },
+            {
+              "name": "Maps",
+              "value": "maps"
+            },
+            {
+              "name": "Operators",
+              "value": "operators"
+            },
+            {
+              "name": "Camos",
+              "value": "camos"
+            },
+            {
+              "name": "Challenges",
+              "value": "challenges"
+            },
+            {
+              "name": "Prestige",
+              "value": "prestige"
+            },
+            {
+              "name": "Perks",
+              "value": "perks"
+            },
+            {
+              "name": "Equipment",
+              "value": "equipment"
+            }
+          ]
+        },
+        {
+          "name": "game",
+          "description": "Add a game search term (defaults to all)",
+          "type": 3,
+          "choices": [
+            {
+              "name": "All",
+              "value": "all"
+            },
+            {
+              "name": "Modern Warfare 4",
+              "value": "mw4"
+            },
+            {
+              "name": "Black Ops 7",
+              "value": "bo7"
+            },
+            {
+              "name": "Warzone",
+              "value": "warzone"
+            }
+          ]
+        }
       ]
     }
   ]

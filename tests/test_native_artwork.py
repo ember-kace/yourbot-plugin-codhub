@@ -251,10 +251,10 @@ class NativeArtworkTests(unittest.TestCase):
 
 
 class NativeReleaseArtworkTests(unittest.TestCase):
-    def test_reviewed_release_has_seventeen_bases_and_three_distinct_builds(self):
+    def test_reviewed_release_has_all_browser_weapon_references_and_three_distinct_builds(self):
         path = ROOT / "plugin/cod_hub/data/native-artwork.json"
         data = json.loads(path.read_text(encoding="utf8"))
-        self.assertEqual(len(data["base_images"]), 17)
+        self.assertEqual(len(data["base_images"]), 35)
         self.assertEqual(len(data["build_images"]), 3)
         self.assertEqual(set(data["build_images"]), {CODE, "A01-A11NP-B11", "A01-9YGBJ-D11"})
         for asset, record_data in data["base_images"].items():

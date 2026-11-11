@@ -89,11 +89,11 @@ class TechnicalDescriptionGateTests(unittest.TestCase):
 
     def test_complete_coverage_preserves_all_original_fields_and_separate_counts(self):
         self.assertTrue(self.result["ready"], self.result["issues"])
-        self.assertEqual(self.result["total_translated"], 1216)
+        self.assertEqual(self.result["total_translated"], 1219)
         self.assertEqual(self.result["total_described"], 83)
         self.assertEqual(self.result["total_internal_described"], 72)
         self.assertEqual(self.result["total_technical_described"], 11)
-        self.assertEqual(self.result["total_english_covered"], 1299)
+        self.assertEqual(self.result["total_english_covered"], 1302)
         self.assertEqual(self.result["counts"]["reference_weapons_described"], 0)
         stripped = deepcopy(self.catalog)
         for asset in stripped["assets"].values():
@@ -214,10 +214,10 @@ class TechnicalDescriptionGateTests(unittest.TestCase):
         self.assertEqual(audit["preserved_future_real_name_ids"], [asset_id])
         result = gate.evaluate_documents(updated, registered)
         self.assertTrue(result["ready"], result["issues"])
-        self.assertEqual(result["total_translated"], 1217)
+        self.assertEqual(result["total_translated"], 1220)
         self.assertEqual(result["total_described"], 82)
         self.assertEqual(result["total_technical_described"], 10)
-        self.assertEqual(result["total_english_covered"], 1299)
+        self.assertEqual(result["total_english_covered"], 1302)
 
     def test_all_future_real_names_cover_scope_without_any_descriptions(self):
         catalog, sources = self.copy()
@@ -232,7 +232,7 @@ class TechnicalDescriptionGateTests(unittest.TestCase):
                 reference[key] = deepcopy(asset[key])
         result = gate.evaluate_documents(catalog, sources)
         self.assertTrue(result["ready"], result["issues"][:3])
-        self.assertEqual(result["total_translated"], 1299)
+        self.assertEqual(result["total_translated"], 1302)
         self.assertEqual(result["total_described"], 0)
 
     def test_pure_transform_is_idempotent_and_rejects_unreviewed_or_conflicting_inputs(self):

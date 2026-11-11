@@ -40,14 +40,14 @@ class NativeArtworkReleaseTests(unittest.TestCase):
         pins = dict(gate.REVIEWED_BASE_IMAGES, **{asset: checksum})
         return pins
 
-    def test_reviewed_twenty_image_set_and_hosted_copies_are_complete(self):
+    def test_reviewed_weapon_image_set_and_hosted_copies_are_complete(self):
         report = self.check(dict(self.source))
         self.assertTrue(report["ready"], report["issues"])
-        self.assertEqual((report["base_count"], report["build_count"], report["image_count"]), (17, 3, 20))
-        self.assertEqual(report["image_bytes"], 2_001_102)
+        self.assertEqual((report["base_count"], report["build_count"], report["image_count"]), (35, 3, 38))
+        self.assertEqual(report["image_bytes"], 3_694_872)
         report = gate.evaluate_release()
         self.assertTrue(report["ready"], report["issues"])
-        self.assertEqual(report["hosted_copies_checked"], 20)
+        self.assertEqual(report["hosted_copies_checked"], 38)
 
     def test_missing_corrupt_and_unreferenced_captured_images_block_release(self):
         image_path = next(path for path in self.source if path.startswith(gate.IMAGE_ROOT))
@@ -155,6 +155,19 @@ class NativeArtworkReleaseTests(unittest.TestCase):
             issues = [item["issue"] for item in report["issues"]]
             self.assertIn("hosted and bundled native image bytes differ", issues)
             self.assertIn("native image directory differs from the reviewed file set", issues)
+
+    def test_hosted_manifest_cannot_keep_obsolete_weapon_image_references(self):
+        with tempfile.TemporaryDirectory(prefix="cod-hub-hosted-manifest-") as temporary:
+            root = Path(temporary)
+            hosted = root / "v1"
+            hosted.mkdir()
+            for path, value in self.source.items():
+                if path.startswith(gate.IMAGE_ROOT):
+                    (hosted / Path(path).name).write_bytes(value)
+            (root / "manifest.json").write_bytes(b'{"stale":true}')
+            report = gate.evaluate_release(hosted_path=hosted)
+            self.assertFalse(report["ready"])
+            self.assertIn("hosted and bundled native manifests differ", [row["issue"] for row in report["issues"]])
 
 
 if __name__ == "__main__":

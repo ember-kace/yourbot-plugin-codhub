@@ -69,7 +69,7 @@ class InternalDescriptionGateTests(unittest.TestCase):
             record.pop("internal_description", None)
         before = gate.evaluate_documents(plain, sources)
         result = self.baseline
-        self.assertEqual(result["required"], 1299)
+        self.assertEqual(result["required"], 1302)
         self.assertEqual(result["total_translated"], before["total_translated"])
         self.assertEqual(result["total_described"], 72)
         self.assertEqual(result["total_english_covered"], before["total_translated"] + 72)
@@ -187,9 +187,9 @@ class InternalDescriptionGateTests(unittest.TestCase):
                 reference[key] = deepcopy(asset[key])
         result = gate.evaluate_documents(catalog, sources)
         self.assertTrue(result["ready"], result["issues"][:3])
-        self.assertEqual(result["total_translated"], 1299)
+        self.assertEqual(result["total_translated"], 1302)
         self.assertEqual(result["total_described"], 0)
-        self.assertEqual(result["total_english_covered"], 1299)
+        self.assertEqual(result["total_english_covered"], 1302)
 
     def test_changed_pinned_approval_scope_fails_closed(self):
         altered = dict(gate.INTERNAL_DESCRIPTION_RECORD_HASHES)

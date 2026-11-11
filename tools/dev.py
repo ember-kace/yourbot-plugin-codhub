@@ -18,9 +18,9 @@ def main(argv=None):
     environment['PYTHONPATH'] = os.pathsep.join([str(ROOT / 'plugin'), str(ROOT), environment.get('PYTHONPATH', '')])
     commands = {
         'test': [['-m', 'unittest', 'discover', '-s', 'tests', '-q']],
-        'validate': [['tools/check_public_tree.py'], ['tools/validate_catalog.py'], ['tools/native_artwork_release.py'], ['tools/package_plugin.py']],
-        'package': [['tools/package_plugin.py', '--output', 'dist/COD-Hub-0.1.5.zip', '--report', 'dist/package.json']],
-        'preview': [['tools/render_readme_previews.py', '--output', 'docs/images']],
+        'validate': [['tools/check_public_tree.py'], ['tools/validate_catalog.py'], ['tools/item_catalog_release.py'], ['tools/native_artwork_release.py'], ['tools/item_artwork_release.py'], ['tools/native_guide_release.py'], ['tools/package_plugin.py']],
+        'package': [['tools/package_plugin.py', '--output', 'dist/COD-Hub-0.2.0.zip', '--report', 'dist/package.json']],
+        'preview': [['tools/render_readme_previews.py', '--output', 'docs/images'], ['tools/render_weapon_gallery.py'], ['tools/render_item_gallery.py']],
     }
     for command in commands[args.command]:
         result = subprocess.run([sys.executable, *command], cwd=ROOT, env=environment, check=False)

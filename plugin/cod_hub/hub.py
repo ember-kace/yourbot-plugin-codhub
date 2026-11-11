@@ -82,8 +82,9 @@ def home_controls():
         Button("My builds", custom_id="chh:library", style="secondary"),
         Button("Compare", custom_id="chc:open", style="secondary")),
         ActionRow(Button("Weapons", custom_id="chh:explore", style="secondary"),
+                  Button("Item catalog", custom_id="chx:open", style="secondary"),
                   Button("Meta builds", custom_id="chh:meta", style="secondary"),
-                  Button("Game guide", custom_id="chh:reference", style="secondary"))]
+                  Button("Game guide", custom_id="chg:open", style="secondary"))]
 
 
 def meta_controls():

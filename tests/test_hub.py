@@ -78,9 +78,9 @@ class HubJourneys(unittest.TestCase):
         home = self.ctx.interaction.followups[-1]
         rows = [row.to_dict()["components"] for row in home["components"]]
         self.assertEqual([[item["label"] for item in row] for row in rows], [
-            ["Import code", "My builds", "Compare"], ["Weapons", "Meta builds", "Game guide"]])
+            ["Import code", "My builds", "Compare"], ["Weapons", "Item catalog", "Meta builds", "Game guide"]])
         self.assertEqual([[item["custom_id"] for item in row] for row in rows], [
-            ["chh:import", "chh:library", "chc:open"], ["chh:explore", "chh:meta", "chh:reference"]])
+            ["chh:import", "chh:library", "chc:open"], ["chh:explore", "chx:open", "chh:meta", "chg:open"]])
         self.assertEqual([item["label"] for row in rows for item in row if item["style"] == 1], ["Import code"])
         self.assertFalse(home["ephemeral"])
         self.assertEqual(self.ctx.kv_writes, [])
@@ -89,7 +89,7 @@ class HubJourneys(unittest.TestCase):
 
     def test_home_meta_chooser_and_reference_button_work_without_provider_io(self):
         home = {"components": hub.home_controls()}
-        self.assertEqual(button(home, "Game guide"), "chh:reference")
+        self.assertEqual(button(home, "Game guide"), "chg:open")
         hub.handle_component(self.ctx, event(custom_id=button(home, "Meta builds")))
         choice = self.ctx.interaction.responses[-1]
         self.assertTrue(choice["ephemeral"])
@@ -100,7 +100,11 @@ class HubJourneys(unittest.TestCase):
         self.assertEqual(self.ctx.interaction.defers, [])
         self.assertEqual(self.ctx.http.requests, [])
         self.assertEqual(self.ctx.kv_writes, [])
-        hub.handle_component(self.ctx, event(custom_id=button(home, "Game guide")))
+        from cod_hub import native_guide_ui
+        native_guide_ui.handle_component(self.ctx, event(custom_id=button(home, "Game guide")))
+        guide = self.ctx.interaction.followups[-1]
+        self.assertEqual(guide["embeds"][0]["title"], "MW4 game guide")
+        hub.handle_component(self.ctx, event(custom_id=button(guide, "Wiki search")))
         self.assertEqual(self.ctx.interaction.modals_sent[-1]["custom_id"], hub.REFERENCE_MODAL)
 
     def test_public_launcher_creates_separate_private_browser_without_kv(self):

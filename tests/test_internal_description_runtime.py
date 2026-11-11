@@ -93,8 +93,12 @@ class InternalDescriptionRuntimeTests(unittest.TestCase):
 
     def test_all_native_probes_preserve_identity_and_block_unverified_named_cards(self):
         self.assertEqual(sum(map(len, self.bindings.values())), 202)
+        self.assertEqual({asset for asset, rows in self.bindings.items() if not rows}, {"3b888d4b50e96673"})
         for asset_id, bindings in self.bindings.items():
-            self.assertTrue(bindings, asset_id)
+            if not bindings:
+                self.assertTrue(self.document["assets"][asset_id]["retired_from_current_code_scope"])
+                self.assertFalse(self.document["assets"][asset_id]["current_code_binding"])
+                continue
             for binding in bindings:
                 with self.subTest(asset=asset_id, binding=binding):
                     code = probe(self.source, binding)
@@ -111,6 +115,9 @@ class InternalDescriptionRuntimeTests(unittest.TestCase):
 
     def test_sdk_slash_and_gui_rejection_has_no_storage_public_message_or_http(self):
         for asset_id, bindings in self.bindings.items():
+            if not bindings:
+                self.assertTrue(self.document["assets"][asset_id]["retired_from_current_code_scope"])
+                continue
             code = probe(self.source, bindings[0])
             for handler, values in ((app.handle_build, {"options": {"code": code}}),
                                     (hub.handle_import, {"modal_values": {"code": code, "title": ""}})):
@@ -126,7 +133,7 @@ class InternalDescriptionRuntimeTests(unittest.TestCase):
 
     def test_future_genuine_name_remains_eligible_without_using_description_as_alias(self):
         # Synthetic future evidence only; no production record is changed.
-        asset_id = next(iter(self.scope))
+        asset_id = next(identity for identity in self.scope if self.bindings[identity])
         document = deepcopy(self.document)
         name = "Verified Future Attachment Test Fixture"
         document["assets"][asset_id].update(name=name, quality="official_reference")

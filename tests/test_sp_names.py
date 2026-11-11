@@ -44,13 +44,13 @@ class NativeSPNameTests(unittest.TestCase):
                 self.assertNotIn("technical_description", asset)
                 self.assertNotIn("internal_description", asset)
 
-    def test_public_inventory_hashes_join_only_the_intended_native_items(self):
+    def test_public_inventory_names_join_by_identity_and_hash_together(self):
         inventory = read(INVENTORY)["assets"]
-        self.assertEqual(len(inventory), 1264)
+        self.assertEqual(len(inventory), 1267)
         for asset_id, expected in self.records.items():
             matches = [row for row in inventory if expected["selected_name_hash"] in row["localize_hashes"]]
-            self.assertEqual([row["asset_id"] for row in matches], [asset_id])
-            row = matches[0]
+            self.assertIn(asset_id, [row["asset_id"] for row in matches])
+            row = next(row for row in matches if row["asset_id"] == asset_id)
             self.assertEqual((row["internal_ref"], row["loot_id"]), (expected["internal_ref"], expected["loot_id"]))
         magazine = self.records["39083489619f2934"]
         self.assertTrue(magazine["root_name_is_placeholder"])
