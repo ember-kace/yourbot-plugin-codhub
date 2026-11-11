@@ -1,0 +1,334 @@
+{
+  "format_version": 1,
+  "game": "mw4",
+  "provider": "COD Hub native renders",
+  "base_images": {
+    "320bd7829fa4bdee": {
+      "asset_id": "320bd7829fa4bdee",
+      "prefix": "A01",
+      "name": "Kastov 762",
+      "filename": "64492959b90e99317cd46545597a3dd435d721388ec4b0ad8ca2b0fc4ba197fb.webp",
+      "sha256": "64492959b90e99317cd46545597a3dd435d721388ec4b0ad8ca2b0fc4ba197fb",
+      "format": "WEBP",
+      "mode": "RGBA",
+      "width": 1024,
+      "height": 1024,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "lossless": true
+    },
+    "68441ea783099179": {
+      "asset_id": "68441ea783099179",
+      "prefix": "A03",
+      "name": "Han 86",
+      "filename": "0dcbfb56e025b637638c6f36a11f7afe641e8b52277f63926290ed198221a9a8.webp",
+      "sha256": "0dcbfb56e025b637638c6f36a11f7afe641e8b52277f63926290ed198221a9a8",
+      "format": "WEBP",
+      "mode": "RGBA",
+      "width": 1024,
+      "height": 1024,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "lossless": true
+    },
+    "6d470118a56e6da9": {
+      "asset_id": "6d470118a56e6da9",
+      "prefix": "A04",
+      "name": "Axion",
+      "filename": "e276af45eb84845ded001632d281c472b60390879e54c4b3f412504c61cbae01.webp",
+      "sha256": "e276af45eb84845ded001632d281c472b60390879e54c4b3f412504c61cbae01",
+      "format": "WEBP",
+      "mode": "RGBA",
+      "width": 1024,
+      "height": 1024,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "lossless": true
+    },
+    "54efea11f28407ea": {
+      "asset_id": "54efea11f28407ea",
+      "prefix": "A05",
+      "name": "M4",
+      "filename": "d8132db7a331638cdb7b9f7907180527d4a5d5a068097a32dea92da3c5a4d0f6.webp",
+      "sha256": "d8132db7a331638cdb7b9f7907180527d4a5d5a068097a32dea92da3c5a4d0f6",
+      "format": "WEBP",
+      "mode": "RGBA",
+      "width": 1024,
+      "height": 1024,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "lossless": true
+    },
+    "7973ece25ffff326": {
+      "asset_id": "7973ece25ffff326",
+      "prefix": "A09",
+      "name": "Hyeon Burst",
+      "filename": "56ed822e7a560dc9b08f3c7efc3d8384652e731a56a3b910b2fb6ee8ee3ca211.webp",
+      "sha256": "56ed822e7a560dc9b08f3c7efc3d8384652e731a56a3b910b2fb6ee8ee3ca211",
+      "format": "WEBP",
+      "mode": "RGBA",
+      "width": 1024,
+      "height": 1024,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "lossless": true
+    },
+    "3bfd017330a15574": {
+      "asset_id": "3bfd017330a15574",
+      "prefix": "B04",
+      "name": "Patriot XMR",
+      "filename": "2f01edbf6a834496d09c7da36c9a85cc897821bef3e4a3640ac95430213c4ca1.webp",
+      "sha256": "2f01edbf6a834496d09c7da36c9a85cc897821bef3e4a3640ac95430213c4ca1",
+      "format": "WEBP",
+      "mode": "RGBA",
+      "width": 1024,
+      "height": 1024,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "lossless": true
+    },
+    "6cc4eea570f88e27": {
+      "asset_id": "6cc4eea570f88e27",
+      "prefix": "L02",
+      "name": "APOC-338",
+      "filename": "c9905b190c6dd0c7bbbdb61121cbe3ca3030c9adaf79d8c256b40c47081ba449.webp",
+      "sha256": "c9905b190c6dd0c7bbbdb61121cbe3ca3030c9adaf79d8c256b40c47081ba449",
+      "format": "WEBP",
+      "mode": "RGBA",
+      "width": 1024,
+      "height": 1024,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "lossless": true
+    },
+    "1f30c6b00e332af6": {
+      "asset_id": "1f30c6b00e332af6",
+      "prefix": "L03",
+      "name": "FiNN LMG",
+      "filename": "c9e5ac055033bf54de38c23e1902735226b3ca7ab70802aae82e74041e28e8f1.webp",
+      "sha256": "c9e5ac055033bf54de38c23e1902735226b3ca7ab70802aae82e74041e28e8f1",
+      "format": "WEBP",
+      "mode": "RGBA",
+      "width": 1024,
+      "height": 1024,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "lossless": true
+    },
+    "75bd0537aaa182c3": {
+      "asset_id": "75bd0537aaa182c3",
+      "prefix": "L04",
+      "name": "Type 73",
+      "filename": "d086785a7348ebbc6e362971b0144d26da58ad4f3641cbe5f75760f92f51b6fa.webp",
+      "sha256": "d086785a7348ebbc6e362971b0144d26da58ad4f3641cbe5f75760f92f51b6fa",
+      "format": "WEBP",
+      "mode": "RGBA",
+      "width": 1024,
+      "height": 1024,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "lossless": true
+    },
+    "3ca278a99a9ab61d": {
+      "asset_id": "3ca278a99a9ab61d",
+      "prefix": "M01",
+      "name": "Oris 8.6",
+      "filename": "435263f2869641be745ba01c09f241997798cb7e2db89c529bb1272ed779196a.webp",
+      "sha256": "435263f2869641be745ba01c09f241997798cb7e2db89c529bb1272ed779196a",
+      "format": "WEBP",
+      "mode": "RGBA",
+      "width": 1024,
+      "height": 1024,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "lossless": true
+    },
+    "437a2fe19197ce82": {
+      "asset_id": "437a2fe19197ce82",
+      "prefix": "M02",
+      "name": "MAR-9",
+      "filename": "dd5e7dcbef3ea9716555b8b04920478c2deb478327a93606c93d9e411c42fb5e.webp",
+      "sha256": "dd5e7dcbef3ea9716555b8b04920478c2deb478327a93606c93d9e411c42fb5e",
+      "format": "WEBP",
+      "mode": "RGBA",
+      "width": 1024,
+      "height": 1024,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "lossless": true
+    },
+    "43f5901edb8e5875": {
+      "asset_id": "43f5901edb8e5875",
+      "prefix": "R02",
+      "name": "Signal 50",
+      "filename": "7357d1f659c0bf6f86c72820ebe361cdf8cc3e093555f00613f53fac594a332a.webp",
+      "sha256": "7357d1f659c0bf6f86c72820ebe361cdf8cc3e093555f00613f53fac594a332a",
+      "format": "WEBP",
+      "mode": "RGBA",
+      "width": 1024,
+      "height": 1024,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "lossless": true
+    },
+    "63845ab500bcb133": {
+      "asset_id": "63845ab500bcb133",
+      "prefix": "R03",
+      "name": "Astaroth .57",
+      "filename": "87b8f5d06af144ba98aa8805d53bc7977d14de98cc98b4a5b9172c5fc050b727.webp",
+      "sha256": "87b8f5d06af144ba98aa8805d53bc7977d14de98cc98b4a5b9172c5fc050b727",
+      "format": "WEBP",
+      "mode": "RGBA",
+      "width": 1024,
+      "height": 1024,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "lossless": true
+    },
+    "62f36eea38527995": {
+      "asset_id": "62f36eea38527995",
+      "prefix": "S03",
+      "name": "VEL 46",
+      "filename": "95ab0b43d11c4ee96a901f9320a1252925bb2f28fe164c39ae363da9156efcb9.webp",
+      "sha256": "95ab0b43d11c4ee96a901f9320a1252925bb2f28fe164c39ae363da9156efcb9",
+      "format": "WEBP",
+      "mode": "RGBA",
+      "width": 1024,
+      "height": 1024,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "lossless": true
+    },
+    "161f8341b23454de": {
+      "asset_id": "161f8341b23454de",
+      "prefix": "S04",
+      "name": "Wz.55 Striga",
+      "filename": "d46f713a29a422b30ae2f31f3779a4a7e384c6a399586cb8394a9a5646ae70bb.webp",
+      "sha256": "d46f713a29a422b30ae2f31f3779a4a7e384c6a399586cb8394a9a5646ae70bb",
+      "format": "WEBP",
+      "mode": "RGBA",
+      "width": 1024,
+      "height": 1024,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "lossless": true
+    },
+    "160d15e6381d5cb5": {
+      "asset_id": "160d15e6381d5cb5",
+      "prefix": "S06",
+      "name": "ISO Nightshade",
+      "filename": "1fd65403d530169741e4d7131f2d673f75243802e74ac8ec554c2f0538900025.webp",
+      "sha256": "1fd65403d530169741e4d7131f2d673f75243802e74ac8ec554c2f0538900025",
+      "format": "WEBP",
+      "mode": "RGBA",
+      "width": 1024,
+      "height": 1024,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "lossless": true
+    },
+    "58b2312b43165b66": {
+      "asset_id": "58b2312b43165b66",
+      "prefix": "S08",
+      "name": "X-58 Nyx",
+      "filename": "8460226d213acea03b6c9de8ee601759f65da8b4f9086949f9ff0518c4c40ae7.webp",
+      "sha256": "8460226d213acea03b6c9de8ee601759f65da8b4f9086949f9ff0518c4c40ae7",
+      "format": "WEBP",
+      "mode": "RGBA",
+      "width": 1024,
+      "height": 1024,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "lossless": true
+    }
+  },
+  "build_images": {
+    "A01-42J19-BU11": {
+      "asset_id": "320bd7829fa4bdee",
+      "prefix": "A01",
+      "name": "Kastov 762",
+      "filename": "ce391668130198680dfbe2533f48ff929be2457339e0d72370fbbe8d17f1db88.webp",
+      "sha256": "ce391668130198680dfbe2533f48ff929be2457339e0d72370fbbe8d17f1db88",
+      "format": "WEBP",
+      "mode": "RGBA",
+      "width": 1024,
+      "height": 1024,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "lossless": true,
+      "build_code": "A01-42J19-BU11"
+    },
+    "A01-A11NP-B11": {
+      "asset_id": "320bd7829fa4bdee",
+      "prefix": "A01",
+      "name": "Kastov 762",
+      "filename": "c568f0fb21711798793b1b8fee00240cf14edca7cda9b89f3559e5277ed0beac.webp",
+      "sha256": "c568f0fb21711798793b1b8fee00240cf14edca7cda9b89f3559e5277ed0beac",
+      "format": "WEBP",
+      "mode": "RGBA",
+      "width": 1024,
+      "height": 1024,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "lossless": true,
+      "build_code": "A01-A11NP-B11"
+    },
+    "A01-9YGBJ-D11": {
+      "asset_id": "320bd7829fa4bdee",
+      "prefix": "A01",
+      "name": "Kastov 762",
+      "filename": "b59cf09a211917bd3e1f5400291a69456dc8762d4e29c82f3bc3e365620323a4.webp",
+      "sha256": "b59cf09a211917bd3e1f5400291a69456dc8762d4e29c82f3bc3e365620323a4",
+      "format": "WEBP",
+      "mode": "RGBA",
+      "width": 1024,
+      "height": 1024,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "lossless": true,
+      "build_code": "A01-9YGBJ-D11"
+    }
+  },
+  "scope": "primary_components",
+  "full_game_shader_camo_parity": false
+}
