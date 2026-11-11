@@ -56,7 +56,7 @@ def check(root=ROOT, *, output=None):
         tracked[name.decode("utf8")] = digest.decode("ascii")
     with tempfile.TemporaryDirectory(prefix="cod-hub-repository-archive-") as temporary:
         path = Path(temporary) / "repository.zip"
-        subprocess.run(["git", "-c", "core.eol=lf", "archive", "--format=zip", "--worktree-attributes", "--output=" + str(path), "HEAD"],
+        subprocess.run(["git", "-c", "core.autocrlf=false", "-c", "core.eol=lf", "archive", "--format=zip", "--worktree-attributes", "--output=" + str(path), "HEAD"],
                        cwd=root, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         report = inspect_archive(path, tracked)
         if output is not None:

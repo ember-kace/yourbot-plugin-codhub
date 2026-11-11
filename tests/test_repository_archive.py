@@ -1,5 +1,7 @@
 """Archive downloads preserve the plugin while omitting only hosted bulk images."""
 from pathlib import Path
+import shutil
+import subprocess
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -57,3 +59,23 @@ class RepositoryArchiveTests(unittest.TestCase):
             policy.inspect_archive(self.path, tracked)
         with patch.object(policy, "LIMIT_BYTES", 50), self.assertRaisesRegex(ValueError, "Repository ZIP"):
             policy.inspect_archive(self.path, tracked)
+
+    @unittest.skipUnless(shutil.which("git"), "Requires Git for an actual archive fixture.")
+    def test_archive_preserves_committed_bytes_with_windows_git_defaults(self):
+        root = self.path.parent / "repository"
+        root.mkdir()
+
+        def git(*args):
+            return subprocess.run(["git", *args], cwd=root, check=True,
+                                  stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+        git("init", "--quiet")
+        git("config", "core.autocrlf", "true")
+        git("config", "core.eol", "crlf")
+        (root / ".gitignore").write_bytes(b"dist/\n__pycache__/\n")
+        git("add", ".gitignore")
+        git("-c", "user.name=Synthetic", "-c", "user.email=synthetic@example.invalid",
+            "-c", "commit.gpgsign=false", "commit", "--quiet", "-m", "Synthetic archive fixture")
+        report = policy.check(root)
+        self.assertTrue(report["all_retained_files_byte_identical"])
+        self.assertEqual(report["files_verified"], 1)
