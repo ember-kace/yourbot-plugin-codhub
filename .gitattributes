@@ -9,3 +9,7 @@
 *.png binary
 *.webp binary
 *.ttf binary
+
+# Pages serves these unchanged; repository ZIP imports only need their index.
+/docs/artwork/items/v1 export-ignore
+/docs/artwork/items/v1/** export-ignore

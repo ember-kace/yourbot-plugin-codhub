@@ -28,6 +28,8 @@ jobs:
           cache: pip
       - name: Install reviewed SDK and chart dependencies
         run: python -m pip install -r requirements-dev.txt
+      - name: Check repository import archive budget and file integrity
+        run: python tools/check_repository_archive.py
       - name: Run regression suite
         run: python tools/dev.py test
       - name: Validate release data and SDK artifact

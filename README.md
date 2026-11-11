@@ -46,6 +46,10 @@ The supplied manifest targets COD Hub's assigned platform ID, `rmg84ete7r8b`. If
 
 ## Develop and package
 
+GitHub's **Download ZIP** and repository-import archives omit only the roughly 119 MB hosted item-image directory through `.gitattributes export-ignore`. The repository ZIP is about 11 MB; all plugin code, catalog data, evidence and 38 bundled weapon/build images remain included. Hosted image bytes and URLs are unchanged. Git checkouts and GitHub Pages retain the full library. [GitHub source archives](https://docs.github.com/en/repositories/working-with-files/using-files/downloading-source-code-archives), [Git archive attributes](https://git-scm.com/docs/git-archive#ATTRIBUTES).
+
+Use a Git clone/full checkout for the complete hosted-artwork validation and local gallery. A downloaded ZIP can still run the plugin tests and build the plugin package; its omitted image library is served by the live Pages site. CI checks both compressed and expanded repository archives against the 50,000,000-byte limit and verifies retained files against their committed bytes.
+
 Use Python 3.10 or newer. Create and activate a virtual environment, then install the pinned development dependencies:
 
 ```sh
