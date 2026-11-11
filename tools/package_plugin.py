@@ -12,9 +12,11 @@ import zipfile
 try:
     from .check_plugin_security import evaluate_sources
     from .english_release_gate import evaluate_documents
+    from .native_artwork_release import evaluate_captured as evaluate_native_artwork
 except ImportError:
     from check_plugin_security import evaluate_sources
     from english_release_gate import evaluate_documents
+    from native_artwork_release import evaluate_captured as evaluate_native_artwork
 
 ROOT = Path(__file__).resolve().parents[1]
 SDK_VERSION = "0.10.1"
@@ -24,15 +26,36 @@ FILES = (
     "cod_hub/__init__.py", "cod_hub/app.py", "cod_hub/cards.py", "cod_hub/catalog.py",
     "cod_hub/codec.py", "cod_hub/meta.py", "cod_hub/reference.py", "cod_hub/store.py",
     "cod_hub/hub.py", "cod_hub/hub_cards.py", "cod_hub/library_ui.py",
-    "cod_hub/artwork.py", "cod_hub/urls.py",
+    "cod_hub/artwork.py", "cod_hub/native_artwork.py", "cod_hub/urls.py",
     "cod_hub/comparison.py", "cod_hub/comparison_ui.py", "cod_hub/comparison_charts.py",
     "cod_hub/meta_browser.py", "cod_hub/telemetry.py",
     "cod_hub/fonts/font.ttf", "cod_hub/fonts/LICENSE.txt",
     "cod_hub/data/schema.json", "cod_hub/data/catalog.json",
     "cod_hub/data/facts-sources.json",
     "cod_hub/data/artwork.json",
+    "cod_hub/data/native-artwork.json",
     "cod_hub/data/telemetry.json",
     "cod_hub/data/NOTICE-HashIndex.txt",
+    "cod_hub/images/native/0dcbfb56e025b637638c6f36a11f7afe641e8b52277f63926290ed198221a9a8.webp",
+    "cod_hub/images/native/1fd65403d530169741e4d7131f2d673f75243802e74ac8ec554c2f0538900025.webp",
+    "cod_hub/images/native/2f01edbf6a834496d09c7da36c9a85cc897821bef3e4a3640ac95430213c4ca1.webp",
+    "cod_hub/images/native/435263f2869641be745ba01c09f241997798cb7e2db89c529bb1272ed779196a.webp",
+    "cod_hub/images/native/56ed822e7a560dc9b08f3c7efc3d8384652e731a56a3b910b2fb6ee8ee3ca211.webp",
+    "cod_hub/images/native/64492959b90e99317cd46545597a3dd435d721388ec4b0ad8ca2b0fc4ba197fb.webp",
+    "cod_hub/images/native/7357d1f659c0bf6f86c72820ebe361cdf8cc3e093555f00613f53fac594a332a.webp",
+    "cod_hub/images/native/8460226d213acea03b6c9de8ee601759f65da8b4f9086949f9ff0518c4c40ae7.webp",
+    "cod_hub/images/native/87b8f5d06af144ba98aa8805d53bc7977d14de98cc98b4a5b9172c5fc050b727.webp",
+    "cod_hub/images/native/95ab0b43d11c4ee96a901f9320a1252925bb2f28fe164c39ae363da9156efcb9.webp",
+    "cod_hub/images/native/b59cf09a211917bd3e1f5400291a69456dc8762d4e29c82f3bc3e365620323a4.webp",
+    "cod_hub/images/native/c568f0fb21711798793b1b8fee00240cf14edca7cda9b89f3559e5277ed0beac.webp",
+    "cod_hub/images/native/c9905b190c6dd0c7bbbdb61121cbe3ca3030c9adaf79d8c256b40c47081ba449.webp",
+    "cod_hub/images/native/c9e5ac055033bf54de38c23e1902735226b3ca7ab70802aae82e74041e28e8f1.webp",
+    "cod_hub/images/native/ce391668130198680dfbe2533f48ff929be2457339e0d72370fbbe8d17f1db88.webp",
+    "cod_hub/images/native/d086785a7348ebbc6e362971b0144d26da58ad4f3641cbe5f75760f92f51b6fa.webp",
+    "cod_hub/images/native/d46f713a29a422b30ae2f31f3779a4a7e384c6a399586cb8394a9a5646ae70bb.webp",
+    "cod_hub/images/native/d8132db7a331638cdb7b9f7907180527d4a5d5a068097a32dea92da3c5a4d0f6.webp",
+    "cod_hub/images/native/dd5e7dcbef3ea9716555b8b04920478c2deb478327a93606c93d9e411c42fb5e.webp",
+    "cod_hub/images/native/e276af45eb84845ded001632d281c472b60390879e54c4b3f412504c61cbae01.webp",
 )
 
 
@@ -92,12 +115,14 @@ def prepare(plugin_path, *, plugin_id=PLATFORM_PLUGIN_ID, version=None):
     # the source folder concurrently after capture.
     english = evaluate_documents(json.loads(captured["cod_hub/data/catalog.json"]),
                                  json.loads(captured["cod_hub/data/facts-sources.json"]))
+    native_artwork = evaluate_native_artwork(captured)
     report = {
         "plugin_id": manifest["id"], "version": manifest["version"], "sdk_version": __version__,
-        "release_ready": english["ready"] and security["ready"] and not sdk["errors"] and not sdk["warnings"],
+        "release_ready": english["ready"] and security["ready"] and native_artwork["ready"] and not sdk["errors"] and not sdk["warnings"],
         "english": {key: english[key] for key in ("ready", "required", "total_translated", "total_described", "total_english_covered", "counts")},
         "english_issue_count": len(english["issues"]), "sdk_validation": sdk,
         "artifact_policy": security,
+        "native_artwork": native_artwork,
         "archive_bytes": len(data), "uncompressed_bytes": sum(m["bytes"] for m in members),
         "archive_sha256": hashlib.sha256(data).hexdigest(), "members": members,
     }

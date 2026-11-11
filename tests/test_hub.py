@@ -211,7 +211,7 @@ class HubJourneys(unittest.TestCase):
         self.assertTrue(preview["ephemeral"])
         self.assertEqual(preview["embeds"][0]["title"], "Kastov 762")
         self.assertEqual(self.ctx.messages_sent, [])
-        self.assertIn("Base weapon", str(preview["embeds"]))
+        self.assertIn("base-weapon preview", str(preview["embeds"]))
 
     def test_reference_and_meta_branches_defer_privately_before_provider(self):
         hub.handle_component(self.ctx, event(custom_id="chh:more", values=["references"]))
@@ -226,13 +226,17 @@ class HubJourneys(unittest.TestCase):
         self.assertEqual(self.ctx.messages_sent, [])
 
     def test_weapon_art_survives_import_and_public_share_without_proxy_fetch(self):
+        from cod_hub import native_artwork
+
         hub.handle_import(self.ctx, event(interaction_type=5, modal_values={"code": CODE, "title": "My setup"}))
         private = self.ctx.interaction.followups[-1]
         illustration = private["embeds"][0]
-        self.assertEqual(illustration["image"]["url"], "https://metaradar.gg/icons/mw4--kastov-762.webp")
-        self.assertIn("Base weapon image", illustration["description"])
-        self.assertIn("Data by MetaRadar", illustration["description"])
-        self.assertIn("PNG exports are text-only", private["content"])
+        art = native_artwork.get_art(catalog.resolve_build(CODE)["weapon"], build_code=CODE)
+        self.assertEqual(art["kind"], "native_build")
+        self.assertEqual(illustration["image"]["url"], art["image_url"])
+        self.assertIn("Native attachment preview", illustration["description"])
+        self.assertIn("Call of Duty / Activision", illustration["description"])
+        self.assertIn("reviewed weapon preview where available", private["content"])
         app.handle_component(self.ctx, event(custom_id=button(private, "Post to channel")))
         public = self.ctx.messages_sent[-1]["embeds"][0]
         self.assertEqual(public["image"], illustration["image"])
@@ -240,7 +244,7 @@ class HubJourneys(unittest.TestCase):
         self.assertEqual(self.ctx.http.requests, [])
 
     def test_art_coverage_and_unavailable_images_preserve_working_text_cards(self):
-        from cod_hub import artwork, cards
+        from cod_hub import artwork, cards, native_artwork
         weapons = catalog.browse_weapons(page_size=25)["items"]
         weapons += catalog.browse_weapons(page=2, page_size=25)["items"]
         self.assertEqual(len(weapons), 35)
@@ -248,7 +252,8 @@ class HubJourneys(unittest.TestCase):
         for weapon in weapons:
             embed = cards.weapon_embed(weapon)
             self.assertEqual(embed["title"], weapon["name"])
-            self.assertEqual("image" in embed, artwork.get_weapon_art(weapon) is not None)
+            self.assertEqual("image" in embed, (native_artwork.get_art(weapon) is not None
+                                               or artwork.get_weapon_art(weapon) is not None))
         item = catalog.get_attachment("A01", "muzzle:3")
         self.assertNotIn("image", cards.attachment_embed(item))
 

@@ -105,7 +105,7 @@ class CatalogDataTests(unittest.TestCase):
 
     def test_packaged_data_contains_facts_without_private_paths_or_game_blobs(self):
         self.assertEqual({p.name for p in DATA.iterdir() if p.is_file()},
-                         {"schema.json", "catalog.json", "facts-sources.json", "artwork.json", "telemetry.json", "NOTICE-HashIndex.txt"})
+                         {"schema.json", "catalog.json", "facts-sources.json", "artwork.json", "native-artwork.json", "telemetry.json", "NOTICE-HashIndex.txt"})
         for path in DATA.iterdir():
             text = path.read_text(encoding="utf-8")
             self.assertNotRegex(text, r"(?<![A-Za-z0-9])[A-Za-z]:[\\/]")

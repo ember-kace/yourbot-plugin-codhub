@@ -8,7 +8,7 @@ from .store import BuildStore, clean_title, owner_id
 
 
 NO_MENTIONS = {"parse": []}
-POST_NOTICE = "Post to channel and Post PNG to channel publish in the current channel. PNG exports are text-only."
+POST_NOTICE = "Post to channel and Post PNG to channel publish in the current channel. PNGs include a reviewed weapon preview where available."
 _CUSTOM_ID = re.compile(r"ch:(save|code|share|png|delete|list):([psl]):([0-9]{1,22}):([a-z0-9]{1,16})\Z")
 
 

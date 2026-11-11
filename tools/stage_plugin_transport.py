@@ -21,6 +21,7 @@ import time
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = json.loads((ROOT / "plugin/manifest.json").read_text(encoding="utf-8"))
+NATIVE_ART = json.loads((ROOT / "plugin/cod_hub/data/native-artwork.json").read_text(encoding="utf-8"))
 CAPS = ["interaction:respond", "storage:kv", "discord:send_message", "proxy:http"]
 CODE = "A01-42J19-BU11"
 
@@ -286,6 +287,10 @@ def exercise(command):
             imported = host.event(custom_id=import_form["custom_id"], interaction_type=5,
                                   modal_values={"code": CODE, "title": "Transport staging"})
             assert imported["ephemeral"] and CODE in str(imported["embeds"])
+            expected_image = "https://ember-kace.github.io/yourbot-plugin-codhub/artwork/v1/" + NATIVE_ART["build_images"][CODE]["filename"]
+            assert imported["embeds"][0]["image"]["url"] == expected_image
+            assert "Native attachment preview" in imported["embeds"][0]["description"]
+            assert not host.http_requests, "Native image selection must not fetch artwork"
             assert control(imported, "Show code") and control(imported, "Post to channel")
             assert control(imported, "Post PNG to channel")
             saved = host.event(custom_id=control(imported, "Save"))

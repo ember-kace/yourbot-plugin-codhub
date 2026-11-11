@@ -18,8 +18,8 @@ def main(argv=None):
     environment['PYTHONPATH'] = os.pathsep.join([str(ROOT / 'plugin'), str(ROOT), environment.get('PYTHONPATH', '')])
     commands = {
         'test': [['-m', 'unittest', 'discover', '-s', 'tests', '-q']],
-        'validate': [['tools/check_public_tree.py'], ['tools/validate_catalog.py'], ['tools/package_plugin.py']],
-        'package': [['tools/package_plugin.py', '--output', 'dist/COD-Hub-0.1.4.zip', '--report', 'dist/package.json']],
+        'validate': [['tools/check_public_tree.py'], ['tools/validate_catalog.py'], ['tools/native_artwork_release.py'], ['tools/package_plugin.py']],
+        'package': [['tools/package_plugin.py', '--output', 'dist/COD-Hub-0.1.5.zip', '--report', 'dist/package.json']],
         'preview': [['tools/render_readme_previews.py', '--output', 'docs/images']],
     }
     for command in commands[args.command]:

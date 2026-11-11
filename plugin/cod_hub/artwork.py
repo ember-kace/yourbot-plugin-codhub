@@ -1,10 +1,11 @@
-"""Curated base-weapon image URLs; no network, image decoding or fuzzy joins."""
+"""Reviewed native renders and curated provider artwork, without network calls."""
 from copy import deepcopy
 from functools import lru_cache
 import json
 from pathlib import Path
 import re
 from .urls import split_https
+from . import native_artwork
 
 
 MANIFEST_PATH = Path(__file__).parent / "data/artwork.json"
@@ -111,6 +112,7 @@ def _load_manifest(path):
 def clear_cache():
     """Reset metadata after changing a test fixture; deployed data is read-only."""
     _load_manifest.cache_clear()
+    native_artwork.clear_cache()
 
 
 def get_weapon_art(weapon):
@@ -139,13 +141,22 @@ def _other_text_length(embed):
     return total
 
 
-def decorate_embed(embed, weapon):
-    """Copy a card and append credited base-weapon art when an exact match exists."""
+def _native_credit(art):
+    return ("[" + art["caption"] + "](" + art["image_url"] + ") · ["
+            + art["credit_text"] + "](" + art["credit_url"] + ")\n" + art["scope_text"])
+
+
+def decorate_embed(embed, weapon, *, build_code=None):
+    """Copy a bounded card, preferring exact native previews with clear scope."""
     result = deepcopy(embed) if isinstance(embed, dict) else {}
-    art = get_weapon_art(weapon)
+    art = native_artwork.get_art(weapon, build_code=build_code)
+    native = art is not None
+    if art is None:
+        art = get_weapon_art(weapon)
     if art is None:
         return result
-    credit = "[Base weapon image](" + art["source_page"] + ") · [Data by MetaRadar](" + art["credit_url"] + ")"
+    credit = (_native_credit(art) if native else
+              "[Base weapon image](" + art["source_page"] + ") · [Data by MetaRadar](" + art["credit_url"] + ")")
     budget = min(4096, 6000 - _other_text_length(result))
     if budget < len(credit):
         # Do not display uncredited artwork when a caller supplies an already

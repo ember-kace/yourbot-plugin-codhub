@@ -33,7 +33,11 @@ Open **My builds** or `/codsaved` to select a saved build. **Rename** opens a fo
 
 Saved builds persist independently of previews. Preview controls expire after seven days and may be replaced sooner in the bounded preview cache. Re-import a code if an old preview has expired. The library has an advisory limit of 50 builds per person per server; simultaneous saves on separate workers can exceed that limit, so all retained records remain manageable.
 
-Codes represent a build selection; they do not unlock items or verify your account's inventory. An unsupported or unnamed selection is rejected with an explanation. Existing affected saved records still permit code retrieval and deletion. Weapon art represents the base model, not the selected attachment configuration. Missing art leaves a usable text card; exported build PNGs are text-only.
+Codes represent a build selection; they do not unlock items or verify your account's inventory. An unsupported or unnamed selection is rejected with an explanation. Existing affected saved records still permit code retrieval and deletion.
+
+Native transparent previews cover 17 weapons. Three Kastov codes show their verified primary attachment layouts: `A01-42J19-BU11`, `A01-A11NP-B11` and `A01-9YGBJ-D11`. Other builds use a clearly labeled base-weapon preview where available. Camos, charms, every runtime component and full game shader appearance are not reproduced. Eleven additional weapons retain provider artwork; seven remain text-only. PNG exports include the bundled native image where available and retain its credit and limitations.
+
+The [preview gallery](https://ember-kace.github.io/yourbot-plugin-codhub/artwork/) and card images are hosted on free GitHub Pages. The same 20 lossless transparent WebPs are bundled for PNG exports. Hosted and bundled copies have matching hashes; the 1.91 MiB image set preserves every decoded pixel from its PNG sources. Private YourBot interaction replies currently require an HTTPS image URL because their SDK methods have no file-attachment parameter. [Official YourBot API](https://yourbot.gg/docs/developers/reference/context).
 
 ## Explore weapons
 
@@ -83,9 +87,9 @@ Import previews, weapon/attachment results, saved-library views, comparisons, me
 
 YourBot stores saved build records under the current server/plugin namespace, with the owner's Discord identifier, code, title and creation time. Delete saved builds from their controls or `/codsaved`. Previews expire; saved records have no automatic expiry.
 
-The four declared capabilities are interaction responses, durable KV storage, Discord message sending and HTTP proxy access. The two proxy domains are `metaradar.gg` and `callofduty.fandom.com`. Reference queries leave the plugin through that proxy; images are loaded by Discord from provider URLs. No Activision credentials, player-data API key, ordinary message-content access or moderation permission is requested.
+The four declared capabilities are interaction responses, durable KV storage, Discord message sending and HTTP proxy access. The two proxy domains are `metaradar.gg` and `callofduty.fandom.com`. Reference queries leave the plugin through that proxy; images are loaded by Discord from GitHub Pages or attributed provider URLs. Static native image URLs contain content hashes rather than user names, titles or account identifiers. No Activision credentials, player-data API key, ordinary message-content access or moderation permission is requested.
 
-Offline code decoding, weapon browsing, saved-build management, build PNGs and supported comparison charts use packaged data. YourBot/Discord connectivity is still required to use them in chat. Provider outages affect live meta/reference requests and remote art, not the packaged catalog.
+Offline code decoding, weapon browsing, saved-build management, build PNGs and supported comparison charts use packaged data. YourBot/Discord connectivity is still required to use them in chat. Image-host outages can affect embed artwork; PNG exports use bundled native copies and do not fetch images. Provider outages affect live meta/reference requests and provider art, not the packaged catalog.
 
 ## Installation and troubleshooting
 

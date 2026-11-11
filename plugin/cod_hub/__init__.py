@@ -1,3 +1,3 @@
 """COD Hub: versioned game references and native build sharing."""
 
-__version__ = "0.1.4"
+__version__ = "0.1.5"

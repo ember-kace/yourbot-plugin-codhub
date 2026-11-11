@@ -33,6 +33,9 @@ class ArtworkTests(unittest.TestCase):
         self.patcher = patch.object(artwork, "MANIFEST_PATH", self.path)
         self.patcher.start()
         self.addCleanup(self.patcher.stop)
+        native = patch.object(artwork.native_artwork, "get_art", return_value=None)
+        native.start()
+        self.addCleanup(native.stop)
         self.addCleanup(artwork.clear_cache)
         artwork.clear_cache()
 

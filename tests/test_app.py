@@ -137,7 +137,7 @@ class AppFlowTests(unittest.TestCase):
         self.assertTrue(all(item["style"] == 2 for item in rows[1]))
         self.assertEqual(len(rows), 3)
         self.assertEqual(self.ctx.messages_sent, [])
-        self.assertIn("PNG exports are text-only", preview["content"])
+        self.assertIn("reviewed weapon preview where available", preview["content"])
         app.handle_component(self.ctx, event(custom_id=save_id))
         saved_rows = [row.to_dict()["components"] for row in self.ctx.interaction.followups[-1]["components"]]
         self.assertEqual([item["label"] for item in saved_rows[0]], ["Show code", "Rename", "Delete"])

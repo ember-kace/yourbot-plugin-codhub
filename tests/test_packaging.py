@@ -206,6 +206,9 @@ class PackagingTests(unittest.TestCase):
         data, report = prepare(ROOT / "plugin")
         self.assertEqual(report["sdk_validation"]["errors"], [])
         self.assertEqual(report["sdk_validation"]["warnings"], [])
+        self.assertTrue(report["native_artwork"]["ready"])
+        self.assertEqual(report["native_artwork"]["image_count"], 20)
+        self.assertEqual(report["native_artwork"]["image_bytes"], 2_001_102)
         with zipfile.ZipFile(BytesIO(data)) as archive:
             paths = archive.namelist()
             self.assertIn("manifest.json", paths)
@@ -213,10 +216,48 @@ class PackagingTests(unittest.TestCase):
             self.assertLessEqual(len(paths), 200)
             self.assertLess(sum(i.file_size for i in archive.infolist()), 40 * 1024 * 1024)
             for name in paths:
-                self.assertTrue(name.endswith((".py", ".json", ".txt", ".md")) or name == "cod_hub/fonts/font.ttf", name)
+                self.assertTrue(name.endswith((".py", ".json", ".txt", ".md")) or name == "cod_hub/fonts/font.ttf"
+                                or name.startswith("cod_hub/images/native/") and name.endswith(".webp"), name)
                 self.assertFalse(any(part in name.lower() for part in ("research", "__pycache__", "analysis-packages", "cod-image", "transformed-region")), name)
                 self.assertFalse(name.startswith(("/", "\\")))
                 self.assertNotIn("..", Path(name).parts)
+
+    def test_corrupt_native_image_cannot_write_a_release_zip(self):
+        with tempfile.TemporaryDirectory(prefix="cod-hub-package-native-art-test-") as temporary:
+            plugin, _ = synthetic_plugin(temporary)
+            image = next((plugin / "cod_hub/images/native").glob("*.webp"))
+            image.write_bytes(b"corrupt native image")
+            output = Path(temporary) / "COD-Hub.zip"
+            report_path = Path(temporary) / "report.json"
+            with redirect_stdout(StringIO()):
+                result = main(["--plugin", str(plugin), "--output", str(output), "--report", str(report_path)])
+            report = json.loads(report_path.read_text(encoding="utf8"))
+            self.assertEqual(result, 1)
+            self.assertFalse(output.exists())
+            self.assertFalse(report["release_ready"])
+            self.assertFalse(report["native_artwork"]["ready"])
+            self.assertTrue(any(item["issue"] == "native image hash mismatch" for item in report["native_artwork"]["issues"]))
+
+    def test_late_native_image_repair_cannot_approve_older_captured_bytes(self):
+        from yourbot_sdk._validation import validate_artifact
+        with tempfile.TemporaryDirectory(prefix="cod-hub-package-native-race-test-") as temporary:
+            plugin, _ = synthetic_plugin(temporary)
+            image = next((plugin / "cod_hub/images/native").glob("*.webp"))
+            original = image.read_bytes()
+            image.write_bytes(b"corrupt native image")
+
+            def finish_repair(**kwargs):
+                result = validate_artifact(**kwargs)
+                image.write_bytes(original)
+                return result
+
+            with patch("yourbot_sdk._validation.validate_artifact", side_effect=finish_repair):
+                data, report = prepare(plugin)
+            self.assertEqual(image.read_bytes(), original)
+            self.assertFalse(report["native_artwork"]["ready"])
+            self.assertFalse(report["release_ready"])
+            with zipfile.ZipFile(BytesIO(data)) as archive:
+                self.assertEqual(archive.read(image.relative_to(plugin).as_posix()), b"corrupt native image")
 
 
 if __name__ == "__main__":

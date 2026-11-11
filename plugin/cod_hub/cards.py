@@ -1,4 +1,4 @@
-"""Discord cards and an original text-first PNG layout."""
+"""Discord cards and an original PNG layout with reviewed native previews."""
 from io import BytesIO
 from .urls import percent_encode, split_https
 
@@ -84,7 +84,7 @@ def build_embed(build):
     footer += " · Verified English names" if build.get("label_status") != "fallback" else " · Partial name coverage"
     return decorate_embed({"title": _text(build.get("title") or weapon["name"], 180), "description": description,
             "color": WARNING if build.get("identity_status") == "partial" else COLOR,
-            "fields": fields[:24], "footer": {"text": footer}}, weapon)
+            "fields": fields[:24], "footer": {"text": footer}}, weapon, build_code=build["code"])
 
 
 def weapon_embed(weapon):
@@ -255,14 +255,37 @@ def reference_embed(payload):
 
 
 def render_build_png(build):
-    # Pillow's embedded default font avoids bundling proprietary fonts or game art.
+    # Fonts and reviewed image bytes are local; exports never fetch remote art.
     from PIL import Image, ImageDraw, ImageFont
+    from . import native_artwork
 
     items = build.get("attachments", [])
     columns = 3 if len(items) > 10 else 2
     rows = max(1, (len(items) + columns - 1) // columns)
     width, gap, margin, cell_height = 1100, 16, 48, 112
-    height = 300 + rows * (cell_height + gap) + 110
+    art = native_artwork.get_art(build["weapon"], build_code=build.get("code"))
+    preview = None
+    try:
+        body = native_artwork.image_bytes(art) if art else None
+        if body:
+            with Image.open(BytesIO(body)) as source:
+                if source.format != "WEBP" or source.size != (art["width"], art["height"]):
+                    raise ValueError("Native preview format or dimensions differ from its reviewed record.")
+                source.load()
+                preview = source.convert("RGBA")
+            bounds = preview.getchannel("A").getbbox()
+            if not bounds:
+                raise ValueError("Native preview has no visible pixels.")
+            cropped = preview.crop(bounds)
+            preview.close()
+            preview = cropped
+            preview.thumbnail((948, 214), Image.Resampling.LANCZOS)
+    except (OSError, ValueError, Image.DecompressionBombError):
+        if preview is not None:
+            preview.close()
+        preview = None
+    image_offset = 340 if preview is not None else 0
+    height = 300 + image_offset + rows * (cell_height + gap) + 110
     image = Image.new("RGB", (width, height), "#0b111a")
     draw = ImageDraw.Draw(image)
     fonts = {size: ImageFont.load_default(size=size) for size in (14, 16, 18, 21, 24, 38)}
@@ -309,11 +332,22 @@ def render_build_png(build):
     draw.text((margin, 137), fit(subtitle, 16, width - 2 * margin), font=fonts[16], fill="#99abbc")
     draw.rounded_rectangle((margin, 178, width - margin, 242), 12, fill="#16242d", outline="#304650", width=1)
     draw.text((margin + 22, 197), _text(build["code"], 120), font=fonts[24], fill="#c6f8d7")
-    draw.text((margin, 268), "BUILD DETAILS", font=fonts[16], fill="#8da1b4")
+    if preview is not None:
+        draw.rounded_rectangle((margin, 260, width - margin, 580), 12,
+                               fill="#192735", outline="#304650", width=1)
+        draw.text((margin + 18, 276), fit(art["caption"].upper(), 14, width - 2 * margin - 36),
+                  font=fonts[14], fill="#9df0b4")
+        image.paste(preview, ((width - preview.width) // 2, 306 + (214 - preview.height) // 2), preview)
+        preview.close()
+        draw.text((margin + 18, 533), fit(art["credit_text"], 14, width - 2 * margin - 36),
+                  font=fonts[14], fill="#a9bac8")
+        draw.text((margin + 18, 554), fit(art["scope_text"], 14, width - 2 * margin - 36),
+                  font=fonts[14], fill="#899eaf")
+    draw.text((margin, 268 + image_offset), "BUILD DETAILS", font=fonts[16], fill="#8da1b4")
     cell_width = (width - 2 * margin - gap * (columns - 1)) // columns
     for n, item in enumerate(items):
         x = margin + (n % columns) * (cell_width + gap)
-        y = 300 + (n // columns) * (cell_height + gap)
+        y = 300 + image_offset + (n // columns) * (cell_height + gap)
         fallback = item.get("quality") in {"internal", "unknown", "unresolved"}
         accent = "#e8b66c" if fallback or item["slot"] == "apex" else "#9df0b4"
         draw.rounded_rectangle((x, y, x + cell_width, y + cell_height), 12, fill="#141f2b", outline="#293849", width=1)
@@ -322,7 +356,7 @@ def render_build_png(build):
         for line, text in enumerate(wrap(item["name"], size, cell_width - 36)):
             draw.text((x + 18, y + 43 + line * 25), text, font=fonts[size], fill="#e9eff5")
     if not items:
-        draw.text((margin, 324), "Base weapon; no attachments selected.", font=fonts[24], fill="#d3dee9")
+        draw.text((margin, 324 + image_offset), "Base weapon; no attachments selected.", font=fonts[24], fill="#d3dee9")
     footer_y = height - 80
     draw.line((margin, footer_y - 15, width - margin, footer_y - 15), fill="#293849", width=1)
     note = "Some data is unresolved. Original code preserved." if build.get("unknowns") else "Import the code in the selected game; unlocks and mode restrictions still apply."

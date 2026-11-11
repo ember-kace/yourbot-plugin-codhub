@@ -1,8 +1,11 @@
 * text=auto
+.gitattributes text eol=lf
 *.py text eol=lf
 *.json text eol=lf
 *.md text eol=lf
 *.yml text eol=lf
+*.html text eol=lf
 *.txt text eol=lf
 *.png binary
+*.webp binary
 *.ttf binary
